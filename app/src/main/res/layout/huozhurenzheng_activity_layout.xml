@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RadioButton
+            android:id="@+id/huozhurenzheng_tijiaoziliao_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:checked="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/huozhurenzheng_tijiaoziliao"
+            android:enabled="false"
+            android:text="@string/tijiaoziliao"
+            android:textColor="@drawable/color_radiobutton_text" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@color/ccccccc" />
+
+        <RadioButton
+            android:id="@+id/huozhurenzheng_pingtaishenhe_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/huozhurenzheng_pingtaishenhe"
+            android:enabled="false"
+            android:text="@string/pingtaishenhe"
+            android:textColor="@drawable/color_radiobutton_text" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/cf2f2f2" />
+
+    <LinearLayout
+        android:id="@+id/huozhurenzheng_container_tianxieziliao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/huozhurenzheng_edittext_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/yinying_bg"
+            android:hint="@string/xingming"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textColorHint="@color/c999999"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/huozhurenzheng_edittext_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/yinying_bg"
+            android:hint="@string/shoujihao"
+            android:maxLines="1"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textColorHint="@color/c999999"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/huozhurenzheng_edittext_shenfenzhenghao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/yinying_bg"
+            android:hint="@string/shenfenzhenghaoma"
+            android:maxLines="1"
+            android:inputType=""
+            android:digits="1234567890xX"
+            android:padding="10dp"
+            android:textColorHint="@color/c999999"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/yinying_bg"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/shenfenzhengzhaopian"
+                android:textColor="@color/c999999"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/huozhurenzheng_layout_shenfenzhengzhao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/phone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/huozhurenzheng_layout_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:text="@string/tijiaoziliao"
+            android:textColor="@color/cffffff"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!--正在审核 -->
+    <LinearLayout
+        android:id="@+id/huozhurenzheng_container_zhengzaishenhe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="200dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nindeziliaoyitijiaozhipingtai"
+            android:textColor="@color/window_system_color"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dengdaishenhe"
+            android:textColor="@color/window_system_color"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <!--审核通过-->
+    <LinearLayout
+        android:id="@+id/huozhurenzheng_container_shenghetongguo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/shenheyitongguo"
+            android:textColor="@color/window_system_color"
+            android:textSize="17sp" />
+
+
+        <Button
+            android:id="@+id/huozhurenzheng_layout_qufahuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:text="@string/qufahuo"
+            android:textColor="@color/cffffff"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <!--审核未通过-->
+    <LinearLayout
+        android:id="@+id/huozhurenzheng_container_shengheweitongguo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/shenheweitongguo"
+            android:textColor="@color/cf23030"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/huozhurenzheng_layout_chongxintijiaoziliao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:text="@string/chongxintijiaoziliao"
+            android:textColor="@color/cffffff"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="22dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tiezi_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="装载机出租"
+            android:textColor="@color/c585858"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/tiezi_details_fenxiang_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/fenxiang" />
+
+        <TextView
+            android:id="@+id/tiezi_details_fenxiang_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="分享"
+            android:textColor="@color/ca0a0a0"
+            android:textSize="10sp" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/liulan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="108"
+            android:textColor="@color/ca0a0a0"
+            android:textSize="10sp" />
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/c393939" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <com.qmwl.zyjx.view.CircularImage
+                    android:id="@+id/tiezi_details_headiv"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/small" />
+
+                <TextView
+                    android:id="@+id/tiezi_details_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/tiezi_details_headiv"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@id/tiezi_details_headiv"
+                    android:text="昨天 23:10"
+                    android:textColor="@color/ca0a0a0"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tiezi_details_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tiezi_details_time"
+                    android:layout_alignLeft="@id/tiezi_details_time"
+                    android:layout_marginBottom="3dp"
+                    android:text="小明"
+                    android:textColor="@color/c585858"
+                    android:textSize="13sp" />
+
+
+                <TextView
+                    android:id="@+id/tiezi_details_faxiaoxi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/tiezi_details_fasong_bg"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="3dp"
+                    android:text="发消息"
+                    android:textColor="@color/point_while"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tiezi_details_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:lineSpacingMultiplier="1.5"
+                android:padding="8dp"
+                android:text="小明本人有三台挖掘机出售,好用没毛病,质量杠杠滴小明本人有三台挖掘机出售,好用没毛病,质量杠杠滴小明本人有三台挖掘机出售,好用没毛病,质量杠杠滴小明本人有三台挖掘机出售,好用没毛病,质量杠杠滴小明本人有三台挖掘机出售,好用没毛病,质量杠杠滴"
+                android:textColor="@color/c585858"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/small" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

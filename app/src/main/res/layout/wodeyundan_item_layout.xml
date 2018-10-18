@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cddd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/wodeyundan_item_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/huoyun_jinxingzhong" />
+
+        <TextView
+            android:id="@+id/wodeyundan_item_statuetv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="@string/zhengzaijinxingzhong"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/wodeyundan_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textSize="16sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cddd" />
+
+    <include layout="@layout/huoyuan_layout_item" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cddd" />
+
+    <LinearLayout
+        android:id="@+id/wodeyundan_item_baojiashu_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/baojiashu"
+            android:textColor="@color/c000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:textColor="@color/window_system_color"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <!--查看报价-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_chakanbaojia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:padding="3dp"
+            android:text="@string/chakanbaojia"
+            android:textColor="@color/cffffff"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!--付款-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_fukuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:padding="3dp"
+            android:text="@string/fukuan"
+            android:textColor="@color/cffffff"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!--已付款-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_yifukuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:padding="3dp"
+            android:text="@string/yifukuan"
+            android:textColor="@color/window_system_color"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!--未付款-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_weifukuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:padding="3dp"
+            android:text="@string/weifukuan"
+            android:textColor="@color/cbe0000"
+            android:textSize="14sp"
+            android:visibility="gone" />
+        <!--等待选择-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_dengdaixuanze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:padding="3dp"
+            android:text="@string/dengdaixuanze"
+            android:textColor="@color/window_system_color"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!--确认装货-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_querenzhuanghuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:padding="3dp"
+            android:text="@string/querenzhuanghuo"
+            android:textColor="@color/cffffff"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!--确认卸货-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_querenxiehuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:padding="3dp"
+            android:text="@string/querenxiehuo"
+            android:textColor="@color/cffffff"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+
+        <!--申请结算-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_shenqingjiesuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:padding="3dp"
+            android:text="@string/shenqingjiesuan"
+            android:textColor="@color/cffffff"
+            android:textSize="14sp"
+            android:visibility="gone" />
+        <!--结算审核未通过-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_jiesuanshenweihezhong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:padding="3dp"
+            android:text="@string/shenqingshibai"
+            android:textColor="@color/window_system_color"
+            android:textSize="14sp"
+            android:visibility="gone" />
+        <!--结算审核中-->
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_jiesuanshenhezhong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:padding="3dp"
+            android:text="@string/jiesuanshenhezhong"
+            android:textColor="@color/window_system_color"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_yiwancheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:padding="3dp"
+            android:text="@string/yiwancheng"
+            android:textColor="@color/c000"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/wodeyundan_item_baojiashu_huozhuweixuanze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:padding="3dp"
+            android:text="@string/huozhuweixuanze"
+            android:textColor="@color/c999999"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cddd" />
+</LinearLayout>

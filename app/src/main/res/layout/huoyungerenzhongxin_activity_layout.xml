@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/huoyungerenzhongxin_container"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/wode_background"
+        android:paddingBottom="30dp"
+        android:paddingTop="60dp">
+
+        <com.qmwl.zyjx.view.CircularImage
+            android:id="@+id/huoyun_wode_layout_iv"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="35dp"
+            android:src="@mipmap/morentouxiang" />
+
+        <TextView
+            android:id="@+id/huoyun_wode_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@id/huoyun_wode_layout_iv"
+            android:text="@string/weidenglu"
+            android:textColor="@color/window_topbar_text_color"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/huoyun_wode_huozhurenzheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/huoyun_wode_nickname"
+            android:layout_below="@id/huoyun_wode_nickname"
+            android:layout_marginTop="40dp"
+            android:button="@null"
+            android:drawableLeft="@mipmap/gerenrenzheng"
+            android:drawablePadding="4dp"
+            android:text="@string/huozhurenzheng"
+            android:textColor="@color/c333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/huoyun_wode_gerenrenzheng_shifourenzheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/huoyun_wode_huozhurenzheng"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/huoyun_wode_huozhurenzheng"
+            android:background="@color/c47e78c"
+            android:text="@string/qingrenzheng"
+            android:textColor="@color/c333333"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/huoyun_wode_qiyerenzheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/huoyun_wode_huozhurenzheng"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/huoyun_wode_gerenrenzheng_shifourenzheng"
+            android:button="@null"
+            android:drawableLeft="@mipmap/qiyerenzheng"
+            android:drawablePadding="4dp"
+            android:text="@string/chengyunfangrenzheng"
+            android:textColor="@color/c333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/huoyun_wode_cengyunrenrenzheng_shifourenzheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/huoyun_wode_qiyerenzheng"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/huoyun_wode_qiyerenzheng"
+            android:background="@color/ccce7fa"
+            android:text="@string/qingrenzheng"
+            android:textColor="@color/c333333"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/cf2f2f2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:background="@color/window_system_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/huozhu"
+            android:textColor="@color/c000"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ccdcdcd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RadioButton
+            android:id="@+id/huoyun_wode_wodeyundan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/wodeyundan"
+            android:gravity="center"
+            android:text="@string/wodeyundan"
+            android:textColor="@color/c222222"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/huoyun_wode_shouhuorenguanli"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/shouhuoren"
+            android:gravity="center"
+            android:text="@string/shouhuorenguanli"
+            android:textColor="@color/c222222"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/huoyun_wode_fahuorenguanli"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/fahuoren"
+            android:gravity="center"
+            android:text="@string/fahuorenguanli"
+            android:textColor="@color/c222222"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/cf2f2f2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:background="@color/window_system_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/chengyunfang"
+            android:textColor="@color/c000"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ccdcdcd" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RadioButton
+            android:id="@+id/huoyun_wode_wodeyundan_chengyunfang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/wodeyundan"
+            android:gravity="center"
+            android:text="@string/wodeyundan"
+            android:textColor="@color/c222222"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/huoyun_wode_xitongtuijian"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/shouhuoren"
+            android:gravity="center"
+            android:text="@string/xitongtuijian"
+            android:textColor="@color/c222222"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/huoyun_wode_cheliangguanli"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@mipmap/fahuoren"
+            android:gravity="center"
+            android:text="@string/cheliangguanli"
+            android:textColor="@color/c222222"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/baoxian_head_iv"
+        android:layout_width="86dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/small" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/baoxian_head_iv"
+        android:layout_toRightOf="@id/baoxian_head_iv"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/baoxian_head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/c2a2a2a"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/baoxian_head_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="9dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/c666666"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/baoxian_head_gengduo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="9dp"
+            android:text="@string/gengduo"
+            android:textColor="@color/window_system_color"
+            android:textSize="8sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/baoxian_head_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/baoxian_head_iv"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/cf0eff5" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/cd2d2d2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/cf0eff5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/baoxian_head_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cffffff"
+        android:layout_below="@id/baoxian_head_line"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="16dp"
+            android:background="@color/ccf96a2f" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:gravity="center"
+            android:text="@string/suoyouchanpin"
+            android:textColor="@color/c333333"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_below="@id/baoxian_head_more"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cf0eff5" />
+</RelativeLayout>

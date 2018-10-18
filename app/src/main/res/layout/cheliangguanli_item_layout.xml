@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/cheliangguanli_item_chepaihao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:textColor="@color/c333333"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/cheliangguanli_item_xiugai_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:padding="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/xiugai"
+            android:textColor="@color/cffffff"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/cheliangguanli_item_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/small_yuanjiao_bg"
+            android:padding="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/delete"
+            android:textColor="@color/cffffff"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cf2f2f2" />
+
+    <TextView
+        android:id="@+id/cheliangguanli_item_daoluyunshuzhenghao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:padding="4dp"
+        android:text="道路运输证字号:0123910392"
+        android:textColor="@color/c666666"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/cheliangguanli_item_chexing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:padding="4dp"
+        android:text="车型:平板车"
+        android:textColor="@color/c666666"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/cheliangguanli_item_chechang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:padding="4dp"
+        android:text="车长:4.5米"
+        android:textColor="@color/c666666"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/cheliangguanli_item_zuidachengzaili"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:padding="4dp"
+        android:text="最大承载力:5吨"
+        android:textColor="@color/c666666"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/cheliangguanli_item_siji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:padding="4dp"
+        android:text="司机:张力"
+        android:textColor="@color/c666666"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/cheliangguanli_item_lianxidianhua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:padding="4dp"
+        android:text="联系电话:15103940190"
+        android:textColor="@color/c666666"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

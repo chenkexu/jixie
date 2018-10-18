@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/liulan_item_bg">
+
+    <ImageView
+        android:id="@+id/bussiness_item_iv"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@mipmap/small" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#99000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/bussiness_layout_headiv"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@mipmap/small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:text="小明的旗舰店"
+            android:textColor="@color/cffffff"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/bussiness_item_chanpinname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bussiness_item_iv"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="3dp"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        android:text="山东临工压路机"
+        android:textColor="@color/c2a2a2a"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/bussiness_item_chanpinjine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bussiness_item_chanpinname"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:padding="3dp"
+        android:paddingBottom="6dp"
+        android:text="￥29999999"
+        android:textColor="@color/ccf96a2f"
+        android:textSize="15sp" />
+</RelativeLayout>

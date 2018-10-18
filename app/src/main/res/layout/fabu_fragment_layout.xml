@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/window_system_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/topbar_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="@string/quanguo"
+            android:textColor="@color/window_topbar_text_color"
+            android:textSize="@dimen/topbar_textsize"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/fabu_top_bar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/xiajiantou"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:src="@mipmap/zyjx_icon" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/fabu_top_bar_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_search_edittext_bg"
+                android:focusable="false"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingRight="25dp"
+                android:textColor="@color/window_topbar_text_color"
+                android:textSize="@dimen/topbar_textsize" />
+
+            <ImageView
+                android:id="@+id/fabu_top_bar_search_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/fabu_top_bar_search"
+                android:layout_centerVertical="true"
+                android:padding="3dp"
+                android:paddingRight="16dp"
+                android:src="@mipmap/search" />
+        </RelativeLayout>
+
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/fabu_fragment_fabu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="12dp"
+            android:src="@mipmap/fabuanniu" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/fabu_fragment_heimingdan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="12dp"
+            android:src="@mipmap/heimingdan" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:id="@+id/fabu_fragment_layout_fatiezi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3.5dp"
+            android:layout_weight="1"
+            android:background="@drawable/xiaojiao_8dp_button_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="7dp">
+
+            <RadioButton
+                android:id="@+id/fabu_fragment_fatieradiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableLeft="@mipmap/tianjiatiezi_button"
+                android:drawablePadding="5dp"
+                android:text="@string/fabutiezi"
+                android:textColor="@color/cffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fabu_fragment_layout_heimingdan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3.5dp"
+            android:layout_weight="1"
+            android:background="@drawable/xiaojiao_8dp_button_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="7dp">
+
+            <RadioButton
+                android:id="@+id/fabu_fragment_heimingdanradiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableLeft="@mipmap/heimingdan_button"
+                android:drawablePadding="5dp"
+                android:text="@string/heimingdan"
+                android:textColor="@color/cffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cc9c9c9" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/fabu_fragment_swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/fabu_fragment_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

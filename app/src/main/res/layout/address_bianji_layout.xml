@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="15dp"
+            android:text="@string/shouhuoren"
+            android:textColor="@color/c585858"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/address_layout_bianji_nameedittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/kongbai_edittext_bg"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textCursorDrawable="@null"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cd5d5d5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lianxidianhua"
+            android:textColor="@color/c585858"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/address_layout_bianji_lianxidianhua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/kongbai_edittext_bg"
+            android:gravity="center_vertical"
+            android:inputType="number"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textCursorDrawable="@null"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cd5d5d5" />
+
+    <!-- 所在地区-->
+    <LinearLayout
+        android:id="@+id/address_layout_bianji_sheng_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/qingxuanzesheng"
+            android:textColor="@color/c585858"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/address_layout_bianji_sheng_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qingxuanze"
+            android:textColor="@color/caeb1b3"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/right" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cd5d5d5" />
+    <!-- 请选择市-->
+    <LinearLayout
+        android:id="@+id/address_layout_bianji_shi_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/qingxuanzeshi"
+            android:textColor="@color/c585858"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/address_layout_bianji_shi_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qingxuanze"
+            android:textColor="@color/caeb1b3"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/right" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cd5d5d5" />
+
+    <!-- 街道乡镇-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/jiedaoxiangzhen"
+            android:textColor="@color/c585858"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qingxuanze"
+            android:textColor="@color/caeb1b3"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/right" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cd5d5d5" />
+
+    <EditText
+        android:id="@+id/address_layout_bianji_address_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/kongbai_edittext_bg"
+        android:gravity="top|left"
+        android:hint="@string/tianxiexiangxidizhi"
+        android:maxLines="10"
+        android:minLines="4"
+        android:textColorHint="@color/cb1b1b1"
+        android:textCursorDrawable="@null"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/ceaeaea" />
+
+    <CheckBox
+        android:id="@+id/address_bianji_default_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cffffff"
+        android:button="@null"
+        android:drawableLeft="@drawable/address_default_selecter"
+        android:drawablePadding="4dp"
+        android:padding="15dp"
+        android:text="@string/morendizhi" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/ceaeaea" />
+</LinearLayout>

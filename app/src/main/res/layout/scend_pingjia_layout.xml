@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_left" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/scend_pingjia_layout_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/small1" />
+
+        <RadioGroup
+            android:id="@+id/scend_pingjia_layout_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <RadioButton
+                android:id="@+id/scend_pingjia_layout_haoping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawableLeft="@drawable/radiobutton_haoping_selecter"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="@string/haoping"
+                android:textColor="@drawable/zulin_title_text_selecter"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/scend_pingjia_layout_zhongping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableLeft="@drawable/radiobutton_chaping_selecter"
+                android:drawablePadding="5dp"
+                android:text="@string/zhongping"
+                android:textColor="@drawable/zulin_title_text_selecter"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/scend_pingjia_layout_chaping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableLeft="@drawable/radiobutton_chaping_selecter"
+                android:drawablePadding="5dp"
+                android:text="@string/chaping"
+                android:textColor="@drawable/zulin_title_text_selecter"
+                android:textSize="15sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/ca9aaac" />
+
+    <EditText
+        android:id="@+id/scend_pingjia_layout_pingjiacontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/kongbai_edittext_bg"
+        android:gravity="top|left"
+        android:hint="@string/pingjia_hint"
+        android:maxLines="10"
+        android:minLines="5"
+        android:textColorHint="@color/cb1b1b1"
+        android:textCursorDrawable="@null"
+        android:textSize="15sp" />
+
+
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/xuxian_biakuang_selecter"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="0/3"
+            android:textColor="@color/cb1b1b1"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/scend_pingjia_layout_shifouniming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="14dp"
+        android:button="@null"
+        android:drawableLeft="@drawable/radiobutton_duihao_selecter"
+        android:drawablePadding="5dp"
+        android:text="@string/yonghuming"
+        android:textColor="@color/c57585d"
+        android:textSize="15sp" />
+
+</LinearLayout>

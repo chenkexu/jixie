@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cf6f6f6">
+
+                <TextView
+                    android:id="@+id/id_register_selecter_pay_kaidiansuoxujine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="23dp"
+                    android:text="@string/kaidiansuoxujine"
+                    android:textColor="@color/c000"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/id_register_selecter_pay_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/id_register_selecter_pay_kaidiansuoxujine"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="23dp"
+                    android:textColor="#e23535"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/id_register_selecter_pay_danwei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/id_register_selecter_pay_price"
+                    android:layout_marginStart="12dp"
+                    android:layout_toRightOf="@id/id_register_selecter_pay_price"
+                    android:text="@string/yuan"
+                    android:textColor="@color/c000"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/id_register_selecter_pay_price"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/cddd" />
+            </RelativeLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/id_register_selecter_pay_duigong_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cf6f6f6"
+                android:orientation="vertical"
+                android:padding="11dp">
+
+                <RadioButton
+                    android:id="@+id/id_register_selecter_pay_duigong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:button="@drawable/radiobutton_duihao_selecter"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@mipmap/icon_register_shangjia_duigong"
+                    android:paddingStart="16dp"
+                    android:text="@string/duigongzhanghao"
+                    android:textColor="@color/c666666"
+                    android:textSize="14.5sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    android:text="@string/duigongzhanghaoxianxiadakuan"
+                    android:textColor="@color/c999999"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/id_register_selecter_pay_duigong"
+                    app:layout_constraintRight_toRightOf="@id/id_register_selecter_pay_duigong"
+                    app:layout_constraintTop_toTopOf="@id/id_register_selecter_pay_duigong" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/id_register_selecter_pay_zhifubao_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cf6f6f6"
+                android:orientation="vertical"
+                android:padding="11dp">
+
+                <RadioButton
+                    android:id="@+id/id_register_selecter_pay_zhifubao"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:button="@drawable/radiobutton_duihao_selecter"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@mipmap/icon_register_shangjia_zhifubao"
+                    android:paddingStart="16dp"
+                    android:text="@string/zhifubao"
+                    android:textColor="@color/c666666"
+                    android:textSize="14.5sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    android:text="@string/zhifubaokuaijiefukuan"
+                    android:textColor="@color/c999999"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/id_register_selecter_pay_zhifubao"
+                    app:layout_constraintRight_toRightOf="@id/id_register_selecter_pay_zhifubao"
+                    app:layout_constraintTop_toTopOf="@id/id_register_selecter_pay_zhifubao" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/id_register_selecter_pay_wexin_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cf6f6f6"
+                android:orientation="vertical"
+                android:padding="11dp">
+
+                <RadioButton
+                    android:id="@+id/id_register_selecter_pay_wexin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:button="@drawable/radiobutton_duihao_selecter"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@mipmap/icon_register_shangjia_weixin"
+                    android:paddingStart="16dp"
+                    android:text="@string/weixin"
+                    android:textColor="@color/c666666"
+                    android:textSize="14.5sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    android:text="@string/weixinkuaijiefukuan"
+                    android:textColor="@color/c999999"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/id_register_selecter_pay_wexin"
+                    app:layout_constraintRight_toRightOf="@id/id_register_selecter_pay_wexin"
+                    app:layout_constraintTop_toTopOf="@id/id_register_selecter_pay_wexin" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <!-- 外汇-->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/id_register_selecter_pay_waihui_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cf6f6f6"
+                android:orientation="vertical"
+                android:padding="11dp">
+
+                <RadioButton
+                    android:id="@+id/id_register_selecter_pay_waihui"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:button="@drawable/radiobutton_duihao_selecter"
+                    android:drawablePadding="12dp"
+                    android:drawableStart="@mipmap/icon_waihui"
+                    android:paddingStart="16dp"
+                    android:text="@string/waihuizhuanzhang"
+                    android:textColor="@color/c666666"
+                    android:textSize="14.5sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    android:text="@string/waihuikuaijiezhifu"
+                    android:textColor="@color/c999999"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/id_register_selecter_pay_waihui"
+                    app:layout_constraintRight_toRightOf="@id/id_register_selecter_pay_waihui"
+                    app:layout_constraintTop_toTopOf="@id/id_register_selecter_pay_waihui" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <Button
+                android:id="@+id/id_register_selecter_pay_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/tiezi_details_fasong_bg"
+                android:text="@string/next"
+                android:textColor="@color/cffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

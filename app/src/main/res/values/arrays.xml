@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="shaixuan_zonghe_array">
+        <item>综合</item>
+        <item>销量</item>
+        <item>按发布时间</item>
+        <item>按出场年限</item>
+        <item>价格由低到高</item>
+        <item>价格由高到低</item>
+    </string-array>
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.qmwl.zyjx.view.NoScrollViewPager
+        android:id="@+id/main_layout_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/window_main_text_color" />
+
+    <RadioGroup
+        android:id="@+id/main_layout_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/main_layout_main_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/color_radiobutton_home"
+            android:gravity="center"
+            android:text="@string/shouye"
+            android:textColor="@drawable/color_radiobutton_text"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/main_layout_fabu_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/color_radiobutton_fabu"
+            android:gravity="center"
+            android:text="@string/fabu"
+            android:textColor="@drawable/color_radiobutton_text"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/main_layout_gouwuche_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/color_radiobutton_gouwuche"
+            android:gravity="center"
+            android:text="@string/gouwuche"
+            android:textColor="@drawable/color_radiobutton_text"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/main_layout_wode_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/color_radiobutton_wode"
+            android:gravity="center"
+            android:text="@string/wode"
+            android:textColor="@drawable/color_radiobutton_text"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+</LinearLayout>

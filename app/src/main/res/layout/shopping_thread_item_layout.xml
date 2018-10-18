@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cffffff"
+    android:orientation="vertical">
+
+    <com.qmwl.zyjx.view.SquareLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/shopping_thread_item_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/small1" />
+    </com.qmwl.zyjx.view.SquareLayout>
+
+    <TextView
+        android:id="@+id/shopping_thread_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:padding="6dp"
+        android:textColor="@color/c2a2a2a"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/shopping_thread_item_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingLeft="6dp"
+        android:textColor="@color/ccf96a2f"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/shopping_thread_item_biaoqian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gray_radio_bg"
+            android:gravity="center_vertical"
+            android:padding="3dp"
+            android:textColor="@color/cffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/shopping_thread_item_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/gray_radio_bg"
+            android:gravity="center_vertical"
+            android:padding="3dp"
+            android:textColor="@color/cffffff"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/shopping_thread_item_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="3dp"
+            android:textColor="@color/cbcbcbc"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>

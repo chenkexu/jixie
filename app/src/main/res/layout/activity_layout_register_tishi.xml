@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/id_register_tishi_topbar"
+        layout="@layout/base_top_bar_center" />
+
+    <ImageView
+        android:id="@+id/id_register_tishi_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_tishi_topbar"
+        android:background="#ffffff"
+        android:src="@mipmap/icon_duigong_tishi_ban" />
+
+    <TextView
+        android:id="@+id/id_register_tishi_kefu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_tishi_image"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/icon_duigong_tishi_kefu"
+        android:gravity="center"
+        android:src="@mipmap/icon_duigong_tishi_kefu"
+        android:text="@string/lianxikefu"
+        android:textColor="#849cad"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/id_register_tishi_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/tiezi_details_fasong_bg"
+        android:text="@string/ok"
+        android:textColor="@color/cffffff"
+        android:textSize="16sp" />
+</RelativeLayout>

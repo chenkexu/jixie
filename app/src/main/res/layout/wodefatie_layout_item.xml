@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/wode_fatie_content_SwipeMenuLayout"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/wode_fatie_content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="13dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/wode_fatie_fragment_item_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@color/window_system_color"
+                android:padding="2dp"
+                android:text="图片"
+                android:textColor="@color/window_topbar_text_color"
+                android:textSize="10sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/wode_fatie_fragment_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我要运一车水泥"
+                android:textColor="@color/c585858"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/wode_fatie_fragment_item_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:text="我要运一车水泥"
+                android:textColor="@color/fabu_item_text_content_color"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/wode_fatie_fragment_item_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017-07-20"
+                android:textColor="@color/fabu_item_text_time_color"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_fatie_item_edit"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@color/c252c69"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bianji"
+            android:textColor="@color/cffffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wode_fatie_item_delete"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@color/cfe0101"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/delete"
+            android:textColor="@color/cffffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

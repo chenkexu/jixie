@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/shopping_thread_shaixuan_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="10dp"
+            android:paddingEnd="15dp"
+            android:paddingStart="15dp"
+            android:paddingTop="15dp"
+            android:src="@mipmap/icon_shaixuan_guanbi"
+            android:textSize="14sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/shopping_thread_shaixuan_close"
+            android:overScrollMode="never"
+            android:paddingLeft="10dp"
+            android:fillViewport="true"
+            android:paddingRight="10dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/shopping_thread_shaixuan_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/ccccccc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/shopping_thread_shaixuan_chongzhi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cfdfdfd"
+            android:text="@string/chongzhi"
+            android:textColor="@color/c1e1e20"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/shopping_thread_shaixuan_queren"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cf23030"
+            android:text="@string/ok"
+            android:textColor="@color/cffffff"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+</LinearLayout>

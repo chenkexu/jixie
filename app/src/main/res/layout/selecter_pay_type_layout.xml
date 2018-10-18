@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:background="@color/cffffff"
+    android:orientation="vertical">
+
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="10dp"
+        android:text="@string/xuanzefukuanfangshi"
+        android:textColor="@color/window_system_color"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/ceee" />
+
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/st_aplipay"
+        stv:sLeftIconRes="@mipmap/alipay"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftTextString="支付宝支付"
+        stv:sRightIconRes="@mipmap/more" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/st_wechat"
+        stv:sLeftIconRes="@mipmap/wechat"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftTextString="微信支付"
+        stv:sRightIconRes="@mipmap/more" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/st_yilian"
+        stv:sLeftIconRes="@mipmap/yinlian"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftTextString="银联支付"
+        stv:sRightIconRes="@mipmap/more" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/st_zhuanzhang"
+        stv:sLeftIconRes="@mipmap/zhuanzhang"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftTextString="对公转账"
+        stv:sRightIconRes="@mipmap/more" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/st_small_daikuan"
+        stv:sLeftIconRes="@mipmap/small_daikuan"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftTextString="小额贷款"
+        stv:sRightIconRes="@mipmap/more" />
+
+
+
+
+
+
+
+
+
+
+   <!-- <TextView
+        android:id="@+id/selecter_pay_layout_zaixianzhifu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/zaixianzhifu"
+        android:textColor="@color/c333333"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/selecter_pay_layout_duigongfukuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:padding="10dp"
+        android:text="@string/duigongfukuan"
+        android:textColor="@color/c333333"
+        android:textSize="16sp" />
+-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/ceee" />
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="7dp">
+
+    <TextView
+        android:id="@+id/biaoqian_textview_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/biaoqian_bg"
+        android:gravity="center"
+        android:paddingBottom="11dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="11dp"
+        android:textColor="@color/c242424"
+        android:textSize="14sp"></TextView>
+</LinearLayout>

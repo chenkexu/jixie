@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:lineSpacingExtra="5dp"
+        android:lineSpacingMultiplier="1.5"
+        android:paddingBottom="10dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/c333333"
+        android:textSize="14sp"
+
+        android:text="撒圣诞节撒谎的骄
+        傲和时间段会撒娇的回家撒回到家h
+        撒圣诞节撒谎的骄傲和时间段会撒娇
+        的回家撒回到家h撒圣诞节撒谎的骄傲
+        和时间段会撒娇的回家撒回到家h撒圣诞节撒谎的骄傲和时间段会撒娇的回家撒回到家h撒圣诞节撒谎的骄傲和时间段会撒娇的回家撒回到家h撒圣诞节撒谎的骄傲和时间段会撒娇的回家撒回到家h撒圣诞节撒谎的骄傲和时间段会撒娇的回家撒回到家h撒圣诞节撒谎的骄傲和时间段会撒娇的回家撒回到家h撒圣诞节撒谎的
+        骄傲和时间段会撒娇的回家撒回到家h撒圣诞节撒谎的骄傲和时间段会撒娇的回家撒回到家h"/>
+
+</LinearLayout>

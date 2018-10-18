@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/address_item_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/address" />
+
+        <TextView
+            android:id="@+id/address_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/address_item_iv"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:text="收货人:小明"
+            android:textColor="@color/c363636"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/address_item_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/address_item_name"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:text="15801002222"
+            android:textColor="@color/c363636"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/address_item_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/address_item_name"
+            android:layout_below="@id/address_item_name"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/c363636"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <CheckBox
+            android:id="@+id/address_item_default_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableLeft="@drawable/address_default_selecter"
+            android:drawablePadding="4dp"
+            android:paddingTop="6dp"
+            android:text="@string/morendizhi" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/address_item_bianji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableLeft="@mipmap/bianji"
+            android:drawablePadding="4dp"
+            android:padding="4dp"
+            android:paddingRight="4dp"
+            android:text="@string/bianji" />
+
+        <RadioButton
+            android:id="@+id/address_item_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableLeft="@mipmap/delete"
+            android:drawablePadding="4dp"
+            android:padding="4dp"
+            android:paddingLeft="4dp"
+            android:text="@string/delete" />
+    </LinearLayout>
+
+</LinearLayout>

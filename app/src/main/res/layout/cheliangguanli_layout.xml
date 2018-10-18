@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <ListView
+        android:id="@+id/cheliangguanli_layout_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:divider="@drawable/baojia_item_driver"
+        android:dividerHeight="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <Button
+        android:id="@+id/cheliangguanli_layout_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/window_system_color"
+        android:text="@string/tianjiacheliang"
+        android:textColor="@color/cffffff"
+        android:textSize="16sp" />
+
+</LinearLayout>

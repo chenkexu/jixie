@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+
+    <EditText
+        android:id="@+id/changed_nickname_layout_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/fatie_edittext_background"
+        android:hint="请输入新昵称"
+        android:maxLines="1"
+        android:padding="5dp"
+        android:textColorHint="@color/fatie_hint_color"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/change_nickname_message"
+        android:textColor="@color/ca9aaac"
+        android:textSize="14sp" />
+
+
+    <Button
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/button_tuoyuan_blue_bg"
+        android:text="@string/tijiao"
+        android:textColor="@color/cffffff"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

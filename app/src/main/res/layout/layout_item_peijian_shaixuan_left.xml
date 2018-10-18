@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/id_item_peijian_shaixuan_left_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="20dp"
+        android:gravity="center_vertical"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:text="铲运机械"
+        android:textColor="@color/c151515"
+        android:textSize="12sp" />
+
+    <View
+        android:id="@+id/id_item_peijian_shaixuan_left_yuandian"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/shape_yuan_lan"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignBottom="@id/id_item_peijian_shaixuan_left_tv"
+        android:background="@color/ce6e6e6" />
+
+    <View
+        android:id="@+id/id_item_peijian_shaixuan_right_shuxian"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:layout_alignRight="@id/id_item_peijian_shaixuan_left_tv"
+        android:background="@color/ce6e6e6" />
+
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <EditText
+        android:id="@+id/wangjimima_edittext_username"
+        style="@style/xiahuaxian_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/huiyuanming"
+        android:maxLines="1"
+        android:textColorHint="@color/cb7b7b7"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/wangjimima_edittext_shoujihao"
+        style="@style/xiahuaxian_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/shoujihao"
+        android:inputType="number"
+        android:maxLines="1"
+        android:textColorHint="@color/cb7b7b7"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <EditText
+            android:id="@+id/wangjimima_edittext_yanzhnegcode"
+            style="@style/xiahuaxian_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="37dp"
+            android:layout_marginRight="37dp"
+            android:layout_weight="1"
+            android:hint="@string/yanzhengma"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColorHint="@color/cb7b7b7"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/wangjimima_button_yanzhnegcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="@string/yanzhengma" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/wangjimima_button_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="37dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/xiaojiao_5dp_button_background"
+        android:text="@string/ok"
+        android:textColor="@color/cffffff"
+        android:textSize="16sp" />
+
+</LinearLayout>

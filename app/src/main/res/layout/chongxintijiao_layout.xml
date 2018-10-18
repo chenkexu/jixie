@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/base_top_bar_center"/>
+
+    <EditText
+        android:id="@+id/chongxintijiao_register_faren"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/fatie_edittext_background"
+        android:hint="@string/qingshurufaren"
+        android:maxLines="1"
+        android:padding="@dimen/register_edittext_padding"
+        android:textColorHint="@color/fatie_hint_color"
+        android:textCursorDrawable="@null"
+        android:textSize="13sp"/>
+
+    <EditText
+        android:id="@+id/chongxintijiao_register_gongsimingcheng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/fatie_edittext_background"
+        android:hint="@string/qingshurugongsimingcheng"
+        android:maxLines="1"
+        android:padding="@dimen/register_edittext_padding"
+        android:textColorHint="@color/fatie_hint_color"
+        android:textCursorDrawable="@null"
+        android:textSize="13sp"/>
+    <Button
+        android:id="@+id/chongxintijiao_register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tiezi_details_fasong_bg"
+        android:text="@string/tijiao"
+        android:textColor="@color/cffffff"
+        android:textSize="16sp" />
+</LinearLayout>

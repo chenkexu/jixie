@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_topbar_text_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/fatie_activity_edittext_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/yinying_bg"
+                android:hint="@string/shuruxiangxidizhi"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#ff0000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="@string/bixuan"
+                    android:textColor="@color/fatie_bixuan_color"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/fatie_activity_edittext_tellphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:inputType="number"
+                android:visibility="gone"
+                android:background="@drawable/yinying_bg"
+                android:hint="@string/shurushoujihao"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#ff0000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="@string/bitian"
+                    android:textColor="@color/fatie_bixuan_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/fatie_activity_edittext_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/yinying_bg"
+                android:hint="@string/biaoti"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/fatie_activity_edittext_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/yinying_bg"
+                android:gravity="top|start"
+                android:hint="@string/neirongbuchaoguo300zi"
+                android:minLines="7"
+                android:padding="5dp"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textSize="13sp" />
+
+
+            <com.qmwl.zyjx.view.NoScroolGridView
+                android:id="@+id/fatie_activity_gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="8dp"
+                android:horizontalSpacing="3dp"
+                android:numColumns="3"
+                android:verticalSpacing="3dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <com.qmwl.zyjx.view.SquareLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/small" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:src="@mipmap/remove" />
+                </com.qmwl.zyjx.view.SquareLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/fatie_layout_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/xiaojiao_5dp_button_background"
+                android:text="@string/tijiao"
+                android:textColor="@color/cffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

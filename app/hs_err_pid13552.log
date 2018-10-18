@@ -1,0 +1,159 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 8192 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=13552, tid=0x0000000000002264
+#
+# JRE version:  (8.0_112-b06) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.112-b06 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000005190800):  JavaThread "main" [_thread_in_vm, id=8804, stack(0x0000000004f90000,0x0000000005090000)]
+
+Stack: [0x0000000004f90000,0x0000000005090000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ref.Reference.<clinit>()V+71
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000005280000 JavaThread "Reference Handler" daemon [_thread_blocked, id=7732, stack(0x000000001fab0000,0x000000001fbb0000)]
+=>0x0000000005190800 JavaThread "main" [_thread_in_vm, id=8804, stack(0x0000000004f90000,0x0000000005090000)]
+
+Other Threads:
+  0x000000001e925800 VMThread [stack: 0x000000001f9b0000,0x000000001fab0000] [id=14552]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000000004b9c8a0] SymbolTable_lock - owner thread: 0x0000000005190800
+
+Heap:
+ PSYoungGen      total 36864K, used 634K [0x000000076ab00000, 0x000000076d400000, 0x00000007c0000000)
+  eden space 31744K, 2% used [0x000000076ab00000,0x000000076ab9eb90,0x000000076ca00000)
+  from space 5120K, 0% used [0x000000076cf00000,0x000000076cf00000,0x000000076d400000)
+  to   space 5120K, 0% used [0x000000076ca00000,0x000000076ca00000,0x000000076cf00000)
+ ParOldGen       total 84992K, used 0K [0x00000006c0000000, 0x00000006c5300000, 0x000000076ab00000)
+  object space 84992K, 0% used [0x00000006c0000000,0x00000006c0000000,0x00000006c5300000)
+ Metaspace       used 1011K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 105K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000014650000,0x0000000014e60000] byte_map_base: 0x0000000011050000
+
+Marking Bits: (ParMarkBitMap*) 0x00000000688618f0
+ Begin Bits: [0x00000000157c0000, 0x00000000197c0000)
+ End Bits:   [0x00000000197c0000, 0x000000001d7c0000)
+
+Polling page: 0x0000000004b40000
+
+CodeCache: size=245760Kb used=397Kb max_used=397Kb free=245362Kb
+ bounds [0x0000000005290000, 0x0000000005500000, 0x0000000014290000]
+ total_blobs=89 nmethods=0 adapters=64
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 2.050 loading class java/lang/ref/ReferenceQueue$Null
+Event: 2.050 loading class java/lang/ref/ReferenceQueue$Null done
+Event: 2.050 loading class java/lang/ref/ReferenceQueue$Lock
+Event: 2.050 loading class java/lang/ref/ReferenceQueue$Lock done
+Event: 2.050 Thread 0x0000000005280000 Thread added: 0x0000000005280000
+Event: 2.050 loading class java/lang/ref/Reference$1
+Event: 2.050 loading class sun/misc/JavaLangRefAccess
+Event: 2.050 loading class sun/misc/JavaLangRefAccess done
+Event: 2.050 loading class java/lang/ref/Reference$1 done
+Event: 2.050 loading class sun/misc/SharedSecrets
+
+
+Dynamic libraries:
+0x00007ff722430000 - 0x00007ff722461000 	C:\Program Files\Android\Android Studio\jre\bin\java.exe
+0x00007fffa0ef0000 - 0x00007fffa10d0000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007fff9e8d0000 - 0x00007fff9e97e000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007fff9de90000 - 0x00007fff9e0f6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007fffa09a0000 - 0x00007fffa0a41000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007fff9f250000 - 0x00007fff9f2ed000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007fff9e5c0000 - 0x00007fff9e61b000 	C:\WINDOWS\System32\sechost.dll
+0x00007fffa0be0000 - 0x00007fffa0cff000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007fff9e6d0000 - 0x00007fff9e85f000 	C:\WINDOWS\System32\USER32.dll
+0x00007fff9d550000 - 0x00007fff9d570000 	C:\WINDOWS\System32\win32u.dll
+0x00007fff9e590000 - 0x00007fff9e5b8000 	C:\WINDOWS\System32\GDI32.dll
+0x00007fff9e220000 - 0x00007fff9e3b3000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007fff9e100000 - 0x00007fff9e19b000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007fff9d3a0000 - 0x00007fff9d496000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007fff8cf90000 - 0x00007fff8d1f9000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.16299.125_none_15cbcf8893620c09\COMCTL32.dll
+0x00007fff9ef40000 - 0x00007fff9f248000 	C:\WINDOWS\System32\combase.dll
+0x00007fff9e1a0000 - 0x00007fff9e212000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007fff9e560000 - 0x00007fff9e58d000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000068fc0000 - 0x0000000069092000 	C:\Program Files\Android\Android Studio\jre\jre\bin\msvcr100.dll
+0x00000000680a0000 - 0x00000000688dc000 	C:\Program Files\Android\Android Studio\jre\jre\bin\server\jvm.dll
+0x00007fff9f2f0000 - 0x00007fff9f2f8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007fff98b70000 - 0x00007fff98b79000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007fffa0930000 - 0x00007fffa099c000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007fff99350000 - 0x00007fff99373000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007fff9a310000 - 0x00007fff9a31a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007fff992f0000 - 0x00007fff9931a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007fff9d2f0000 - 0x00007fff9d33a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007fff98b60000 - 0x00007fff98b6f000 	C:\Program Files\Android\Android Studio\jre\jre\bin\verify.dll
+0x00007fff8e150000 - 0x00007fff8e179000 	C:\Program Files\Android\Android Studio\jre\jre\bin\java.dll
+0x00007fff8e440000 - 0x00007fff8e456000 	C:\Program Files\Android\Android Studio\jre\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Djava.awt.headless=true -Xmx4g -Dfile.encoding=GBK -Duser.country=CN -Duser.language=zh -Duser.variant 
+java_command: com.android.dx.command.Main --dex --force-jumbo --num-threads=4 --multi-dex --output D:\works\ZYJXObject\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e6184a0f57b9a48f9c43593e8fbec12eb7289e83 D:\works\ZYJXObject\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar
+java_class_path (initial): C:\Users\User\AppData\Local\Android\sdk\build-tools\26.0.0\lib\dx.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_45
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_45\bin;C:\Program Files\Java\jdk1.8.0_45\jre\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\GitHubDesktop\bin
+USERNAME=User
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 16299 (10.0.16299.15)
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 158 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 8071812k(2128488k free), swap 33237636k(560456k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.112-b06) for windows-amd64 JRE (1.8.0_112-release-b06), built on Dec  8 2016 00:54:26 by "builder" with MS VC++ 10.0 (VS2010)
+
+time: Fri Jan 19 17:31:30 2018
+elapsed time: 2 seconds (0d 0h 0m 2s)
+

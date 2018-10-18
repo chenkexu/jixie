@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/register_register_yonghuming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fatie_edittext_background"
+                android:hint="@string/qingshezhiyonghuming"
+                android:inputType="textPhonetic"
+                android:maxLines="1"
+                android:padding="@dimen/register_edittext_padding"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/register_register_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fatie_edittext_background"
+                android:hint="@string/shezhimima"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="@dimen/register_edittext_padding"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/register_register_password_too"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fatie_edittext_background"
+                android:hint="@string/shezhimima_too"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="@dimen/register_edittext_padding"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp" />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fatie_edittext_background"
+                android:hint="@string/qingshuruxingming"
+                android:maxLines="1"
+                android:padding="@dimen/register_edittext_padding"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/register_register_faren"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fatie_edittext_background"
+                android:hint="@string/qingshurufaren"
+                android:maxLines="1"
+                android:padding="@dimen/register_edittext_padding"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/register_register_gongsimingcheng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fatie_edittext_background"
+                android:hint="@string/qingshurugongsimingcheng"
+                android:maxLines="1"
+                android:padding="@dimen/register_edittext_padding"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/register_register_shoujihao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/fatie_edittext_background"
+                    android:hint="@string/qingshurushoujihao"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:padding="@dimen/register_edittext_padding"
+                    android:textColorHint="@color/fatie_hint_color"
+                    android:textCursorDrawable="@null"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/register_register_fasongyanzhengma"
+                    android:layout_width="149dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="@string/fasongyanzhengma"
+                    android:background="@drawable/xiaojiao_5dp_button_background"
+                    android:textColor="@color/cffffff" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/register_register_duanxinyanzhengma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/fatie_edittext_background"
+                android:hint="@string/duanxinyanzhengma"
+                android:inputType="number"
+                android:maxLines="1"
+                android:padding="@dimen/register_edittext_padding"
+                android:textColorHint="@color/fatie_hint_color"
+                android:textCursorDrawable="@null"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/register_register_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/tiezi_details_fasong_bg"
+                android:text="@string/register"
+                android:textColor="@color/cffffff"
+                android:textSize="16sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zhucejishiwei"
+                    android:textColor="@color/c333333"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/register_yonghuxieyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yonghuxieyi"
+                    android:textColor="@color/ce70707"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

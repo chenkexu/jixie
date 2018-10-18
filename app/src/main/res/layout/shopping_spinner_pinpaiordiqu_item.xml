@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/black_layout_item_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cf0efff5"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:textColor="@color/c000"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:id="@+id/black_layout_item_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/c000"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/black_layout_item_duihao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:button="@null"
+            android:drawableRight="@drawable/radiobutton_sex_selecter"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:textColor="@color/c000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/black_layout_item_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/fanhui"
+            android:textColor="@color/c000"
+            android:textSize="15sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="18dp"
+        android:background="@color/ce0e0e0"
+        android:paddingLeft="15dp" />
+</LinearLayout>

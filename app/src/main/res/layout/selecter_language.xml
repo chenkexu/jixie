@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_round_white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/selecter_language_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:padding="12dp"
+        android:text="@string/xuanzeyuyan"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/commom_background" />
+
+    <RadioGroup
+        android:id="@+id/selecter_language_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/selecter_language_radiozhongwen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jiantizhongwen"
+            android:textColor="@color/c000"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/commom_background" />
+
+        <RadioButton
+            android:id="@+id/selecter_language_radioyingwen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/english"
+            android:textColor="@color/c000"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+</LinearLayout>

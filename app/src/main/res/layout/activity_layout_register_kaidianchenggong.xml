@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <TextView
+        android:id="@+id/id_register_zhifuchenggong_zhifuchenggong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/zhifuchenggong"
+        android:textColor="@color/c868686"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/id_register_zhifuchenggong_zhifuchenggong"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:src="@mipmap/icon_register_kaidianchenggong" />
+
+    <TextView
+        android:id="@+id/id_register_zhifuchenggong_gongxininkaidianchenggong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_zhifuchenggong_zhifuchenggong"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="38dp"
+        android:text="@string/gongxininkaidianchenggong"
+        android:textColor="@color/c868686"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/id_register_kaidianchenggong_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/tiezi_details_fasong_bg"
+        android:text="@string/ok"
+        android:textColor="@color/cffffff"
+        android:textSize="16sp" />
+</RelativeLayout>

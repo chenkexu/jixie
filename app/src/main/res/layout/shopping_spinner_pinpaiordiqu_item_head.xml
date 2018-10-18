@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cffffff"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/black_layout_item_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cf0efff5"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="热门品牌"
+        android:textSize="15sp" />
+
+    <com.qmwl.zyjx.view.NoScroolGridView
+        android:id="@+id/shopping_spinner_pinpai_item_head_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/cddd"
+        android:horizontalSpacing="1px"
+        android:numColumns="5"
+        android:padding="1dp"
+        android:scrollbars="none"
+        android:verticalSpacing="1px" />
+
+</LinearLayout>

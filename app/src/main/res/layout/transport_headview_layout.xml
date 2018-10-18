@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/transport_headview_iv"
+        android:layout_width="match_parent"
+        android:layout_height="129dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/cf2f2f2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RadioButton
+            android:id="@+id/transport_headview_woyaofahuo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/wuliu_fahuo"
+            android:gravity="center"
+            android:text="@string/woyaofahuo" />
+
+        <RadioButton
+            android:id="@+id/transport_headview_woyaochengyun"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/wuliu_chengyun"
+            android:gravity="center"
+            android:text="@string/woyaochengyun" />
+
+        <RadioButton
+            android:id="@+id/transport_headview_huoyuanguangchang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/wuliu_huoyuanguangchang"
+            android:gravity="center"
+            android:text="@string/huoyuanguangchang" />
+
+        <RadioButton
+            android:id="@+id/transport_headview_gerenzhongxin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/wuliu_gernzhongxin"
+            android:gravity="center"
+            android:text="@string/gerenzhongxin" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/cf2f2f2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:background="@color/window_system_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/zuixinxinxi"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,529 @@
+<resources>
+    <string name="app_name">众要机械</string>
+    <string name="shouye">首页</string>
+    <string name="fabu">发布</string>
+    <string name="gouwuche">购物车</string>
+    <string name="wode">我的</string>
+    <string name="re">热</string>
+    <string name="ge">个</string>
+    <string name="qi">企</string>
+    <string name="qi_dong">起</string>
+    <string name="quanguo">全国</string>
+    <string name="fatie">发帖</string>
+    <string name="tiezi">帖子</string>
+    <string name="xiangqing">详情</string>
+    <string name="gerenxinxi">个人信息</string>
+    <string name="login">登录</string>
+
+
+    <string name="register">注册</string>
+    <string name="register_pepoule">个人注册</string>
+    <string name="register_gonsi">公司注册</string>
+    <string name="zhucejishiwei">注册即视为同意</string>
+    <string name="yonghuxieyi">《用户协议》</string>
+    <string name="yonghuxieyi_title">用户协议</string>
+    <string name="querendingdan">确认订单</string>
+    <string name="qingshezhiyonghuming">请设置用户名</string>
+    <string name="shezhimima">请设置6-20位密码</string>
+    <string name="shezhimima_too">请再输入一次密码</string>
+    <string name="qingshuruxingming">请输入姓名</string>
+    <string name="qingshurufaren">请输入法人</string>
+    <string name="qingshurusousuodeguanjianzi">请输入搜索的关键字</string>
+    <string name="qingshurugongsimingcheng">请输入公司名称</string>
+    <string name="qingshurushoujihao">请输入手机号</string>
+    <string name="fasongyanzhengma">发送验证码</string>
+    <string name="duanxinyanzhengma">短信验证码</string>
+    <string name="yanzhnegmabuzhengque">验证码不正确</string>
+    <string name="faxiaoxi">发消息</string>
+    <string name="xiaoxi">消息</string>
+
+    <string name="zixun">资讯</string>
+    <string name="heimingdan">黑名单</string>
+    <string name="zhifubao">支付宝</string>
+    <string name="weixin">微信</string>
+
+    <string name="weidenglu">未登录</string>
+    <string name="zhanghuanquan">账户安全</string>
+    <string name="xiugaishoujihaoma">修改手机号码</string>
+    <string name="xiugaimima">修改密码</string>
+    <string name="xiugainickname">修改昵称</string>
+    <string name="xiugaixingbie">修改性别</string>
+    <string name="xiugaidenglumima">修改登录密码</string>
+    <string name="xiugaichenggong">修改成功</string>
+    <string name="xiugaishibai">修改失败</string>
+    <string name="xiugai">修改</string>
+
+    <string name="shoujihao">手机号</string>
+    <string name="genghuanshoujihao">更换手机号</string>
+
+    <string name="shurushoujihao">输入手机号</string>
+    <string name="china_dalu">中国大陆</string>
+    <string name="qingshurunindeshoujihao">请输入您的手机号</string>
+    <string name="next">下一步</string>
+    <string name="ok">确认</string>
+    <string name="baocun">保存</string>
+
+    <string name="womenyifasong">我们已发送</string>
+    <string name="yanzhengma">验证码</string>
+    <string name="duanxindaoshouji">短信到您的手机:</string>
+    <string name="qingshuruyanzhengma">请输入验证码</string>
+    <string name="wodedingdan">我的订单</string>
+    <string name="dingdanxiangqing">订单详情</string>
+    <string name="wodepingjia">我的评价</string>
+    <string name="wodefatie">我的发帖</string>
+    <string name="fabiaopingjia">发表评价</string>
+
+    <string name="yijianfankui">意见反馈</string>
+    <string name="qingjianchawangluo">请检查网络</string>
+
+    <string name="wodezuling">我的租赁</string>
+    <string name="tijiao">提交</string>
+    <string name="zulingqishiriqi">租赁起始日期</string>
+    <string name="yajin">押金</string>
+    <string name="zujin">租金</string>
+    <string name="zuqi">租期</string>
+    <string name="heji">合计:</string>
+
+    <string name="chakanhetong">查看合同</string>
+    <string name="lianximaijia">联系卖家</string>
+    <string name="quxiaodingdan">取消订单</string>
+    <string name="pay">付&#160;&#160;款</string>
+    <string name="tuikuan">退&#160;&#160;款</string>
+    <string name="chakanwuliu">查看物流</string>
+    <string name="querenshouhuo">确认收货</string>
+    <string name="pingjia">评&#160;&#160;价</string>
+
+    <string name="all">全部</string>
+    <string name="zhengzaishenhe">正在审核</string>
+    <string name="daifukuan">待付款</string>
+    <string name="yizulin">已租赁</string>
+    <string name="zulin">租赁</string>
+
+    <string name="daifahuo">待发货</string>
+    <string name="daishouhuo">待收货</string>
+    <string name="daipingjia">待评价</string>
+
+    <string name="liulanjilu">浏览记录</string>
+    <string name="collection">我的收藏</string>
+
+    <string name="allpingjia">全部评价</string>
+    <string name="lookpingjia">查看我的评价</string>
+    <string name="pingjia_success">评价成功</string>
+    <string name="tuijianchanpin">推荐产品</string>
+    <string name="suoyouchanpin">所有产品</string>
+    <string name="pingjia_success_content">感谢您用心写评价,这会帮助到更多想购买此产品的人们!</string>
+    <string name="change_nickname_message">4-20个字符。可由中英文、数字组成</string>
+    <string name="bianji">编辑</string>
+    <string name="bianjishouhuodizhi">编辑收货地址</string>
+    <string name="delete">删除</string>
+    <string name="chongzhi">重置</string>
+    <string name="shouhuodizhi">收货地址</string>
+    <string name="shouhuoren">收货人</string>
+    <string name="lianxiren">联系人</string>
+    <string name="lianxidianhua">联系电话</string>
+    <string name="suozaidiqu">所在地区</string>
+    <string name="zaixianzhifu">在线支付</string>
+    <string name="duigongfukuan">对公付款</string>
+    <string name="qingxuanze">请选择</string>
+    <string name="jiedaoxiangzhen">街道 (乡镇)</string>
+    <string name="map">地图</string>
+    <string name="wait_reviewed">等待审核</string>
+    <string name="shenheyitongguo">审核已通过</string>
+    <string name="daishenhe">合同、资料提交给后台管理员</string>
+    <string name="bussiness">商家中心</string>
+    <string name="qingxuanzexingbie">请选择性别</string>
+    <string name="xinji">新机</string>
+    <string name="ershouji">二手</string>
+    <string name="peijian">配件</string>
+
+    <string name="zonghe">综合</string>
+    <string name="pinpai">品牌</string>
+    <string name="diqu">地区</string>
+    <string name="shaixuan">筛选</string>
+    <string name="message">消息</string>
+    <string name="baomi">保密</string>
+    <string name="nan">男</string>
+    <string name="nv">女</string>
+    <string name="xinxibuwanzheng">信息不完整</string>
+    <string name="mimabuyizhi">两次输入的密码不一致</string>
+    <string name="ninhaimeiyoushouhuodizhi">您还没有收货地址</string>
+    <string name="zuokuobao">[</string>
+    <string name="youkuohao">]</string>
+    <string name="yonghuming_zhengze">abcdefghijklmnopqrstuvwxyvz0123456789</string>
+    <string name="yanzhengmafasongchenggong">验证码发送成功</string>
+    <string name="yanzhengmafasongshibai">验证码发送失败</string>
+    <string name="yanzhengmafasongshibaiwangluo">验证码发送失败,请检查网络是否通畅</string>
+    <string name="qingshuruzhengquedeyanzhengma">请输入正确的手机号</string>
+    <string name="zhuceshibai">注册失败</string>
+    <string name="zhucechenggong">注册成功</string>
+    <string name="fatiechenggong">发帖成功</string>
+    <string name="fatieshibai">发帖失败,请重试</string>
+    <string name="fatieshibaijianchawangluo">发帖失败,请检查网络</string>
+    <string name="huitiechenggong">回帖成功</string>
+    <string name="huitieshibai">回帖失败,请重试</string>
+    <string name="huitieshibaiqingjiancha">回帖失败,请检查网络</string>
+    <string name="huifuneirong">回复内容</string>
+    <string name="wucifenlei">该栏目下无产品</string>
+    <string name="wucishangjia">无此商家</string>
+    <string name="shangpinxiangqing">商品详情</string>
+    <string name="tuikuanshouhou">退款售后</string>
+    <string name="wuliuxiangqing">物流详情</string>
+    <string name="qingxuanzesheng">请选择省</string>
+    <string name="qingxuanzeshi">请选择市</string>
+    <string name="wushangpin">无商品</string>
+
+    <string name="dingdantijiaoshibai">订单提交失败</string>
+    <string name="dingdantijiaoshibai_wangluo">订单提交失败,请检查网络</string>
+    <string name="dingdanyitijiaochenggong">订单已提交成功,请到个人中心查看</string>
+    <string name="tijiaoshibai_wangluo">提交失败,请检查网络</string>
+    <string name="baocunchenggong">保存成功</string>
+    <string name="zanwulianxifangshi">暂无联系方式</string>
+    <string name="baocunshibaiqingchongshi">保存失败,请重试</string>
+    <string name="wangluocuowu">网络错误</string>
+
+    <!--运输板块 -->
+    <string name="woyaofahuo">我要发货</string>
+    <string name="woyaochengyun">我要承运</string>
+    <string name="chengyunrenrenzheng">承运人认证</string>
+    <string name="chengyunfangrenzheng">承运认证</string>
+
+    <string name="huoyuanguangchang">货源广场</string>
+    <string name="gerenzhongxin">个人中心</string>
+    <string name="zuixinxinxi">最新信息</string>
+    <string name="yunshu">运输</string>
+    <string name="baojia">报价</string>
+
+    <string name="congyezigexinxizhenghao">从业资格证信息证号</string>
+    <string name="xian20zifu">限20字符</string>
+    <string name="shuru11weishoujihao">输入11位手机号</string>
+    <string name="jinjilianxihaoma">紧急联系号码</string>
+    <string name="jiashizhengzhaopian">驾驶证照片</string>
+    <string name="chepaihao">车牌号</string>
+    <string name="qingshuruchepaihao">请输入车牌号</string>
+    <string name="daoluyunshuzhengzihao">道路运输证字号</string>
+    <string name="bixuyudaoluyunshuzhengyizhi">必须与道路运输证一致</string>
+    <string name="daoluyunshuzhengzhaopian">道路运输证照片</string>
+    <string name="cheqianqingxizhaopian">车前清晰照片</string>
+    <string name="chetouxingshizhengqingxizhaopian">车头行驶证清晰照片</string>
+    <string name="guachexingshizhengqingxizhaopian">挂车行驶证清晰照片</string>
+    <string name="chexing">车型</string>
+    <string name="chechang">车长</string>
+    <string name="chekuan">车宽</string>
+    <string name="chegao">车高</string>
+    <string name="shuru20yineixiaoshudianzuiduoliangwei">输入20以内,小数点最多两位</string>
+    <string name="zuidachengzaidongli">最大承载动力</string>
+    <string name="shuru100yineixiaoshudianzuiduoliangwei">输入100以内,小数点最多两位</string>
+
+    <string name="bixuan">必选</string>
+    <string name="bitian">必填</string>
+    <string name="biaoti">标题</string>
+    <string name="neirongbuchaoguo300zi">内容不超过300字</string>
+
+    <string name="huozhurenzheng">货主认证</string>
+    <string name="tijiaoziliao">提交资料</string>
+    <string name="pingtaishenhe">平台审核</string>
+    <string name="xingming">姓名</string>
+    <string name="shenfenzhenghaoma">身份证号码</string>
+    <string name="shenfenzhengzhaopian">身份证照片</string>
+    <string name="qiyemingcheng">企业名称</string>
+    <string name="yingyezhizhao">营业执照</string>
+    <string name="daoluyunshuxukezheng">道路运输许可证</string>
+    <string name="daoluyunshuxukezhenghao">道路运输许可证号</string>
+    <string name="cheliangguanli">车辆管理</string>
+    <string name="tianjiacheliang">添加车辆</string>
+    <string name="pipeisiji">匹配司机</string>
+    <string name="sijilianxidianhua">司机联系电话</string>
+
+    <string name="huowumingcheng">货物名称</string>
+    <string name="fahuoshijian">发货时间</string>
+    <string name="guige">规格</string>
+    <string name="huowuzhongliang">货物重量</string>
+    <string name="huowudizhi">货物地址</string>
+    <string name="fahuorenxinxi">发货人信息</string>
+    <string name="chexingyaoqiu">车型要求</string>
+    <string name="chechangyaoqiu">车长要求</string>
+    <string name="shifoujiaji">是否加急</string>
+    <string name="shi">是</string>
+    <string name="fou">否</string>
+    <string name="shouhuorenxinxi">收货人信息</string>
+    <string name="shouhuoshijian">收货时间</string>
+    <string name="mudidi">目的地</string>
+    <string name="xiangxidizhi">详细地址</string>
+    <string name="yirenzheng">已认证</string>
+    <string name="qingrenzheng">请认证</string>
+    <string name="huozhu">货主</string>
+    <string name="shouhuorenguanli">收货人管理</string>
+    <string name="fahuorenguanli">发货人管理</string>
+    <string name="chengyunfang">承运方</string>
+    <string name="wodeyundan">我的运单</string>
+    <string name="xitongtuijian">系统推荐</string>
+    <string name="getichengyunren">个体承运人</string>
+    <string name="qiyechengyunren">企业承运人</string>
+    <string name="yiwancheng">已完成</string>
+    <string name="yiguanbi">已关闭</string>
+    <string name="chaping">差评</string>
+    <string name="haoping">好评</string>
+    <string name="zhongping">中评</string>
+    <string name="yonghuming">用户名</string>
+    <string name="pingjia_hint">宝贝满足你的期待吗?说说它的优点吧</string>
+    <string name="pingjiachenggong">评价成功</string>
+    <string name="pingjiashibai">评价失败</string>
+    <string name="xuanzefukuanfangshi">选择付款方式</string>
+    <string name="qizushijian">起租时间</string>
+    <string name="jieshushijian">结束时间</string>
+    <string name="shangchuanshouchishenfenzheng">上传手持身份证照片</string>
+    <string name="dizhi">地址</string>
+    <string name="tijiaochenggong">提交成功</string>
+    <string name="tijiaoshibai">提交失败</string>
+    <string name="qingxuanzezhifufangshi">请选择支付方式</string>
+
+    <string name="quxiao">取消</string>
+    <string name="tishi">提示</string>
+    <string name="shifouquxiaodingdan">是否取消订单？</string>
+    <string name="shifousheqingtuikuan">是否申请退款？</string>
+    <string name="quxiaodingdanchenggong">取消订单成功</string>
+    <string name="quxiaodingdanshibai">取消订单失败,请重试</string>
+    <string name="tuikuanchenggong">申请退款成功,等待后台商户审核</string>
+    <string name="tuikuanshibai">申请退款失败,请重试</string>
+    <string name="shifouyijingshouhuo">是否已经收货？</string>
+    <string name="zulingxieyi">租赁协议</string>
+    <string name="zulinhetong">租赁合同</string>
+    <string name="qianming">签名</string>
+    <string name="qingxianxuanzeqishishijian">请先选择起租时间</string>
+    <string name="qishiriqiyujieshushijianxiangtong">起租时间和结束时间相同</string>
+    <string name="dengdaishenhe_hetong">资料已提交给后台,请等待审核(3~5个工作日)</string>
+    <string name="tijiaoshibai_chongshi">提交失败,请重试</string>
+    <string name="liebiaoweikong">列表为空</string>
+    <string name="tian">天</string>
+    <string name="gong">共</string>
+    <string name="jianshangpin">件商品</string>
+    <string name="hanyunfei">(含运费￥</string>
+    <string name="tuikuanjine">退款金额:￥</string>
+
+
+    <string name="shenhe">审核</string>
+    <string name="tuikuanzhong">退款中</string>
+    <string name="tuikuanwancheng">退款完成</string>
+    <string name="jujuetuikuan">拒绝退款</string>
+
+    <string name="nimingyonghu">匿名用户</string>
+    <string name="zhuanghuoshijian">装货时间</string>
+    <string name="julijieshushijian">距离报价结束剩余</string>
+
+    <string name="weizuochuxuanze">未作出选择</string>
+
+
+    <string name="chakanquanbudingdan">查看全部订单</string>
+    <string name="wodeshoucang">我的收藏</string>
+    <string name="yuyan">语言</string>
+    <string name="setting">设置</string>
+    <string name="touxiang">头像</string>
+    <string name="nicheng">昵称</string>
+    <string name="xingbie">性别</string>
+    <string name="chushengriqi">出生日期</string>
+    <string name="dizhiguanli">地址管理</string>
+    <string name="zhanghuyuanquan">账户与安全</string>
+    <string name="exit">退出登录</string>
+    <string name="qingshurujiuimima">请输入旧密码</string>
+    <string name="qingshuru6dao12weixinmima">请输入6-12位新密码</string>
+    <string name="qingzaishuruyicixinmima">请再输入一次新密码</string>
+    <string name="yonghumingmimacuowu">用户名密码错误</string>
+    <string name="huiyuanming">会员名</string>
+    <string name="qingshurumima">请输入密码</string>
+    <string name="wangjimima">忘记密码</string>
+    <string name="gerenzhuce">个人注册</string>
+    <string name="qiyezhuce">企业注册</string>
+    <string name="shuruxiangxidizhi">输入详细地址</string>
+    <string name="quanxuan">全选</string>
+    <string name="jiesuan">结算</string>
+
+    <string name="jiantizhongwen">简体中文</string>
+    <string name="english">English</string>
+    <string name="xuanzeyuyan">选择语言</string>
+
+    <string name="weihuoqudaoquanxian">未获取到权限,是否重新开启权限？</string>
+    <string name="tijiaodingdan">提交订单</string>
+    <string name="peisongfangshi">配送方式</string>
+    <string name="maijialiuyan">买家留言:</string>
+    <string name="duibencijiaoyideshuoming">对本次交易的说明和补充</string>
+    <string name="xiaoji">小计:</string>
+
+    <string name="tianxiexiangxidizhi">请填写详细地址</string>
+    <string name="morendizhi">默认地址</string>
+    <string name="shujuweikong">数据为空</string>
+    <string name="tianjiashouhuodizhi">添加收货地址</string>
+    <string name="weixuanzetupian">未选择图片</string>
+    <string name="qita_en">other</string>
+    <string name="yanshenfuwu_en">Extended service</string>
+    <string name="qita">其他</string>
+    <string name="yanshenfuwu">延伸服务</string>
+
+    <string name="huoquyanzhengma">获取验证码</string>
+    <string name="chongxinhuoquyanzhengma">重新获取验证码</string>
+    <string name="yanzhengmacuowu">验证码错误</string>
+
+    <string name="shangpinleixing">商品类型:</string>
+    <string name="weixuanzeshangpin">未选择商品</string>
+
+    <string name="nindeziliaoyitijiaozhipingtai">您的资料已提交给平台</string>
+    <string name="dengdaishenhe">等待审核!</string>
+    <string name="qufahuo">去发货</string>
+    <string name="shenheweitongguo">审核未通过</string>
+    <string name="chongxintijiaoziliao">重新提交资料</string>
+    <string name="qujiedan">去接单</string>
+    <string name="tianjiachenggong">添加成功</string>
+    <string name="tianjiashibai">添加失败</string>
+    <string name="mi">米</string>
+    <string name="dun">吨</string>
+    <string name="querenshanchu">确认删除</string>
+    <string name="ruwuqingchuanxingshizheng">如无请传车头行驶证</string>
+
+    <string name="zhengzaijinxingzhong">正在报价</string>
+    <string name="chakanbaojia">查看报价</string>
+    <string name="xuanzebaojia">选择报价</string>
+    <string name="quedingxuanzejiagewei">确定选择价格为</string>
+    <string name="xuanzebaojiachenggong">选择报价成功</string>
+    <string name="xuanzebaojiashibai">选择报价失败</string>
+    <string name="shouhuodizhiweikong">收货地址为空</string>
+    <string name="xiugaimimachenggong">修改密码成功</string>
+    <string name="xiugaimimashibai">修改密码失败</string>
+    <string name="wuliuzhuangtai">物流状态</string>
+    <string name="chengyungongsi">承运公司</string>
+    <string name="yundanbianhao">运单编号</string>
+    <string name="quanbupinpai">全部品牌</string>
+    <string name="quanbudiqu">全部地区</string>
+    <string name="chinese">中文</string>
+
+    <string name="dianhua">电话</string>
+    <string name="shurudianhua">输入电话</string>
+    <string name="qingxuanzechexing">请选择车型</string>
+    <string name="qingxuanzechechang">请选择车长</string>
+    <string name="jiage">价格</string>
+    <string name="shurujiage">输入价格</string>
+    <string name="yixuanze">已选</string>
+
+    <string name="wodebaojia">我的报价</string>
+    <string name="daizhuanghuo">待装货</string>
+    <string name="daixiehuo">待卸货</string>
+    <string name="daijiesuan">待结算</string>
+    <string name="dengdaixuanze">等待选择</string>
+    <string name="querenzhuanghuo">确认装货</string>
+    <string name="querenxiehuo">确认卸货</string>
+    <string name="shenqingjiesuan">申请结算</string>
+    <string name="huozhuweixuanze">货主未选择</string>
+    <string name="fabutiezi">发布帖子</string>
+
+    <string name="yuan">元</string>
+    <string name="shangjiazhongxin">我的店铺</string>
+    <string name="woyaokaidian">我要开店</string>
+    <string name="ninhaibushishangjia">您不是商家</string>
+    <string name="ninyijingshishangjia">您已经是商家</string>
+    <string name="jiesuanshenhezhong">结算审核中</string>
+    <string name="huoyuanxiangqing">货源详情</string>
+    <string name="yundanxiangqing">运单详情</string>
+    <string name="lijibaojia">立即报价</string>
+
+    <string name="yijieshu">已结束</string>
+    <string name="xiaoshi">小时</string>
+    <string name="fenzhong">分钟</string>
+    <string name="miao">秒</string>
+
+    <string name="zanwubaojia">暂无报价</string>
+    <string name="weitongguo">未通过</string>
+    <string name="shenhezhong">审核中</string>
+
+    <string name="mimachangdubudui">请输入6-12位密码</string>
+    <string name="zhanghaozaiqitashebeidenglu">帐号在其他设备登录</string>
+    <string name="yunfei">运费</string>
+
+    <string name="zhifuchenggong">支付成功</string>
+    <string name="zhifushibaiqingchongxinzhifu">支付失败,请重新支付</string>
+    <string name="wodefabu">我的发布</string>
+    <string name="fukuan">立即付款</string>
+    <string name="yifukuan">已付款</string>
+    <string name="beizhuxinxi">备注信息</string>
+    <string name="baojiashu">报价数</string>
+    <string name="shenqingshibai">申请失败</string>
+    <string name="zhongyaojixieshangping">众要机械商品</string>
+    <string name="weifukuan">货主未付款</string>
+
+    <string name="gonssimingcheng">公司名称:</string>
+    <string name="kaihuhang">开户行:</string>
+    <string name="zhanghu">账户:</string>
+
+    <string name="tiezibucunzai">该帖子不存在</string>
+    <string name="quedingshanchugaitie">确定要删除该帖子?</string>
+    <string name="shanchuchenggong">删除成功!</string>
+    <string name="shanchushibai_chognshi">删除失败,请重试</string>
+    <string name="quzheli">去这里</string>
+
+    <string name="fuwu">服务</string>
+    <string name="zhaopinpeixun">招聘培训</string>
+    <string name="jinrong">金融</string>
+    <string name="baoxian">保险</string>
+    <string name="gengduo">更多>></string>
+
+    <string name="gerenkaidian">个人开店</string>
+    <string name="qiyekaidian">企业开店</string>
+    <string name="woyaokaidian_zhuce">我要开店</string>
+    <string name="gouxuantongyixieyi">同意协议并阅读合同</string>
+    <string name="kaidianxieyi">开店协议</string>
+    <string name="qingyueduxieyibinggouxuan">请认真阅读协议并同意协议</string>
+    <string name="dianpumingcheng">店铺名称</string>
+    <string name="dianpudianhua">店铺电话</string>
+    <string name="qingshurulianxirenxingming">请输入联系人姓名</string>
+    <string name="gerenzhuce_lianxiren">联系人&#160;&#160;&#8201;&#8201;</string>
+    <string name="shenfenzhengzhengmian">身份证正面</string>
+    <string name="shenfenzhengfanmian">身份证反面</string>
+    <string name="gongsimingcheng">公司名称</string>
+    <string name="qingshuruyuyingyezhizhaoyizhidegongsimingcheng">请输入与营业执照一致的公司名称</string>
+    <string name="qingshuruyuyingyezhizhaoyizhidefarenxingming">请输入与营业执照一致的法人姓名</string>
+    <string name="farenshenfenzhengzhengmian">法人身份证正面</string>
+    <string name="farenshenfenzhengfanmian">法人身份证反面</string>
+    <string name="fuzeren">负责人&#160;&#160;&#8201;&#8201;</string>
+    <string name="kaidiansuoxujine">开店所需金额:</string>
+    <string name="duigongzhanghao">对公账号</string>
+    <string name="duigongzhanghaoxianxiadakuan">对公账号线下打款</string>
+    <string name="zhifubaokuaijiefukuan">支付宝快捷支付</string>
+    <string name="weixinkuaijiefukuan">微信快捷支付</string>
+    <string name="zhifufangshi">支付方式</string>
+    <string name="querenduigongdakuan">确认对公打款</string>
+    <string name="gongxininkaidianchenggong">恭喜您开店成功</string>
+    <string name="kaidianchenggong">开店成功</string>
+    <string name="dianjiquerdinganniufanhui">点击确定按钮返回</string>
+
+    <string name="chongxinxuanze">重新选择</string>
+    <string name="farenshenfenzhengzhengfanmian">法人身份证正反面</string>
+    <string name="shenfenzhengzhengfanmian">身份证正反面</string>
+    <string name="zhengmian">正面</string>
+    <string name="fanmian">反面</string>
+    <string name="youxiang">邮箱&#160;&#160;&#8201;&#8201;&#160;&#160;&#8201;&#8201;</string>
+
+    <string name="qingshuruyouxiang">请输入邮箱</string>
+    <string name="waihuizhuanzhang">外汇转账</string>
+    <string name="waihuikuaijiezhifu">外汇快捷支付</string>
+    <string name="lianxikefu">联系客服</string>
+    <string name="shangdianyiguanbi">此商户已关闭</string>
+
+    <string name="fanhui">返回</string>
+    <string name="quansheng">全省</string>
+    <string name="quanshi">全市</string>
+
+
+    <string name="card">银行卡&#160;&#160;&#8201;&#8201;</string>
+    <string name="card_hint">请输入银行卡</string>
+    <string name="card_name">持卡人姓名</string>
+    <string name="card_name_hint">请输入持卡人姓名</string>
+    <string name="open_bank">开户行&#160;&#160;&#8201;&#8201;</string>
+    <string name="open_bank_hint">请输入开户行</string>
+    <string name="open_bank_address">开户行地址</string>
+    <string name="open_bank_address_hint">请输入开户行地址</string>
+
+    <string name="bank_number">银行卡卡号</string>
+    <string name="No_opening">暂无开放</string>
+    <string name="bank_number_hint">请输入银行卡卡号</string>
+    <string name="hu_name_hint">请输入户名</string>
+    <string name="hu_name">户名&#160;&#160;&#8201;&#8201;&#160;&#160;&#8201;&#8201;&#8201;&#8201;&#8201;&#8201;</string>
+
+
+</resources>

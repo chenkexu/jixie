@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/window_system_color"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/topbar_padding">
+
+    <ImageView
+        android:id="@+id/base_top_bar_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:src="@mipmap/zyjx_icon" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/base_top_bar_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_search_edittext_bg"
+            android:gravity="start|center_vertical"
+            android:maxLines="2"
+            android:paddingEnd="50dp"
+            android:paddingRight="50dp"
+            android:textColor="@color/window_topbar_text_color"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/topbar_textsize" />
+
+        <ImageView
+            android:id="@+id/base_top_bar_search_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/base_top_bar_search"
+            android:layout_centerVertical="true"
+            android:paddingRight="14dp"
+            android:src="@mipmap/search" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/base_top_bar_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:textColor="@color/cffffff"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/base_top_bar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/message" />
+
+</LinearLayout>

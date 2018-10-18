@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+    <ImageView
+        android:id="@+id/news_item_iv"
+        android:layout_width="103dp"
+        android:layout_height="103dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/news_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="2"
+            android:text="热烈庆祝山东八达国际工程机械有限公司入驻众要机械"
+            android:textColor="@color/c242424"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/news_content_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="2"
+            android:text="2017-07-24发布"
+            android:textColor="@color/c989898"
+            android:textSize="13sp" />
+    </LinearLayout>
+</LinearLayout>

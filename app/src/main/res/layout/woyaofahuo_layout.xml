@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 货物名称-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/huowumingcheng"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_huowuname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+
+            <!-- 发货时间 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/fahuoshijian"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/wyaofahuo_layout_textview_fahuoshijian"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/wyaofahuo_layout_textview_fahuoshijian_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/rili" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!-- 规格 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/guige"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_guige"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!-- 货物重量 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/huowuzhongliang"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_zhongliang"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!--货物地址  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/huowudizhi"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_huowudizhi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+            <!--备注信息  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/beizhuxinxi"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_beizhuxinxi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="@color/cf2f2f2" />
+
+            <!-- 发货人信息-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:background="@color/window_system_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/fahuorenxinxi"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+            <!-- 联系人 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/lianxiren"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_lianxiren_fahuoren"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!--  联系电话-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/lianxidianhua"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_lianxidianhua_fahuoren"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:inputType="number"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!-- 车型要求 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/chexingyaoqiu"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_chexingyaoqiu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!-- 车长要求 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/chechangyaoqiu"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_chezhangyaoqiu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!-- 是否加急 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/shifoujiaji"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <RadioGroup
+                    android:id="@+id/wyaofahuo_layout_radiogroup_shifoujiaji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/wyaofahuo_layout_radiobutton_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/address_default_selecter"
+                        android:drawablePadding="5dp"
+                        android:text="@string/shi"
+                        android:textColor="@color/c333333"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/wyaofahuo_layout_radiobutton_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:button="@null"
+                        android:checked="true"
+                        android:drawableLeft="@drawable/address_default_selecter"
+                        android:drawablePadding="5dp"
+                        android:paddingLeft="30dp"
+                        android:text="@string/fou"
+                        android:textColor="@color/c333333"
+                        android:textSize="14sp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="@color/cf2f2f2" />
+
+            <!-- 收货人信息 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:background="@color/window_system_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/shouhuorenxinxi"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+            <!-- 联系人 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/lianxiren"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_lianxiren_shouhuoren"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!-- 联系电话 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/lianxidianhua"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_lianxidianhua_shouhuoren"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:inputType="number"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!-- 收货时间 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/shouhuoshijian"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/wyaofahuo_layout_textview_shouhuoshijian"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/wyaofahuo_layout_imageview_shouhuoshijian_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/rili" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!--目的地  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/mudidi"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_mudidi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <!--详细地址  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/xiangxidizhi"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/wyaofahuo_layout_edittext_xiangxidizhi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/kongbai_edittext_bg"
+                    android:maxLength="20"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <Button
+                android:id="@+id/wyaofahuo_layout_submit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="6dp"
+                android:background="@color/window_system_color"
+                android:text="@string/tijiao"
+                android:textColor="@color/cffffff"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

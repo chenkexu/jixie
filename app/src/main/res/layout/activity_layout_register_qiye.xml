@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/dianpumingcheng"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/id_register_qiye_dianpumingcheng"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:lines="1"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/lianxidianhua"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/id_register_qiye_dianpudianhua"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:hint="@string/shurudianhua"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/gongsimingcheng"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/id_register_qiye_gongsimingcheng"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:hint="@string/qingshuruyuyingyezhizhaoyizhidegongsimingcheng"
+                    android:lines="1"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/youxiang"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/id_register_qiye_youxiang"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:hint="@string/qingshuruyouxiang"
+                    android:lines="1"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    android:text="@string/yingyezhizhao"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/id_register_qiye_yingyezhizhao"
+                        android:layout_width="63dp"
+                        android:layout_height="72dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/icon_yingyezhizhao"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:id="@+id/id_register_qiye_yingyezhizhao_chongxintijiao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_chongxinxuanze"
+                        android:paddingBottom="4dp"
+                        android:paddingEnd="7dp"
+                        android:paddingStart="7dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/chongxinxuanze"
+                        android:textColor="@color/cffffff"
+                        android:textSize="8sp"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/id_register_qiye_yingyezhizhao_shili"
+                    android:layout_width="63dp"
+                    android:layout_height="72dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:background="@mipmap/icon_yingyezhizhao_shilitu"
+                    android:padding="13dp"
+                    android:paddingTop="15dp"
+                    android:scaleType="fitXY" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+            <!--法人-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/fuzeren"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/id_register_qiye_fuzeren"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:hint="@string/qingshuruyuyingyezhizhaoyizhidefarenxingming"
+                    android:lines="1"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/bank_number"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/card_number"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:hint="@string/bank_number_hint"
+                    android:lines="1"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/hu_name"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/card_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="27dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:hint="@string/hu_name_hint"
+                    android:lines="1"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/open_bank"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/open_bank"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:hint="@string/open_bank_hint"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="@string/open_bank_address"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/open_bank_address"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/transparent_bg"
+                    android:hint="@string/open_bank_address_hint"
+                    android:textColor="@color/c333333"
+                    android:textColorHint="@color/c999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:background="@color/ccdcdcd" />
+
+
+            <!-- 身份证正反面-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    android:text="@string/farenshenfenzhengzhengfanmian"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="36dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="2dp">
+
+                <ImageView
+                    android:id="@+id/id_register_qiye_shenfenzhengzhengmian"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@mipmap/icon_shenfenzheng_zhengmian"
+                    android:padding="10dp"
+                    app:layout_constraintDimensionRatio="W,72:109"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/id_register_qiye_shenfenzhengzhengmian_fuzhu" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="@id/id_register_qiye_shenfenzhengzhengmian"
+                    app:layout_constraintLeft_toLeftOf="@id/id_register_qiye_shenfenzhengzhengmian"
+                    app:layout_constraintRight_toRightOf="@id/id_register_qiye_shenfenzhengzhengmian"
+                    app:layout_constraintTop_toTopOf="@id/id_register_qiye_shenfenzhengzhengmian">
+
+                    <TextView
+                        android:id="@+id/id_register_qiye_shenfenzhengzhengmian_chongxinxuanze"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chongxinxuanze"
+                        android:paddingBottom="4dp"
+                        android:paddingEnd="7dp"
+                        android:paddingStart="7dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/chongxinxuanze"
+                        android:textColor="@color/cffffff"
+                        android:textSize="8sp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/id_register_qiye_shenfenzhengzhengmian_fuzhu"
+                    android:layout_width="22dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintLeft_toRightOf="@id/id_register_qiye_shenfenzhengzhengmian"
+                    app:layout_constraintRight_toLeftOf="@+id/id_register_qiye_shenfenzhengfanmian" />
+
+                <ImageView
+                    android:id="@+id/id_register_qiye_shenfenzhengfanmian"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@mipmap/icon_shenfenzheng_fanmian"
+                    android:padding="10dp"
+                    app:layout_constraintDimensionRatio="W,72:109"
+                    app:layout_constraintLeft_toRightOf="@id/id_register_qiye_shenfenzhengzhengmian_fuzhu"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="@id/id_register_qiye_shenfenzhengfanmian"
+                    app:layout_constraintLeft_toLeftOf="@id/id_register_qiye_shenfenzhengfanmian"
+                    app:layout_constraintRight_toRightOf="@id/id_register_qiye_shenfenzhengfanmian"
+                    app:layout_constraintTop_toTopOf="@id/id_register_qiye_shenfenzhengfanmian">
+
+                    <TextView
+                        android:id="@+id/id_register_qiye_shenfenzhengfanmian_chongxinxuanze"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chongxinxuanze"
+                        android:paddingBottom="4dp"
+                        android:paddingEnd="7dp"
+                        android:paddingStart="7dp"
+                        android:paddingTop="4dp"
+                        android:text="@string/chongxinxuanze"
+                        android:textColor="@color/cffffff"
+                        android:textSize="8sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <!--身份证示例-->
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@mipmap/icon_shenfenzhengshilitu"
+                    android:gravity="bottom"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="26dp"
+                    android:paddingStart="26dp"
+                    app:layout_constraintDimensionRatio="W,92:271"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/id_register_qiye_shenfenzhengzhengmian_shili"
+                            android:layout_width="89dp"
+                            android:layout_height="53dp"
+                            android:scaleType="fitXY" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/zhengmian"
+                            android:textColor="@color/c999999"
+                            android:textSize="9sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/id_register_qiye_shenfenzhengfanmian_shili"
+                            android:layout_width="89dp"
+                            android:layout_height="53dp"
+                            android:scaleType="fitXY" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/fanmian"
+                            android:textColor="@color/c999999"
+                            android:textSize="9sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="13dp"
+                android:background="@color/ccdcdcd" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="65dp" />
+
+            <Button
+                android:id="@+id/id_register_qiye_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginRight="36dp"
+                android:background="@drawable/tiezi_details_fasong_bg"
+                android:text="@string/next"
+                android:textColor="@color/cffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cf0efff5"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <RadioGroup
+        android:id="@+id/changed_sex_radiogroup_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cffffff"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/changed_sex_radio_nan"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:button="@null"
+            android:drawableEnd="@drawable/radiobutton_sex_selecter"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="男" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/cf0efff5" />
+
+        <RadioButton
+            android:id="@+id/changed_sex_radio_nv"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:button="@null"
+            android:drawableEnd="@drawable/radiobutton_sex_selecter"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="女" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/cf0efff5" />
+
+        <RadioButton
+            android:id="@+id/changed_sex_radio_baomi"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:button="@null"
+            android:drawableEnd="@drawable/radiobutton_sex_selecter"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="保密" />
+
+    </RadioGroup>
+
+</LinearLayout>

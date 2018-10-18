@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/window_system_color"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/topbar_padding">
+
+    <ImageView
+        android:id="@+id/base_top_bar_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:src="@mipmap/left_btn_white"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/base_top_bar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:textColor="@color/window_topbar_text_color"
+        android:textSize="@dimen/topbar_textsize" />
+
+    <ImageView
+        android:id="@+id/base_top_bar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/base_top_bar_right2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/base_top_bar_righttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/window_topbar_text_color"
+        android:textSize="@dimen/topbar_textsize"
+        android:visibility="gone" />
+
+</LinearLayout>

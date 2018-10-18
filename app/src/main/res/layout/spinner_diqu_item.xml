@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <!--<RadioButton-->
+    <!--android:id="@+id/spinner_diqu_item_button"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:button="@null"-->
+    <!--android:drawablePadding="5dp"-->
+    <!--android:drawableRight="@drawable/radiobutton_sex_selecter"-->
+    <!--android:maxLines="1"-->
+    <!--android:padding="15dp"-->
+    <!--android:text="@string/shaixuan"-->
+    <!--android:textColor="@drawable/xiajiantou_radiobutton_text" />-->
+    <TextView
+        android:id="@+id/spinner_diqu_item_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:padding="15dp"
+        android:textColor="@drawable/xiajiantou_radiobutton_text" />
+
+    <ImageView
+        android:id="@+id/spinner_diqu_item_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:src="@mipmap/shaixuan_duihao" />
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/business_layout_iv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/small" />
+
+        <TextView
+            android:id="@+id/business_layout_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/business_layout_iv"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/c585858"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/business_layout_xingji_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/business_layout_name"
+            android:layout_below="@id/business_layout_name"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" />
+    </RelativeLayout>
+
+    <com.qmwl.zyjx.view.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/business_layout_contenttv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/c666666"
+            android:textSize="14sp" />
+    </com.qmwl.zyjx.view.MyScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/ce3e3e3" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cd2d2d2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="16dp"
+            android:background="@color/ccf96a2f" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:gravity="center"
+            android:text="@string/suoyouchanpin"
+            android:textColor="@color/c333333"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/cd2d2d2" />
+</LinearLayout>

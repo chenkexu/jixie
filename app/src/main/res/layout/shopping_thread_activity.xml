@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <RadioGroup
+        android:id="@+id/shopping_thread_radiobutton_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cf1f2f6"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RadioButton
+            android:id="@+id/shopping_thread_radiobutton_quanbu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tag_radiobutton_bg"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/all"
+            android:textColor="@drawable/tag_radiobutton_text_color"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/shopping_thread_radiobutton_xinji"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tag_radiobutton_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/xinji"
+            android:textColor="@drawable/tag_radiobutton_text_color"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/shopping_thread_radiobutton_ershouji"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tag_radiobutton_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/ershouji"
+            android:textColor="@drawable/tag_radiobutton_text_color"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/shopping_thread_radiobutton_peijian"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tag_radiobutton_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/peijian"
+            android:textColor="@drawable/tag_radiobutton_text_color"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/shopping_thread_radiobutton_zulin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tag_radiobutton_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/zulin"
+            android:textColor="@drawable/tag_radiobutton_text_color"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <LinearLayout
+            android:id="@+id/shopping_thread_zonghe_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/shopping_thread_zonghe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/xiajiantou_selecter"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/zonghe"
+                android:textColor="@drawable/xiajiantou_radiobutton_text"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/shopping_thread_pinpai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/xiajiantou_selecter"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/pinpai"
+                android:textColor="@drawable/xiajiantou_radiobutton_text"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/shopping_thread_diqu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/xiajiantou_selecter"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/diqu"
+                android:textColor="@drawable/xiajiantou_radiobutton_text"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/shopping_thread_shaixuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/xiajiantou_selecter"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/shaixuan"
+                android:textColor="@drawable/xiajiantou_radiobutton_text"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/shopping_thread_swiperefreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.qmwl.zyjx.view.GridViewWithHeaderAndFooter
+            android:id="@+id/shopping_thread_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cf0eff5"
+            android:horizontalSpacing="6dp"
+            android:numColumns="2"
+            android:scrollbars="none"
+            android:verticalSpacing="6dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

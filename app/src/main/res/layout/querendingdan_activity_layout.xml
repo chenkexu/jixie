@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/querendingdan_layout_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cf0efff5"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <ListView
+        android:id="@+id/querendingdan_layout_listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/cf0efff5"
+        android:dividerHeight="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/cffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|end"
+            android:text="@string/heji"
+            android:textColor="@color/c363636"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/querendingdan_layout_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:maxLines="1"
+            android:text="￥0"
+            android:textColor="@color/ccf96a2f"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/querendingdan_layout_submit"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/cfe0101"
+            android:gravity="center"
+            android:text="@string/tijiaodingdan"
+            android:textColor="@color/cffffff"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/point_while"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/wode_background"
+        android:paddingBottom="30dp"
+        android:paddingTop="60dp">
+
+        <com.qmwl.zyjx.view.CircularImage
+            android:id="@+id/wode_layout_iv"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/morentouxiang" />
+
+        <TextView
+            android:id="@+id/wode_fragment_layout_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wode_layout_iv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/weidenglu"
+            android:textColor="@color/window_topbar_text_color"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/ceaeaea" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/ceaeaea"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/wode_dingdan_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/wodedingdan"
+                    android:textColor="@color/c333333"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chakanquanbudingdan"
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/wode_radiogroup_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <RadioButton
+                    android:id="@+id/wode_daifukuan_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/daifukuan"
+                    android:gravity="center"
+                    android:text="@string/daifukuan"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/wode_daifahuo_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/daifahuo"
+                    android:gravity="center"
+                    android:text="@string/daifahuo"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/wode_daishouhuo_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/daishouhuo"
+                    android:gravity="center"
+                    android:text="@string/daishouhuo"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/wode_daipingjia_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/haoping_huise"
+                    android:gravity="center"
+                    android:text="@string/yiwancheng"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/wode_tuikuan_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@mipmap/tuikuan"
+                    android:gravity="center"
+                    android:text="@string/tuikuanshouhou"
+                    android:textColor="@color/c333333"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/ceaeaea" />
+
+            <!--商家中心or我要开店 -->
+            <LinearLayout
+                android:id="@+id/wode_shangjiazhongxin_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:clickable="false"
+                    android:drawableEnd="@mipmap/icon_shangpu"
+                    android:drawablePadding="5dp"
+                    android:text="@string/shangjiazhongxin"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px" />
+
+            <LinearLayout
+                android:id="@+id/wode_woyaokaidian_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/woyaokaidian"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+
+            <!--浏览记录or收藏 -->
+            <LinearLayout
+                android:id="@+id/wode_liulanjilu_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/liulanjilu"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px" />
+
+            <LinearLayout
+                android:id="@+id/wode_shoucang_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/wodeshoucang"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <!--发帖or租赁 -->
+
+            <LinearLayout
+                android:id="@+id/wode_fatie_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/wodefatie"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px" />
+
+            <LinearLayout
+                android:id="@+id/wode_fragment_wodezuling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/wodezuling"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <!-- 我的评价,意见反馈,设置-->
+            <LinearLayout
+                android:id="@+id/wode_fragment_pingjia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/wodepingjia"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px" />
+
+            <LinearLayout
+                android:id="@+id/wode_fragment_yijianfankui"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/yijianfankui"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:id="@+id/wode_fragment_yuyan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/yuyan"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4px" />
+
+            <LinearLayout
+                android:id="@+id/wode_fragment_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/point_while"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/setting"
+                    android:textColor="@color/c394036"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/c999999"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:src="@mipmap/right" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/zaixianzhifu_layout_topbar"
+        layout="@layout/base_top_bar_center" />
+
+    <RadioGroup
+        android:id="@+id/zaixianzhifu_layout_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/zaixianzhifu_layout_topbar"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/zaixianzhifu_layout_zhifubao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@mipmap/zfb_logo"
+            android:drawableRight="@drawable/radiobutton_duihao_selecter"
+            android:padding="12dp"
+            android:text="@string/zhifubao" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/ceeeeee" />
+
+        <RadioButton
+            android:id="@+id/zaixianzhifu_layout_weixin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@mipmap/wx_logo"
+            android:drawableRight="@drawable/radiobutton_duihao_selecter"
+            android:padding="12dp"
+            android:text="@string/weixin" />
+    </RadioGroup>
+
+    <View
+        android:id="@+id/zaixianfuzhu_layout_fuzhu"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true" />
+
+    <Button
+        android:id="@+id/zaixianzhifu_layout_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/zaixianfuzhu_layout_fuzhu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/small_yuanjiao_bg"
+        android:text="@string/pay"
+        android:textColor="@color/cffffff"
+        android:textSize="16sp" />
+</RelativeLayout>

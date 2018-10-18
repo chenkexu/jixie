@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cffffff"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/shouhuodizhi_layout_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
+        android:maxLength="200"
+        android:maxLines="1"
+        android:text="收货人:张某"
+        android:textColor="@color/c363636"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/shouhuodizhi_layout_tellphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/shouhuodizhi_layout_name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/business_layout_name"
+        android:maxLength="30"
+        android:maxLines="1"
+        android:text="111111111"
+        android:textColor="@color/c363636"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/shouhuodizhi_layout_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/shouhuodizhi_layout_name"
+        android:layout_below="@id/shouhuodizhi_layout_name"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="收货地址:撒即可电击文库回到家阿萨德控件啊好的空间安徽的空间撒谎"
+        android:textColor="@color/c363636"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/shouhuodizhi_layout_address"
+        android:layout_marginLeft="8dp"
+        android:src="@mipmap/address" />
+
+</RelativeLayout>

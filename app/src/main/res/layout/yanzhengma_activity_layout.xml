@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cf6f6f6"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="horizontal"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/womenyifasong"
+            android:textColor="@color/ca9aaac"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/yanzhengma"
+            android:textColor="@color/c000"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/duanxindaoshouji"
+            android:textColor="@color/ca9aaac"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="30dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+86"
+            android:textColor="@color/c394036"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/genghuanshoujihao_queren_calltv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:text="15701005218"
+            android:textColor="@color/c394036"
+            android:textSize="28sp" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/genghuanshoujihao_queren_code_edittext"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:hint="请输入验证码"
+        android:inputType="number"
+        android:paddingBottom="5dp"
+        android:textColorHint="@color/ca9aaac" />
+
+    <Button
+        android:id="@+id/genghuanshoujihao_queren_okbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/xiaojiao_5dp_button_background"
+        android:text="@string/ok"
+        android:textColor="@color/cffffff"
+        android:textSize="21sp" />
+
+</LinearLayout>

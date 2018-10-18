@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/main_fragment_head_flow_container"
+        android:layout_width="match_parent"
+        android:layout_height="139dp" />
+
+    <LinearLayout
+        android:id="@+id/main_fragment_zhongyaozixun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <ImageView
+            android:id="@+id/second_activity_zixun_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/zhongyaozixun" />
+
+        <TextView
+            android:id="@+id/second_activity_zixun_re"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="@string/re"
+            android:textColor="@color/main_re"
+            android:textSize="14sp" />
+
+        <ViewFlipper
+            android:id="@+id/second_activity_zixun_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:inAnimation="@anim/anim_com_in"
+            android:outAnimation="@anim/anim_get_out"
+            android:textColor="@color/window_main_text_color"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/right" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <ImageView
+            android:id="@+id/second_activity_tiezi_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/xinxifabu" />
+
+        <TextView
+            android:id="@+id/second_activity_tiezi_re"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="@string/re"
+            android:textColor="@color/main_re"
+            android:textSize="14sp" />
+
+        <ViewFlipper
+            android:id="@+id/second_activity_tiezi_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:inAnimation="@anim/anim_com_in"
+            android:outAnimation="@anim/anim_get_out"
+            android:maxLines="1"
+            android:textColor="@color/window_main_text_color"
+            android:textSize="14sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/right" />
+    </LinearLayout>
+
+</LinearLayout>
