@@ -10,7 +10,7 @@ public class OrderCancelActivity extends BaseActivity {
 
     @Override
     protected void setLayout() {
-        setContentLayout(R.layout.news_activity_layout);
+        setContentLayout(R.layout.activity_order_cancel);
 
     }
 
