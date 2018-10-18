@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="shaixuan_zonghe_array">
+        <item>comprehensive</item>
+        <item>Sales volume</item>
+        <item>Press release time</item>
+        <item>Years of play</item>
+        <item>Prices range from low to high</item>
+        <item>Prices range from high to low</item>
+    </string-array>
+</resources>

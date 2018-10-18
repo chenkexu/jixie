@@ -1,0 +1,532 @@
+<resources>
+    <string name="app_name">众要机械</string>
+    <string name="shouye">home</string>
+    <string name="fabu">publish</string>
+    <string name="gouwuche">shopping</string>
+    <string name="wode">me</string>
+    <string name="re">hot</string>
+    <string name="ge">personal</string>
+    <string name="qi">enterprise</string>
+    <string name="qi_dong">rise</string>
+    <string name="quanguo">nationwide</string>
+    <string name="fatie">post</string>
+    <string name="tiezi">card</string>
+    <string name="xiangqing">details</string>
+    <string name="gerenxinxi">Personalinformation</string>
+    <string name="login">login</string>
+
+    <string name="register">register</string>
+    <string name="register_pepoule">PersonalRegister</string>
+    <string name="register_gonsi">CompanyRegistration</string>
+    <string name="zhucejishiwei">Registration is deemed consent</string>
+    <string name="yonghuxieyi">《User agreement》</string>
+    <string name="yonghuxieyi_title">User agreement</string>
+    <string name="querendingdan">Confirm order</string>
+    <string name="qingshezhiyonghuming">Please set the user name</string>
+    <string name="shezhimima">Please set the 6-20 bit password</string>
+    <string name="shezhimima_too">Please enter a password again</string>
+    <string name="qingshuruxingming">Please enter your name</string>
+    <string name="qingshurufaren">Please enter a legal person</string>
+    <string name="qingshurusousuodeguanjianzi">Please enter the search keywords</string>
+    <string name="qingshurugongsimingcheng">Please enter your company name</string>
+    <string name="qingshurushoujihao">Please enter your cell phone number</string>
+    <string name="fasongyanzhengma">Send authentication code</string>
+    <string name="duanxinyanzhengma">SMS authentication code</string>
+    <string name="yanzhnegmabuzhengque">The verification code is incorrect</string>
+    <string name="faxiaoxi">Send message</string>
+    <string name="xiaoxi">message</string>
+
+    <string name="zixun">information</string>
+    <string name="heimingdan">Blacklist</string>
+    <string name="zhifubao">Alipay</string>
+    <string name="weixin">WeChat</string>
+
+    <string name="weidenglu">Not logged in</string>
+    <string name="zhanghuanquan">Account security</string>
+    <string name="xiugaishoujihaoma">Modify cell phone number</string>
+    <string name="xiugaimima">Modify password</string>
+    <string name="xiugainickname">Modify nickname</string>
+    <string name="xiugaixingbie">Modify gender</string>
+    <string name="xiugaidenglumima">Modify login password</string>
+    <string name="xiugaichenggong">Modify successfully</string>
+    <string name="xiugaishibai">Modify failed</string>
+    <string name="xiugai">modify</string>
+
+    <string name="shoujihao">Cell-phone number</string>
+    <string name="genghuanshoujihao">Change cell phone number</string>
+
+    <string name="shurushoujihao">Enter cell phone number</string>
+    <string name="china_dalu">Chinese Mainland</string>
+    <string name="qingshurunindeshoujihao">Please input your mobile phone number</string>
+    <string name="next">next</string>
+    <string name="ok">ok</string>
+    <string name="baocun">save</string>
+
+    <string name="womenyifasong">We have sent</string>
+    <string name="yanzhengma">Verification Code</string>
+    <string name="duanxindaoshouji">SMS to your mobile phone:</string>
+    <string name="qingshuruyanzhengma">Please enter a verification code</string>
+    <string name="wodedingdan">My order</string>
+    <string name="dingdanxiangqing">Order details</string>
+    <string name="wodepingjia">My assessment</string>
+    <string name="wodefatie">My post</string>
+    <string name="fabiaopingjia">Publication evaluation</string>
+
+    <string name="yijianfankui">Feedback</string>
+    <string name="qingjianchawangluo">Please check the network</string>
+
+    <string name="wodezuling">My lease</string>
+    <string name="tijiao">submit</string>
+    <string name="zulingqishiriqi">commencement date of lease</string>
+    <string name="yajin">deposit</string>
+    <string name="zujin">rent</string>
+    <string name="zuqi">lease term</string>
+    <string name="heji">total:</string>
+
+    <string name="chakanhetong">View contract</string>
+    <string name="lianximaijia">Contact seller</string>
+    <string name="quxiaodingdan">Cancellation of order</string>
+    <string name="pay">&#160;payment&#160;</string>
+    <string name="tuikuan">&#160;refund&#160;</string>
+    <string name="chakanwuliu">View Logistics</string>
+    <string name="querenshouhuo">Confirm receipt</string>
+    <string name="pingjia">&#160;evaluate&#160;</string>
+
+    <string name="all">all</string>
+    <string name="zhengzaishenhe">Under review</string>
+    <string name="daifukuan">No Pay</string>
+    <string name="yizulin">Leased</string>
+    <string name="zulin">lease</string>
+
+    <string name="daifahuo">No Send</string>
+    <string name="daishouhuo">No Receive</string>
+    <string name="daipingjia">Pending evaluation</string>
+
+    <string name="liulanjilu">Browse log</string>
+    <string name="collection">My collection</string>
+
+    <string name="allpingjia">All evaluation</string>
+    <string name="lookpingjia">Check my comments</string>
+    <string name="pingjia_success">Evaluate success</string>
+    <string name="tuijianchanpin">Recommended products</string>
+    <string name="suoyouchanpin">All products</string>
+    <string name="pingjia_success_content">Thank you for your kind comments, which will help more people who want to buy this product!</string>
+    <string name="change_nickname_message">4-20 characters. It can be made in Chinese, English and numbers</string>
+    <string name="bianji">edit</string>
+    <string name="bianjishouhuodizhi">Edit Address</string>
+    <string name="delete">delete</string>
+    <string name="chongzhi">Reset</string>
+    <string name="shouhuodizhi">address</string>
+    <string name="shouhuoren">name</string>
+    <string name="lianxiren">Contacts</string>
+    <string name="lianxidianhua">tel</string>
+    <string name="suozaidiqu">Location</string>
+    <string name="zaixianzhifu">Online payment</string>
+    <string name="duigongfukuan">Pay against the public</string>
+    <string name="qingxuanze">Please select</string>
+    <string name="jiedaoxiangzhen">Street (township)</string>
+    <string name="map">Map</string>
+    <string name="wait_reviewed">Awaiting audit</string>
+    <string name="shenheyitongguo">The audit has been approved</string>
+    <string name="daishenhe">Contract and material submitted to the backstage administrator</string>
+    <string name="bussiness">Merchant Center</string>
+    <string name="qingxuanzexingbie">Please choose gender</string>
+    <string name="xinji">new</string>
+    <string name="ershouji">scondhand</string>
+    <string name="peijian">parts</string>
+
+    <string name="zonghe">comprehensive</string>
+    <string name="pinpai">brand</string>
+    <string name="diqu">region</string>
+    <string name="shaixuan">screen</string>
+    <string name="message">news</string>
+    <string name="baomi">secrecy</string>
+    <string name="nan">male</string>
+    <string name="nv">female</string>
+    <string name="xinxibuwanzheng">Incomplete information</string>
+    <string name="mimabuyizhi">The password entered for the two time is inconsistent</string>
+    <string name="ninhaimeiyoushouhuodizhi">You have not received the address yet</string>
+    <string name="zuokuobao">[</string>
+    <string name="youkuohao">]</string>
+    <string name="yonghuming_zhengze">abcdefghijklmnopqrstuvwxyvz0123456789</string>
+    <string name="yanzhengmafasongchenggong">Verify code sent successfully</string>
+    <string name="yanzhengmafasongshibai">Failed to send verification code</string>
+    <string name="yanzhengmafasongshibaiwangluo">The verification code failed to send. Please check if the network is unblocked</string>
+    <string name="qingshuruzhengquedeyanzhengma">Please enter the correct cell phone number</string>
+    <string name="zhuceshibai">login has failed</string>
+    <string name="zhucechenggong">login was successful</string>
+    <string name="fatiechenggong">Posting success</string>
+    <string name="fatieshibai">Post failed. Please try again</string>
+    <string name="fatieshibaijianchawangluo">Post failed, please check the network</string>
+    <string name="huitiechenggong">Successful replies</string>
+    <string name="huitieshibai">Replies failed. Please try again</string>
+    <string name="huitieshibaiqingjiancha">Check card failed, please check the network</string>
+    <string name="huifuneirong">Reply content</string>
+    <string name="wucifenlei">No such classification</string>
+    <string name="wucishangjia">No such merchant</string>
+    <string name="shangpinxiangqing">Commodity details</string>
+    <string name="tuikuanshouhou">Refund</string>
+    <string name="wuliuxiangqing">Logistics details</string>
+    <string name="qingxuanzesheng">Please select Province</string>
+    <string name="qingxuanzeshi">Please select the city</string>
+    <string name="wushangpin">No goods</string>
+
+    <string name="dingdantijiaoshibai">Submission of order failed</string>
+    <string name="dingdantijiaoshibai_wangluo">The order submission failed. Please check the network</string>
+    <string name="dingdanyitijiaochenggong">The order has been submitted for success. Please go to the personal Center</string>
+    <string name="tijiaoshibai_wangluo">Submission failed. Please check the network</string>
+    <string name="baocunchenggong">Save successfully</string>
+    <string name="zanwulianxifangshi">Contact information</string>
+    <string name="baocunshibaiqingchongshi">Save failed. Please try again</string>
+    <string name="wangluocuowu">network error</string>
+
+    <!--运输板块 -->
+    <string name="woyaofahuo">I want to ship the goods</string>
+    <string name="woyaochengyun">I want to take the goods</string>
+    <string name="chengyunrenrenzheng">Carrier certification</string>
+    <string name="chengyunfangrenzheng">Carrier certification</string>
+
+    <string name="huoyuanguangchang">Supply square</string>
+    <string name="gerenzhongxin">Personal Center</string>
+    <string name="zuixinxinxi">Latest information</string>
+    <string name="yunshu">transport</string>
+    <string name="baojia">offer</string>
+
+    <string name="congyezigexinxizhenghao">Qualification certificate, information card number</string>
+    <string name="xian20zifu">Limit 20 characters</string>
+    <string name="shuru11weishoujihao">Enter 11 digit mobile phone number</string>
+    <string name="jinjilianxihaoma">Emergency contact number</string>
+    <string name="jiashizhengzhaopian">Driving license photo</string>
+    <string name="chepaihao">License plate number</string>
+    <string name="qingshuruchepaihao">Please enter the license plate number</string>
+    <string name="daoluyunshuzhengzihao">Road Transport Certificate number</string>
+    <string name="bixuyudaoluyunshuzhengyizhi">It must be in conformity with the road transportation certificate</string>
+    <string name="daoluyunshuzhengzhaopian">Road transport permit photo</string>
+    <string name="cheqianqingxizhaopian">A clear photograph of the car</string>
+    <string name="chetouxingshizhengqingxizhaopian">Clear picture of travel license</string>
+    <string name="guachexingshizhengqingxizhaopian">Trailer travel permit clear photos</string>
+    <string name="chexing">Models</string>
+    <string name="chechang">Marquis</string>
+    <string name="chekuan">Car width</string>
+    <string name="chegao">Car high</string>
+    <string name="shuru20yineixiaoshudianzuiduoliangwei">Enter less than 20 decimal places up to two</string>
+    <string name="zuidachengzaidongli">Maximum load power</string>
+    <string name="shuru100yineixiaoshudianzuiduoliangwei">Enter less than 100 decimal places up to two</string>
+
+    <string name="bixuan">Mandatory</string>
+    <string name="bitian">Required</string>
+    <string name="biaoti">Title</string>
+    <string name="neirongbuchaoguo300zi">The content is not more than 300 words</string>
+
+    <string name="huozhurenzheng">Shipper authentication</string>
+    <string name="tijiaoziliao">Submit information</string>
+    <string name="pingtaishenhe">Platform audit</string>
+    <string name="xingming">name</string>
+    <string name="shenfenzhenghaoma">ID card No</string>
+    <string name="shenfenzhengzhaopian">ID photo</string>
+    <string name="qiyemingcheng">Enterprise name</string>
+    <string name="yingyezhizhao">Business license</string>
+    <string name="daoluyunshuxukezheng">Road transport permit</string>
+    <string name="daoluyunshuxukezhenghao">Road transport license number</string>
+    <string name="cheliangguanli">Vehicle management</string>
+    <string name="tianjiacheliang">Add vehicle</string>
+    <string name="pipeisiji">Matching driver</string>
+    <string name="sijilianxidianhua">Driver is telephone number</string>
+
+    <string name="huowumingcheng">Name of goods</string>
+    <string name="fahuoshijian">Delivery time</string>
+    <string name="guige">Specifications</string>
+    <string name="huowuzhongliang">Cargo weight</string>
+    <string name="huowudizhi">Cargo address</string>
+    <string name="fahuorenxinxi">Shipper information</string>
+    <string name="chexingyaoqiu">Vehicle type requirements</string>
+    <string name="chechangyaoqiu">The commander asked</string>
+    <string name="shifoujiaji">Is it urgent?</string>
+    <string name="shi">yes</string>
+    <string name="fou">no</string>
+    <string name="shouhuorenxinxi">consignee</string>
+    <string name="shouhuoshijian">Delivery time</string>
+    <string name="mudidi">Destination</string>
+    <string name="xiangxidizhi">Detailed address</string>
+    <string name="yirenzheng">Authenticated</string>
+    <string name="qingrenzheng">Please certify</string>
+    <string name="huozhu">The owner</string>
+    <string name="shouhuorenguanli">Consignee management</string>
+    <string name="fahuorenguanli">Shipper management</string>
+    <string name="chengyunfang">carrier</string>
+    <string name="wodeyundan">My consignment note</string>
+    <string name="xitongtuijian">System recommendation</string>
+    <string name="getichengyunren">Individual carrier</string>
+    <string name="qiyechengyunren">Enterprise carrier</string>
+    <string name="yiwancheng">Completed</string>
+    <string name="yiguanbi">Closed</string>
+    <string name="chaping">Bad</string>
+    <string name="haoping">Praise</string>
+    <string name="zhongping">In the comments</string>
+    <string name="yonghuming">User name</string>
+    <string name="pingjia_hint">Baby, meet your expectations? Tell me something about it</string>
+    <string name="pingjiachenggong">Evaluate success</string>
+    <string name="pingjiashibai">Evaluation failure</string>
+    <string name="xuanzefukuanfangshi">Choose payment terms</string>
+    <string name="qizushijian">Lease time</string>
+    <string name="jieshushijian">End time</string>
+    <string name="shangchuanshouchishenfenzheng">Upload handheld ID photos</string>
+    <string name="dizhi">address</string>
+    <string name="tijiaochenggong">Submit successfully</string>
+    <string name="tijiaoshibai">Submission failure</string>
+    <string name="qingxuanzezhifufangshi">Please choose payment method</string>
+
+    <string name="quxiao">cancel</string>
+    <string name="tishi">Prompt</string>
+    <string name="shifouquxiaodingdan">Do you want to cancel the order?</string>
+    <string name="shifousheqingtuikuan">Do you apply for a refund?</string>
+    <string name="quxiaodingdanchenggong">Cancel order successfully</string>
+    <string name="quxiaodingdanshibai">Failed to cancel order. Please try again</string>
+    <string name="tuikuanchenggong">Apply for refund success, waiting for the background merchant audit</string>
+    <string name="tuikuanshibai">Failed to apply for refund. Please try again</string>
+    <string name="shifouyijingshouhuo">Have you received the goods?</string>
+    <string name="zulingxieyi">Lease agreement</string>
+    <string name="zulinhetong">Lease agreement</string>
+    <string name="qianming">autograph</string>
+    <string name="qingxianxuanzeqishishijian">Please choose the rental time first</string>
+    <string name="qishiriqiyujieshushijianxiangtong">The same starting time and ending time</string>
+    <string name="dengdaishenhe_hetong">Data has been submitted to the background. Please wait for the audit (3~5 working days)</string>
+    <string name="tijiaoshibai_chongshi">Submission failed. Please try again</string>
+    <string name="liebiaoweikong">The list is empty</string>
+    <string name="tian">day</string>
+    <string name="gong">total</string>
+    <string name="jianshangpin">Piece goods</string>
+    <string name="hanyunfei">(freight￥</string>
+    <string name="tuikuanjine">refund amount:￥</string>
+
+
+    <string name="shenhe">To examine</string>
+    <string name="tuikuanzhong">Refund</string>
+    <string name="tuikuanwancheng">Refund completed</string>
+    <string name="jujuetuikuan">Refuse refund</string>
+
+    <string name="nimingyonghu">anonymous</string>
+    <string name="zhuanghuoshijian">loading time</string>
+    <string name="julijieshushijian">Distance end</string>
+
+    <string name="weizuochuxuanze">Not selected</string>
+
+
+    <string name="chakanquanbudingdan">View all orders</string>
+    <string name="wodeshoucang">My collection</string>
+    <string name="yuyan">language</string>
+    <string name="setting">setting</string>
+    <string name="touxiang">Head portrait</string>
+    <string name="nicheng">nickname</string>
+    <string name="xingbie">sex</string>
+    <string name="chushengriqi">Date of birth</string>
+    <string name="dizhiguanli">Address management</string>
+    <string name="zhanghuyuanquan">Accounts and security</string>
+    <string name="exit">Log out</string>
+    <string name="qingshurujiuimima">Please enter an old password</string>
+    <string name="qingshuru6dao12weixinmima">Please enter 6-12 new passwords</string>
+    <string name="qingzaishuruyicixinmima">Please enter a new password again</string>
+    <string name="yonghumingmimacuowu">User name password error</string>
+    <string name="huiyuanming">Member name</string>
+    <string name="qingshurumima">Please input a password</string>
+    <string name="wangjimima">Forgot password</string>
+    <string name="gerenzhuce">Individual</string>
+    <string name="qiyezhuce">Enterprise</string>
+    <string name="shuruxiangxidizhi">Enter detailed address</string>
+    <string name="quanxuan">Select</string>
+    <string name="jiesuan">Settlement</string>
+
+    <string name="jiantizhongwen">简体中文</string>
+    <string name="english">English</string>
+    <string name="xuanzeyuyan">Select language</string>
+
+    <string name="weihuoqudaoquanxian">No access was granted. Do you want to reopen permissions?</string>
+    <string name="tijiaodingdan">submit order</string>
+    <string name="peisongfangshi">Delivery mode</string>
+    <string name="maijialiuyan">Buyer message:</string>
+    <string name="duibencijiaoyideshuoming">Description and supplement of this transaction</string>
+    <string name="xiaoji">total:</string>
+
+    <string name="tianxiexiangxidizhi">Please fill in the details</string>
+    <string name="morendizhi">default address</string>
+    <string name="shujuweikong">The data is empty</string>
+    <string name="tianjiashouhuodizhi">add address</string>
+    <string name="weixuanzetupian">No picture selected</string>
+    <string name="qita_en">other</string>
+    <string name="yanshenfuwu_en">Extended service</string>
+    <string name="qita">其他</string>
+    <string name="yanshenfuwu">延伸服务</string>
+
+    <string name="huoquyanzhengma">Verification Code</string>
+    <string name="chongxinhuoquyanzhengma">again Verification Code</string>
+    <string name="yanzhengmacuowu">Code Error</string>
+
+    <string name="shangpinleixing">mold:</string>
+    <string name="weixuanzeshangpin">Unselected goods</string>
+
+    <string name="nindeziliaoyitijiaozhipingtai">Your information has been submitted to the platform</string>
+    <string name="dengdaishenhe">Waiting for audit!</string>
+    <string name="qufahuo">Go to the delivery</string>
+    <string name="shenheweitongguo">Audit failed</string>
+    <string name="chongxintijiaoziliao">Resubmit information</string>
+    <string name="qujiedan">To pick up a single</string>
+    <string name="tianjiachenggong">Add a success</string>
+    <string name="tianjiashibai">Add failure</string>
+    <string name="mi">meter</string>
+    <string name="dun">ton</string>
+    <string name="querenshanchu">Confirm Delete</string>
+    <string name="ruwuqingchuanxingshizheng">If there is no train driving permit</string>
+
+
+    <string name="zhengzaijinxingzhong">be in progress</string>
+    <string name="chakanbaojia">quoted price</string>
+    <string name="xuanzebaojia">Select quotation</string>
+    <string name="quedingxuanzejiagewei">Determine the selection price for</string>
+    <string name="xuanzebaojiachenggong">Choose a successful offer</string>
+    <string name="xuanzebaojiashibai">Failed to select quote</string>
+    <string name="shouhuodizhiweikong">The receipt address is null</string>
+    <string name="xiugaimimachenggong">Password successfully modified</string>
+    <string name="xiugaimimashibai">Failed to modify password</string>
+    <string name="wuliuzhuangtai">Logistics status</string>
+    <string name="chengyungongsi">Carrier company</string>
+    <string name="yundanbianhao">Waybill number</string>
+    <string name="quanbupinpai">All brands</string>
+    <string name="quanbudiqu">All regions</string>
+    <string name="chinese">中文</string>
+
+    <string name="dianhua">phone</string>
+    <string name="shurudianhua">Enter the phone</string>
+    <string name="qingxuanzechexing">Please select the model</string>
+    <string name="qingxuanzechechang">Please select the conductor</string>
+    <string name="jiage">price</string>
+    <string name="shurujiage">import price</string>
+    <string name="yixuanze">selected</string>
+
+    <string name="wodebaojia">My offer</string>
+    <string name="daizhuanghuo">Pending shipment</string>
+    <string name="daixiehuo">Cargo pending</string>
+    <string name="daijiesuan">Pending settlement</string>
+    <string name="dengdaixuanze">Waiting for choice</string>
+    <string name="querenzhuanghuo">Confirm shipment</string>
+    <string name="querenxiehuo">Confirm discharge</string>
+    <string name="shenqingjiesuan">Apply for settlement</string>
+    <string name="huozhuweixuanze">Shipper not selected</string>
+    <string name="fabutiezi">Posting</string>
+
+    <string name="yuan">RMB</string>
+    <string name="shangjiazhongxin">Business Center</string>
+    <string name="woyaokaidian">open shop</string>
+    <string name="ninhaibushishangjia">You are not a businessman</string>
+    <string name="ninyijingshishangjia">You are already a businessman</string>
+    <string name="jiesuanshenhezhong">Settlement audit</string>
+    <string name="huoyuanxiangqing">Details of goods supply</string>
+    <string name="yundanxiangqing">Waybill details</string>
+    <string name="lijibaojia">Immediate offer</string>
+
+    <string name="yijieshu">Has ended</string>
+    <string name="xiaoshi">hour</string>
+    <string name="fenzhong">Minute</string>
+    <string name="miao">sec</string>
+
+    <string name="zanwubaojia">quotation no quotation</string>
+    <string name="weitongguo">Not pass</string>
+    <string name="shenhezhong">Audit</string>
+
+    <string name="mimachangdubudui">Please enter a 6-12 bit password</string>
+    <string name="zhanghaozaiqitashebeidenglu">Login on other devices</string>
+    <string name="yunfei">freight</string>
+
+    <string name="zhifuchenggong">Successful payment</string>
+    <string name="zhifushibaiqingchongxinzhifu">Payment failed, please pay again</string>
+    <string name="wodefabu">My release</string>
+    <string name="fukuan">Immediate payment</string>
+    <string name="yifukuan">Payment already paid</string>
+    <string name="beizhuxinxi">Memo information</string>
+    <string name="baojiashu">Offer number</string>
+    <string name="shenqingshibai">Failure of application</string>
+    <string name="zhongyaojixieshangping">众要机械商品</string>
+    <string name="weifukuan">Shipper is unpaid</string>
+
+    <string name="gonssimingcheng">Corporate name:</string>
+    <string name="kaihuhang">Bank of deposit:</string>
+    <string name="zhanghu">account:</string>
+
+    <string name="tiezibucunzai">The post doesn not exist</string>
+    <string name="quedingshanchugaitie">Make sure you want to delete this post?</string>
+    <string name="shanchuchenggong">Delete successfully!</string>
+    <string name="shanchushibai_chognshi">Delete failed. Please try again</string>
+    <string name="quzheli">go here</string>
+
+
+    <string name="fuwu">server</string>
+    <string name="zhaopinpeixun">recruitment</string>
+    <string name="jinrong">finance</string>
+    <string name="baoxian">insurance</string>
+    <string name="gengduo">more>></string>
+
+    <string name="gerenkaidian">personal store</string>
+    <string name="qiyekaidian">business opening</string>
+    <string name="woyaokaidian_zhuce">shop</string>
+    <string name="gouxuantongyixieyi">sgreement of agreement</string>
+    <string name="kaidianxieyi">shop opening agreement</string>
+    <string name="qingyueduxieyibinggouxuan">please read the agreement carefully and agree to the agreement</string>
+    <string name="dianpumingcheng">shop name</string>
+    <string name="dianpudianhua">shop phone</string>
+    <string name="qingshurulianxirenxingming">please enter the name of the contact</string>
+    <string name="gerenzhuce_lianxiren">contacts&#160;&#160;&#8201;&#8201;</string>
+    <string name="shenfenzhengzhengmian">facade of ID card</string>
+    <string name="shenfenzhengfanmian">identity card</string>
+    <string name="gongsimingcheng">corporate name</string>
+    <string name="qingshuruyuyingyezhizhaoyizhidegongsimingcheng">please enter the name of the company that is consistent with the business license</string>
+    <string name="qingshuruyuyingyezhizhaoyizhidefarenxingming">please enter the name of the legal person that is consistent with the business license</string>
+    <string name="farenshenfenzhengzhengmian">facade of legal person identity card</string>
+    <string name="farenshenfenzhengfanmian">the reverse side of a legal person identity card</string>
+    <string name="fuzeren">person in charge</string>
+    <string name="kaidiansuoxujine">the amount required for the opening of the store:</string>
+    <string name="duigongzhanghao">to the public account</string>
+    <string name="duigongzhanghaoxianxiadakuan">make money under the public account line</string>
+    <string name="zhifubaokuaijiefukuan">alipay quick payment</string>
+    <string name="weixinkuaijiefukuan">weChat quick payment</string>
+    <string name="zhifufangshi">payment method</string>
+    <string name="querenduigongdakuan">confirmation of a public strike</string>
+    <string name="gongxininkaidianchenggong">congratulations on your success in the store</string>
+    <string name="kaidianchenggong">success in the shop</string>
+    <string name="dianjiquerdinganniufanhui">click the confirm button to return</string>
+
+    <string name="chongxinxuanze">re selection</string>
+    <string name="farenshenfenzhengzhengfanmian">legal person identity card is positive and negative</string>
+    <string name="shenfenzhengzhengfanmian">positive and negative identity card</string>
+    <string name="zhengmian">positive</string>
+    <string name="fanmian">the other side</string>
+    <string name="youxiang">mailbox&#160;&#160;&#8201;</string>
+    <string name="qingshuruyouxiang">please enter the mailbox</string>
+    <string name="waihuizhuanzhang">foreign exchange transfer</string>
+    <string name="waihuikuaijiezhifu">fast payment of foreign exchange</string>
+    <string name="lianxikefu">contact Customer Service</string>
+    <string name="shangdianyiguanbi">the merchant has closed</string>
+
+    <string name="fanhui">return</string>
+    <string name="quansheng">whole province</string>
+    <string name="quanshi">the city</string>
+
+
+
+
+
+
+    <string name="card">bank_card&#160;&#160;&#8201;&#8201;</string>
+    <string name="card_hint">please enter the bank card number</string>
+    <string name="card_name">cardholder name</string>
+    <string name="card_name_hint">please enter the cardholder name</string>
+    <string name="open_bank">bank of deposit&#160;&#160;&#8201;&#8201;</string>
+    <string name="open_bank_hint">please enter the bank of deposit</string>
+    <string name="open_bank_address">open bank address</string>
+    <string name="open_bank_address_hint">please enter the open bank address</string>
+
+    <string name="bank_number">bank card number</string>
+    <string name="bank_number_hint">please enter the bank card number</string>
+    <string name="hu_name_hint">please enter the name of the household</string>
+    <string name="hu_name">name of the household&#160;&#160;&#8201;&#8201;&#160;&#160;&#8201;&#8201;</string>
+    <string name="No_opening">暂无开放</string>
+
+</resources>
