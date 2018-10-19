@@ -25,6 +25,10 @@ import com.hyphenate.easeui.EaseUI;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.model.EaseNotifier;
 import com.hyphenate.util.NetUtils;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.MainActivity;
 import com.qmwl.zyjx.bean.HxUserData;
@@ -103,6 +107,17 @@ public class MyApplication extends Application {
         getSharedData();
         initPush();
         initHuanXin();
+
+
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true
+                .methodCount(0)         // (Optional) How many method line to show. Default 2
+                .methodOffset(7)        // (Optional) Hides internal method calls up to offset. Default 5
+                .tag("okgo")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
+                .build();
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
+
+        });
     }
 
     //获取存储的信息

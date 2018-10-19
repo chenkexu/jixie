@@ -98,4 +98,8 @@
     <color name="cf7f7f7">#f7f7f7</color>
     <color name="c4c4c4c">#4c4c4c</color>
 
+
+    <color name="blue_nomal">#006db7</color>
+    <color name="line_color">#eeeeee</color>
+
 </resources>

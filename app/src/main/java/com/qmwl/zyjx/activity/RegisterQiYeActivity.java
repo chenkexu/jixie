@@ -179,8 +179,8 @@ public class RegisterQiYeActivity extends BaseActivity {
         String youxiangStr = youxiangEt.getText().toString().trim();
 
 
-        String cardNameStr = cardName.getText().toString().trim();//银行卡卡号
-        String cardNumberStr = cardNumber.getText().toString().trim();//户名
+        String cardNameStr = cardName.getText().toString().trim();//户名
+        String cardNumberStr = cardNumber.getText().toString().trim();//账号
         String openBankStr = openBank.getText().toString().trim();//开户行
         String openBankAddressStr = openBankAddress.getText().toString().trim();//开户行地址
 
@@ -203,7 +203,11 @@ public class RegisterQiYeActivity extends BaseActivity {
                 .addMultipartParameter("contacts_name", fuzerenStr)
                 .addMultipartParameter("shop_name", dianpumingchengStr)
                 .addMultipartParameter("company_phone", lianxidianhuaStr)
-                .addMultipartParameter("company_name", gongsimingchengStr);
+                .addMultipartParameter("company_name", gongsimingchengStr)
+                .addMultipartParameter("bank_account_name", cardNameStr)
+                .addMultipartParameter("bank_account_number", cardNumberStr)
+                .addMultipartParameter("bank_name", openBankStr)
+                .addMultipartParameter("bank_address", openBankAddressStr);
 
 //        if (!TextUtils.isEmpty(youxiangStr)) {
             up.addMultipartParameter("email", youxiangStr);

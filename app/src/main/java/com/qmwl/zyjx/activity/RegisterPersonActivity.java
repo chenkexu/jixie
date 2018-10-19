@@ -38,10 +38,10 @@ import butterknife.ButterKnife;
  */
 
 public class RegisterPersonActivity extends BaseActivity {
-    @BindView(R.id.card_number)
-    EditText cardNumber;
     @BindView(R.id.card_name)
     EditText cardName;
+    @BindView(R.id.card_number)
+    EditText cardNumber;
     @BindView(R.id.open_bank)
     EditText openBank;
     @BindView(R.id.open_bank_address)
@@ -205,7 +205,12 @@ public class RegisterPersonActivity extends BaseActivity {
                 .addMultipartParameter("uid", MyApplication.getIntance().userBean.getUid())
                 .addMultipartParameter("shop_name", dianpumingchengStr)
                 .addMultipartParameter("contacts_name", lianxirenStr)
-                .addMultipartParameter("company_phone", lianxidianhuaStr);
+                .addMultipartParameter("company_phone", lianxidianhuaStr)
+
+                .addMultipartParameter("bank_account_name", cardNameStr)
+                .addMultipartParameter("bank_account_number", cardNumberStr)
+                .addMultipartParameter("bank_name", openBankStr)
+                .addMultipartParameter("bank_address", openBankAddressStr);
 
 //        if (!TextUtils.isEmpty(youxiangStr)) {
         up.addMultipartParameter("email", youxiangStr);

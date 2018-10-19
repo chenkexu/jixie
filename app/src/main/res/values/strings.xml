@@ -511,7 +511,7 @@
 
 
     <string name="card">银行卡&#160;&#160;&#8201;&#8201;</string>
-    <string name="card_hint">请输入银行卡</string>
+    <string name="card_hint">请输入银行卡卡号</string>
     <string name="card_name">持卡人姓名</string>
     <string name="card_name_hint">请输入持卡人姓名</string>
     <string name="open_bank">开户行&#160;&#160;&#8201;&#8201;</string>
@@ -525,5 +525,20 @@
     <string name="hu_name_hint">请输入户名</string>
     <string name="hu_name">户名&#160;&#160;&#8201;&#8201;&#160;&#160;&#8201;&#8201;&#8201;&#8201;&#8201;&#8201;</string>
 
+
+
+    <!--请选择订单取消的理由页面-->
+    <string name="choose_cancel_reason">请选择订单取消的理由</string>
+    <string name="submmit">确定</string>
+    <string name="goods_not_cancel">不取消了</string>
+    <string name="goods_not_want_buy">不想买了</string>
+    <string name="goods_info_error">信息填写错误</string>
+    <string name="goods_offline">线下交易</string>
+    <string name="goods_descrip_error">材料与商品描述不符</string>
+    <string name="goods_size_error">大小尺寸与商品描述不符</string>
+    <string name="goods_has_problem">做工粗糙有瑕疵</string>
+    <string name="goods_color_error">颜色与描述不符</string>
+    <string name="goods_less_or_breakage">收到商品少件或破损</string>
+    <string name="goods_other">其他</string>
 
 </resources>

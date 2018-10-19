@@ -15,6 +15,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.qmwl.zyjx.R;
+import com.qmwl.zyjx.activity.OrderCancelActivity;
 import com.qmwl.zyjx.activity.ScendPingJiaActivity;
 import com.qmwl.zyjx.activity.SelecterWuLiuActivity;
 import com.qmwl.zyjx.activity.WoDeDingDanActivity;
@@ -38,9 +39,14 @@ import org.json.JSONObject;
 public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
     private View parentView;
+    private DingDanBean item;
+    private Context context;
 
-    public DingDanAdapter(View parentView) {
+
+
+    public DingDanAdapter(View parentView,Context context) {
         this.parentView = parentView;
+        this.context = context;
     }
 
 
@@ -50,7 +56,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.dingdan_layout_item, null);
         }
         ViewHolder holder = getHolder(convertView);
-        DingDanBean item = getItem(position);
+        item = getItem(position);
         holder.shangjiaName.setText(item.getShop_name());
         holder.shangpinStatue.setText(getStatueString(parent.getContext(), item.getDingdan_statue_code()));
         hideBottomView(holder, item.getDingdan_statue_code(), item.getIs_evaluate());
@@ -185,12 +191,17 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         }
     }
 
+
+
+
     class MyViewOnClickListener implements View.OnClickListener {
         DingDanBean item = null;
 
         void setData(DingDanBean item) {
             this.item = item;
         }
+
+
 
         @Override
         public void onClick(View v) {
@@ -208,6 +219,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 case R.id.dingdan_layout_item_quxiaodingdan:
                     //取消订单
                     quxiaodingdan(v.getContext(), item);
+                    // TODO: 2018/10/19 进入取消订单页面
+
                     break;
                 case R.id.dingdan_layout_item_fukuan:
 //                    Log.i("TAG", "付款");
@@ -293,6 +306,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         }).setTitle(context.getString(R.string.tishi)).show();
     }
 
+
+
     private void tuikuanPlay(final Context context, DingDanBean item) {
         AndroidNetworking.get(Contact.tuikuan + "?orderId=" + item.getOrder_id() + "&goods_id=" + item.getShopList().get(0).getGoods_id())
                 .build()
@@ -330,16 +345,24 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
             @Override
             public void onClick(Dialog dialog, boolean confirm) {
                 if (confirm) {
-                    cancelDingDan(context, item);
+                    Intent intent = new Intent(context, OrderCancelActivity.class);
+                    context.startActivity(intent);
                 }
                 dialog.dismiss();
             }
         }).setTitle(context.getString(R.string.tishi)).show();
     }
 
+
+
+
+
+
+
+
     //执行取消订单的方法
-    private void cancelDingDan(final Context context, DingDanBean item) {
-        AndroidNetworking.get(Contact.quxiaodingdan + "?orderId=" + item.getOrder_id())
+    private void cancelDingDan(final Context context, DingDanBean item,String content) {
+        AndroidNetworking.get(Contact.quxiaodingdan + "?orderId=" + item.getOrder_id()+"&content="+content)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override

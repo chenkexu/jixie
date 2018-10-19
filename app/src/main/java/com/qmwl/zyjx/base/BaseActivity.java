@@ -3,13 +3,11 @@ package com.qmwl.zyjx.base;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -20,15 +18,9 @@ import android.widget.TextView;
 
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.utils.AppManager;
-import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.LoadingDialogUtils;
-import com.qmwl.zyjx.utils.SharedUtils;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
-
-import java.util.Locale;
-
-import static java.security.AccessController.getContext;
 
 
 /**
@@ -69,6 +61,8 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         MyApplication.panduanyuyan(this);
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+
         //去掉Activity上面的状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
@@ -346,4 +340,6 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
             loadingDialog.dismiss();
         }
     }
+
+
 }

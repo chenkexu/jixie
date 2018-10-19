@@ -527,6 +527,7 @@
     <string name="bank_number_hint">please enter the bank card number</string>
     <string name="hu_name_hint">please enter the name of the household</string>
     <string name="hu_name">name of the household&#160;&#160;&#8201;&#8201;&#160;&#160;&#8201;&#8201;</string>
-    <string name="No_opening">暂无开放</string>
+    <string name="No_opening">No opening</string>
+
 
 </resources>

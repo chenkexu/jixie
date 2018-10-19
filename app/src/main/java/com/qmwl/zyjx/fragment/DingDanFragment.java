@@ -31,6 +31,9 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
     private List<DingDanBean> list;
     private SwipeRefreshLayout swipeRefreshLayout;
 
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,12 +42,18 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
         return inflate;
     }
 
+
+
+
+
+
+
     private void initView(View rootView) {
         ListView mLv = (ListView) rootView.findViewById(R.id.wodezuling_layout_listview);
 
         swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.yundan_layout_swiprefreshlayout);
         swipeRefreshLayout.setOnRefreshListener(this);
-        adapter = new DingDanAdapter(inflate);
+        adapter = new DingDanAdapter(inflate,getActivity());
         mLv.setAdapter(adapter);
         mLv.setOnItemClickListener(this);
     }
@@ -79,4 +88,7 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
             swipeRefreshLayout.setRefreshing(false);
         }
     }
+
+
+
 }

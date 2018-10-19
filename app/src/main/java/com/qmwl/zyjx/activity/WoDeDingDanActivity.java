@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,6 +13,7 @@ import android.widget.RadioGroup;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
 import com.qmwl.zyjx.base.BaseActivity;
@@ -23,6 +23,8 @@ import com.qmwl.zyjx.fragment.DingDanFragment;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -269,4 +271,13 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
         Intent intent = new Intent(WODEDINGDAN_BROADCAST_STRING);
         context.sendBroadcast(intent);
     }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getReason(String reason){
+        Logger.d(reason+"---");
+//        dingDanFragment1
+    }
+
+
 }

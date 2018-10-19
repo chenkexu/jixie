@@ -312,6 +312,32 @@ public class Contact {
     public static String huoquxianliebiao = httpaddress.concat("/index.php/api/cart/getDistrict");
 
 
+
+
+    //获取取消订单的理由
+    public static String get_cancel_order_reson = httpaddress.concat("/index.php/api/order/reson");
+
+    //获取退款订单的理由
+    public static String get_tuikuan_order_reson = httpaddress.concat("/index.php/api/order/tuiReson");
+
+    //获取退货订单的理由
+    public static String get_tuihuo_order_reson = httpaddress.concat("/index.php/api/order/tuiHuoReson");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void resetHttpAddress() {
         //公司注册接口
         register = httpaddress.concat("/index.php/api/register");
