@@ -541,4 +541,18 @@
     <string name="goods_less_or_breakage">收到商品少件或破损</string>
     <string name="goods_other">其他</string>
 
+
+
+    <string name="shenqingtuikuan">申请退款</string>
+    <string name="shenqingfapiao">申请发票</string>
+    <string name="tixingfahuo">提醒发货</string>
+    <string name="choose_rp_reason">请选择退款理由</string>
+    <string name="shenqingtuihuo">申请退货</string>
+    <string name="returnpay">退款</string>
+    <string name="returnthingpay">退货退款</string>
+    <string name="returnthing">退货</string>
+    <string name="shenqingweiquan">申请维权</string>
+    <string name="shensuweiquan">申诉维权</string>
+    <string name="inputreason">请输入您的申诉理由</string>
+    <string name="msg_return_thing_info">退货物流信息</string>
 </resources>

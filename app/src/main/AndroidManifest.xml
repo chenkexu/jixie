@@ -389,6 +389,16 @@
             android:name=".activity.ImActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.AskReturnThingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AskWeiQuanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ReturnWuliuActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.umeng.socialize.media.WBShareCallBackActivity"
             android:configChanges="keyboardHidden|orientation"

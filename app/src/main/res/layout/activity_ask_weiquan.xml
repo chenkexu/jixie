@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0EFF5">
+
+    <include layout="@layout/base_top_bar_center" />
+
+
+    <EditText
+        android:id="@+id/et_user_feedback_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:gravity="start|top"
+        android:hint="@string/inputreason"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:paddingBottom="20dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:paddingTop="20dp"
+        android:textColor="@color/c666666"
+        android:textColorHint="@color/c797979"
+        android:textSize="13dp" />
+
+
+    <Button
+        android:id="@+id/btn_user_feedback_submit"
+        style="@style/common_btn_style"
+         android:layout_height="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="32dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="15dp"
+        android:text="@string/tijiao" />
+</LinearLayout>

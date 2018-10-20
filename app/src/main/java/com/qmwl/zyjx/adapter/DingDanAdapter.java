@@ -1,9 +1,11 @@
 package com.qmwl.zyjx.adapter;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,22 +16,36 @@ import android.widget.TextView;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.qmwl.zyjx.R;
+import com.qmwl.zyjx.activity.AskReturnThingActivity;
+import com.qmwl.zyjx.activity.AskWeiQuanActivity;
 import com.qmwl.zyjx.activity.OrderCancelActivity;
+import com.qmwl.zyjx.activity.ReturnWuliuActivity;
 import com.qmwl.zyjx.activity.ScendPingJiaActivity;
 import com.qmwl.zyjx.activity.SelecterWuLiuActivity;
 import com.qmwl.zyjx.activity.WoDeDingDanActivity;
+import com.qmwl.zyjx.api.ApiManager;
+import com.qmwl.zyjx.api.ApiResponse;
+import com.qmwl.zyjx.api.BaseObserver;
 import com.qmwl.zyjx.base.MyBaseAdapter;
+import com.qmwl.zyjx.bean.CancelOrderBean;
 import com.qmwl.zyjx.bean.DingDanBean;
+import com.qmwl.zyjx.bean.ReturnPayOrderBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.utils.PoPuWindowUtils;
+import com.qmwl.zyjx.utils.RxUtil;
 import com.qmwl.zyjx.utils.ToastUtils;
+import com.qmwl.zyjx.view.AskRetunPayDialog;
 import com.qmwl.zyjx.view.CommomDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -84,6 +100,13 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         holder.fukuan.setVisibility(View.GONE);
         holder.quxiaodingdan.setVisibility(View.GONE);
         holder.lianximaijia.setVisibility(View.GONE);
+        //AddByHr
+        holder.shenqingtuikuan.setVisibility(View.GONE);
+        holder.shenqingfapiao.setVisibility(View.GONE);
+        holder.tixingfahuo.setVisibility(View.GONE);
+        holder.shenqingtuiuhuo.setVisibility(View.GONE);
+        holder.shenqingweiquan.setVisibility(View.GONE);
+
         switch (code) {
             case 0:
                 //待付款
@@ -95,12 +118,20 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
             case 1:
                 //statue =待发货
                 holder.lianximaijia.setVisibility(View.VISIBLE);
-                holder.tuikuan.setVisibility(View.VISIBLE);
+                //holder.tuikuan.setVisibility(View.VISIBLE);
+                holder.shenqingtuikuan.setVisibility(View.VISIBLE);
+                holder.shenqingfapiao.setVisibility(View.VISIBLE);
+                holder.tixingfahuo.setVisibility(View.VISIBLE);
+
                 break;
             case 2:
 //                statue = 待收货
+                holder.lianximaijia.setVisibility(View.VISIBLE);
                 holder.chakanwuliu.setVisibility(View.VISIBLE);
                 holder.querenshouhuo.setVisibility(View.VISIBLE);
+                holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
+                //显示申请维权,根据判断条件
+                holder.shenqingweiquan.setVisibility(View.VISIBLE);
 
                 break;
             case 3:
@@ -154,6 +185,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         ImageView shangjiaiv, shangpiniv;
         TextView shangjiaName, shangpinStatue, shangpinname, shangpinPrice, shangpinType, shangpinNum, zonggong, heji, yunfei;
         View lianximaijia, quxiaodingdan, fukuan, tuikuan, chakanwuliu, querenshouhuo, pingjia;
+        //AddByHr
+        View shenqingtuikuan, shenqingfapiao,tixingfahuo,shenqingtuiuhuo,shenqingweiquan;
         MyViewOnClickListener onClickListener;
 
         ViewHolder(View convertView) {
@@ -175,8 +208,21 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
             chakanwuliu = convertView.findViewById(R.id.dingdan_layout_item_chakanwuliu);
             querenshouhuo = convertView.findViewById(R.id.dingdan_layout_item_querenshouhuo);
             pingjia = convertView.findViewById(R.id.dingdan_layout_item_pingjia);
+            //@AddByHr
+            //申请退款
+            shenqingtuikuan = convertView.findViewById(R.id.dingdan_layout_item_shenqingtuikuan);
+            //申请发票
+            shenqingfapiao = convertView.findViewById(R.id.dingdan_layout_item_shenqingfapiao);
+            //提醒发货
+            tixingfahuo = convertView.findViewById(R.id.dingdan_layout_item_tixingfahuo);
+            //申请退货
+            shenqingtuiuhuo = convertView.findViewById(R.id.dingdan_layout_item_shenqingtuihuo);
+            //申请维权
+            shenqingweiquan = convertView.findViewById(R.id.dingdan_layout_item_shenqingweiquan);
+
+
             onClickListener = new MyViewOnClickListener();
-            View[] v = new View[]{pingjia, querenshouhuo, chakanwuliu, tuikuan, fukuan, quxiaodingdan, lianximaijia};
+            View[] v = new View[]{pingjia, querenshouhuo, chakanwuliu, tuikuan, fukuan, quxiaodingdan, lianximaijia,shenqingtuikuan,shenqingfapiao,tixingfahuo,shenqingtuiuhuo,shenqingweiquan};
             setViewOnClick(v, onClickListener);
             convertView.setTag(this);
         }
@@ -254,6 +300,55 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     intent.putExtra(ScendPingJiaActivity.shop_iv, shopBean.getIv_pic());
                     v.getContext().startActivity(intent);
                     break;
+                case R.id.dingdan_layout_item_shenqingtuikuan:
+                    //申请退款
+                    ApiManager.getInstence().getApiService().get_tuikuan_order_reson()
+                            .compose(RxUtil.<ApiResponse<CancelOrderBean>>rxSchedulerHelper())
+                            .subscribe(new BaseObserver<CancelOrderBean>() {
+                                @Override
+                                protected void onSuccees(ApiResponse<CancelOrderBean> t) {
+                                    CancelOrderBean data = t.getData();
+                                    AskRetunPayDialog mAskRpDialog=new AskRetunPayDialog();
+                                    if (!mAskRpDialog.isAdded()) {
+                                        Bundle mBundle=new Bundle();
+                                        mBundle.putSerializable("data",data);
+                                        mAskRpDialog.setArguments(mBundle);
+                                        mAskRpDialog.show(((Activity)context).getFragmentManager(), "mAskRpDialog");
+                                    }
+
+                                }
+
+                                @Override
+                                protected void onFailure(String errorInfo, boolean isNetWorkError) {
+
+                                }
+                            });
+
+
+                    break;
+                case R.id.dingdan_layout_item_shenqingfapiao:
+                    //申请发票
+
+                    break;
+                case R.id.dingdan_layout_item_tixingfahuo:
+                    //提醒发货
+
+                    break;
+                case R.id.dingdan_layout_item_shenqingtuihuo:
+                    //申请退货
+                    Intent mIntent=new Intent(context, AskReturnThingActivity.class);
+                    mIntent.putExtra("DingDanBean",item);
+                    context.startActivity(mIntent);
+                    break;
+
+                case R.id.dingdan_layout_item_shenqingweiquan:
+                    //申请维权
+                   // Intent mIntent2=new Intent(context, AskWeiQuanActivity.class);
+                     Intent mIntent2=new Intent(context, ReturnWuliuActivity.class);
+                    mIntent2.putExtra("DingDanBean",item);
+                    context.startActivity(mIntent2);
+                    break;
+
             }
         }
     }

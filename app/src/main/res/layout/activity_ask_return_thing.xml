@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/dingdan_layout_item_iv"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@mipmap/small" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/dingdan_layout_item_iv"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/dingdan_layout_container1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="13dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dingdan_layout_item_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/c242424"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/dingdan_layout_item_danjia_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="1"
+                    android:textColor="@color/c242424"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dingdan_layout_container2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dingdan_layout_item_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/c797979"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/dingdan_layout_item_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="12dp"
+                    android:maxLines="1"
+                    android:textColor="@color/c797979"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/ceeeeee" />
+
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/st_tuikuan"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftTextString="@string/returnpay"
+        stv:sLeftTextSize="15dp"
+        stv:sLeftTextColor="@color/c666666"
+        stv:sLeftIconRes="@mipmap/returnmoney1"
+        stv:sRightIconWidth="10dp"
+        stv:sRightIconHeight="15dp"
+        stv:sRightIconRes="@mipmap/img_map_arror_right" />
+    <com.allen.library.SuperTextView
+        android:id="@+id/st_tuihuotuikuan"
+        android:layout_width="match_parent"
+        stv:sLeftTextColor="@color/c666666"
+        stv:sLeftTextSize="15dp"
+        android:layout_height="50dp"
+        stv:sLeftIconRes="@mipmap/returnthing1"
+        stv:sRightIconWidth="10dp"
+        stv:sRightIconHeight="15dp"
+        stv:sLeftTextString="@string/returnthingpay"
+        stv:sRightIconRes="@mipmap/img_map_arror_right" />
+
+
+</LinearLayout>

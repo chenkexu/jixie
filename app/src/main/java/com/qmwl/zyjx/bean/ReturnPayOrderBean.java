@@ -1,13 +1,12 @@
 package com.qmwl.zyjx.bean;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by ckx on 2018/10/19.
  */
 
-public class CancelOrderBean implements Serializable{
+public class ReturnPayOrderBean {
 
     /**
      * code : 0

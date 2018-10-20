@@ -73,4 +73,63 @@
         <item name="android:backgroundDimEnabled">true</item>
         <!--模糊-->
     </style>
+
+
+ <!--   &lt;!&ndash;申请退款dialog&ndash;&gt;
+    <style name="user_personal_tv_pop_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_50</item>
+        <item name="android:textColor">@color/color_333333</item>
+        <item name="android:textSize">@dimen/font_sp_16</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item
+
+    </style>-->
+
+    <!--选择头像底部弹出dialog-->
+    <style name="common_pop_dialog" parent="@android:style/Theme.Dialog">
+        <!--Dialog的windowFrame框为无-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否半透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--是否显示title-->
+        <item name="android:windowNoTitle">true</item>
+        <!--设置dialog的背景，（#00000000）-->
+        <item name="android:background">@android:color/transparent</item>
+        <!--显示区域背景是否透明，（#00000000）-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--就是用来控制灰度的值，当为1时，界面除了我们的dialog内容是高亮显示的，dialog以外的区域是黑色的，完全看不到其他内容，系统的默认值是0.5-->
+        <item name="android:backgroundDimAmount">0.5</item>
+        <!--显示区域以外是否使用黑色半透明背景-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+
+ <!--   &lt;!&ndash;设置界面item详情&ndash;&gt;
+    <style name="person_setting_item_style">
+
+        <item name="sLeftTextSize">@dimen/font_sp_16</item>
+        <item name="sLeftTextColor">@color/color_ff283238</item>
+        <item name="sLeftViewMarginLeft">@dimen/dimen_30</item>
+        <item name="sRightTextColor">@color/color_485A63</item>
+        <item name="sRightTextSize">@dimen/font_sp_14</item>
+        <item name="sDividerLineColor">@color/color_eceff1</item>
+        <item name="sRightIconRes">@mipmap/img_map_arror_right</item>
+        <item name="sRightIconWidth">@dimen/dimen_10</item>
+        <item name="sRightIconHeight">@dimen/dimen_20</item>
+        <item name="sRightIconMarginRight">@dimen/dimen_20</item>
+    </style>-->
+
+    <!-- 通用按钮样式 -->
+    <style name="common_btn_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/common_btn_bg_selector</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12dp</item>
+    </style>
 </resources>

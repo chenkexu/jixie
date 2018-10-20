@@ -22,6 +22,8 @@ import com.qmwl.zyjx.utils.LoadingDialogUtils;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
 
+import butterknife.ButterKnife;
+
 
 /**
  * Created by Administrator on 2017/7/18.
@@ -73,11 +75,13 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         PushAgent.getInstance(this).onAppStart();
         AppManager.getAppManager().addActivity(this);
         setContentView(R.layout.base_layout);
+
         initBaseView();
         setStatueLayoutParmes();
         setLayout();
         setLayoutBundle(savedInstanceState);
         initBar();
+        ButterKnife.bind(this);
         initView();
         onListener();
         getInterNetData();

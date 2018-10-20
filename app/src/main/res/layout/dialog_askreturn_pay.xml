@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="50dp"
+       >
+
+    <TextView
+        android:id="@+id/user_personal_pop_take_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="18dp"
+        android:layout_centerVertical="true"
+        android:textColor="@color/theme_green"
+        android:layout_marginLeft="10dp"
+        android:text="@string/choose_rp_reason" />
+    <TextView
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/user_personal_pop_take_photo"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/c666666"
+        android:textSize="14dp"
+        android:text="@string/submmit"/>
+    </RelativeLayout>
+    <View android:layout_width="match_parent"
+        android:layout_height="0.5dp"   
+        android:background="@color/ceee"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_reson_returnpay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"/>
+</LinearLayout>

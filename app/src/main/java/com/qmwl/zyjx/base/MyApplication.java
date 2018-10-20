@@ -93,7 +93,7 @@ public class MyApplication extends Application {
         instance = this;
         pushMessage();
         mHandler = new Handler();
-        Config.DEBUG = false;
+        Config.DEBUG = true;
         UMShareAPI.get(this);
         MobclickAgent.setScenarioType(MyApplication.this, MobclickAgent.EScenarioType.E_UM_NORMAL);
         UMConfigure.init(MyApplication.this, null, null, UMConfigure.DEVICE_TYPE_PHONE, "1e221fdbb93b21a7924c0e2ebf4a889b");

@@ -171,6 +171,11 @@
         android:layout_height="2px"
         android:background="@color/ceeeeee" />
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:layoutDirection="rtl"
+        android:scrollbars="none">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -178,59 +183,75 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
+
+
+
+        <!--提醒发货-->
         <TextView
-            android:id="@+id/dingdan_layout_item_chakanwuliu"
+            android:id="@+id/dingdan_layout_item_tixingfahuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_waiyuan_orange_bg"
+            android:layout_marginLeft="10dp"
+            android:text="@string/tixingfahuo"
+            android:textColor="@color/ccf96a2f"
+            android:textSize="11sp"
+            android:visibility="gone"
+            />
+
+
+        <!--申请退货-->
+        <TextView
+            android:id="@+id/dingdan_layout_item_shenqingtuihuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_waiyuan_orange_bg"
+            android:layout_marginLeft="10dp"
+            android:text="@string/shenqingtuihuo"
+            android:textColor="@color/ccf96a2f"
+            android:textSize="11sp"
+            android:visibility="gone"
+            />
+
+
+        <!--申请发票-->
+        <TextView
+            android:id="@+id/dingdan_layout_item_shenqingfapiao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_waiyuan_bg"
+            android:text="@string/shenqingfapiao"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/c666666"
+            android:textSize="11sp"
+            android:visibility="gone"
+            />
+
+
+        <TextView
+            android:id="@+id/dingdan_layout_item_shenqingtuikuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="@drawable/button_waiyuan_bg"
-            android:text="@string/chakanwuliu"
+            android:text="@string/shenqingtuikuan"
             android:textColor="@color/c666666"
             android:textSize="11sp"
             android:visibility="gone" />
 
+
+        <!--退款(之前版本)-->
         <TextView
-            android:id="@+id/dingdan_layout_item_querenshouhuo"
+            android:id="@+id/dingdan_layout_item_tuikuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="@drawable/button_waiyuan_bg"
-            android:text="@string/querenshouhuo"
+            android:text="@string/tuikuan"
             android:textColor="@color/c666666"
             android:textSize="11sp"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/dingdan_layout_item_pingjia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/button_waiyuan_bg"
-            android:text="@string/pingjia"
-            android:textColor="@color/c666666"
-            android:textSize="11sp"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/dingdan_layout_item_lianximaijia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_waiyuan_bg"
-            android:text="@string/lianximaijia"
-            android:textColor="@color/c666666"
-            android:textSize="11sp"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/dingdan_layout_item_quxiaodingdan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/button_waiyuan_bg"
-            android:text="@string/quxiaodingdan"
-            android:textColor="@color/c666666"
-            android:textSize="11sp"
-            android:visibility="gone" />
 
         <TextView
             android:id="@+id/dingdan_layout_item_fukuan"
@@ -245,15 +266,82 @@
             android:textSize="11sp"
             android:visibility="gone" />
 
+
+
         <TextView
-            android:id="@+id/dingdan_layout_item_tuikuan"
+            android:id="@+id/dingdan_layout_item_quxiaodingdan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="@drawable/button_waiyuan_bg"
-            android:text="@string/tuikuan"
+            android:text="@string/quxiaodingdan"
             android:textColor="@color/c666666"
             android:textSize="11sp"
             android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/dingdan_layout_item_chakanwuliu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_waiyuan_bg"
+            android:text="@string/chakanwuliu"
+            android:textColor="@color/c666666"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/dingdan_layout_item_querenshouhuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_waiyuan_bg"
+            android:text="@string/querenshouhuo"
+            android:textColor="@color/c666666"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+
+        <!--申请维权-->
+        <TextView
+            android:id="@+id/dingdan_layout_item_shenqingweiquan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+
+            android:background="@drawable/button_waiyuan_bg"
+            android:text="@string/shenqingweiquan"
+            android:textColor="@color/c666666"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+
+
+        <TextView
+            android:id="@+id/dingdan_layout_item_lianximaijia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_waiyuan_bg"
+            android:text="@string/lianximaijia"
+            android:textColor="@color/c666666"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+
+
+        <TextView
+            android:id="@+id/dingdan_layout_item_pingjia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_waiyuan_bg"
+            android:text="@string/pingjia"
+            android:textColor="@color/c666666"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
     </LinearLayout>
+    </HorizontalScrollView>
 </LinearLayout>
