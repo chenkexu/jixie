@@ -20,6 +20,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.AskReturnThingActivity;
 import com.qmwl.zyjx.activity.AskWeiQuanActivity;
+import com.qmwl.zyjx.activity.DuiGongFuKuanActivity;
 import com.qmwl.zyjx.activity.OrderCancelActivity;
 import com.qmwl.zyjx.activity.ReturnWuliuActivity;
 import com.qmwl.zyjx.activity.ScendPingJiaActivity;
@@ -28,6 +29,7 @@ import com.qmwl.zyjx.activity.WoDeDingDanActivity;
 import com.qmwl.zyjx.api.ApiManager;
 import com.qmwl.zyjx.api.ApiResponse;
 import com.qmwl.zyjx.api.BaseObserver;
+import com.qmwl.zyjx.base.Constant;
 import com.qmwl.zyjx.base.MyBaseAdapter;
 import com.qmwl.zyjx.bean.CancelOrderBean;
 import com.qmwl.zyjx.bean.DingDanBean;
@@ -388,13 +390,15 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 });
     }
 
+
+
     //退款
     private void tuikuan(final Context context, final DingDanBean item) {
         new CommomDialog(context, R.style.dialog, context.getString(R.string.shifousheqingtuikuan), new CommomDialog.OnCloseListener() {
             @Override
             public void onClick(Dialog dialog, boolean confirm) {
                 if (confirm) {
-                    tuikuanPlay(context, item);
+                    tuikuanPlay(context, item,"");
                 }
                 dialog.dismiss();
             }
@@ -403,8 +407,10 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
 
 
-    private void tuikuanPlay(final Context context, DingDanBean item) {
-        AndroidNetworking.get(Contact.tuikuan + "?orderId=" + item.getOrder_id() + "&goods_id=" + item.getShopList().get(0).getGoods_id())
+    public void tuikuanPlay(final Context context, DingDanBean item,String content) {
+        AndroidNetworking.get(Contact.tuikuan + "?orderId=" + item.getOrder_id()
+                + "&goods_id=" + item.getShopList().get(0).getGoods_id()
+                +"&content" + content)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
@@ -434,6 +440,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 });
     }
 
+
     //取消订单
     private void quxiaodingdan(final Context context, final DingDanBean item) {
         new CommomDialog(context, R.style.dialog, context.getString(R.string.shifouquxiaodingdan), new CommomDialog.OnCloseListener() {
@@ -441,6 +448,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
             public void onClick(Dialog dialog, boolean confirm) {
                 if (confirm) {
                     Intent intent = new Intent(context, OrderCancelActivity.class);
+                    intent.putExtra(Constant.cancel_order_reson, Constant.get_cancel_order_reson);
+                    intent.putExtra("order", item);
                     context.startActivity(intent);
                 }
                 dialog.dismiss();
@@ -488,6 +497,9 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 });
     }
 
+
+
+
     private void showTishiDialog(Context context, int stringId) {
         new CommomDialog(context, R.style.dialog, context.getString(stringId), new CommomDialog.OnCloseListener() {
             @Override
@@ -516,7 +528,10 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
             @Override
             public void onZhuanzhang() {
-
+                Intent intent = new Intent(context, DuiGongFuKuanActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                context.startActivity(intent);
+                PoPuWindowUtils.getIntance().dismissPopuWindow();
             }
 
             @Override

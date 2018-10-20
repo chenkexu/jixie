@@ -7,7 +7,8 @@ import java.io.Serializable;
  * 商品bean
  */
 
-public class ShoppingBean implements Serializable {
+public class ShoppingBean implements Serializable{
+    private static final long serialVersionUID = 3131955390654041987L;
     //      * 1,产品id (shop_id)
 //     * 2,商家商标(logo_pic)
 //     * 3,商家名称(name)

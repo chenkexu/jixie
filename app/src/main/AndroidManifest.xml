@@ -459,7 +459,15 @@
 
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".activity.OrderCancelActivity"></activity>
+        <activity android:name=".activity.OrderCancelActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".activity.InvoiceActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

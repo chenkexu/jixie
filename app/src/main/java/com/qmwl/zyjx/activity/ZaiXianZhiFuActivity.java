@@ -36,14 +36,17 @@ import java.util.Map;
  */
 
 public class ZaiXianZhiFuActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
+
     private static final int SDK_PAY_FLAG = 1;
     private static final int SDK_AUTH_FLAG = 2;
+
     //是否是购物车过来的,接口不同，要区别对待
     public static final String IS_CAR_SHOPIING = "com.gh.isgouwuche.boolean";
     public static final String OUT_TRADE_NO_DATA = "com.gh.zaixianzhifu.out_trade_no";
     public static final String PRICE_DATA = "com.gh.zaixianzhifu.price";
     public static final String GOODSNAME_DATA = "com.gh.zaixianzhifu.goodsName";
     public static final String PAY_TYPE = "com.gh.zaixianzhifu_type";
+
     //是否是购物车过来的,接口不同，要区别对待
     private boolean isCarShoppForm = false;
     //是否是租赁

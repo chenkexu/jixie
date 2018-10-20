@@ -555,4 +555,11 @@
     <string name="shensuweiquan">申诉维权</string>
     <string name="inputreason">请输入您的申诉理由</string>
     <string name="msg_return_thing_info">退货物流信息</string>
+    <string name="elec_invoice">电子发票</string>
+    <string name="paper_invoice">纸质发票</string>
+
+    <string name="invoice_submit_sunccess">开票申请已经提交到后台</string>
+
+
+
 </resources>

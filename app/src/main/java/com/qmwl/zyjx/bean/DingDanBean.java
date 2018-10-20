@@ -9,6 +9,7 @@ import java.util.List;
  */
 
 public class DingDanBean implements Serializable {
+    private static final long serialVersionUID = 8673932741119402419L;
     private String order_id;
     //订单号
     private String order_no;
