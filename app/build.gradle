@@ -119,4 +119,5 @@ dependencies {
     //日志
     compile 'com.orhanobut:logger:2.2.0'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.hedgehog.ratingbar:app:1.1.2'
 }

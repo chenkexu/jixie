@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
 import com.qmwl.zyjx.base.BaseActivity;
@@ -128,6 +129,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                         cancelFragmentRefersh();
                         dismissLoadingDialog();
                         final List<DingDanBean> dingDanBeen = JsonUtils.parseDingDan(response);
+                        Logger.json(response.toString());
                         new Thread() {
                             @Override
                             public void run() {
@@ -148,6 +150,9 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                                             list3.add(bean);
                                             break;
                                         case 3:
+                                            list4.add(bean);
+                                            break;
+                                        case 4:
                                             list4.add(bean);
                                             break;
                                     }

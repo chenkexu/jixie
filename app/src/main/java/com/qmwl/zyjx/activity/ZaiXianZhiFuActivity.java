@@ -35,6 +35,10 @@ import java.util.Map;
  *
  */
 
+
+
+
+
 public class ZaiXianZhiFuActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
     private static final int SDK_PAY_FLAG = 1;
@@ -55,6 +59,8 @@ public class ZaiXianZhiFuActivity extends BaseActivity implements RadioGroup.OnC
     private String price;
     private String goodsName;
     private IWXAPI wxapi;
+
+
 
 
 
