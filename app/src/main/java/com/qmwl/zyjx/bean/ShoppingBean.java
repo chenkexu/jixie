@@ -1,11 +1,14 @@
 package com.qmwl.zyjx.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/7/27.
  * 商品bean
  */
 
-public class ShoppingBean {
+public class ShoppingBean implements Serializable{
+    private static final long serialVersionUID = 3131955390654041987L;
     //      * 1,产品id (shop_id)
 //     * 2,商家商标(logo_pic)
 //     * 3,商家名称(name)
