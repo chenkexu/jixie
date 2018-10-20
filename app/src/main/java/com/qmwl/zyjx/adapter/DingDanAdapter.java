@@ -16,10 +16,8 @@ import android.widget.TextView;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.AskReturnThingActivity;
-import com.qmwl.zyjx.activity.AskWeiQuanActivity;
 import com.qmwl.zyjx.activity.DuiGongFuKuanActivity;
 import com.qmwl.zyjx.activity.OrderCancelActivity;
 import com.qmwl.zyjx.activity.ReturnWuliuActivity;
@@ -33,8 +31,8 @@ import com.qmwl.zyjx.base.Constant;
 import com.qmwl.zyjx.base.MyBaseAdapter;
 import com.qmwl.zyjx.bean.CancelOrderBean;
 import com.qmwl.zyjx.bean.DingDanBean;
-import com.qmwl.zyjx.bean.ReturnPayOrderBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
+import com.qmwl.zyjx.dialog.InvoiceDialog;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.utils.PoPuWindowUtils;
@@ -45,9 +43,6 @@ import com.qmwl.zyjx.view.CommomDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -242,14 +237,15 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
 
 
+
+
+
+
     class MyViewOnClickListener implements View.OnClickListener {
         DingDanBean item = null;
-
         void setData(DingDanBean item) {
             this.item = item;
         }
-
-
 
         @Override
         public void onClick(View v) {
@@ -266,9 +262,12 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     break;
                 case R.id.dingdan_layout_item_quxiaodingdan:
                     //取消订单
-                    quxiaodingdan(v.getContext(), item);
+//                    quxiaodingdan(v.getContext(), item);
                     // TODO: 2018/10/19 进入取消订单页面
-
+                    intent = new Intent(context, OrderCancelActivity.class);
+                    intent.putExtra(Constant.cancel_order_reson, Constant.get_cancel_order_reson);
+                    intent.putExtra("order", item);
+                    context.startActivity(intent);
                     break;
                 case R.id.dingdan_layout_item_fukuan:
 //                    Log.i("TAG", "付款");
@@ -330,7 +329,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     break;
                 case R.id.dingdan_layout_item_shenqingfapiao:
                     //申请发票
-
+                    InvoiceDialog invoiceDialog = new InvoiceDialog(context,item);
+                    invoiceDialog.show();
                     break;
                 case R.id.dingdan_layout_item_tixingfahuo:
                     //提醒发货
@@ -338,7 +338,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     break;
                 case R.id.dingdan_layout_item_shenqingtuihuo:
                     //申请退货
-                    Intent mIntent=new Intent(context, AskReturnThingActivity.class);
+                    Intent mIntent = new Intent(context, AskReturnThingActivity.class);
                     mIntent.putExtra("DingDanBean",item);
                     context.startActivity(mIntent);
                     break;

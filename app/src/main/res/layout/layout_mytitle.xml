@@ -11,13 +11,14 @@
         android:id="@+id/text_title"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
         android:textColor="@color/window_topbar_text_color"
-        android:textSize="18sp"
-        tools:text="title" />
+        android:textSize="16sp"
+        tools:text="title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <!--左边按钮,默认隐藏-->
     <RelativeLayout

@@ -86,7 +86,6 @@ public class OrderCancelActivity extends BaseActivity {
         myTitle.setTitleName("");
         dingDanAdapter = new DingDanAdapter(getContainerView(), this);
 
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
         stringExtra = intent.getStringExtra(Constant.cancel_order_reson);
@@ -98,14 +97,8 @@ public class OrderCancelActivity extends BaseActivity {
         }else{ // //退款
             get_tuikuan_order_reson();
         }
-
         dingDanBean = (DingDanBean)intent.getSerializableExtra("order");
-
-
-
     }
-
-
 
     //获取取消订单的理由
     private void get_cancel_order_reson(){

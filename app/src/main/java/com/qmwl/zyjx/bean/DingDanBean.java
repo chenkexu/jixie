@@ -29,6 +29,7 @@ public class DingDanBean implements Serializable {
     private String shop_phone;
     //是否已经评价 0 未评价 1已评价
     private int is_evaluate;
+
     //商品集合
     private List<ShoppingBean> shopList;
     private String shop_logo;

@@ -131,8 +131,13 @@ public class Contact {
     public static String wuliu_list = httpaddress.concat("/index.php/api/Yunshu");
     //我的评价列表
     public static String wodepingjia_list = httpaddress.concat("/index.php/api/member/myEvaluate");
+
+
     //发表评价
     public static String fabiaopingjia = httpaddress.concat("/index.php/api/member/addGoodsEvaluate");
+
+
+
     //意见反馈
     public static String yijianfankui = httpaddress.concat("/index.php/api/member/Feedback");
     //商品订单支付宝请求参数

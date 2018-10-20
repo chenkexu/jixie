@@ -14,8 +14,10 @@ import android.widget.TextView;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.InvoiceActivity;
 import com.qmwl.zyjx.base.Constant;
+import com.qmwl.zyjx.bean.DingDanBean;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -23,7 +25,6 @@ import butterknife.OnClick;
  * Created by wy on 2017/11/21.
  * 确定取消dialog
  */
-
 public class InvoiceDialog extends Dialog {
     @BindView(R.id.tv_elect_invoice)
     TextView tvElectInvoice;
@@ -32,13 +33,11 @@ public class InvoiceDialog extends Dialog {
     @BindView(R.id.tv_next)
     TextView tvNext;
     private Context context;
-    private ClickListenerInterface clickListenerInterface;
-    private String remindString;
-    private String rightText;
-    private String leftText;
-    TextView tvConfirm;
-    TextView tvCancel;
-    private boolean isPaper = true;
+
+
+    private boolean isPaper = false;
+    private DingDanBean item;
+
 
 
     @OnClick({R.id.tv_elect_invoice, R.id.tv_paper_invoice, R.id.tv_next})
@@ -65,10 +64,14 @@ public class InvoiceDialog extends Dialog {
                 }else{
                     intent.putExtra(Constant.invoice_type,1);
                 }
+                intent.putExtra(Constant.order, item);
                 context.startActivity(intent);
+                dismiss();
                 break;
         }
     }
+
+
 
 
     public interface ClickListenerInterface {
@@ -78,9 +81,10 @@ public class InvoiceDialog extends Dialog {
     /**
      * @param context
      */
-    public InvoiceDialog(Context context) {
+    public InvoiceDialog(Context context, DingDanBean item) {
         super(context, R.style.dialog);
         this.context = context;
+        this.item = item;
     }
 
 
@@ -95,6 +99,7 @@ public class InvoiceDialog extends Dialog {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.invoice_dialog, null);
         setContentView(view);
+        ButterKnife.bind(this, view);
         Window dialogWindow = getWindow();
         WindowManager.LayoutParams lp = dialogWindow.getAttributes();
         DisplayMetrics d = context.getResources().getDisplayMetrics(); // 获取屏幕宽、高用

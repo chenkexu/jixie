@@ -264,7 +264,7 @@
     <string name="chaping">差评</string>
     <string name="haoping">好评</string>
     <string name="zhongping">中评</string>
-    <string name="yonghuming">用户名</string>
+    <string name="yonghuming">匿名</string>
     <string name="pingjia_hint">宝贝满足你的期待吗?说说它的优点吧</string>
     <string name="pingjiachenggong">评价成功</string>
     <string name="pingjiashibai">评价失败</string>
@@ -559,6 +559,58 @@
     <string name="paper_invoice">纸质发票</string>
 
     <string name="invoice_submit_sunccess">开票申请已经提交到后台</string>
+
+
+    <string name="invoice_money"><![CDATA[
+        <font color="#fb9158">%1$s</font> 元
+    ]]>
+    </string>
+    <string name="invoice_detail">发票详情</string>
+    <string name="invoice_type">抬头类型</string>
+    <string name="invoice_qiye">企业单位</string>
+    <string name="invoice_per">个人/非企业单位</string>
+    <string name="invoice_taitou">发票抬头</string>
+    <string name="hint_taitou">填写发票抬头</string>
+    <string name="shuihao">税号</string>
+    <string name="invoice_id">填写税号</string>
+    <string name="invoice_content">发票内容</string>
+    <string name="hint_invoice_content">填写发票内容</string>
+    <string name="invoice_money2">发票金额</string>
+    <string name="invoice_remark">备注说明</string>
+    <string name="not_nessary">非必填</string>
+    <string name="jieshoufangshi">接收方式</string>
+    <string name="invoice_email">电子邮件</string>
+    <string name="email_hint">用于向您发送电子发票和行程单</string>
+    <string name="invoice_name">收件人</string>
+    <string name="invoice_name_hint">请填写收件人</string>
+    <string name="invoice_phone">联系电话</string>
+    <string name="invoice_phone_hint">请填写联系电话</string>
+    <string name="invoice_area">所在地区</string>
+    <string name="invoice_area_hint">填写地区</string>
+    <string name="invoice_address">详细地址</string>
+    <string name="invoice_address_hint">填写详细地址</string>
+
+
+    <!--开发票-->
+    <string name="apply_elec_invoice">申请电子发票</string>
+    <string name="apply_paper_invoice">申请纸质发票</string>
+
+    <!--<string name="apply_paper_invoice">发票详情</string>-->
+    <!--<string name="apply_paper_invoice">抬头类型</string>-->
+    <!--<string name="apply_paper_invoice">企业单位</string>-->
+    <!--<string name="apply_paper_invoice">个人/非企业单位</string>-->
+    <!--<string name="apply_paper_invoice">发票抬头</string>-->
+    <!--<string name="apply_paper_invoice">税号</string>-->
+    <!--<string name="apply_paper_invoice">发票内容</string>-->
+    <!--<string name="apply_paper_invoice">发票金额</string>-->
+    <!--<string name="apply_paper_invoice">备注说明</string>-->
+    <!--<string name="apply_paper_invoice">接收方式</string>-->
+    <!--<string name="apply_paper_invoice">电子邮件</string>-->
+    <!--<string name="apply_paper_invoice">申请纸质发票</string>-->
+    <!--<string name="apply_paper_invoice">申请纸质发票</string>-->
+    <!--<string name="apply_paper_invoice">申请纸质发票</string>-->
+
+
 
 
 
