@@ -1,20 +1,21 @@
 package com.qmwl.zyjx.activity;
 
 import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.ANRequest;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.hedgehog.ratingbar.RatingBar;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.base.MyApplication;
@@ -24,6 +25,9 @@ import com.qmwl.zyjx.utils.JsonUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2017/7/31.
@@ -49,6 +53,20 @@ public class ScendPingJiaActivity extends BaseActivity {
     //商品图片
     public static final String shop_iv = "com.gh.pingjia_shop_iv";
 
+    //商家用户名
+    public static final String shop_name = "shop_name";
+    @BindView(R.id.shop_name)
+    TextView shopName;
+
+    @BindView(R.id.business_name)
+    TextView business_name;
+    @BindView(R.id.rv_photo)
+    RecyclerView rvPhoto;
+    @BindView(R.id.dianpu_star)
+    RatingBar dianpuStar;
+    @BindView(R.id.server_star)
+    RatingBar serverStar;
+
     private String order_id, order_no, order_goods_id, goods_id, goods_name, price, shop_id, shop_iv_url;
 
     private ImageView imageView;
@@ -59,9 +77,18 @@ public class ScendPingJiaActivity extends BaseActivity {
     private RadioButton zhongpingRadioButton;
     private RadioButton chapingPingRadioButton;
 
+    private int dianpuStarNum = 0 ;
+    private int serverStarNum = 0 ;
+
+
+
+
+
     @Override
     protected void setLayout() {
         setContentLayout(R.layout.scend_pingjia_layout);
+        ButterKnife.bind(this);
+
     }
 
     @Override
@@ -75,6 +102,22 @@ public class ScendPingJiaActivity extends BaseActivity {
         chapingPingRadioButton = (RadioButton) findViewById(R.id.scend_pingjia_layout_chaping);
         pingjiaContent = (EditText) findViewById(R.id.scend_pingjia_layout_pingjiacontent);
         nimingCheck = (CheckBox) findViewById(R.id.scend_pingjia_layout_shifouniming);
+        dianpuStar.setStar(0);
+        serverStar.setStar(0);
+        //评价
+        dianpuStar.setOnRatingChangeListener(new RatingBar.OnRatingChangeListener() {
+            @Override
+            public void onRatingChange(float RatingCount) {
+                dianpuStarNum = (int) RatingCount;
+            }
+        });
+        serverStar.setOnRatingChangeListener(new RatingBar.OnRatingChangeListener() {
+            @Override
+            public void onRatingChange(float RatingCount) {
+                serverStarNum = (int) RatingCount;
+            }
+        });
+
         getData();
     }
 
@@ -88,7 +131,12 @@ public class ScendPingJiaActivity extends BaseActivity {
         price = intent.getStringExtra(price_data);
         shop_id = intent.getStringExtra(shop_id_data);
         shop_iv_url = intent.getStringExtra(shop_iv);
+
+        String shop_nameStr = intent.getStringExtra(shop_name);
+
         GlideUtils.openImage(this, shop_iv_url, imageView);
+        shopName.setText(goods_name);
+        business_name.setText(shop_nameStr);
     }
 
     @Override

@@ -2,159 +2,288 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical">
-
 
 
     <include layout="@layout/base_top_bar_left" />
 
 
-
-    <LinearLayout
-        android:padding="15dp"
-        android:gravity="center_vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/business_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@mipmap/bussiness_icon"
-            android:drawablePadding="10dp"
-            android:gravity="center"
-            android:text="商家"
-            android:textColor="@color/c57585d"
-            android:textSize="15sp" />
-
-    </LinearLayout>
-    <include layout="@layout/line_gray"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="80dp">
 
-            <ImageView
-                android:id="@+id/scend_pingjia_layout_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/small1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/business_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/bussiness_icon"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:text="商家"
+                    android:textColor="@color/c57585d"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <include layout="@layout/line_gray" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/ca9aaac" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/scend_pingjia_layout_iv"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/small1" />
+
+                    <TextView
+                        android:id="@+id/shop_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="商家"
+                        android:textColor="@color/c57585d"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/scend_pingjia_layout_radiogroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/scend_pingjia_layout_haoping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:checked="true"
+                        android:drawableLeft="@drawable/radiobutton_haoping_selecter"
+                        android:drawablePadding="5dp"
+                        android:text="@string/haoping"
+                        android:textColor="@drawable/zulin_title_text_selecter"
+                        android:textSize="15sp" />
+
+                    <RadioButton
+                        android:id="@+id/scend_pingjia_layout_zhongping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/radiobutton_chaping_selecter"
+                        android:drawablePadding="5dp"
+                        android:text="@string/zhongping"
+                        android:textColor="@drawable/zulin_title_text_selecter"
+                        android:textSize="15sp" />
+
+                    <RadioButton
+                        android:id="@+id/scend_pingjia_layout_chaping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/radiobutton_chaping_selecter"
+                        android:drawablePadding="5dp"
+                        android:text="@string/chaping"
+                        android:textColor="@drawable/zulin_title_text_selecter"
+                        android:textSize="15sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/scend_pingjia_layout_pingjiacontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/kongbai_edittext_bg"
+                android:gravity="top|left"
+                android:hint="@string/pingjia_hint"
+                android:maxLines="10"
+                android:minLines="5"
+                android:textColorHint="@color/cb1b1b1"
+                android:textCursorDrawable="@null"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/xuxian_biakuang_selecter"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="0/3"
+                    android:textColor="@color/cb1b1b1"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:padding="10dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/ca9aaac" />
+            <CheckBox
+                android:id="@+id/scend_pingjia_layout_shifouniming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="14dp"
+                android:button="@null"
+                android:drawableLeft="@drawable/radiobutton_duihao_selecter"
+                android:drawablePadding="5dp"
+                android:text="@string/yonghuming"
+                android:textColor="@color/c57585d"
+                android:textSize="15sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#f8f8f8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:drawableLeft="@mipmap/bussiness_icon"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="@string/shop_pingfen"
+                android:textColor="@color/c57585d"
+                android:textSize="15sp" />
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:text="@string/shop_pingfen"
+                    android:textColor="@color/c57585d"
+                    android:textSize="15sp" />
+
+                <com.hedgehog.ratingbar.RatingBar
+                    android:id="@+id/dianpu_star"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    hedgehog:clickable="true"
+                    hedgehog:starCount="5"
+                    hedgehog:starEmpty="@mipmap/star_five"
+                    hedgehog:starFill="@mipmap/star_no"
+                    hedgehog:starImageHeight="20dp"
+                    hedgehog:starImagePadding="5dp"
+                    hedgehog:starImageWidth="30dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:text="@string/server_num"
+                    android:textColor="@color/c57585d"
+                    android:textSize="15sp" />
+
+                <com.hedgehog.ratingbar.RatingBar
+                    android:id="@+id/server_star"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    hedgehog:clickable="true"
+                    hedgehog:starCount="5"
+                    hedgehog:starEmpty="@mipmap/star_five"
+                    hedgehog:starFill="@mipmap/star_no"
+                    hedgehog:starImageHeight="20dp"
+                    hedgehog:starImagePadding="5dp"
+                    hedgehog:starImageWidth="30dp" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
-        <RadioGroup
-            android:layout_marginTop="10dp"
-            android:id="@+id/scend_pingjia_layout_radiogroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/scend_pingjia_layout_haoping"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="true"
-                android:drawableLeft="@drawable/radiobutton_haoping_selecter"
-                android:drawablePadding="5dp"
-                android:gravity="center"
-                android:text="@string/haoping"
-                android:textColor="@drawable/zulin_title_text_selecter"
-                android:textSize="15sp" />
-
-            <RadioButton
-                android:id="@+id/scend_pingjia_layout_zhongping"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableLeft="@drawable/radiobutton_chaping_selecter"
-                android:drawablePadding="5dp"
-                android:text="@string/zhongping"
-                android:textColor="@drawable/zulin_title_text_selecter"
-                android:textSize="15sp" />
-
-            <RadioButton
-                android:id="@+id/scend_pingjia_layout_chaping"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableLeft="@drawable/radiobutton_chaping_selecter"
-                android:drawablePadding="5dp"
-                android:text="@string/chaping"
-                android:textColor="@drawable/zulin_title_text_selecter"
-                android:textSize="15sp" />
-        </RadioGroup>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/ca9aaac" />
-
-    <EditText
-        android:id="@+id/scend_pingjia_layout_pingjiacontent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/kongbai_edittext_bg"
-        android:gravity="top|left"
-        android:hint="@string/pingjia_hint"
-        android:maxLines="10"
-        android:minLines="5"
-        android:textColorHint="@color/cb1b1b1"
-        android:textCursorDrawable="@null"
-        android:textSize="15sp" />
-
-
-    <LinearLayout
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/xuxian_biakuang_selecter"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/phone" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="0/3"
-            android:textColor="@color/cb1b1b1"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <CheckBox
-        android:id="@+id/scend_pingjia_layout_shifouniming"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="14dp"
-        android:button="@null"
-        android:drawableLeft="@drawable/radiobutton_duihao_selecter"
-        android:drawablePadding="5dp"
-        android:text="@string/yonghuming"
-        android:textColor="@color/c57585d"
-        android:textSize="15sp" />
-
+    </ScrollView>
 </LinearLayout>

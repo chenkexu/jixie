@@ -366,6 +366,9 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     intent.putExtra(ScendPingJiaActivity.price_data, shopBean.getPrice() + "");
                     intent.putExtra(ScendPingJiaActivity.shop_id_data, shopBean.getShop_id());
                     intent.putExtra(ScendPingJiaActivity.shop_iv, shopBean.getIv_pic());
+
+                    intent.putExtra(ScendPingJiaActivity.shop_name, shopBean.getShopName());
+
                     v.getContext().startActivity(intent);
                     break;
                 case R.id.dingdan_layout_item_shenqingtuikuan:

@@ -263,15 +263,6 @@ public class OrderCancelActivity extends BaseActivity {
     }
 
 
-
-
-
-
-
-
-
-
-
     //执行取消订单的方法
     private void cancelDingDan(final Context context, DingDanBean item, String content) {
         AndroidNetworking.get(Contact.quxiaodingdan + "?orderId=" + item.getOrder_id()+"&content="+content)

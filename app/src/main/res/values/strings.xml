@@ -596,6 +596,8 @@
     <!--开发票-->
     <string name="apply_elec_invoice">申请电子发票</string>
     <string name="apply_paper_invoice">申请纸质发票</string>
+    <string name="shop_pingfen">店铺评分</string>
+    <string name="server_num">服务态度</string>
 
     <!--<string name="apply_paper_invoice">发票详情</string>-->
     <!--<string name="apply_paper_invoice">抬头类型</string>-->
