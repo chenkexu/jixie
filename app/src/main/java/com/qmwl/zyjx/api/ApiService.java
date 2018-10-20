@@ -59,4 +59,25 @@ public interface ApiService {
                                                    @Field("des") String des
                                                    );
 
+
+    //维权申请
+    @FormUrlEncoded
+    @POST("/index.php/api/order/abnormal")
+    Observable<ApiResponse<Object>> shenqingweiquan(@Field("orderId") String uid,
+                                                   @Field("content") String orderId);
+
+
+    //退货物流添加
+    @FormUrlEncoded
+    @POST("/index.php/api/order/tuiWuliu")
+    Observable<ApiResponse<Object>> addTuiHuoWuLiu(@Field("orderId") String orderId,
+                                                    @Field("refund_no ") String refund_no,
+                                                   @Field("wuliu") String wuliu);
+
+    //快递公司列表
+    @GET("/index.php/api/order/kuaiDi")
+    Observable<ApiResponse<Object>> kuaidiList();
+
+
+
 }

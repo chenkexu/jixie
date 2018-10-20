@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,6 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
 
     private void initView(View rootView) {
         ListView mLv = (ListView) rootView.findViewById(R.id.wodezuling_layout_listview);
-
         swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.yundan_layout_swiprefreshlayout);
         swipeRefreshLayout.setOnRefreshListener(this);
         adapter = new DingDanAdapter(inflate,getActivity());
@@ -67,6 +67,7 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
         DingDanBean item = adapter.getItem(position);
         if (item != null && item.getShopList() != null && item.getShopList().size() > 0) {
             ShoppingBean shoppingBean = item.getShopList().get(0);

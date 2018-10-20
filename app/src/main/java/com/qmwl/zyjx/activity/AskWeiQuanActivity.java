@@ -1,8 +1,11 @@
 package com.qmwl.zyjx.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +20,7 @@ import com.qmwl.zyjx.bean.CancelOrderBean;
 import com.qmwl.zyjx.bean.DingDanBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
 import com.qmwl.zyjx.utils.RxUtil;
+import com.qmwl.zyjx.utils.ToastUtils;
 import com.qmwl.zyjx.view.AskRetunPayDialog;
 
 import butterknife.BindView;
@@ -30,7 +34,10 @@ import butterknife.OnClick;
 public class AskWeiQuanActivity extends BaseActivity {
 
 
+    @BindView(R.id.et_user_feedback_content)
+    EditText mEt;
 
+    private DingDanBean mBean;
 
     @Override
     protected void setLayout() {
@@ -41,6 +48,8 @@ public class AskWeiQuanActivity extends BaseActivity {
     protected void initView() {
 
         setTitleContent(R.string.shensuweiquan);
+        mBean=(DingDanBean)getIntent().getSerializableExtra("DingDanBean");
+
 
     }
     @Override
@@ -52,18 +61,33 @@ public class AskWeiQuanActivity extends BaseActivity {
     protected void getInterNetData() {
 
     }
-/*
 
-    @OnClick({R.id.st_tuikuan, R.id.st_tuihuotuikuan})
+    @OnClick({R.id.btn_submit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.st_tuikuan:
+            case R.id.btn_submit:
+                ApiManager.getInstence().getApiService()
+                        .shenqingweiquan(mBean.getOrder_id(),mEt.getText().toString())
+                        .compose(RxUtil.<ApiResponse<Object>>rxSchedulerHelper())
+                        .subscribe(new BaseObserver<Object>() {
+                            @Override
+                            protected void onSuccees(ApiResponse t) {
+                                dismissLoadingDialog();
+                              //  showSuccessDialog();
+                                ToastUtils.showShort(getResources().getString(R.string.ask_suc));
+                            }
 
+                            @Override
+                            protected void onFailure(String errorInfo, boolean isNetWorkError) {
+                                ToastUtils.showShort(errorInfo);
+                                dismissLoadingDialog();
+                            }
+                        });
                 break;
 
         }
     }
-*/
+
 
 
     @Override
@@ -80,6 +104,26 @@ public class AskWeiQuanActivity extends BaseActivity {
 //                startActivity(intent1);
                 break;
         }*/
+    }
+
+
+    private void showSuccessDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(AskWeiQuanActivity.this);
+        View view = View
+                .inflate(AskWeiQuanActivity.this, R.layout.invoice_submit_success, null);
+        Button tvSubmit= (Button) view
+                .findViewById(R.id.tv_submit);//设置标题
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        tvSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
 

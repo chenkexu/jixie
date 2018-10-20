@@ -31,15 +31,10 @@ import com.qmwl.zyjx.utils.JsonUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
-
 /**
- * @desc: 退款申请dialog
+ * @desc: 退货申请dialog
  */
-public class AskRetunPayDialog extends DialogFragment {
+public class AskRetunThingDialog extends DialogFragment {
 
     RecyclerView mRvRetunPay;
 
@@ -73,7 +68,7 @@ public class AskRetunPayDialog extends DialogFragment {
                     AndroidNetworking.get(Contact.tuikuan + "?orderId=" + mDingDanlBean.getOrder_id()
                             + "&goods_id=" + mDingDanlBean.getShopList().get(0).getGoods_id()
                             +"&content=" + mCancelBean.getNiu_index_response().get(checkPosition)
-                            +"&tuiStatus=" +0)
+                            +"&tuiStatus=" +1)
 
                             .build()
                             .getAsJSONObject(new JSONObjectRequestListener() {
@@ -85,7 +80,7 @@ public class AskRetunPayDialog extends DialogFragment {
                                         dismiss();
                                         if (JsonUtils.isSuccess(response)) {
                                             WoDeDingDanActivity.refreshData(getActivity());
-                                            new CommomDialog(getActivity(), R.style.dialog, getActivity().getString(R.string.tuikuanchenggong), new CommomDialog.OnCloseListener() {
+                                            new CommomDialog(getActivity(), R.style.dialog, getActivity().getString(R.string.tuikuantuihuochenggong), new CommomDialog.OnCloseListener() {
                                                 @Override
                                                 public void onClick(Dialog dialog, boolean confirm) {
                                                     dialog.dismiss();
@@ -93,17 +88,17 @@ public class AskRetunPayDialog extends DialogFragment {
                                                 }
                                             }).setTitle(getActivity().getString(R.string.tishi)).setHideCancelButton().show();
                                         } else {
-                                            showTishiDialog(getActivity(), R.string.tuikuanshibai);
+                                            showTishiDialog(getActivity(), R.string.tuikuantuihuoshibai);
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
-                                        showTishiDialog(getActivity(), R.string.tuikuanshibai);
+                                        showTishiDialog(getActivity(), R.string.tuikuantuihuoshibai);
                                     }
                                 }
 
                                 @Override
                                 public void onError(ANError anError) {
-                                    showTishiDialog(getActivity(), R.string.quxiaodingdanshibai);
+                                    showTishiDialog(getActivity(), R.string.tuikuantuihuoshibai);
                                 }
                             });
                 }

@@ -557,10 +557,12 @@
     <string name="msg_return_thing_info">退货物流信息</string>
     <string name="elec_invoice">电子发票</string>
     <string name="paper_invoice">纸质发票</string>
-
+    <string name="ask_suc">申请维权成功</string>
     <string name="invoice_submit_sunccess">开票申请已经提交到后台</string>
-
-
+    <string name="tuikuantuihuochenggong">申请退货退款成功,等待后台商户审核</string>
+    <string name="tuikuantuihuoshibai">申请退货退款失败,请重试</string>
+    <string name="tuihuowuliu">退货物流</string>
+    <string name="wuliugsmc">物流公司名称</string>
     <string name="invoice_money"><![CDATA[
         <font color="#fb9158">%1$s</font> 元
     ]]>

@@ -195,4 +195,31 @@ public class ShoppingBean implements Serializable{
     public void setIs_evaluate(int is_evaluate) {
         this.is_evaluate = is_evaluate;
     }
+
+
+    @Override
+    public String toString() {
+        return "ShoppingBean{" +
+                "cart_id='" + cart_id + '\'' +
+                ", shop_id='" + shop_id + '\'' +
+                ", logo_pic='" + logo_pic + '\'' +
+                ", name='" + name + '\'' +
+                ", iv_pic='" + iv_pic + '\'' +
+                ", price=" + price +
+                ", number=" + number +
+                ", model='" + model + '\'' +
+                ", url='" + url + '\'' +
+                ", isNew=" + isNew +
+                ", is_lease=" + is_lease +
+                ", is_parts=" + is_parts +
+                ", isSelecter=" + isSelecter +
+                ", dingdanUrl='" + dingdanUrl + '\'' +
+                ", address='" + address + '\'' +
+                ", shopName='" + shopName + '\'' +
+                ", is_evaluate=" + is_evaluate +
+                ", order_goods_id='" + order_goods_id + '\'' +
+                ", goods_id='" + goods_id + '\'' +
+                ", yunfei=" + yunfei +
+                '}';
+    }
 }

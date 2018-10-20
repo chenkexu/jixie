@@ -9,7 +9,6 @@ import java.util.List;
  */
 
 public class DingDanBean implements Serializable {
-    private static final long serialVersionUID = 8673932741119402419L;
     private String order_id;
     //订单号
     private String order_no;
@@ -36,6 +35,16 @@ public class DingDanBean implements Serializable {
 
     private double order_money;
 
+
+    private String msg;//状态信息
+
+
+    private int  ma;//状态码
+
+    private  int  fapiao;
+
+    private  String tui_xu;
+
     public double getOrder_money() {
         return order_money;
     }
@@ -58,6 +67,14 @@ public class DingDanBean implements Serializable {
 
     public void setOrder_id(String order_id) {
         this.order_id = order_id;
+    }
+
+    public int getFapiao() {
+        return fapiao;
+    }
+
+    public void setFapiao(int fapiao) {
+        this.fapiao = fapiao;
     }
 
     //获取商品数量
@@ -164,5 +181,53 @@ public class DingDanBean implements Serializable {
 
     public void setIs_evaluate(int is_evaluate) {
         this.is_evaluate = is_evaluate;
+    }
+
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public int getMa() {
+        return ma;
+    }
+
+    public void setMa(int ma) {
+        this.ma = ma;
+    }
+
+    public String getTui_xu() {
+        return tui_xu;
+    }
+
+    public void setTui_xu(String tui_xu) {
+        this.tui_xu = tui_xu;
+    }
+
+    @Override
+    public String toString() {
+        return "DingDanBean{" +
+                "order_id='" + order_id + '\'' +
+                ", order_no='" + order_no + '\'' +
+                ", shop_name='" + shop_name + '\'' +
+                ", dingdan_statue='" + dingdan_statue + '\'' +
+                ", dingdan_statue_code=" + dingdan_statue_code +
+                ", receiver_mobile='" + receiver_mobile + '\'' +
+                ", shipping_money=" + shipping_money +
+                ", price='" + price + '\'' +
+                ", shop_phone='" + shop_phone + '\'' +
+                ", is_evaluate=" + is_evaluate +
+                ", shopList=" + shopList +
+                ", shop_logo='" + shop_logo + '\'' +
+                ", order_money=" + order_money +
+                ", msg='" + msg + '\'' +
+                ", ma=" + ma +
+                ", fapiao=" + fapiao +
+                ", tui_xu=" + tui_xu +
+                '}';
     }
 }

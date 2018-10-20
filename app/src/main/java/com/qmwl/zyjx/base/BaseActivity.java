@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.utils.AppManager;
+import com.qmwl.zyjx.utils.EventManager;
 import com.qmwl.zyjx.utils.LoadingDialogUtils;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
@@ -85,7 +86,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         initView();
         onListener();
         getInterNetData();
-
+        EventManager.register(this);
     }
 
     @Override

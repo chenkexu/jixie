@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -12,6 +13,7 @@ import android.widget.RadioGroup;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.hyphenate.chat.EMMessage;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
 import com.qmwl.zyjx.base.BaseActivity;
@@ -22,9 +24,13 @@ import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
 
 import org.json.JSONObject;
+import org.simple.eventbus.Subscriber;
+import org.simple.eventbus.ThreadMode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by Administrator on 2017/7/25.
@@ -120,6 +126,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
 
 
     public void getData() {
+        Log.d("huangrui", "userId"+MyApplication.getIntance().userBean.getUid());
         AndroidNetworking.get(Contact.wodedingdan_list + "?uid=" + MyApplication.getIntance().userBean.getUid())
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -128,6 +135,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                         cancelFragmentRefersh();
                         dismissLoadingDialog();
                         final List<DingDanBean> dingDanBeen = JsonUtils.parseDingDan(response);
+                        com.orhanobut.logger.Logger.d( "订单内容:"+Arrays.asList(dingDanBeen));
                         new Thread() {
                             @Override
                             public void run() {
@@ -248,6 +256,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
 //        receiver = new WoDiDingDanBroadcastReceiver();
 //        IntentFilter intentFilter = new IntentFilter(WODEDINGDAN_BROADCAST_STRING);
 //        registerReceiver(receiver, intentFilter);
+
         getInterNetData();
     }
 
@@ -268,9 +277,20 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
     }
 
     public static void refreshData(Context context) {
+
         Intent intent = new Intent(WODEDINGDAN_BROADCAST_STRING);
         context.sendBroadcast(intent);
     }
+
+
+
+    //收到申请退款后刷新
+    @Subscriber(tag = "refresh", mode= ThreadMode.MAIN)
+    public void getEventMessage(String message) {
+        Log.d("huangrui","刷新界面了");
+        getData();
+    }
+
 
 
 

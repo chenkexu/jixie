@@ -411,6 +411,10 @@ public class JsonUtils {
                 String shop_name = obj.getString("shop_name");
                 String pay_money = obj.getString("pay_money");
                 String shop_logo = obj.getString("shop_logo");
+                String msg = obj.getString("msg");
+                int ma = obj.getInt("ma");
+                int fapiao = obj.getInt("fapiao");
+                String tui_xu = obj.getString("tui_xu");
                 String shop_phone = obj.getString("shop_phone");
                 int order_status = obj.getInt("order_status");
                 int is_evaluate1 = obj.getInt("is_evaluate");
@@ -425,6 +429,10 @@ public class JsonUtils {
                 bean.setPrice(pay_money);
                 bean.setDingdan_statue_code(order_status);
                 bean.setShop_logo(shop_logo);
+                bean.setMa(ma);
+                bean.setMsg(msg);
+                bean.setFapiao(fapiao);
+                bean.setTui_xu(tui_xu);
                 JSONArray order_item_list = obj.getJSONArray("order_item_list");
                 List<ShoppingBean> shoppingBeanList = new ArrayList<>();
                 for (int j = 0; j < order_item_list.length(); j++) {

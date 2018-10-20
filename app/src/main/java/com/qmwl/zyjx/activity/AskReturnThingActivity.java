@@ -35,6 +35,7 @@ import com.qmwl.zyjx.utils.MD5Utils;
 import com.qmwl.zyjx.utils.RxUtil;
 import com.qmwl.zyjx.utils.SharedUtils;
 import com.qmwl.zyjx.view.AskRetunPayDialog;
+import com.qmwl.zyjx.view.AskRetunThingDialog;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 
@@ -57,6 +58,8 @@ public class AskReturnThingActivity extends BaseActivity {
     TextView mTv;
 
     private AskRetunPayDialog mAskRpDialog;
+    private AskRetunThingDialog mAskTuiHuoDialog;
+    private DingDanBean mBean;
 
     @Override
     protected void setLayout() {
@@ -67,7 +70,7 @@ public class AskReturnThingActivity extends BaseActivity {
     protected void initView() {
 
         setTitleContent(R.string.returnthing);
-        DingDanBean mBean=(DingDanBean)getIntent().getSerializableExtra("DingDanBean");
+         mBean=(DingDanBean)getIntent().getSerializableExtra("DingDanBean");
         ShoppingBean shoppingBean = mBean.getShopList().get(0);
         if ("".equals(shoppingBean.getIv_pic()) || TextUtils.isEmpty(shoppingBean.getIv_pic())) {
             mIv.setImageResource(R.mipmap.small);
@@ -101,6 +104,7 @@ public class AskReturnThingActivity extends BaseActivity {
                                 if (!mAskRpDialog.isAdded()) {
                                     Bundle mBundle=new Bundle();
                                     mBundle.putSerializable("data",data);
+                                    mBundle.putSerializable("DingDanBean",mBean);
                                     mAskRpDialog.setArguments(mBundle);
                                     mAskRpDialog.show(getFragmentManager(), "mAskRpDialog");
                                 }
@@ -121,12 +125,13 @@ public class AskReturnThingActivity extends BaseActivity {
                             @Override
                             protected void onSuccees(ApiResponse<CancelOrderBean> t) {
                                 CancelOrderBean data = t.getData();
-                                mAskRpDialog=new AskRetunPayDialog();
-                                if (!mAskRpDialog.isAdded()) {
+                                mAskTuiHuoDialog=new AskRetunThingDialog();
+                                if (!mAskTuiHuoDialog.isAdded()) {
                                     Bundle mBundle=new Bundle();
                                     mBundle.putSerializable("data",data);
-                                    mAskRpDialog.setArguments(mBundle);
-                                    mAskRpDialog.show(getFragmentManager(), "mAskRpDialog");
+                                    mBundle.putSerializable("DingDanBean",mBean);
+                                    mAskTuiHuoDialog.setArguments(mBundle);
+                                    mAskTuiHuoDialog.show(getFragmentManager(), "mAskRpDialog");
                                 }
 
                             }
