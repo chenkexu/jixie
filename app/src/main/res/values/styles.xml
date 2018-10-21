@@ -213,6 +213,7 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:gravity">center</item>
         <item name="android:singleLine">true</item>
+    </style>
 
     <style name="RemindDialog" parent="android:style/Theme.Dialog">
         <!-- 第二个就是弹出dialog后，下面的activity层的颜色啦-->

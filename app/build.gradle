@@ -83,7 +83,7 @@ dependencies {
     //搜索功能
 
     //导航功能
-        compile 'com.amap.api:navi-3dmap:6.0.0'
+     //   compile 'com.amap.api:navi-3dmap:6.0.0'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
