@@ -1,15 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
     dexOptions {
         preDexLibraries = false
-    }
-    lintOptions {
-        checkReleaseBuilds false
-        disable 'ResourceType','MissingTranslation'
-        abortOnError false
     }
     defaultConfig {
         applicationId "com.qmwl.zyjx"
@@ -23,15 +18,15 @@ android {
             //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
 //            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a","x86_64"
 //            abiFilters "armeabi", "x86", "armeabi-v7a"
-           // abiFilters 'arm64-v8a', 'armeabi'
-            abiFilters "armeabi", "x86", "armeabi-v7a"
-
+            abiFilters 'arm64-v8a'
         }
 
     }
-//    lintOptions {
-//        disable 'ResourceType','MissingTranslation'
-//    }
+    lintOptions {
+        checkReleaseBuilds false
+        disable 'ResourceType','MissingTranslation'
+        abortOnError false
+    }
 
 
     sourceSets {
@@ -42,16 +37,16 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('qmwl_zyjx.jks')
-            storePassword 'zhongyaojixie'
-            keyAlias 'zhongyaojixie'
-            keyPassword 'zhongyaojixie'
-        }
-        release {
 //            storeFile file('lfc.keystore')
 //            storePassword 'bigdataTry@911'
 //            keyAlias 'lfc.keystore'
 //            keyPassword 'bigdataTry@911'
+        }
+        release {
+            storeFile file('qmwl_zyjx.jks')
+            storePassword 'zhongyaojixie'
+            keyAlias 'zhongyaojixie'
+            keyPassword 'zhongyaojixie'
         }
     }
 
@@ -76,21 +71,8 @@ android {
 
 dependencies {
     compile project(':PushSDK')
-      compile 'com.amap.api:navi-3dmap:latest.integration'
-    //  compile 'com.amap.api:location:latest.integration'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //  compile 'com.amap.api:navi-3dmap:latest.integration'
-
-    //  compile 'com.amap.api:location:latest.integration'
-
-    //3D地图so及jar
-
-    //定位功能
-
-    //搜索功能
-
-    //导航功能
-     //   compile 'com.amap.api:navi-3dmap:6.0.0'
+      compile 'com.amap.api:navi-3dmap:latest.integration'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -110,7 +92,6 @@ dependencies {
     compile 'com.umeng.sdk:analytics:latest.integration'
     compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
     compile 'com.android.support:multidex:1.0.1'
-  //  compile 'com.amap.api:3dmap:latest.integration'
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:search:latest.integration'
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
@@ -122,9 +103,6 @@ dependencies {
         exclude module: 'support-v4'
     }
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    //compile 'com.android.support:design:25.3.1'
-    // compile 'com.github.bumptech.glide:glide:4.8.0'
-    // annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
     compile 'com.jakewharton:butterknife:8.8.1'
     compile 'com.github.lygttpod:SuperTextView:2.1.8'
