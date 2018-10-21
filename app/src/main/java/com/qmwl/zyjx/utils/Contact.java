@@ -146,14 +146,20 @@ public class Contact {
     public static String zhifubaoqingqiu = httpaddress.concat("/index.php/api/pay");
     //商品订单微信请求参数
     public static String weixinqingqiu = httpaddress.concat("/index.php/api/wxpay/actionPays");
+
+
     //购物车微信支付请求
     public static String weixin_car_qingqiu = httpaddress.concat("/index.php/api/Cartpay/actionPays");
     //购物车支付宝支付请求
     public static String zhifubao_car_qingqiu = httpaddress.concat("/index.php/api/cart/pay");
     //租赁订单支付宝请求参数
     public static String zulin_zhifubaoqingqiu = httpaddress.concat("/index.php/api/pay/ZulinPay");
+
+
     //租赁订单微信请求参数
     public static String zulin_weixinqingqiu = httpaddress.concat("/index.php/api/Zupay/actionPays");
+
+
     //我要发货
     public static String woyaofahuo = httpaddress.concat("/index.php/api/transport/addHyinfo");
     //评价成功

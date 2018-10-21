@@ -1,2 +1,3 @@
 include ':app', ':PushSDK', ':easeui'      ,  ':library_pictureselector',
-':library_pictureselectorucop'
+':library_pictureselectorucop',
+':chinapay'

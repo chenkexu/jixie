@@ -13,8 +13,10 @@ import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.SelecterImageActivity;
 import com.qmwl.zyjx.base.MyBaseAdapter;
 import com.qmwl.zyjx.bean.ZuLinListBean;
+import com.qmwl.zyjx.dialog.ChargePopWindow;
 import com.qmwl.zyjx.utils.PoPuWindowUtils;
 import com.qmwl.zyjx.utils.ToastUtils;
+
 
 /**
  * Created by Administrator on 2017/7/25.
@@ -22,8 +24,10 @@ import com.qmwl.zyjx.utils.ToastUtils;
 
 public class ZuLingAdapter extends MyBaseAdapter<ZuLinListBean> {
     private View parentView;
+    private Context context;
 
-    public ZuLingAdapter(View parentView) {
+    public ZuLingAdapter(Context context,View parentView) {
+        this.context = context;
         this.parentView = parentView;
     }
 
@@ -102,7 +106,12 @@ public class ZuLingAdapter extends MyBaseAdapter<ZuLinListBean> {
                     v.getContext().startActivity(intent);
                     break;
                 case R.id.zuling_layout_item_pay_pay:
-                    fukuan(v.getContext(), bean);
+
+                    ChargePopWindow chargePopWindow = new ChargePopWindow(false, context, true,
+                            bean.getOrder_id(),String.valueOf(bean.getTotal_amount()), bean.getGoods_name());
+                    chargePopWindow.show();
+
+//                    fukuan(v.getContext(), bean);
                     break;
                 case R.id.zuling_layout_item_chakanhetong:
                     Intent intent1 = new Intent(v.getContext(), SelecterImageActivity.class);

@@ -13,7 +13,9 @@ import android.widget.RadioGroup;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.hyphenate.chat.EMMessage;
+import com.chinapay.cppaysdk.global.CPGlobalInfo;
+import com.chinapay.cppaysdk.global.ResultInfo;
+import com.chinapay.cppaysdk.util.Utils;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
@@ -23,13 +25,16 @@ import com.qmwl.zyjx.bean.DingDanBean;
 import com.qmwl.zyjx.fragment.DingDanFragment;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
+import com.qmwl.zyjx.utils.ToastUtils;
+import com.qmwl.zyjx.wxapi.WXPayEntryActivity;
+import com.qmwl.zyjx.zfb.PayBean;
 
+import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONObject;
 import org.simple.eventbus.Subscriber;
 import org.simple.eventbus.ThreadMode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -230,7 +235,6 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
             case R.id.zulin_layout_radiobutton_b1:
                 mVp.setCurrentItem(0);
                 break;
-
             case R.id.zulin_layout_radiobutton_b2:
                 mVp.setCurrentItem(1);
                 break;
@@ -313,7 +317,24 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
 //        registerReceiver(receiver, intentFilter);
 
         getInterNetData();
-    }
+
+
+
+            if (Utils.getResultInfo() != null) {
+                ResultInfo resultInfo = Utils.getResultInfo();
+                if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
+                    if (resultInfo.getRespCode().equals("0000")) {
+                        String orderInfo = resultInfo. getOrderInfo();
+                        if(orderInfo != null){
+                            Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
+                    } else {
+                        Utils.showDialogNoFinish(this,
+                                "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
+                    }
+                    }
+            }
+                CPGlobalInfo.init();
+        }
 
     @Override
     protected void onPause() {
@@ -344,6 +365,46 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
     public void getEventMessage(String message) {
         Log.d("huangrui","刷新界面了");
         getData();
+    }
+
+
+
+
+
+
+    //微信支付的回调
+    //在ui线程执行
+    @Subscribe
+    public void onWeChatCharge(WXPayEntryActivity.wxPayResult payResultResult) {
+        Logger.d("收到了微信支付的回调"+payResultResult);
+        if (this == null)
+            return;
+        switch (payResultResult) {
+            case success:
+//                submit();
+                ToastUtils.showShort("支付成功");
+                break;
+            case cancle:
+                ToastUtils.showShort("取消支付");
+                break;
+            case fail:
+                Logger.d("支付错误");
+                ToastUtils.showShort("支付错误");
+                break;
+            case error:
+                ToastUtils.showShort("支付错误");
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    @Subscribe
+    public void onZhifubaoCharge(PayBean payBean){
+        Logger.d("收到支付宝支付成功的回调");
+        //支付宝支付成功
+//        submit();
     }
 
 

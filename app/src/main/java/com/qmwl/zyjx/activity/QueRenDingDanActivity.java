@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.QueRenDingDanWaiAdapter;
 import com.qmwl.zyjx.base.BaseActivity;
@@ -20,12 +21,15 @@ import com.qmwl.zyjx.bean.AddressBean;
 import com.qmwl.zyjx.bean.GouWuCheBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
 import com.qmwl.zyjx.bean.UserBean;
+import com.qmwl.zyjx.dialog.ChargePopWindow;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
-import com.qmwl.zyjx.utils.PoPuWindowUtils;
 import com.qmwl.zyjx.utils.ToastUtils;
 import com.qmwl.zyjx.view.CommomDialog;
+import com.qmwl.zyjx.wxapi.WXPayEntryActivity;
+import com.qmwl.zyjx.zfb.PayBean;
 
+import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +41,6 @@ import java.util.List;
  * Created by Administrator on 2017/7/27.
  * 确认订单
  */
-
 public class QueRenDingDanActivity extends BaseActivity implements AdapterView.OnItemClickListener {
     public static final String DATA = "com.gh.querendingdan_data";
     public static final String TYPE = "com.gh.querendingdan_type";
@@ -369,51 +372,57 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
             if (JsonUtils.isSuccess(response)) {
                 JSONObject data = response.getJSONObject("data");
                 no = data.getString("niu_index_response");
-                PoPuWindowUtils.getIntance().showSelecterPayType(this, convertView, new PoPuWindowUtils.selecterPayTypeListener() {
-                    @Override
-                    public void onAlipay() {
 
-                    }
+                ChargePopWindow chargePopWindow = new ChargePopWindow(isGouWUChe, this, false,
+                        no,price, goodsName);
+                chargePopWindow.show();
 
-                    @Override
-                    public void onWechat() {
 
-                    }
-
-                    @Override
-                    public void onYinlian() {
-
-                    }
-
-                    @Override
-                    public void onZhuanzhang() {
-
-                    }
-
-                    @Override
-                    public void onSmallDaikuan() {
-                        ToastUtils.showShort(R.string.No_opening);
-                    }
+//                PoPuWindowUtils.getIntance().showSelecterPayType(this, convertView, new PoPuWindowUtils.selecterPayTypeListener() {
 //                    @Override
-//                    public void onZaiXianZhifu() {
-//                        Intent intent = new Intent(QueRenDingDanActivity.this, ZaiXianZhiFuActivity.class);
-//                        intent.putExtra(ZaiXianZhiFuActivity.OUT_TRADE_NO_DATA, no);
-//                        intent.putExtra(ZaiXianZhiFuActivity.IS_CAR_SHOPIING, isGouWUChe);
-//                        intent.putExtra(ZaiXianZhiFuActivity.PRICE_DATA, price);
-//                        intent.putExtra(ZaiXianZhiFuActivity.GOODSNAME_DATA, goodsName);
-//                        startActivity(intent);
-//                        finish();
-//                        PoPuWindowUtils.getIntance().dismissPopuWindow();
+//                    public void onAlipay() {
+//
 //                    }
 //
 //                    @Override
-//                    public void onDuiGongFuKuan() {
-//                        Intent intent = new Intent(QueRenDingDanActivity.this, DuiGongFuKuanActivity.class);
-//                        startActivity(intent);
-//                        finish();
-//                        PoPuWindowUtils.getIntance().dismissPopuWindow();
+//                    public void onWechat() {
+//
 //                    }
-                });
+//
+//                    @Override
+//                    public void onYinlian() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onZhuanzhang() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onSmallDaikuan() {
+//                        ToastUtils.showShort(R.string.No_opening);
+//                    }
+////                    @Override
+////                    public void onZaiXianZhifu() {
+////                        Intent intent = new Intent(QueRenDingDanActivity.this, ZaiXianZhiFuActivity.class);
+////                        intent.putExtra(ZaiXianZhiFuActivity.OUT_TRADE_NO_DATA, no);
+////                        intent.putExtra(ZaiXianZhiFuActivity.IS_CAR_SHOPIING, isGouWUChe);
+////                        intent.putExtra(ZaiXianZhiFuActivity.PRICE_DATA, price);
+////                        intent.putExtra(ZaiXianZhiFuActivity.GOODSNAME_DATA, goodsName);
+////                        startActivity(intent);
+////                        finish();
+////                        PoPuWindowUtils.getIntance().dismissPopuWindow();
+////                    }
+////
+////                    @Override
+////                    public void onDuiGongFuKuan() {
+////                        Intent intent = new Intent(QueRenDingDanActivity.this, DuiGongFuKuanActivity.class);
+////                        startActivity(intent);
+////                        finish();
+////                        PoPuWindowUtils.getIntance().dismissPopuWindow();
+////                    }
+//                });
 
             } else {
                 Toast.makeText(this, getString(R.string.dingdantijiaoshibai), Toast.LENGTH_SHORT).show();
@@ -423,5 +432,41 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
             Toast.makeText(this, getString(R.string.dingdantijiaoshibai), Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    //微信支付的回调
+    //在ui线程执行
+    @Subscribe
+    public void onWeChatCharge(WXPayEntryActivity.wxPayResult payResultResult) {
+        Logger.d("收到了微信支付的回调"+payResultResult);
+        if (this == null)
+            return;
+        switch (payResultResult) {
+            case success:
+//                submit();
+                ToastUtils.showShort("支付成功");
+                break;
+            case cancle:
+                ToastUtils.showShort("取消支付");
+                break;
+            case fail:
+                ToastUtils.showShort("支付错误");
+                break;
+            case error:
+                ToastUtils.showShort("支付错误");
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    @Subscribe
+    public void onZhifubaoCharge(PayBean payBean){
+        Logger.d("收到支付宝支付成功的回调");
+        //支付宝支付成功
+//        submit();
+    }
+
 
 }

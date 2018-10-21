@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +54,7 @@ public class ZuLinFragment extends Fragment implements AdapterView.OnItemClickLi
     private void initView(View rootView) {
         ListView mLv = (ListView) rootView.findViewById(R.id.wodezuling_layout_listview);
 
-        adapter = new ZuLingAdapter(rootView);
+        adapter = new ZuLingAdapter(getActivity(),rootView);
         mLv.setAdapter(adapter);
         mLv.setOnItemClickListener(this);
         getData();
