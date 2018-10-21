@@ -13,12 +13,17 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.alibaba.fastjson.JSONObject;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.google.gson.JsonObject;
+import com.hyphenate.easeui.EaseUI;
+import com.hyphenate.util.EasyUtils;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
 import com.qmwl.zyjx.base.BaseActivity;
+import com.qmwl.zyjx.base.MyApplication;
 import com.qmwl.zyjx.fragment.FourFragment;
 import com.qmwl.zyjx.fragment.MainFragment;
 import com.qmwl.zyjx.fragment.SecondFragment;
@@ -26,9 +31,13 @@ import com.qmwl.zyjx.fragment.ThreadFragment;
 import com.qmwl.zyjx.runtimepermissions.PermissionsManager;
 import com.qmwl.zyjx.runtimepermissions.PermissionsResultAction;
 import com.qmwl.zyjx.utils.Contact;
+import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.view.CommomDialog;
+import com.umeng.message.UmengNotificationClickHandler;
+import com.umeng.message.entity.UMessage;
 
-import org.json.JSONObject;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +68,91 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     protected void initView() {
         isOutLogin();
+
+
+        UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
+            @Override
+            public void dealWithCustomAction(Context context, UMessage msg) {
+                //  Toast.makeText(context, msg.custom, Toast.LENGTH_LONG).show();
+                Log.d("huangrui","友盟收到的消息推送zi定义通知:"+msg.custom);
+                if (msg.after_open=="go_app"){
+
+                }else if(msg.after_open=="go_custom"){
+                   // JsonObject jsonObject= new JsonObject(msg.custom);
+                    //jsonObject.get("");
+                    try {
+                        org.json.JSONObject obj = new org.json.JSONObject(msg.custom);
+                        String orderId=obj.get("orderId")+"";
+                        String orderStatus=obj.get("orderStatus")+"";
+                        String url=obj.get("url")+"";
+                            //使用方法三
+                            if(EasyUtils.isAppRunningForeground(context)){
+                               // LogUtils.d("应用在前台");
+                               // EventManager.post(Constant.EB_MSG_CHANGE,message);
+                                    if ("0".equals(orderStatus)) {
+                                        //待付款
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
+                                    }else if ("1".equals(orderStatus)){
+                                        //申请退款
+                                        // startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
+                                    }else if ("2".equals(orderStatus)){
+                                        //待收货
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",3));
+                                    }else if ("3".equals(orderStatus)){
+                                        //已完成
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4));
+                                    }else if ("4".equals(orderStatus)){
+                                        //已完成
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4));
+                                    }else if ("-1".equals(orderStatus)){
+                                        //待退款退货订单
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",5));
+                                    }else if ("6".equals(orderStatus)){
+                                        //异常订单
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",6));
+                                    }
+
+                                }else{
+                                //应用在后台
+                                    if ("0".equals(orderStatus)) {
+                                        //待付款
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
+                                    }else if ("1".equals(orderStatus)){
+                                        //申请退款
+                                        // startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
+                                    }else if ("2".equals(orderStatus)){
+                                        //待收货
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",3));
+                                    }else if ("3".equals(orderStatus)){
+                                        //已完成
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4));
+                                    }else if ("4".equals(orderStatus)){
+                                        //已完成
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4));
+                                    }else if ("-1".equals(orderStatus)){
+                                        //待退款退货订单
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",5));
+                                    }else if ("6".equals(orderStatus)){
+                                        //异常订单
+                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",6));
+                                    }
+                                }
+
+
+
+                    } catch (JSONException e) {
+
+
+                    }
+
+                }
+
+
+
+            }
+
+        };
+        MyApplication.mPushAgent.setNotificationClickHandler(notificationClickHandler);
 
         /**
          * 请求所有必要的权限----原理就是获取清单文件中申请的权限

@@ -1,1 +1,2 @@
-include ':app', ':PushSDK', ':easeui'
+include ':app', ':PushSDK', ':easeui'      ,  ':library_pictureselector',
+':library_pictureselectorucop'

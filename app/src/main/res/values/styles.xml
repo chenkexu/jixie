@@ -147,6 +147,74 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <!--默认样式-->
+    <style name="picture_my_style" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--标题栏背景色-->
+        <item name="colorPrimary">@color/white</item>
+        <!--状态栏背景色-->
+        <item name="colorPrimaryDark">@color/white</item>
+        <!--是否改变图片列表界面状态栏字体颜色为黑色-->
+        <item name="picture.statusFontColor">true</item>
+        <!--返回键图标-->
+     <item name="picture.leftBack.icon">@mipmap/left_btn_white</item>
+        <!--标题下拉箭头-->
+        <item name="picture.arrow_down.icon">@drawable/arrow_down</item>
+        <!--标题上拉箭头-->
+        <item name="picture.arrow_up.icon">@drawable/arrow_up</item>
+        <!--标题文字颜色-->
+        <item name="picture.title.textColor">@color/c666666</item>
+        <!--标题栏右边文字-->
+        <item name="picture.right.textColor">@color/c666666</item>
+        <!--图片列表勾选样式-->
+        <item name="picture.checked.style">@drawable/picture_checkbox_selector</item>
+        <!--开启图片列表勾选数字模式-->
+        <item name="picture.style.checkNumMode">false</item>
+        <!--选择图片样式0/9-->
+        <item name="picture.style.numComplete">false</item>
+        <!--图片列表底部背景色-->
+        <item name="picture.bottom.bg">@color/color_fa</item>
+        <!--图片列表预览文字颜色-->
+        <item name="picture.preview.textColor">@color/c666666</item>
+        <!--图片列表已完成文字颜色-->
+        <item name="picture.complete.textColor">@color/c666666</item>
+<!--        &lt;!&ndash;图片已选数量圆点背景色&ndash;&gt;-->
+        <item name="picture.num.style">@drawable/person_folder_checked_dot</item>
+        <!--预览界面标题文字颜色-->
+        <item name="picture.ac_preview.title.textColor">@color/white</item>
+        <!--预览界面已完成文字颜色-->
+        <item name="picture.ac_preview.complete.textColor">@color/c666666</item>
+        <!--预览界面标题栏背景色-->
+        <item name="picture.ac_preview.title.bg">@color/white</item>
+        <!--预览界面底部背景色-->
+        <item name="picture.ac_preview.bottom.bg">@color/white</item>
+<!--
+        &lt;!&ndash;预览界面返回箭头&ndash;&gt;
+-->
+        <item name="picture.preview.leftBack.icon">@mipmap/left_btn_white</item>
+        <!--裁剪页面标题背景色-->
+        <item name="picture.crop.toolbar.bg">@color/white</item>
+        <!--裁剪页面状态栏颜色-->
+        <item name="picture.crop.status.color">@color/white</item>
 
+        <!--裁剪页面标题文字颜色-->
+        <item name="picture.crop.title.color">@color/white</item>
+      <!--  &lt;!&ndash;相册文件夹列表选中图标&ndash;&gt;-->
+        <item name="picture.folder_checked_dot">@drawable/person_folder_checked_dot</item>
+    </style>
+
+
+    <!--选择头像底部弹出dialogitem-->
+    <style name="user_personal_tv_pop_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">@color/c666666</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+
+
+    </style>
 
 </resources>

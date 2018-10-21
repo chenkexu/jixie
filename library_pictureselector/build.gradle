@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        targetSdkVersion 25
+        minSdkVersion 19
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+}
+
+dependencies {
+    //noinspection GradleCompatible
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation "com.android.support:recyclerview-v7:23.4.0"
+    //implementation "com.github.bumptech.glide:glide:4.8.1"
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.7'
+    // implementation project(':third-party-library:PictureUcopLibrary')
+    //implementation rootProject.ext.supportDependencies.glide
+    implementation project(':library_pictureselectorucop')
+    testImplementation 'junit:junit:4.12'
+}

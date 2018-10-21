@@ -66,9 +66,9 @@ public class AskRetunThingDialog extends DialogFragment {
 
                     Log.d("huangrui","进行网络请求");
                     AndroidNetworking.get(Contact.tuikuan + "?orderId=" + mDingDanlBean.getOrder_id()
-                            + "&goods_id=" + mDingDanlBean.getShopList().get(0).getGoods_id()
+                         //   + "&goods_id=" + mDingDanlBean.getShopList().get(0).getGoods_id()
                             +"&content=" + mCancelBean.getNiu_index_response().get(checkPosition)
-                            +"&tuiStatus=" +1)
+                            +"&tuiStatus=1")
 
                             .build()
                             .getAsJSONObject(new JSONObjectRequestListener() {

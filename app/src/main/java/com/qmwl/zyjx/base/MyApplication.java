@@ -42,6 +42,9 @@ import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
+import com.umeng.message.UmengMessageHandler;
+import com.umeng.message.UmengNotificationClickHandler;
+import com.umeng.message.entity.UMessage;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
@@ -69,7 +72,7 @@ public class MyApplication extends Application {
     private static MyApplication instance;
 
 
-
+    public static PushAgent mPushAgent;
 
     public static MyApplication getIntance() {
         if (myApplication == null) {
@@ -118,6 +121,8 @@ public class MyApplication extends Application {
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
 
         });
+
+
     }
 
     //获取存储的信息
@@ -135,14 +140,14 @@ public class MyApplication extends Application {
     }
 
     private void initPush() {
-        PushAgent mPushAgent = PushAgent.getInstance(this);
+         mPushAgent = PushAgent.getInstance(this);
         //注册推送服务，每次调用register方法都会回调该接口
         mPushAgent.register(new IUmengRegisterCallback() {
 
             @Override
             public void onSuccess(String deviceToken) {
                 //注册成功会返回device token
-
+                     Log.d("huangrui","推送注册成功"+"deviceToken"+deviceToken);
                 if (isLogin()) {
                     addTuiSongAlias(userBean.getUid());
                 }
@@ -153,6 +158,21 @@ public class MyApplication extends Application {
                 Log.i("TAG", "推送token:" + s + "   " + s1);
             }
         });
+
+
+        UmengMessageHandler messageHandler = new UmengMessageHandler() {
+            @Override
+            public void dealWithNotificationMessage(Context context, UMessage uMessage) {
+                super.dealWithNotificationMessage(context, uMessage);
+                Log.d("huangrui","友盟收到的消息推送:"+uMessage.custom+"uMessage.after_open:"+uMessage.after_open+"after_open"
+                +uMessage.custom);
+            }
+        };
+        mPushAgent.setMessageHandler(messageHandler);
+
+
+
+
     }
 
     private void initHuanXin() {
@@ -480,4 +500,9 @@ public class MyApplication extends Application {
     }
 
 
+
+
+
+
+    
 }

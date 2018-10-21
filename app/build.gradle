@@ -1,8 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '27.0.3'
+    dexOptions {
+        preDexLibraries = false
+    }
     defaultConfig {
         applicationId "com.qmwl.zyjx"
         minSdkVersion 19
@@ -16,6 +19,7 @@ android {
 //            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a","x86_64"
             abiFilters "armeabi", "x86", "armeabi-v7a"
         }
+
     }
 //    lintOptions {
 //        disable 'ResourceType','MissingTranslation'
@@ -58,14 +62,13 @@ android {
 
 dependencies {
     compile project(':PushSDK')
-
-//  compile 'com.amap.api:navi-3dmap:latest.integration'
-//  compile 'com.amap.api:location:latest.integration'
+    //  compile 'com.amap.api:navi-3dmap:latest.integration'
+    //  compile 'com.amap.api:location:latest.integration'
     //3D地图so及jar
     //定位功能
     //搜索功能
     //导航功能
-//    compile 'com.amap.api:navi-3dmap:6.0.0'
+    //    compile 'com.amap.api:navi-3dmap:6.0.0'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -81,8 +84,6 @@ dependencies {
     compile files('libs/alipaySdk-20170725.jar')
     compile files('libs/SocialSDK_QQ_Simplify.jar')
     compile project(':easeui')
-
-
     compile 'com.umeng.sdk:common:latest.integration'
     compile 'com.umeng.sdk:analytics:latest.integration'
     compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
@@ -95,13 +96,13 @@ dependencies {
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile 'com.amitshekhar.android:android-networking:1.0.0'
     compile 'com.yuyh.imgsel:library:1.3.8'
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile('com.android.support:appcompat-v7:25.3.1') {
+        exclude module: 'support-v4'
+    }
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
-
-
-
-
+    //compile 'com.android.support:design:25.3.1'
+    // compile 'com.github.bumptech.glide:glide:4.8.0'
+    // annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
     compile 'com.jakewharton:butterknife:8.8.1'
     compile 'com.github.lygttpod:SuperTextView:2.1.8'
@@ -116,8 +117,27 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
-    //日志
     compile 'com.orhanobut:logger:2.2.0'
     compile 'org.greenrobot:eventbus:3.0.0'
+    implementation 'org.simple:androideventbus:1.0.5.1'
     compile 'com.hedgehog.ratingbar:app:1.1.2'
+    /*implementation ('com.github.LuckSiege.PictureSelector:picture_library:v2.2.3') {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        }*/
+    implementation project(':library_pictureselector')
+    implementation project(':library_pictureselectorucop')
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '25.3.0'
+                }
+            }
+        }
+    }
+
+    implementation 'com.alibaba:fastjson:1.1.70.android'
+
 }

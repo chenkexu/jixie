@@ -91,7 +91,8 @@
     <string name="tuikuan">退&#160;&#160;款</string>
     <string name="chakanwuliu">查看物流</string>
     <string name="querenshouhuo">确认收货</string>
-    <string name="pingjia">评&#160;&#160;价</string>
+    <string name="pingjia">#160;评&#160;&#160;价&#160;</string>
+    <string name="pingjia2"> 评  价 </string>
 
     <string name="all">全部</string>
     <string name="zhengzaishenhe">正在审核</string>
@@ -591,13 +592,20 @@
     <string name="invoice_area_hint">填写地区</string>
     <string name="invoice_address">详细地址</string>
     <string name="invoice_address_hint">填写详细地址</string>
-
+    <string name="shouhou">退款/售后</string>
+    <string name="yichang">异常</string>
 
     <!--开发票-->
     <string name="apply_elec_invoice">申请电子发票</string>
     <string name="apply_paper_invoice">申请纸质发票</string>
     <string name="shop_pingfen">店铺评分</string>
     <string name="server_num">服务态度</string>
+    <string name="deleteOrder">删除订单</string>
+    <string name="take_photo">立即拍照</string>
+    <string name="select_from_gallery">从相册选择</string>
+    <string name="delete_suc">删除成功</string>
+    <string name="delete_fail">删除失败</string>
+    <string name="shanchu">是否删除订单</string>
 
     <!--<string name="apply_paper_invoice">发票详情</string>-->
     <!--<string name="apply_paper_invoice">抬头类型</string>-->

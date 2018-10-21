@@ -174,6 +174,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.tv_tip.setText(item.getMsg()+"");
                     Log.d("huangrui","item.getTui_xu()的值"+item.getTui_xu());
                     if (("1").equals(item.getTui_xu())){
+                        Log.d("huangrui","进来l了"+item.getTui_xu());
                         holder.tuihuowuliu.setVisibility(View.VISIBLE);
                     }else{
                         holder.tuihuowuliu.setVisibility(View.GONE);
@@ -200,9 +201,36 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 if (is_evaluate == 0) {
                     holder.pingjia.setVisibility(View.VISIBLE);
                 }
+                holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
+                holder.chakanwuliu.setVisibility(View.VISIBLE);
+                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                break;
+            case 4:
+//                statue = 已完成
+//                holder.chakanwuliu.setVisibility(View.VISIBLE);
+                if (is_evaluate == 0) {
+                    holder.pingjia.setVisibility(View.VISIBLE);
+                }
+                holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
+                holder.chakanwuliu.setVisibility(View.VISIBLE);
+                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                break;
+            case -1:
+                //待退款退货订单
+                Log.d("huangrui","状态时-1");
+                holder.lianximaijia.setVisibility(View.VISIBLE);
+                if(item.getMa()==7){
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                }
+                break;
+            case 6:
+                //异常订单
+                //if (item.getMa()==5){
+                    holder.tv_tip.setText(item.getMsg()+"");
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+               // }
 
                 break;
-
         }
     }
 
@@ -246,7 +274,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         TextView shangjiaName, shangpinStatue, shangpinname, shangpinPrice, shangpinType, shangpinNum, zonggong, heji, yunfei,tv_tip;
         View lianximaijia, quxiaodingdan, fukuan, tuikuan, chakanwuliu, querenshouhuo, pingjia;
         //AddByHr
-        View shenqingtuikuan, shenqingfapiao,tixingfahuo,shenqingtuiuhuo,shenqingweiquan,tuihuowuliu;
+        View shenqingtuikuan, shenqingfapiao,tixingfahuo,shenqingtuiuhuo,shenqingweiquan,tuihuowuliu,dingdan_layout_item_shanchudingdan;
         MyViewOnClickListener onClickListener;
 
         ViewHolder(View convertView) {
@@ -285,8 +313,11 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
             shenqingweiquan = convertView.findViewById(R.id.dingdan_layout_item_shenqingweiquan);
             //退货物流
             tuihuowuliu = convertView.findViewById(R.id.dingdan_layout_item_tuihuowuliu);
+            //删除订单
+            dingdan_layout_item_shanchudingdan = convertView.findViewById(R.id.dingdan_layout_item_shanchudingdan);
+
             onClickListener = new MyViewOnClickListener();
-            View[] v = new View[]{pingjia, querenshouhuo, chakanwuliu, tuikuan, fukuan, quxiaodingdan, lianximaijia,shenqingtuikuan,shenqingfapiao,tixingfahuo,shenqingtuiuhuo,shenqingweiquan,tuihuowuliu};
+            View[] v = new View[]{pingjia, querenshouhuo, chakanwuliu, tuikuan, fukuan, quxiaodingdan, lianximaijia,shenqingtuikuan,shenqingfapiao,tixingfahuo,shenqingtuiuhuo,shenqingweiquan,tuihuowuliu,dingdan_layout_item_shanchudingdan};
             setViewOnClick(v, onClickListener);
             convertView.setTag(this);
         }
@@ -366,9 +397,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     intent.putExtra(ScendPingJiaActivity.price_data, shopBean.getPrice() + "");
                     intent.putExtra(ScendPingJiaActivity.shop_id_data, shopBean.getShop_id());
                     intent.putExtra(ScendPingJiaActivity.shop_iv, shopBean.getIv_pic());
-
                     intent.putExtra(ScendPingJiaActivity.shop_name, shopBean.getShopName());
-
+                    Log.d("huangrui","传过去的商品名称:"+shopBean.getShopName());
                     v.getContext().startActivity(intent);
                     break;
                 case R.id.dingdan_layout_item_shenqingtuikuan:
@@ -428,8 +458,38 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     mIntent3.putExtra("DingDanBean",item);
                     context.startActivity(mIntent3);
                     break;
+                case R.id.dingdan_layout_item_shanchudingdan:
+                    //删除订单
 
+                    new CommomDialog(context, R.style.dialog, context.getString(R.string.shanchu), new CommomDialog.OnCloseListener() {
+                        @Override
+                        public void onClick(final Dialog dialog, boolean confirm) {
+                            if (confirm) {
+                                AndroidNetworking.get(Contact.shanchudingdan + "?orderId=" + item.getOrder_id())
+                                        .build()
+                                        .getAsJSONObject(new JSONObjectRequestListener() {
+                                            @Override
+                                            public void onResponse(JSONObject response) {
+                                              //  Log.d("huangrui","删除成功");
+                                                ToastUtils.show(context.getResources().getString(R.string.delete_suc),1000);
+                                                dialog.dismiss();
+                                            }
 
+                                            @Override
+                                            public void onError(ANError anError) {
+                                            //    Log.d("huangrui","删除失败");
+                                                ToastUtils.show(context.getResources().getString(R.string.delete_fail),1000);
+                                                dialog.dismiss();
+                                            }
+                                        });
+                            }else{
+                                dialog.dismiss();
+                            }
+
+                        }
+                    }).setTitle(context.getString(R.string.tishi)).show();
+
+                   break;
             }
         }
     }

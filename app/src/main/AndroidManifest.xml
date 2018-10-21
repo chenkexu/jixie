@@ -45,12 +45,19 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="93ebf6c96a75f5211a96801c990af6ba" />
+       <!-- <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="59e4424ca40fa32e7b000036" />-->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="59e4424ca40fa32e7b000036" />
+            android:value="5bcc0dc5b465f5e13600021d" />
+
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="1e221fdbb93b21a7924c0e2ebf4a889b" />
+            android:value="d8199312d0f389d1a57356cae9e6f327" />
+      <!--  <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="1e221fdbb93b21a7924c0e2ebf4a889b" />-->
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="qmwl" />
@@ -468,6 +475,10 @@
             android:screenOrientation="portrait">
 
         </activity>
+<!--
+        <service android:name=".push.MyNotificationService" />
+        <service android:name=".push.UmengNotificationService" />
+        <receiver android:name=".push.NotificationBroadcast" />-->
     </application>
 
 </manifest>

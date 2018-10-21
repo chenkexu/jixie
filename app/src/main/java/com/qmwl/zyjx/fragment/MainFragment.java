@@ -154,6 +154,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Adap
 
         //判断未读消息数量是否大于0
         MessageNum();
+
     }
 
     private void MessageNum() {

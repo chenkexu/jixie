@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/user_personal_pop_take_photo"
+        style="@style/user_personal_tv_pop_style"
+        android:textColor="@color/user_pic_dialog_tv_selector_color"
+        android:text="@string/take_photo" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/fatie_edittext_bg_color"
+        android:layout_height="1dp"/>
+    <TextView
+        android:id="@+id/user_personal_pop_pick_photo"
+        style="@style/user_personal_tv_pop_style"
+        android:textColor="@color/user_pic_dialog_tv_selector_color"
+        android:text="@string/select_from_gallery" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/fatie_edittext_bg_color"
+        android:layout_height="6dp"/>
+    <TextView
+        android:id="@+id/user_personal_pop_cancel"
+        style="@style/user_personal_tv_pop_style"
+        android:text="@string/cancel" />
+</LinearLayout>

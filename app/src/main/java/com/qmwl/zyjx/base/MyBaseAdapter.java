@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.qmwl.zyjx.R;
 
 public abstract class MyBaseAdapter<T> extends BaseAdapter {
@@ -67,11 +68,11 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
         if ("".equals(url) || TextUtils.isEmpty(url)) {
             iv.setImageResource(R.mipmap.small);
         } else {
-//            RequestOptions requestOptions = new RequestOptions();
-//            requestOptions.error(R.mipmap.small);
-//            requestOptions.placeholder(R.mipmap.small);
-//            Glide.with(parentView.getContext()).setDefaultRequestOptions(requestOptions).load(url).into(iv);
-            Glide.with(parentView.getContext()).load(url).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.mipmap.small).into(iv);
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions.error(R.mipmap.small);
+            requestOptions.placeholder(R.mipmap.small);
+            Glide.with(parentView.getContext()).setDefaultRequestOptions(requestOptions).load(url).into(iv);
+   //         Glide.with(parentView.getContext()).load(url).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.mipmap.small).into(iv);
         }
     }
 

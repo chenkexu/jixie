@@ -31,7 +31,7 @@ import org.simple.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
+
 
 /**
  * Created by Administrator on 2017/7/25.
@@ -49,11 +49,15 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
     private RadioButton radiobutton3;
     private RadioButton radiobutton4;
     private RadioButton radiobutton5;
+    private RadioButton radiobutton6;
+    private RadioButton radiobutton7;
     private DingDanFragment dingDanFragment1;
     private DingDanFragment dingDanFragment2;
     private DingDanFragment dingDanFragment3;
     private DingDanFragment dingDanFragment4;
     private DingDanFragment dingDanFragment5;
+    private DingDanFragment dingDanFragment6;
+    private DingDanFragment dingDanFragment7;
 
     @Override
     protected void setLayout() {
@@ -72,18 +76,24 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
         radiobutton3 = (RadioButton) findViewById(R.id.zulin_layout_radiobutton_b3);
         radiobutton4 = (RadioButton) findViewById(R.id.zulin_layout_radiobutton_b4);
         radiobutton5 = (RadioButton) findViewById(R.id.zulin_layout_radiobutton_b5);
+        radiobutton6 = (RadioButton) findViewById(R.id.zulin_layout_radiobutton_b6);
+        radiobutton7 = (RadioButton) findViewById(R.id.zulin_layout_radiobutton_b7);
 
         radiobutton1.setText(R.string.all);
         radiobutton2.setText(R.string.daifukuan);
         radiobutton3.setText(R.string.daifahuo);
         radiobutton4.setText(R.string.daishouhuo);
         radiobutton5.setText(R.string.yiwancheng);
+        radiobutton6.setText(R.string.shouhou);
+        radiobutton7.setText(R.string.yichang);
 
         radiobutton1.setOnClickListener(this);
         radiobutton2.setOnClickListener(this);
         radiobutton3.setOnClickListener(this);
         radiobutton4.setOnClickListener(this);
         radiobutton5.setOnClickListener(this);
+        radiobutton6.setOnClickListener(this);
+        radiobutton7.setOnClickListener(this);
 
 
         List<Fragment> list = new ArrayList<>();
@@ -92,19 +102,32 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
         dingDanFragment3 = new DingDanFragment();
         dingDanFragment4 = new DingDanFragment();
         dingDanFragment5 = new DingDanFragment();
+        dingDanFragment6 = new DingDanFragment();
+        dingDanFragment7 = new DingDanFragment();
         list.add(dingDanFragment1);
         list.add(dingDanFragment2);
         list.add(dingDanFragment3);
         list.add(dingDanFragment4);
         list.add(dingDanFragment5);
+        list.add(dingDanFragment6);
+        list.add(dingDanFragment7);
 
         FlowFragmentAdapter adapter = new FlowFragmentAdapter(getSupportFragmentManager(), list);
         mVp.setAdapter(adapter);
-        mVp.setOffscreenPageLimit(5);
+        mVp.setOffscreenPageLimit(7);
         mVp.addOnPageChangeListener(this);
 //        radioGroup.check(R.id.zulin_layout_radiobutton_b1);
-        int index = getIntent().getIntExtra(WODEDINGDAN_INDEX_VALUE, 0);
-        mVp.setCurrentItem(index);
+
+         int tuiSongIndex=getIntent().getIntExtra("index",0);
+         if (tuiSongIndex!=0){
+             int index = tuiSongIndex;
+             mVp.setCurrentItem(index);
+         }else{
+             int index = getIntent().getIntExtra(WODEDINGDAN_INDEX_VALUE, 0);
+             mVp.setCurrentItem(index);
+         }
+
+
     }
 
     @Override
@@ -117,6 +140,8 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
         dingDanFragment3.cancelRefresh();
         dingDanFragment4.cancelRefresh();
         dingDanFragment5.cancelRefresh();
+        dingDanFragment6.cancelRefresh();
+        dingDanFragment7.cancelRefresh();
     }
 
     @Override
@@ -136,7 +161,8 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                         cancelFragmentRefersh();
                         dismissLoadingDialog();
                         final List<DingDanBean> dingDanBeen = JsonUtils.parseDingDan(response);
-                        Logger.json(response.toString());
+                        Log.d("huangrui","dingDanBeen:"+dingDanBeen);
+                        com.orhanobut.logger.Logger.json(response.toString());
                         new Thread() {
                             @Override
                             public void run() {
@@ -145,6 +171,8 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                                 final List<DingDanBean> list2 = new ArrayList<DingDanBean>();
                                 final List<DingDanBean> list3 = new ArrayList<DingDanBean>();
                                 final List<DingDanBean> list4 = new ArrayList<DingDanBean>();
+                                final List<DingDanBean> list5 = new ArrayList<DingDanBean>();
+                                final List<DingDanBean> list6 = new ArrayList<DingDanBean>();
                                 for (DingDanBean bean : dingDanBeen) {
                                     switch (bean.getDingdan_statue_code()) {
                                         case 0:
@@ -162,6 +190,12 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                                         case 4:
                                             list4.add(bean);
                                             break;
+                                        case -1:
+                                            list5.add(bean);
+                                            break;
+                                        case 6:
+                                            list6.add(bean);
+                                            break;
                                     }
                                 }
                                 runOnUiThread(new Runnable() {
@@ -171,6 +205,8 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                                         dingDanFragment3.setData(list2);
                                         dingDanFragment4.setData(list3);
                                         dingDanFragment5.setData(list4);
+                                        dingDanFragment6.setData(list5);
+                                        dingDanFragment7.setData(list6);
                                     }
                                 });
 
@@ -211,6 +247,15 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                 mVp.setCurrentItem(4);
                 break;
 
+            case R.id.zulin_layout_radiobutton_b6:
+                mVp.setCurrentItem(5);
+                break;
+
+
+            case R.id.zulin_layout_radiobutton_b7:
+                mVp.setCurrentItem(6);
+                break;
+
         }
     }
 
@@ -242,6 +287,12 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                 break;
             case 4:
                 radioGroup.check(R.id.zulin_layout_radiobutton_b5);
+                break;
+            case 5:
+                radioGroup.check(R.id.zulin_layout_radiobutton_b6);
+                break;
+            case 6:
+                radioGroup.check(R.id.zulin_layout_radiobutton_b7);
                 break;
 
         }

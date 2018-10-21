@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+
+    defaultConfig {
+        targetSdkVersion 25
+        minSdkVersion 19
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+
+}
+
+dependencies {
+   // implementation rootProject.ext.supportDependencies.supportAppcompat
+  //  implementation rootProject.ext.supportDependencies.supportRecyclerview
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation "com.android.support:recyclerview-v7:23.4.0"
+    implementation ('com.github.bumptech.glide:glide:4.6.1')
+
+}

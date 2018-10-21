@@ -1,5 +1,7 @@
 package com.qmwl.zyjx.utils;
 
+import retrofit2.http.POST;
+
 /**
  * Created by Administrator on 2017/8/9.
  */
@@ -329,6 +331,7 @@ public class Contact {
     public static String get_tuihuo_order_reson = httpaddress.concat("/index.php/api/order/tuiHuoReson");
 
 
+    public static  String  shanchudingdan = httpaddress.concat("/index.php/api/order/finDel");
 
 
 
@@ -610,6 +613,7 @@ public class Contact {
         huoquchengshiliebiao = httpaddress.concat("/index.php/api/goods/screen_city");
         //获取县列表(商品三级筛选)
         huoquxianliebiao = httpaddress.concat("/index.php/api/cart/getDistrict");
+
 
     }
 }

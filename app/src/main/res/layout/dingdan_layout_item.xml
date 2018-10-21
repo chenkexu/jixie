@@ -198,6 +198,8 @@ android:layoutDirection="rtl"
 
 
 
+
+
         <!--提醒发货-->
         <TextView
             android:id="@+id/dingdan_layout_item_tixingfahuo"
@@ -224,6 +226,18 @@ android:layoutDirection="rtl"
             android:textSize="11sp"
             android:visibility="gone"
             />
+
+
+        <TextView
+            android:id="@+id/dingdan_layout_item_shanchudingdan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_waiyuan_bg"
+            android:text="@string/deleteOrder"
+            android:textColor="@color/c666666"
+            android:textSize="11sp"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone" />
 
 
         <!--申请发票-->
@@ -336,7 +350,6 @@ android:layoutDirection="rtl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-
             android:background="@drawable/button_waiyuan_bg"
             android:text="@string/tuihuowuliu"
             android:textColor="@color/c666666"
@@ -362,7 +375,11 @@ android:layoutDirection="rtl"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="@drawable/button_waiyuan_bg"
-            android:text="@string/pingjia"
+            android:text="@string/pingjia2"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
             android:textColor="@color/c666666"
             android:textSize="11sp"
             android:visibility="gone" />

@@ -17,6 +17,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.qmwl.zyjx.R;
@@ -75,7 +76,13 @@ public class AskReturnThingActivity extends BaseActivity {
         if ("".equals(shoppingBean.getIv_pic()) || TextUtils.isEmpty(shoppingBean.getIv_pic())) {
             mIv.setImageResource(R.mipmap.small);
         } else {
-            Glide.with(this).load(shoppingBean.getIv_pic()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.mipmap.small).into(mIv);
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions.error(R.mipmap.small);
+            requestOptions.placeholder(R.mipmap.small);
+            requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+            Glide.with(this).setDefaultRequestOptions(requestOptions).load(shoppingBean.getIv_pic()).into(mIv);
+
+         //   Glide.with(this).load(shoppingBean.getIv_pic()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.mipmap.small).into(mIv);
         }
         mTv.setText(shoppingBean.getName());
     }

@@ -3,11 +3,20 @@ package com.qmwl.zyjx.api;
 
 import com.qmwl.zyjx.bean.CancelOrderBean;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PartMap;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 import static com.qmwl.zyjx.utils.Contact.httpaddress;
 
@@ -77,6 +86,20 @@ public interface ApiService {
     //快递公司列表
     @GET("/index.php/api/order/kuaiDi")
     Observable<ApiResponse<Object>> kuaidiList();
+
+
+
+    //删除订单
+    @POST(" /index.php/api/order/finDel")
+    Observable<ApiResponse<Object>> deleteOrder();
+
+
+
+    //发表评价
+    @Multipart
+    @POST("/index.php/api/member/addGoodsEvaluate")
+    Observable<ApiResponse<Object>> fabiaopingjia(@QueryMap HashMap<String,Object> map, @PartMap Map<String, RequestBody> imageFiles);
+
 
 
 
