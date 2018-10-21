@@ -16,6 +16,9 @@ import android.widget.TextView;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.chinapay.cppaysdk.activity.Initialize;
+import com.chinapay.cppaysdk.bean.OrderInfo;
+import com.chinapay.cppaysdk.util.Utils;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.AskReturnThingActivity;
 import com.qmwl.zyjx.activity.AskWeiQuanActivity;
@@ -31,8 +34,10 @@ import com.qmwl.zyjx.api.BaseObserver;
 import com.qmwl.zyjx.base.Constant;
 import com.qmwl.zyjx.base.MyBaseAdapter;
 import com.qmwl.zyjx.bean.CancelOrderBean;
+import com.qmwl.zyjx.bean.ChinaPayOrder;
 import com.qmwl.zyjx.bean.DingDanBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
+import com.qmwl.zyjx.dialog.ChargePopWindow;
 import com.qmwl.zyjx.dialog.InvoiceDialog;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
@@ -206,6 +211,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         }
     }
 
+
+
     //获取订单状态
     private String getStatueString(Context context, int dingdan_statue_code) {
         String statue = "";
@@ -232,6 +239,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         }
         return statue;
     }
+
+
 
     private ViewHolder getHolder(View convertView) {
         ViewHolder holder = (ViewHolder) convertView.getTag();
@@ -336,9 +345,17 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     intent.putExtra("order", item);
                     context.startActivity(intent);
                     break;
-                case R.id.dingdan_layout_item_fukuan:
+                case R.id.dingdan_layout_item_fukuan://付款
 //                    Log.i("TAG", "付款");
-                    fukuan(v.getContext(), item);
+//                    Intent intent = new Intent(context, ZaiXianZhiFuActivity.class);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+//                    intent.putExtra(ZaiXianZhiFuActivity.OUT_TRADE_NO_DATA, item.getOrder_id());
+//                    intent.putExtra(ZaiXianZhiFuActivity.PRICE_DATA, String.valueOf(item.getZongPrice()));
+//                    intent.putExtra(ZaiXianZhiFuActivity.GOODSNAME_DATA, item.getShopList().get(0).getName());
+                    ChargePopWindow chargePopWindow = new ChargePopWindow(false, context, false,
+                            item.getOrder_id(), String.valueOf(item.getZongPrice()), item.getShopList().get(0).getName());
+                    chargePopWindow.show();
+//                    fukuan(v.getContext(), item);
                     break;
                 case R.id.dingdan_layout_item_tuikuan:
                     //退款
@@ -405,7 +422,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     break;
                 case R.id.dingdan_layout_item_tixingfahuo:
                     //提醒发货
-
+                    tixingfahuo(context,item);
                     break;
                 case R.id.dingdan_layout_item_shenqingtuihuo:
                     //申请退货
@@ -422,17 +439,40 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     context.startActivity(mIntent2);
                     break;
                 case R.id.dingdan_layout_item_tuihuowuliu:
-                    //申请维权
+                    //退货物流
                     Intent mIntent3=new Intent(context, ReturnWuliuActivity.class);
                     /*Intent mIntent2=new Intent(context, ReturnWuliuActivity.class);*/
                     mIntent3.putExtra("DingDanBean",item);
                     context.startActivity(mIntent3);
                     break;
-
-
             }
         }
     }
+
+
+
+    //提醒发货
+    private void tixingfahuo(final Context context, final DingDanBean item){
+        ApiManager.getInstence().getApiService()
+                .remind_goods(item.getOrder_id())
+                .compose(RxUtil.<ApiResponse<Object>>rxSchedulerHelper())
+                .subscribe(new BaseObserver<Object>() {
+                    @Override
+                    protected void onSuccees(ApiResponse<Object> t) {
+                        ToastUtils.showShort(context.getResources().getString(R.string.toast_send_goods));
+                    }
+
+                    @Override
+                    protected void onFailure(String errorInfo, boolean isNetWorkError) {
+                        ToastUtils.showShort(errorInfo);
+                    }
+                });
+    }
+
+
+
+
+
 
     //确认收货
     private void querenshouhuo(final Context context, final DingDanBean item) {
@@ -446,6 +486,9 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
             }
         }).setTitle(context.getString(R.string.tishi)).show();
     }
+
+
+
 
     private void querenshouhuoplay(final Context context, DingDanBean item) {
         AndroidNetworking.get(Contact.querenshouhuo + "?orderId=" + item.getOrder_id())
@@ -600,7 +643,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
             @Override
             public void onYinlian() {
-
+                yinlianPay();
             }
 
             @Override
@@ -635,5 +678,55 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 context.startActivity(intent);
                 PoPuWindowUtils.getIntance().dismissPopuWindow();
            }*/
+    }
+
+
+
+
+
+
+    private void yinlianPay(){
+        ApiManager.getInstence().getApiService()
+                .getChinaPayInfo("00")
+                .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
+                .subscribe(new BaseObserver<ChinaPayOrder>() {
+                    @Override
+                    protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
+
+                        ChinaPayOrder chinaPayOrder = t.getData();
+                        OrderInfo orderInfo = new OrderInfo();
+                        orderInfo.setAccessType(chinaPayOrder.getNiu_index_response().getBusiType());
+                        orderInfo.setOrderAmt(chinaPayOrder.getNiu_index_response().getOriOrderNo());
+                        orderInfo.setMerOrderNo(chinaPayOrder.getNiu_index_response().getMerOrderNo());
+                        orderInfo.setMerId(chinaPayOrder.getNiu_index_response().getMerId());
+                        orderInfo.setOrderAmt(chinaPayOrder.getNiu_index_response().getRefundAmt()+"");
+                        orderInfo.setInstuId(chinaPayOrder.getNiu_index_response().getOriOrderNo());
+                        orderInfo.setMerId(chinaPayOrder.getNiu_index_response().getMerId());
+
+
+
+                        // 初始化手机POS环境
+                        Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
+                        // 设置Intent指向Initialize.class
+                        Intent intent = new Intent(context, Initialize.class);
+                        // this为你当前的activity.this
+                        // 传入对象参数
+                        Bundle bundle = new Bundle();
+
+                        bundle.putSerializable("orderInfo", orderInfo);
+                        intent.putExtras(bundle);
+                        intent.putExtra("mode", "00");
+                        // orderInfo为启动插件时传入的OrderInfo对象。
+                        // 使用intent跳转至移动认证插件
+                        context.startActivity(intent);
+                    }
+
+                    @Override
+                    protected void onFailure(String errorInfo, boolean isNetWorkError) {
+
+                    }
+                });
+
+
     }
 }

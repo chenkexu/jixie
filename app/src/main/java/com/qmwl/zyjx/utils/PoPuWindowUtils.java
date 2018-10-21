@@ -22,15 +22,11 @@ public class PoPuWindowUtils {
 //
 //        void onDuiGongFuKuan();
 
-
-
         void onAlipay();
         void onWechat();
         void onYinlian();
         void onZhuanzhang();
         void onSmallDaikuan();
-
-
     }
 
     PopupWindow popupWindow;
@@ -83,10 +79,12 @@ public class PoPuWindowUtils {
             popuView.findViewById(R.id.st_yilian).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //对公付款
+                    //银联
                     if (listener != null) {
                         listener.onYinlian();
                     }
+
+
                 }
             });
 
@@ -132,4 +130,13 @@ public class PoPuWindowUtils {
         }
         popupWindow.showAtLocation(parentView, Gravity.BOTTOM, 0, 0);
     }
+
+
+
+
 }
+
+
+
+
+

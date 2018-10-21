@@ -72,6 +72,8 @@ public class OrderCancelActivity extends BaseActivity {
     private DingDanAdapter dingDanAdapter;
 
 
+
+
     @Override
     protected void setLayout() {
         setContentLayout(R.layout.activity_order_cancel);
@@ -336,4 +338,10 @@ public class OrderCancelActivity extends BaseActivity {
 
         }
     }
+
+
+
+
+
+
 }

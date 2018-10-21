@@ -599,6 +599,15 @@
     <string name="shop_pingfen">店铺评分</string>
     <string name="server_num">服务态度</string>
 
+    <string name="toast_send_goods">提醒发货成功</string>
+
+    <string name="choose_wuliu_title">请选择物流</string>
+    <string name="wuliucon">物流公司</string>
+    <string name="wuliu_input_hint">请输入物流公司</string>
+    <string name="wuliu_id">物流单号</string>
+    <string name="input_wuliu_id">请输入单号</string>
+    <string name="wuliu_submit_success">退货物流已经提交</string>
+
     <!--<string name="apply_paper_invoice">发票详情</string>-->
     <!--<string name="apply_paper_invoice">抬头类型</string>-->
     <!--<string name="apply_paper_invoice">企业单位</string>-->

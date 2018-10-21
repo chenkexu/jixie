@@ -2,12 +2,16 @@ package com.qmwl.zyjx.api;
 
 
 import com.qmwl.zyjx.bean.CancelOrderBean;
+import com.qmwl.zyjx.bean.ChinaPayOrder;
 
 import io.reactivex.Observable;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 import static com.qmwl.zyjx.utils.Contact.httpaddress;
 
@@ -71,13 +75,46 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("/index.php/api/order/tuiWuliu")
     Observable<ApiResponse<Object>> addTuiHuoWuLiu(@Field("orderId") String orderId,
-                                                    @Field("refund_no ") String refund_no,
+                                                    @Field("refund_no") String refund_no,
                                                    @Field("wuliu") String wuliu);
 
     //快递公司列表
     @GET("/index.php/api/order/kuaiDi")
-    Observable<ApiResponse<Object>> kuaidiList();
+    Call<ResponseBody> kuaidiList();
 
 
+
+    @GET("/index.php/api/order/china")
+    Observable<ApiResponse<ChinaPayOrder>> getChinaPayInfo(@Query("uid") String uid);
+
+
+    //提醒发货
+    @FormUrlEncoded
+    @POST("/index.php/api/order/remind")
+    Observable<ApiResponse<Object>> remind_goods(@Field("orderId") String orderId);
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

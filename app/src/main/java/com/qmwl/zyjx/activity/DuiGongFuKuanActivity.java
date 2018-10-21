@@ -4,9 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.amap.api.maps.model.Text;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
@@ -14,7 +12,6 @@ import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.view.CommomDialog;
-import com.qmwl.zyjx.view.MyDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;

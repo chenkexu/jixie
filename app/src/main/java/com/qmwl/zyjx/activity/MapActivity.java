@@ -1,3 +1,4 @@
+/*
 package com.qmwl.zyjx.activity;
 
 import android.Manifest;
@@ -37,10 +38,12 @@ import com.qmwl.zyjx.view.CommomDialog;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * Created by Administrator on 2017/8/1.
  * 地图
- */
+ *//*
+
 
 public class MapActivity extends BaseActivity implements AMap.OnMarkerClickListener {
     private MapView mapView;
@@ -246,36 +249,44 @@ public class MapActivity extends BaseActivity implements AMap.OnMarkerClickListe
         GlideUtils.openImage(this, bean.getLogo(), iv);
     }
 
-    /**
+    */
+/**
      * 方法必须重写
-     */
+     *//*
+
     @Override
     protected void onResume() {
         super.onResume();
         mapView.onResume();
     }
 
-    /**
+    */
+/**
      * 方法必须重写
-     */
+     *//*
+
     @Override
     protected void onPause() {
         super.onPause();
         mapView.onPause();
     }
 
-    /**
+    */
+/**
      * 方法必须重写
-     */
+     *//*
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mapView.onSaveInstanceState(outState);
     }
 
-    /**
+    */
+/**
      * 方法必须重写
-     */
+     *//*
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -336,3 +347,4 @@ public class MapActivity extends BaseActivity implements AMap.OnMarkerClickListe
         //获取AMapNavi实例
     }
 }
+*/

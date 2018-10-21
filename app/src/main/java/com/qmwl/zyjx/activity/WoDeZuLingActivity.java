@@ -1,20 +1,20 @@
 package com.qmwl.zyjx.activity;
 
-import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
-import com.androidnetworking.AndroidNetworking;
+import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
-import com.qmwl.zyjx.adapter.ZuLingAdapter;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.fragment.ZuLinFragment;
-import com.qmwl.zyjx.utils.Contact;
+import com.qmwl.zyjx.utils.ToastUtils;
+import com.qmwl.zyjx.wxapi.WXPayEntryActivity;
+import com.qmwl.zyjx.zfb.PayBean;
+
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,6 +137,42 @@ public class WoDeZuLingActivity extends BaseActivity implements ViewPager.OnPage
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+
+
+    //微信支付的回调
+    //在ui线程执行
+    @Subscribe
+    public void onWeChatCharge(WXPayEntryActivity.wxPayResult payResultResult) {
+        Logger.d("收到了微信支付的回调"+payResultResult);
+        if (this == null)
+            return;
+        switch (payResultResult) {
+            case success:
+//                submit();
+                ToastUtils.showShort("支付成功");
+                break;
+            case cancle:
+                ToastUtils.showShort("取消支付");
+                break;
+            case fail:
+                ToastUtils.showShort("支付错误");
+                break;
+            case error:
+                ToastUtils.showShort("支付错误");
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    @Subscribe
+    public void onZhifubaoCharge(PayBean payBean){
+        Logger.d("收到支付宝支付成功的回调");
+        //支付宝支付成功
+//        submit();
     }
 
 }

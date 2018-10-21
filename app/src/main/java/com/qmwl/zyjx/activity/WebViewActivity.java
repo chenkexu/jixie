@@ -7,10 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
@@ -26,7 +22,6 @@ import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.base.MyApplication;
 import com.qmwl.zyjx.bean.GGBean;
-import com.qmwl.zyjx.bean.GouWuCheBean;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.umeng.socialize.ShareAction;
@@ -170,9 +165,9 @@ public class WebViewActivity extends BaseActivity {
 
         @JavascriptInterface
         public void map(String content) {
-            Intent intent = new Intent(context, MapActivity.class);
-            intent.putExtra(MapActivity.DATA, content);
-            context.startActivity(intent);
+//            Intent intent = new Intent(context, MapActivity.class);
+//            intent.putExtra(MapActivity.DATA, content);
+//            context.startActivity(intent);
         }
 
         /**

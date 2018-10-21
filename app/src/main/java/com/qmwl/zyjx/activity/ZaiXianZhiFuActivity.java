@@ -64,6 +64,8 @@ public class ZaiXianZhiFuActivity extends BaseActivity implements RadioGroup.OnC
 
 
 
+
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -110,6 +112,9 @@ public class ZaiXianZhiFuActivity extends BaseActivity implements RadioGroup.OnC
             commomDialog.show();
         }
     };
+
+
+
 
     @Override
     protected void setLayout() {
