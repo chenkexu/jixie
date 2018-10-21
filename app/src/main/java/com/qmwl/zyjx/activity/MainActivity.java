@@ -31,6 +31,7 @@ import com.qmwl.zyjx.fragment.ThreadFragment;
 import com.qmwl.zyjx.runtimepermissions.PermissionsManager;
 import com.qmwl.zyjx.runtimepermissions.PermissionsResultAction;
 import com.qmwl.zyjx.utils.Contact;
+import com.qmwl.zyjx.utils.EventManager;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.view.CommomDialog;
 import com.umeng.message.UmengNotificationClickHandler;
@@ -68,6 +69,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     protected void initView() {
         isOutLogin();
+         //getWoYaokaidianStatue1
 
 
         UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
@@ -75,9 +77,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             public void dealWithCustomAction(Context context, UMessage msg) {
                 //  Toast.makeText(context, msg.custom, Toast.LENGTH_LONG).show();
                 Log.d("huangrui","友盟收到的消息推送zi定义通知:"+msg.custom);
-                if (msg.after_open=="go_app"){
 
-                }else if(msg.after_open=="go_custom"){
+                Log.d("huangrui","msg.after_open的值:"+msg.after_open);
+                if ("go_app".equals(msg.after_open)){
+
+                }else if("go_custom".equals(msg.after_open)){
                    // JsonObject jsonObject= new JsonObject(msg.custom);
                     //jsonObject.get("");
                     try {
@@ -85,66 +89,52 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                         String orderId=obj.get("orderId")+"";
                         String orderStatus=obj.get("orderStatus")+"";
                         String url=obj.get("url")+"";
-                            //使用方法三
-                            if(EasyUtils.isAppRunningForeground(context)){
-                               // LogUtils.d("应用在前台");
-                               // EventManager.post(Constant.EB_MSG_CHANGE,message);
-                                    if ("0".equals(orderStatus)) {
-                                        //待付款
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
-                                    }else if ("1".equals(orderStatus)){
-                                        //申请退款
-                                        // startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
-                                    }else if ("2".equals(orderStatus)){
-                                        //待收货
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",3));
-                                    }else if ("3".equals(orderStatus)){
-                                        //已完成
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4));
-                                    }else if ("4".equals(orderStatus)){
-                                        //已完成
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4));
-                                    }else if ("-1".equals(orderStatus)){
-                                        //待退款退货订单
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",5));
-                                    }else if ("6".equals(orderStatus)){
-                                        //异常订单
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",6));
-                                    }
+                        Log.d("huangrui","获取到的status"+orderStatus);
 
-                                }else{
-                                //应用在后台
-                                    if ("0".equals(orderStatus)) {
-                                        //待付款
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
-                                    }else if ("1".equals(orderStatus)){
-                                        //申请退款
-                                        // startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
-                                    }else if ("2".equals(orderStatus)){
-                                        //待收货
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",3));
-                                    }else if ("3".equals(orderStatus)){
-                                        //已完成
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4));
-                                    }else if ("4".equals(orderStatus)){
-                                        //已完成
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4));
-                                    }else if ("-1".equals(orderStatus)){
-                                        //待退款退货订单
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",5));
-                                    }else if ("6".equals(orderStatus)){
-                                        //异常订单
-                                        startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",6));
-                                    }
-                                }
+                        //使用方法三
+                        //应用在后台
+                        if ("0".equals(orderStatus)) {
+                            //待付款
+                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        }else if ("1".equals(orderStatus)){
+                            //申请退款
+                            // startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
+                        }else if ("2".equals(orderStatus)){
+                            //待收货
+                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        }else if ("3".equals(orderStatus)){
+                            //已完成
+                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        }else if ("4".equals(orderStatus)){
+                            //已完成
+                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",4).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        }else if ("-1".equals(orderStatus)){
+                            //待退款退货订单
+                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",5).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        }else if ("6".equals(orderStatus)){
+                            //异常订单
+                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",6).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        }else if ("-100".equals(orderStatus)){
+                            //如果时-100 跳转我的店铺界面,到主界面接收umeng，跳转到第四个fragment
+                           // startActivity(new Intent(context,MainActivity.class).putExtra("umeng",3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                            //点击跳转我的店铺界面
+                        //    String url=getIntent().getStringExtra("umeng");
+                            setCurrItem(3);
+                            EventManager.post("umeng",url);
+
+
+                        }
+
 
 
 
                     } catch (JSONException e) {
 
+                        Log.d("huangrui","异常原因"+e.toString());
 
                     }
 
+                    //{"orderId":"-100","orderStatus":"0"}
                 }
 
 
@@ -185,8 +175,13 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         mVp.addOnPageChangeListener(this);
         buttonContainer.setOnCheckedChangeListener(this);
         buttonContainer.check(R.id.main_layout_main_button);
-        int intExtra = getIntent().getIntExtra(MAIN_INDEX, MAIN);
-        setCurrItem(intExtra);
+//        int umeng=getIntent().getIntExtra("umeng",0);
+//        if (umeng!=0){
+//
+//        }else{
+            int intExtra = getIntent().getIntExtra(MAIN_INDEX, MAIN);
+            setCurrItem(intExtra);
+      //  }
     }
 
     @Override

@@ -38,6 +38,7 @@ import com.qmwl.zyjx.activity.WoDeZuLingActivity;
 import com.qmwl.zyjx.activity.YiJianFanKuiActivity;
 import com.qmwl.zyjx.base.MyApplication;
 import com.qmwl.zyjx.utils.Contact;
+import com.qmwl.zyjx.utils.EventManager;
 import com.qmwl.zyjx.utils.GlideUtils;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.view.CommomDialog;
@@ -45,6 +46,8 @@ import com.qmwl.zyjx.view.SelecterLanguageDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.simple.eventbus.Subscriber;
+import org.simple.eventbus.ThreadMode;
 
 /**
  * Created by Administrator on 2017/7/19
@@ -65,6 +68,7 @@ public class FourFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView(View rootView) {
+        EventManager.register(this);
         iv = (ImageView) rootView.findViewById(R.id.wode_layout_iv);
         rootView.findViewById(R.id.wode_layout_iv).setOnClickListener(this);
         rootView.findViewById(R.id.wode_fatie_button).setOnClickListener(this);
@@ -463,4 +467,14 @@ public class FourFragment extends Fragment implements View.OnClickListener {
                 });
     }
 
+
+    //收到友盟推送打开店铺
+    @Subscriber(tag = "umeng", mode= ThreadMode.MAIN)
+    public void getEventMessage(String message) {
+     Log.d("huangrui","收到的url连接"+message);
+      //  if (!isLoading) {
+       //     isLoading = true;
+            getWoYaokaidianStatue1();
+      //  }
+    }
 }
