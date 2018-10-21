@@ -448,9 +448,9 @@
     <string name="zhongyaojixieshangping">众要机械商品</string>
     <string name="weifukuan">货主未付款</string>
 
-    <string name="gonssimingcheng">公司名称:</string>
-    <string name="kaihuhang">开户行:</string>
-    <string name="zhanghu">账户:</string>
+    <string name="gonssimingcheng">公司名称</string>
+    <string name="kaihuhang">开户行</string>
+      <string name="zhanghu">账户  </string>
 
     <string name="tiezibucunzai">该帖子不存在</string>
     <string name="quedingshanchugaitie">确定要删除该帖子?</string>
@@ -615,6 +615,10 @@
     <string name="wuliu_id">物流单号</string>
     <string name="input_wuliu_id">请输入单号</string>
     <string name="wuliu_submit_success">退货物流已经提交</string>
+    <string name="company_name">众要机械电子商务平台</string>
+    <string name="duigong_title">专为中小微企业量身打造，带动工程机械行业转型升级</string>
+    <string name="order_id">订单编号</string>
+    <string name="duigong_remark">(对公汇款时备注请输入订单编号)</string>
 
     <!--<string name="apply_paper_invoice">发票详情</string>-->
     <!--<string name="apply_paper_invoice">抬头类型</string>-->

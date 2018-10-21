@@ -165,9 +165,9 @@ public class WebViewActivity extends BaseActivity {
 
         @JavascriptInterface
         public void map(String content) {
-//            Intent intent = new Intent(context, MapActivity.class);
-//            intent.putExtra(MapActivity.DATA, content);
-//            context.startActivity(intent);
+            Intent intent = new Intent(context, MapActivity.class);
+            intent.putExtra(MapActivity.DATA, content);
+            context.startActivity(intent);
         }
 
         /**

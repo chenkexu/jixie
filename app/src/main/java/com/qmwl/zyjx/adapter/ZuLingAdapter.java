@@ -109,6 +109,7 @@ public class ZuLingAdapter extends MyBaseAdapter<ZuLinListBean> {
 
                     ChargePopWindow chargePopWindow = new ChargePopWindow(false, context, true,
                             bean.getOrder_id(),String.valueOf(bean.getTotal_amount()), bean.getGoods_name());
+                    chargePopWindow.setOrder_no(bean.getOrder_id());
                     chargePopWindow.show();
 
 //                    fukuan(v.getContext(), bean);

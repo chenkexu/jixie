@@ -36,6 +36,7 @@ import com.qmwl.zyjx.base.MyBaseAdapter;
 import com.qmwl.zyjx.bean.CancelOrderBean;
 import com.qmwl.zyjx.bean.ChinaPayOrder;
 import com.qmwl.zyjx.bean.DingDanBean;
+import com.qmwl.zyjx.bean.RemindSendGoodsBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
 import com.qmwl.zyjx.dialog.ChargePopWindow;
 import com.qmwl.zyjx.dialog.InvoiceDialog;
@@ -442,8 +443,6 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
                                 }
                             });
-
-
                     break;
                 case R.id.dingdan_layout_item_shenqingfapiao:
                     //申请发票
@@ -460,7 +459,6 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     mIntent.putExtra("DingDanBean",item);
                     context.startActivity(mIntent);
                     break;
-
                 case R.id.dingdan_layout_item_shenqingweiquan:
                     //申请维权
                    Intent mIntent2=new Intent(context, AskWeiQuanActivity.class);
@@ -485,11 +483,12 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
     private void tixingfahuo(final Context context, final DingDanBean item){
         ApiManager.getInstence().getApiService()
                 .remind_goods(item.getOrder_id())
-                .compose(RxUtil.<ApiResponse<Object>>rxSchedulerHelper())
-                .subscribe(new BaseObserver<Object>() {
+                .compose(RxUtil.<ApiResponse<RemindSendGoodsBean>>rxSchedulerHelper())
+                .subscribe(new BaseObserver<RemindSendGoodsBean>() {
                     @Override
-                    protected void onSuccees(ApiResponse<Object> t) {
-                        ToastUtils.showShort(context.getResources().getString(R.string.toast_send_goods));
+                    protected void onSuccees(ApiResponse<RemindSendGoodsBean> t) {
+                        RemindSendGoodsBean data = t.getData();
+                        ToastUtils.showShort(data.getNiu_index_response());
                     }
 
                     @Override

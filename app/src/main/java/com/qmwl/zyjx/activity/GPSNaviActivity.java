@@ -1,4 +1,3 @@
-/*
 package com.qmwl.zyjx.activity;
 
 
@@ -8,13 +7,12 @@ import com.amap.api.navi.AMapNaviView;
 import com.amap.api.navi.enums.NaviType;
 import com.qmwl.zyjx.R;
 
-*/
-/**
+/*
  * Created by Administrator on 2017/9/15.
  *gps
  * 导航
- *//*
 
+*/
 
 public class GPSNaviActivity extends DaoHangBaseActivity {
 
@@ -30,9 +28,7 @@ public class GPSNaviActivity extends DaoHangBaseActivity {
     @Override
     public void onInitNaviSuccess() {
         super.onInitNaviSuccess();
-        */
-/**
-         * 方法: int strategy=mAMapNavi.strategyConvert(congestion, avoidhightspeed, cost, hightspeed, multipleroute); 参数:
+       /*  * 方法: int strategy=mAMapNavi.strategyConvert(congestion, avoidhightspeed, cost, hightspeed, multipleroute); 参数:
          *
          * @congestion 躲避拥堵
          * @avoidhightspeed 不走高速
@@ -42,7 +38,7 @@ public class GPSNaviActivity extends DaoHangBaseActivity {
          *
          *  说明: 以上参数都是boolean类型，其中multipleroute参数表示是否多条路线，如果为true则此策略会算出多条路线。
          *  注意: 不走高速与高速优先不能同时为true 高速优先与避免收费不能同时为true
-         *//*
+         */
 
         int strategy = 0;
         try {
@@ -61,4 +57,4 @@ public class GPSNaviActivity extends DaoHangBaseActivity {
         super.onCalculateRouteSuccess(ids);
         mAMapNavi.startNavi(NaviType.GPS);
     }
-}*/
+}

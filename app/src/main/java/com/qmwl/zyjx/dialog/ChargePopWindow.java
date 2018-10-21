@@ -25,6 +25,7 @@ import com.qmwl.zyjx.activity.DuiGongFuKuanActivity;
 import com.qmwl.zyjx.api.ApiManager;
 import com.qmwl.zyjx.api.ApiResponse;
 import com.qmwl.zyjx.api.BaseObserver;
+import com.qmwl.zyjx.base.Constant;
 import com.qmwl.zyjx.bean.ChinaPayOrder;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
@@ -67,7 +68,7 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
     private boolean isCarShoppForm = false;
     //是否是租赁
     private boolean zulintype;
-    private String out_trade_no;
+    private String out_trade_no; //订单号 order_id
     private String price;
     private String goodsName;
     private IWXAPI wxapi;
@@ -77,7 +78,20 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
     private Context context;
     private Double value;
 
-//    Intent intent = getIntent();
+    //订单号
+    private String order_no;
+
+    public String getOrder_no() {
+        return order_no == null ? "" : order_no;
+    }
+
+    public void setOrder_no(String order_no) {
+        this.order_no = order_no;
+    }
+
+
+
+    //    Intent intent = getIntent();
 //    out_trade_no = intent.getStringExtra(OUT_TRADE_NO_DATA);
 //    price = intent.getStringExtra(PRICE_DATA);
 //    goodsName = intent.getStringExtra(GOODSNAME_DATA);
@@ -87,6 +101,7 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
 
     public ChargePopWindow(boolean isCarShoppForm,final Context context,boolean zulintype,String out_trade_no,String price,String goodsName) {
         super(context, R.style.RemindDialog);// 必须调用父类的构造函数
+        Logger.d("订单号:"+ out_trade_no +"------"+ price + "元"+ "商品名称: "+goodsName);
         this.context = context;
 
         this.isCarShoppForm = isCarShoppForm;
@@ -147,6 +162,8 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
 
     }
 
+
+
     @OnClick({R.id.st_aplipay, R.id.st_wechat, R.id.st_yilian, R.id.st_zhuanzhang, R.id.st_small_daikuan})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -162,13 +179,13 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
             case R.id.st_zhuanzhang: //对公付款
                 Intent intent = new Intent(context, DuiGongFuKuanActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                intent.putExtra(Constant.order_id, out_trade_no);
                 context.startActivity(intent);
                 break;
             case R.id.st_small_daikuan: //小额贷款
                 ToastUtils.showLong(context.getString(R.string.No_opening));
                 break;
         }
-
         dismiss();
     }
 
@@ -193,6 +210,7 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        Logger.d(response);
                         try {
                             JSONObject object = response.getJSONObject("x");
                             PayReq request = new PayReq();
@@ -216,6 +234,13 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                     }
                 });
     }
+
+
+
+
+
+
+
 
 
     //支付宝支付
@@ -314,14 +339,16 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
 
     private void yinlianPay(){
         ApiManager.getInstence().getApiService()
-                .getChinaPayInfo("00")
+                .getChinaPayInfo(out_trade_no)
                 .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
                 .subscribe(new BaseObserver<ChinaPayOrder>() {
                     @Override
                     protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
 
+
                         ChinaPayOrder chinaPayOrder = t.getData();
                         OrderInfo orderInfo = new OrderInfo();
+                        ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
                         orderInfo.setAccessType(chinaPayOrder.getNiu_index_response().getBusiType());
                         orderInfo.setOrderAmt(chinaPayOrder.getNiu_index_response().getOriOrderNo());
                         orderInfo.setMerOrderNo(chinaPayOrder.getNiu_index_response().getMerOrderNo());
@@ -330,7 +357,20 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                         orderInfo.setInstuId(chinaPayOrder.getNiu_index_response().getOriOrderNo());
                         orderInfo.setMerId(chinaPayOrder.getNiu_index_response().getMerId());
 
+                        orderInfo.setMerId(responseBean.getMerId());
+                        orderInfo.setMerOrderNo(responseBean.getMerOrderNo());
+                        orderInfo.setTranDate(responseBean.getTranDate());
+                        orderInfo.setTranTime(responseBean.getTranTime());
+                        orderInfo.setTranType(responseBean.getTranType());
+                        orderInfo.setBusiType(responseBean.getBusiType());
+                        //订单支付状态 OrderStatu
 
+                        //金额
+                        orderInfo.setOrderAmt(responseBean.getRefundAmt()+"");
+                        //签名
+//                        orderInfo.setSignature(responseBean.);
+
+//                        orderInfo.setor
 
                         // 初始化手机POS环境
                         Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
@@ -350,7 +390,7 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
 
                     @Override
                     protected void onFailure(String errorInfo, boolean isNetWorkError) {
-
+                        ToastUtils.showShort(errorInfo);
                     }
                 });
 

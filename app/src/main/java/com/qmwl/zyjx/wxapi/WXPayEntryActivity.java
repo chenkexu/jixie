@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.RegisterKaiDianChengGongActivity;
 import com.qmwl.zyjx.fragment.WoDeYunDanFragment;
@@ -58,6 +59,8 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
     @Override
     public void onResp(BaseResp baseResp) {
         if (baseResp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
+
+            Logger.d("微信支付返回码:"+baseResp.errCode);
             boolean wxPayStatue = SharedUtils.getWxPayStatue(this);
             if (wxPayStatue) {
                 //关闭这个状态

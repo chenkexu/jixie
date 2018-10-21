@@ -25,15 +25,12 @@
             android:paddingBottom="10dp"
             android:text="@string/wuliucon"/>
         <EditText
-
-            android:inputType="textPassword"
             android:singleLine="true"
             android:layout_marginLeft="10dp"
             android:id="@+id/et_wuliu"
             android:editable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_weight="1"
             android:background="@null"
             android:cursorVisible="true"
@@ -63,6 +60,7 @@
             android:paddingBottom="10dp"
             android:text="@string/wuliu_id"/>
         <EditText
+            android:inputType="number"
             android:id="@+id/et_wuliu_id"
             android:singleLine="true"
             android:layout_marginLeft="10dp"

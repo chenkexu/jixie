@@ -1,4 +1,3 @@
-/*
 package com.qmwl.zyjx.activity;
 
 import android.app.Activity;
@@ -11,12 +10,14 @@ import com.amap.api.navi.AMapNavi;
 import com.amap.api.navi.AMapNaviListener;
 import com.amap.api.navi.AMapNaviView;
 import com.amap.api.navi.AMapNaviViewListener;
+import com.amap.api.navi.model.AMapCalcRouteResult;
 import com.amap.api.navi.model.AMapLaneInfo;
 import com.amap.api.navi.model.AMapModelCross;
 import com.amap.api.navi.model.AMapNaviCameraInfo;
 import com.amap.api.navi.model.AMapNaviCross;
 import com.amap.api.navi.model.AMapNaviInfo;
 import com.amap.api.navi.model.AMapNaviLocation;
+import com.amap.api.navi.model.AMapNaviRouteNotifyData;
 import com.amap.api.navi.model.AMapNaviTrafficFacilityInfo;
 import com.amap.api.navi.model.AMapServiceAreaInfo;
 import com.amap.api.navi.model.AimLessModeCongestionInfo;
@@ -311,6 +312,21 @@ public class DaoHangBaseActivity extends Activity implements AMapNaviListener, A
 
     }
 
+    @Override
+    public void onCalculateRouteSuccess(AMapCalcRouteResult aMapCalcRouteResult) {
+
+    }
+
+    @Override
+    public void onCalculateRouteFailure(AMapCalcRouteResult aMapCalcRouteResult) {
+
+    }
+
+    @Override
+    public void onNaviRouteNotify(AMapNaviRouteNotifyData aMapNaviRouteNotifyData) {
+
+    }
+
 
     @Override
     public void onLockMap(boolean isLock) {
@@ -324,10 +340,19 @@ public class DaoHangBaseActivity extends Activity implements AMapNaviListener, A
     }
 
     @Override
+    public void onMapTypeChanged(int i) {
+
+    }
+
+    @Override
+    public void onNaviViewShowMode(int i) {
+
+    }
+
+    @Override
     public boolean onNaviBackClick() {
         return false;
     }
 
 
 }
-*/

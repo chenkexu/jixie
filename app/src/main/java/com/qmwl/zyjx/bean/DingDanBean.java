@@ -10,8 +10,11 @@ import java.util.List;
 
 public class DingDanBean implements Serializable {
     private String order_id;
+
     //订单号
     private String order_no;
+
+
     //商家名字
     private String shop_name;
     //订单状态

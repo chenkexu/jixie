@@ -181,6 +181,7 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        Logger.d("商品提交订单json："+response);
                         parseJson(response, String.valueOf(zongjiaDouble), getString(R.string.zhongyaojixieshangping));
 //                        new CommomDialog(QueRenDingDanActivity.this, R.style.dialog, response.toString(), new CommomDialog.OnCloseListener() {
 //                            @Override
@@ -233,6 +234,7 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
                     @Override
                     public void onResponse(JSONObject response) {
                         dismissLoadingDialog();
+                        Logger.d("确认订单:"+response);
                         parseJson(response, String.valueOf(gouWuCheBean.getPrice()), shoppingBean.getName());
                     }
 
@@ -375,8 +377,9 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
 
                 ChargePopWindow chargePopWindow = new ChargePopWindow(isGouWUChe, this, false,
                         no,price, goodsName);
+                chargePopWindow.setOrder_no(no);
                 chargePopWindow.show();
-
+//                chargePopWindow.setOrder_no(item.getOrder_no());
 
 //                PoPuWindowUtils.getIntance().showSelecterPayType(this, convertView, new PoPuWindowUtils.selecterPayTypeListener() {
 //                    @Override

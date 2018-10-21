@@ -3,6 +3,8 @@ package com.qmwl.zyjx.api;
 
 import com.qmwl.zyjx.bean.CancelOrderBean;
 import com.qmwl.zyjx.bean.ChinaPayOrder;
+import com.qmwl.zyjx.bean.KuaidiListBean;
+import com.qmwl.zyjx.bean.RemindSendGoodsBean;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -84,23 +86,26 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("/index.php/api/order/tuiWuliu")
     Observable<ApiResponse<Object>> addTuiHuoWuLiu(@Field("orderId") String orderId,
-                                                    @Field("refund_no") String refund_no,
+                                                   @Field("refund_no") String refund_no,
                                                    @Field("wuliu") String wuliu);
 
     //快递公司列表
     @GET("/index.php/api/order/kuaiDi")
-    Call<ResponseBody> kuaidiList();
+    Observable<ApiResponse<KuaidiListBean>> kuaidiList();
+
+
 
 
 
     @GET("/index.php/api/order/china")
-    Observable<ApiResponse<ChinaPayOrder>> getChinaPayInfo(@Query("uid") String uid);
+    Observable<ApiResponse<ChinaPayOrder>> getChinaPayInfo(@Query("orderId") String orderId);
+
 
 
     //提醒发货
     @FormUrlEncoded
     @POST("/index.php/api/order/remind")
-    Observable<ApiResponse<Object>> remind_goods(@Field("orderId") String orderId);
+    Observable<ApiResponse<RemindSendGoodsBean>> remind_goods(@Field("orderId") String orderId);
 
     //删除订单
     @POST(" /index.php/api/order/finDel")

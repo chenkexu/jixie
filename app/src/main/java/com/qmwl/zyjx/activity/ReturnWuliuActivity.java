@@ -19,18 +19,15 @@ import com.qmwl.zyjx.api.ApiResponse;
 import com.qmwl.zyjx.api.BaseObserver;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.bean.DingDanBean;
+import com.qmwl.zyjx.bean.KuaidiListBean;
 import com.qmwl.zyjx.utils.RxUtil;
 import com.qmwl.zyjx.utils.ToastUtils;
 
-import java.io.IOException;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Administrator on 2017/7/20.
@@ -59,6 +56,10 @@ public class ReturnWuliuActivity extends BaseActivity {
     @BindView(R.id.et_wuliu_id)
     EditText etWuliu_id;
     private DingDanBean dingDanBean;
+    private List<String> wuliu_name;
+    private List<String> wuliu_word;
+    private int choosePosition = 0;
+
 
     @Override
     protected void setLayout() {
@@ -91,6 +92,7 @@ public class ReturnWuliuActivity extends BaseActivity {
 
 
 
+
     @OnClick({R.id.et_wuliu,R.id.btn_user_feedback_submit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -98,38 +100,39 @@ public class ReturnWuliuActivity extends BaseActivity {
                 showLoadingDialog();
                 ApiManager.getInstence().getApiService()
                         .kuaidiList()
-                        .enqueue(new Callback<ResponseBody>() {
+                        .compose(RxUtil.<ApiResponse<KuaidiListBean>>rxSchedulerHelper())
+                        .subscribe(new BaseObserver<KuaidiListBean>() {
                             @Override
-                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            protected void onSuccees(ApiResponse<KuaidiListBean> t) {
                                 dismissLoadingDialog();
-                                try {
-                                    String json = new String(response.body().bytes());
-                                    Logger.d(json);
-                                    final String[] items = {"顺丰","申通"};
-                                    final NormalListDialog normalListDialog = new NormalListDialog(ReturnWuliuActivity.this, items);
-                                    String titleStr = ReturnWuliuActivity.this.getResources().getString(R.string.choose_wuliu_title);
-                                    normalListDialog.title(titleStr);
-                                    normalListDialog.show();
-                                    normalListDialog.setOnOperItemClickL(new OnOperItemClickL() {
-                                        @Override
-                                        public void onOperItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                            Logger.d(position);
-                                            etWuliu.setText(items[position]);
-                                            normalListDialog.dismiss();
-                                        }
-                                    });
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
+                                KuaidiListBean data = t.getData();
+                                List<List<String>> niu_index_response = data.getNiu_index_response();
+                                wuliu_word = niu_index_response.get(0);
+                                wuliu_name = niu_index_response.get(1);
+
+                                final String[] items = wuliu_name.toArray(new String[wuliu_name.size()]);
+
+                                final NormalListDialog normalListDialog = new NormalListDialog(ReturnWuliuActivity.this, items);
+                                String titleStr = ReturnWuliuActivity.this.getResources().getString(R.string.choose_wuliu_title);
+                                normalListDialog.title(titleStr);
+                                normalListDialog.show();
+                                normalListDialog.setOnOperItemClickL(new OnOperItemClickL() {
+                                    @Override
+                                    public void onOperItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                        choosePosition = position;
+                                        Logger.d(position);
+                                        etWuliu.setText(items[position]);
+                                        normalListDialog.dismiss();
+                                    }
+                                });
                             }
 
+
                             @Override
-                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            protected void onFailure(String errorInfo, boolean isNetWorkError) {
                                 dismissLoadingDialog();
-                                ToastUtils.showShort("net error");
                             }
                         });
-
 
 //                /showServicePickView(listProductData);
                 break;
@@ -151,9 +154,12 @@ public class ReturnWuliuActivity extends BaseActivity {
                     return;
                 }
 
+
                 showLoadingDialog();
+                String s = wuliu_word.get(choosePosition);
+
                 ApiManager.getInstence().getApiService()
-                        .addTuiHuoWuLiu(dingDanBean.getOrder_id(),etwuliuId,etWuliuStr)
+                        .addTuiHuoWuLiu(dingDanBean.getOrder_id(),etwuliuId,s)
                         .compose(RxUtil.<ApiResponse<Object>>rxSchedulerHelper())
                         .subscribe(new BaseObserver<Object>() {
                             @Override
@@ -179,6 +185,8 @@ public class ReturnWuliuActivity extends BaseActivity {
 
     @Override
     protected void onMyClick(View v) {
+
+
     }
 
 

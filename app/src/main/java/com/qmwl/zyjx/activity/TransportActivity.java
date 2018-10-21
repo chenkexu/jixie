@@ -3,12 +3,10 @@ package com.qmwl.zyjx.activity;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -25,7 +23,6 @@ import com.qmwl.zyjx.bean.Flowbean;
 import com.qmwl.zyjx.bean.TransportBean;
 import com.qmwl.zyjx.fragment.FlowFragment;
 import com.qmwl.zyjx.utils.Contact;
-import com.qmwl.zyjx.utils.GlideUtils;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.utils.ListViewPullListener;
 
@@ -191,10 +188,10 @@ public class TransportActivity extends BaseActivity implements AdapterView.OnIte
                 break;
 
             case R.id.transport_headview_iv:
-//                intent = new Intent(this, DaoHangActivity.class);
-//                startActivity(intent);
-//                String url = (String) imageView.getTag();
-//                Toast.makeText(this, "url:" + url, Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, DaoHangActivity.class);
+                startActivity(intent);
+                String url = (String) imageView.getTag();
+                Toast.makeText(this, "url:" + url, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.transport_headview_woyaofahuo:
                 if (!MyApplication.getIntance().isLogin()) {

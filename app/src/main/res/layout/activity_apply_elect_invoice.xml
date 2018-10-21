@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
 
@@ -137,7 +138,6 @@
 
                     <EditText
 
-                        android:hint="@string/hint_taitou"
                         android:id="@+id/et_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -145,6 +145,7 @@
                         android:layout_marginRight="15dp"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:hint="@string/hint_taitou"
                         android:maxLines="1"
                         android:paddingLeft="5dp"
                         android:paddingStart="5dp"
@@ -174,7 +175,6 @@
                         android:textSize="14sp" />
 
                     <EditText
-                        android:hint="@string/invoice_id"
                         android:id="@+id/et_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -183,6 +183,7 @@
                         android:background="@null"
                         android:cursorVisible="true"
                         android:digits="0123456789qwertyuioplkjhgfdsazxcvbnmQAZWSXEDCRFVTGBYHNUJMIKLOP"
+                        android:hint="@string/invoice_id"
                         android:maxLength="18"
                         android:maxLines="1"
                         android:paddingLeft="5dp"
@@ -206,7 +207,6 @@
                         android:textSize="14sp" />
 
                     <EditText
-                        android:hint="@string/hint_invoice_content"
                         android:id="@+id/et_content"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -214,6 +214,7 @@
                         android:layout_marginRight="15dp"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:hint="@string/hint_invoice_content"
                         android:paddingLeft="5dp"
                         android:paddingStart="5dp"
                         android:textColor="#414141"
@@ -259,7 +260,6 @@
                         android:textSize="14sp" />
 
                     <EditText
-                        android:hint="@string/not_nessary"
                         android:id="@+id/et_remark"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -267,6 +267,7 @@
                         android:layout_marginRight="15dp"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:hint="@string/not_nessary"
                         android:paddingLeft="5dp"
                         android:paddingStart="5dp"
                         android:textColor="#414141"
@@ -286,7 +287,6 @@
             </LinearLayout>
 
 
-            <!--电子邮件-->
 
 
 
@@ -309,7 +309,6 @@
                         android:textSize="14sp" />
 
                     <EditText
-                        android:hint="@string/invoice_name_hint"
                         android:id="@+id/et_person_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -317,6 +316,7 @@
                         android:layout_marginRight="15dp"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:hint="@string/invoice_name_hint"
                         android:maxLines="1"
                         android:paddingLeft="5dp"
                         android:paddingStart="5dp"
@@ -339,7 +339,6 @@
                         android:textSize="14sp" />
 
                     <EditText
-                        android:hint="@string/invoice_phone_hint"
                         android:id="@+id/et_person_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -347,6 +346,7 @@
                         android:layout_marginRight="15dp"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:hint="@string/invoice_phone_hint"
                         android:inputType="phone"
                         android:maxLines="1"
                         android:paddingLeft="5dp"
@@ -371,15 +371,15 @@
                         android:textSize="14sp" />
 
                     <EditText
-                        android:hint="@string/invoice_area_hint"
-
                         android:id="@+id/et_area"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:hint="@string/invoice_area_hint"
                         android:paddingLeft="5dp"
                         android:paddingStart="5dp"
                         android:textColor="#414141"
@@ -402,7 +402,6 @@
                         android:textSize="14sp" />
 
                     <EditText
-                        android:hint="@string/invoice_address_hint"
                         android:id="@+id/et_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -410,6 +409,7 @@
                         android:layout_marginRight="15dp"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:hint="@string/invoice_address_hint"
                         android:paddingLeft="5dp"
                         android:paddingStart="5dp"
                         android:textColor="#414141"
@@ -418,38 +418,40 @@
 
                 </LinearLayout>
 
-                <LinearLayout style="@style/invoice_style">
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginStart="15dp"
-                        android:text="@string/invoice_email"
-                        android:textColor="#414141"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/et_email"
-                        android:hint="@string/email_hint"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginRight="15dp"
-                        android:background="@null"
-                        android:cursorVisible="true"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1"
-                        android:paddingLeft="5dp"
-                        android:paddingStart="5dp"
-                        android:textColor="#414141"
-                        android:textCursorDrawable="@drawable/cursor_style"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
             </LinearLayout>
 
+
+            <!--电子邮件-->
+            <LinearLayout style="@style/invoice_style">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/invoice_email"
+                    android:textColor="#414141"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint="@string/email_hint"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp"
+                    android:textColor="#414141"
+                    android:textCursorDrawable="@drawable/cursor_style"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
 
             <!--提交按钮-->
             <LinearLayout
