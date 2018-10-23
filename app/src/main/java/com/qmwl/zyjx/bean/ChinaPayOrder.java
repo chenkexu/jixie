@@ -11,14 +11,8 @@ public class ChinaPayOrder implements Serializable {
     private static final long serialVersionUID = -3673686188085742937L;
 
 
-    /**
-     * code : 0
-     * message : success
-     * data : {"niu_index_response":{"MerId":"481611808090002","MerOrderNo":"9567441540053190","RefundAmt":1,"TranDate":"20181021","TranTime":"003310","OriOrderNo":"1540041688624","OriTranDate":"19700101","TranType":"0401","BusiType":"0001","Version":"20140728","MerBgUrl":"http://app.qmnet.com.cn/index.php/pay/unionpay_tuiurl"}}
-     */
-
         /**
-         * niu_index_response : {"MerId":"481611808090002","MerOrderNo":"9567441540053190","RefundAmt":1,"TranDate":"20181021","TranTime":"003310","OriOrderNo":"1540041688624","OriTranDate":"19700101","TranType":"0401","BusiType":"0001","Version":"20140728","MerBgUrl":"http://app.qmnet.com.cn/index.php/pay/unionpay_tuiurl"}
+         * niu_index_response : {"MerId":"481611808090001","MerOrderNo":"6948261540191453","OrderAmt":20000000,"TranDate":"20181022","TranTime":"145733","TranType":"0001","BusiType":"0001","Version":"20140728","CurryNo":"CNY","AccessType":"0","MerPageUrl":"http://app.qmnet.com.cn/index.php/pay/unionpay_url","MerBgUrl":"http://app.qmnet.com.cn/index.php/pay/unionpay_url","MerResv":"MerResv","Signature":"TzB+RM/NJ1fzqwAAitActAYPjfMcRWUKpaEPhmFRGtvrGg37gDFBO1QtRAgwiGI/4IPcaCoTAS46Er5btVvpke0gKyc+CMQoX/L5Zf8pTzzlt6JrS1cyOreY+W619ij6J0COR33+X1dwdeGDHTeJltC9VnlHBHepyrWOcm6CXLBjP6vwi78NGT2NodyRvaEKspR6wKH0W2GWnF+L4O/FgBAMT47xJR9mhYrLnzRFcwGWAiCWp0BrGUeYdKFrt3tERmLclPpiK08MHZW3Q/kOsrXrY5o93hDOb9i7KdcUJWqi6SPEmvpTa+F8W9hHGIdzFxpYHoNJUduYvwx5RefxuA=="}
          */
 
         private NiuIndexResponseBean niu_index_response;
@@ -33,30 +27,36 @@ public class ChinaPayOrder implements Serializable {
 
         public static class NiuIndexResponseBean {
             /**
-             * MerId : 481611808090002
-             * MerOrderNo : 9567441540053190
-             * RefundAmt : 1
-             * TranDate : 20181021
-             * TranTime : 003310
-             * OriOrderNo : 1540041688624
-             * OriTranDate : 19700101
-             * TranType : 0401
+             * MerId : 481611808090001
+             * MerOrderNo : 6948261540191453
+             * OrderAmt : 20000000
+             * TranDate : 20181022
+             * TranTime : 145733
+             * TranType : 0001
              * BusiType : 0001
              * Version : 20140728
-             * MerBgUrl : http://app.qmnet.com.cn/index.php/pay/unionpay_tuiurl
+             * CurryNo : CNY
+             * AccessType : 0
+             * MerPageUrl : http://app.qmnet.com.cn/index.php/pay/unionpay_url
+             * MerBgUrl : http://app.qmnet.com.cn/index.php/pay/unionpay_url
+             * MerResv : MerResv
+             * Signature : TzB+RM/NJ1fzqwAAitActAYPjfMcRWUKpaEPhmFRGtvrGg37gDFBO1QtRAgwiGI/4IPcaCoTAS46Er5btVvpke0gKyc+CMQoX/L5Zf8pTzzlt6JrS1cyOreY+W619ij6J0COR33+X1dwdeGDHTeJltC9VnlHBHepyrWOcm6CXLBjP6vwi78NGT2NodyRvaEKspR6wKH0W2GWnF+L4O/FgBAMT47xJR9mhYrLnzRFcwGWAiCWp0BrGUeYdKFrt3tERmLclPpiK08MHZW3Q/kOsrXrY5o93hDOb9i7KdcUJWqi6SPEmvpTa+F8W9hHGIdzFxpYHoNJUduYvwx5RefxuA==
              */
 
             private String MerId;
             private String MerOrderNo;
-            private int RefundAmt;
+            private int OrderAmt;
             private String TranDate;
             private String TranTime;
-            private String OriOrderNo;
-            private String OriTranDate;
-            private String TranType;
+//            private String TranType;
             private String BusiType;
             private String Version;
+            private String CurryNo;
+            private String AccessType;
+            private String MerPageUrl;
             private String MerBgUrl;
+            private String MerResv;
+            private String Signature;
 
             public String getMerId() {
                 return MerId;
@@ -74,12 +74,12 @@ public class ChinaPayOrder implements Serializable {
                 this.MerOrderNo = MerOrderNo;
             }
 
-            public int getRefundAmt() {
-                return RefundAmt;
+            public int getOrderAmt() {
+                return OrderAmt;
             }
 
-            public void setRefundAmt(int RefundAmt) {
-                this.RefundAmt = RefundAmt;
+            public void setOrderAmt(int OrderAmt) {
+                this.OrderAmt = OrderAmt;
             }
 
             public String getTranDate() {
@@ -98,29 +98,13 @@ public class ChinaPayOrder implements Serializable {
                 this.TranTime = TranTime;
             }
 
-            public String getOriOrderNo() {
-                return OriOrderNo;
-            }
-
-            public void setOriOrderNo(String OriOrderNo) {
-                this.OriOrderNo = OriOrderNo;
-            }
-
-            public String getOriTranDate() {
-                return OriTranDate;
-            }
-
-            public void setOriTranDate(String OriTranDate) {
-                this.OriTranDate = OriTranDate;
-            }
-
-            public String getTranType() {
-                return TranType;
-            }
-
-            public void setTranType(String TranType) {
-                this.TranType = TranType;
-            }
+//            public String getTranType() {
+//                return TranType;
+//            }
+//
+//            public void setTranType(String TranType) {
+//                this.TranType = TranType;
+//            }
 
             public String getBusiType() {
                 return BusiType;
@@ -138,12 +122,52 @@ public class ChinaPayOrder implements Serializable {
                 this.Version = Version;
             }
 
+            public String getCurryNo() {
+                return CurryNo;
+            }
+
+            public void setCurryNo(String CurryNo) {
+                this.CurryNo = CurryNo;
+            }
+
+            public String getAccessType() {
+                return AccessType;
+            }
+
+            public void setAccessType(String AccessType) {
+                this.AccessType = AccessType;
+            }
+
+            public String getMerPageUrl() {
+                return MerPageUrl;
+            }
+
+            public void setMerPageUrl(String MerPageUrl) {
+                this.MerPageUrl = MerPageUrl;
+            }
+
             public String getMerBgUrl() {
                 return MerBgUrl;
             }
 
             public void setMerBgUrl(String MerBgUrl) {
                 this.MerBgUrl = MerBgUrl;
+            }
+
+            public String getMerResv() {
+                return MerResv;
+            }
+
+            public void setMerResv(String MerResv) {
+                this.MerResv = MerResv;
+            }
+
+            public String getSignature() {
+                return Signature;
+            }
+
+            public void setSignature(String Signature) {
+                this.Signature = Signature;
             }
         }
     }

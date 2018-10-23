@@ -194,6 +194,21 @@
             ]
         },
         {
+            "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-kk-rKZ_values-kk-rKZ.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\ckx\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\a04aeba3b9af952f64b7d0273f1ce096\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,167,275,398,501,611,696,802,921,1002,1082,1163,1266,1371,1469,1576,1685,1785,1900,1999,2080",
+                        "endColumns": "111,107,122,102,109,84,105,118,80,79,80,102,104,97,106,108,99,114,98,80,100",
+                        "endOffsets": "162,270,393,496,606,691,797,916,997,1077,1158,1261,1366,1464,1571,1680,1780,1895,1994,2075,2176"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-zh-rHK_values-zh-rHK.arsc.flat",
             "map": [
                 {
@@ -209,16 +224,16 @@
             ]
         },
         {
-            "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-kk-rKZ_values-kk-rKZ.arsc.flat",
+            "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-mr_values-mr.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\ckx\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\a04aeba3b9af952f64b7d0273f1ce096\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "source": "C:\\Users\\ckx\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\601c0da5fa0c849561f72bdc7fa21730\\res\\values-mr\\values-mr.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,167,275,398,501,611,696,802,921,1002,1082,1163,1266,1371,1469,1576,1685,1785,1900,1999,2080",
-                        "endColumns": "111,107,122,102,109,84,105,118,80,79,80,102,104,97,106,108,99,114,98,80,100",
-                        "endOffsets": "162,270,393,496,606,691,797,916,997,1077,1158,1261,1366,1464,1571,1680,1780,1895,1994,2075,2176"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     }
                 }
             ]
@@ -267,21 +282,6 @@
             ]
         },
         {
-            "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-mr_values-mr.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\ckx\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\601c0da5fa0c849561f72bdc7fa21730\\res\\values-mr\\values-mr.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-cs_values-cs.arsc.flat",
             "map": [
                 {
@@ -292,6 +292,21 @@
                         "startOffsets": "55,162,271,395,497,606,692,797,914,995,1076,1160,1264,1373,1472,1578,1688,1795,1917,2015,2097",
                         "endColumns": "106,108,123,101,108,85,104,116,80,80,83,103,108,98,105,109,106,121,97,81,100",
                         "endOffsets": "157,266,390,492,601,687,792,909,990,1071,1155,1259,1368,1467,1573,1683,1790,1912,2010,2092,2193"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-sw600dp-v13_values-sw600dp-v13.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\ckx\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\a04aeba3b9af952f64b7d0273f1ce096\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
                     }
                 }
             ]
@@ -308,21 +323,6 @@
                         "endLines": "2,3,5,7",
                         "endColumns": "70,82,12,12",
                         "endOffsets": "121,204,303,414"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-sw600dp-v13_values-sw600dp-v13.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\ckx\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\a04aeba3b9af952f64b7d0273f1ce096\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,124,193,263,337,413,472,543",
-                        "endColumns": "68,68,69,73,75,58,70,67",
-                        "endOffsets": "119,188,258,332,408,467,538,606"
                     }
                 }
             ]

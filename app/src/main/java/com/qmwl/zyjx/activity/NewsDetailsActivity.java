@@ -101,6 +101,22 @@ public class NewsDetailsActivity extends BaseActivity {
         webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);  //设置 缓存模式
         webView.setWebViewClient(new WebViewClient());
 
+//        webView.getSettings().setDefaultTextEncodingName("utf-8");
+//        webView.getSettings().setAllowFileAccess(true);
+//        webView.getSettings().setAllowFileAccessFromFileURLs(true);
+//        webView.getSettings().setLoadsImagesAutomatically(true);
+//        webView.getSettings().setGeolocationEnabled(true);
+//        webView.getSettings().setDomStorageEnabled(true);
+//        //设置自适应屏幕，两者合用
+//        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+//        webView.getSettings().setUseWideViewPort(true); //将图片调整到适合webview的大小
+//        webView.getSettings().setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+//        // 设置与Js交互的权限
+//        // 设置允许JS弹窗
+//        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+//        webView.getSettings().setSupportZoom(true);
+//        // SMALLEST(50%),  SMALLER(75%),          NORMAL(100%),          LARGER(150%),          LARGEST(200%);
+//        webView.getSettings().setTextSize(WebSettings.TextSize.SMALLER);
     }
 
     @Override

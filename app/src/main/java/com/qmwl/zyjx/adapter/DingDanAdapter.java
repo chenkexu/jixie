@@ -16,9 +16,6 @@ import android.widget.TextView;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.chinapay.cppaysdk.activity.Initialize;
-import com.chinapay.cppaysdk.bean.OrderInfo;
-import com.chinapay.cppaysdk.util.Utils;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.AskReturnThingActivity;
 import com.qmwl.zyjx.activity.AskWeiQuanActivity;
@@ -34,7 +31,6 @@ import com.qmwl.zyjx.api.BaseObserver;
 import com.qmwl.zyjx.base.Constant;
 import com.qmwl.zyjx.base.MyBaseAdapter;
 import com.qmwl.zyjx.bean.CancelOrderBean;
-import com.qmwl.zyjx.bean.ChinaPayOrder;
 import com.qmwl.zyjx.bean.DingDanBean;
 import com.qmwl.zyjx.bean.RemindSendGoodsBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
@@ -672,7 +668,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
             @Override
             public void onYinlian() {
-                yinlianPay();
+//                yinlianPay();
             }
 
             @Override
@@ -714,48 +710,5 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
 
 
-    private void yinlianPay(){
-        ApiManager.getInstence().getApiService()
-                .getChinaPayInfo("00")
-                .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
-                .subscribe(new BaseObserver<ChinaPayOrder>() {
-                    @Override
-                    protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
 
-                        ChinaPayOrder chinaPayOrder = t.getData();
-                        OrderInfo orderInfo = new OrderInfo();
-                        orderInfo.setAccessType(chinaPayOrder.getNiu_index_response().getBusiType());
-                        orderInfo.setOrderAmt(chinaPayOrder.getNiu_index_response().getOriOrderNo());
-                        orderInfo.setMerOrderNo(chinaPayOrder.getNiu_index_response().getMerOrderNo());
-                        orderInfo.setMerId(chinaPayOrder.getNiu_index_response().getMerId());
-                        orderInfo.setOrderAmt(chinaPayOrder.getNiu_index_response().getRefundAmt()+"");
-                        orderInfo.setInstuId(chinaPayOrder.getNiu_index_response().getOriOrderNo());
-                        orderInfo.setMerId(chinaPayOrder.getNiu_index_response().getMerId());
-
-
-
-                        // 初始化手机POS环境
-                        Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
-                        // 设置Intent指向Initialize.class
-                        Intent intent = new Intent(context, Initialize.class);
-                        // this为你当前的activity.this
-                        // 传入对象参数
-                        Bundle bundle = new Bundle();
-
-                        bundle.putSerializable("orderInfo", orderInfo);
-                        intent.putExtras(bundle);
-                        intent.putExtra("mode", "00");
-                        // orderInfo为启动插件时传入的OrderInfo对象。
-                        // 使用intent跳转至移动认证插件
-                        context.startActivity(intent);
-                    }
-
-                    @Override
-                    protected void onFailure(String errorInfo, boolean isNetWorkError) {
-
-                    }
-                });
-
-
-    }
 }

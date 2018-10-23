@@ -43,7 +43,6 @@ import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 import com.umeng.message.UmengMessageHandler;
-import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.entity.UMessage;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
@@ -55,6 +54,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 
 public class MyApplication extends Application {
@@ -100,7 +102,11 @@ public class MyApplication extends Application {
         UMShareAPI.get(this);
         MobclickAgent.setScenarioType(MyApplication.this, MobclickAgent.EScenarioType.E_UM_NORMAL);
         UMConfigure.init(MyApplication.this, null, null, UMConfigure.DEVICE_TYPE_PHONE, "1e221fdbb93b21a7924c0e2ebf4a889b");
-        AndroidNetworking.initialize(getApplicationContext());
+
+        OkHttpClient okHttpClient = new OkHttpClient() .newBuilder()
+                .addInterceptor(getHttpLoggingInterceptor())
+                .build();
+        AndroidNetworking.initialize(getApplicationContext(),okHttpClient);
 //        IWXAPI msgApi = WXAPIFactory.createWXAPI(context, null);
 //        msgApi.registerApp(Contact.wxAppid);
         myApplication = this;
@@ -124,6 +130,34 @@ public class MyApplication extends Application {
 
 
     }
+
+
+    private HttpLoggingInterceptor getHttpLoggingInterceptor() {
+        //日志显示级别
+        HttpLoggingInterceptor.Level level = HttpLoggingInterceptor.Level.BODY;
+        //新建log拦截器
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                Logger.d(message);
+            }
+        });
+        loggingInterceptor.setLevel(level);
+        return loggingInterceptor;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //获取存储的信息
     private void getSharedData() {

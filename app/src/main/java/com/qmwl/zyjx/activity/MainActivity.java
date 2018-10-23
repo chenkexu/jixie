@@ -13,13 +13,6 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.alibaba.fastjson.JSONObject;
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.google.gson.JsonObject;
-import com.hyphenate.easeui.EaseUI;
-import com.hyphenate.util.EasyUtils;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
 import com.qmwl.zyjx.base.BaseActivity;
@@ -30,13 +23,10 @@ import com.qmwl.zyjx.fragment.SecondFragment;
 import com.qmwl.zyjx.fragment.ThreadFragment;
 import com.qmwl.zyjx.runtimepermissions.PermissionsManager;
 import com.qmwl.zyjx.runtimepermissions.PermissionsResultAction;
-import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.EventManager;
-import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.view.CommomDialog;
 import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.entity.UMessage;
-
 
 import org.json.JSONException;
 

@@ -467,6 +467,7 @@ public class JsonUtils {
             }
         } catch (JSONException e) {
             Log.d("huangrui","json解析异常原因:+"+e.toString());
+
             e.printStackTrace();
         }
         return list;

@@ -16,9 +16,9 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.chinapay.cppaysdk.activity.Initialize;
-import com.chinapay.cppaysdk.bean.OrderInfo;
-import com.chinapay.cppaysdk.util.Utils;
+import com.chinapay.mobilepayment.activity.MainActivity;
+import com.chinapay.mobilepayment.utils.Utils;
+import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.DuiGongFuKuanActivity;
@@ -174,6 +174,11 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                 payWx();
                 break;
             case R.id.st_yilian: //银联
+                boolean isInstalled = Utils.checkInstalled(context);
+//                if (!isInstalled) {
+//                    ToastUtils.showShort("unionPay sdk is not Installed");
+//                    return;
+//                }
                 yinlianPay();
                 break;
             case R.id.st_zhuanzhang: //对公付款
@@ -345,42 +350,20 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                     @Override
                     protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
 
-
                         ChinaPayOrder chinaPayOrder = t.getData();
-                        OrderInfo orderInfo = new OrderInfo();
                         ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
-                        orderInfo.setAccessType(chinaPayOrder.getNiu_index_response().getBusiType());
-                        orderInfo.setOrderAmt(chinaPayOrder.getNiu_index_response().getOriOrderNo());
-                        orderInfo.setMerOrderNo(chinaPayOrder.getNiu_index_response().getMerOrderNo());
-                        orderInfo.setMerId(chinaPayOrder.getNiu_index_response().getMerId());
-                        orderInfo.setOrderAmt(chinaPayOrder.getNiu_index_response().getRefundAmt()+"");
-                        orderInfo.setInstuId(chinaPayOrder.getNiu_index_response().getOriOrderNo());
-                        orderInfo.setMerId(chinaPayOrder.getNiu_index_response().getMerId());
+                        Gson gson = new Gson();
+                        String json1 = gson.toJson(responseBean);
 
-                        orderInfo.setMerId(responseBean.getMerId());
-                        orderInfo.setMerOrderNo(responseBean.getMerOrderNo());
-                        orderInfo.setTranDate(responseBean.getTranDate());
-                        orderInfo.setTranTime(responseBean.getTranTime());
-                        orderInfo.setTranType(responseBean.getTranType());
-                        orderInfo.setBusiType(responseBean.getBusiType());
-                        //订单支付状态 OrderStatu
-
-                        //金额
-                        orderInfo.setOrderAmt(responseBean.getRefundAmt()+"");
-                        //签名
-//                        orderInfo.setSignature(responseBean.);
-
-//                        orderInfo.setor
-
+                        Logger.json(json1);
                         // 初始化手机POS环境
                         Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
                         // 设置Intent指向Initialize.class
-                        Intent intent = new Intent(context, Initialize.class);
+                        Intent intent = new Intent(context, MainActivity.class);
                         // this为你当前的activity.this
                         // 传入对象参数
                         Bundle bundle = new Bundle();
-
-                        bundle.putSerializable("orderInfo", orderInfo);
+                        bundle.putSerializable("orderInfo", json1);
                         intent.putExtras(bundle);
                         intent.putExtra("mode", "00");
                         // orderInfo为启动插件时传入的OrderInfo对象。

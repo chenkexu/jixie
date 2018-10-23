@@ -13,9 +13,9 @@ import android.widget.RadioGroup;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.chinapay.cppaysdk.global.CPGlobalInfo;
-import com.chinapay.cppaysdk.global.ResultInfo;
-import com.chinapay.cppaysdk.util.Utils;
+import com.chinapay.mobilepayment.global.CPGlobalInfo;
+import com.chinapay.mobilepayment.global.ResultInfo;
+import com.chinapay.mobilepayment.utils.Utils;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
@@ -319,22 +319,23 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
         getInterNetData();
 
 
-
-            if (Utils.getResultInfo() != null) {
-                ResultInfo resultInfo = Utils.getResultInfo();
-                if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
-                    if (resultInfo.getRespCode().equals("0000")) {
-                        String orderInfo = resultInfo. getOrderInfo();
-                        if(orderInfo != null){
-                            Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
-                    } else {
-                        Utils.showDialogNoFinish(this,
-                                "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
-                    }
-                    }
+        //银联支付的回调
+        if (Utils.getResultInfo() != null) {
+            ResultInfo resultInfo = Utils.getResultInfo();
+            Logger.d("银联resultInfo:"+resultInfo.orderInfo);
+            if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
+                if (resultInfo.getRespCode().equals("0000")) {
+                    String orderInfo = resultInfo.getOrderInfo();
+                    if(orderInfo != null){
+                        Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
+                } else {
+                    Utils.showDialogNoFinish(this,
+                            "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
+                }
             }
-                CPGlobalInfo.init();
-        }
+        }	CPGlobalInfo.init();
+
+    }
 
     @Override
     protected void onPause() {
@@ -346,11 +347,13 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
 
     class WoDiDingDanBroadcastReceiver extends BroadcastReceiver {
 
+
         @Override
         public void onReceive(Context context, Intent intent) {
             getInterNetData();
         }
     }
+
 
     public static void refreshData(Context context) {
 
@@ -400,6 +403,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
     }
 
 
+    //支付宝回调
     @Subscribe
     public void onZhifubaoCharge(PayBean payBean){
         Logger.d("收到支付宝支付成功的回调");
