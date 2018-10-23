@@ -7,6 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/chinapay/chinapay.iml" filepath="$PROJECT_DIR$/chinapay/chinapay.iml" />
       <module fileurl="file://$PROJECT_DIR$/easeui/easeui.iml" filepath="$PROJECT_DIR$/easeui/easeui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library_pictureselector/library_pictureselector.iml" filepath="$PROJECT_DIR$/library_pictureselector/library_pictureselector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library_pictureselectorucop/library_pictureselectorucop.iml" filepath="$PROJECT_DIR$/library_pictureselectorucop/library_pictureselectorucop.iml" />
     </modules>
   </component>
 </project>

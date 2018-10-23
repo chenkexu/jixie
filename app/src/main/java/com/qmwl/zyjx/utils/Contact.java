@@ -1,6 +1,5 @@
 package com.qmwl.zyjx.utils;
 
-import retrofit2.http.POST;
 
 /**
  * Created by Administrator on 2017/8/9.

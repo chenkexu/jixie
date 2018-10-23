@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
     dexOptions {
         preDexLibraries = false
@@ -29,9 +29,11 @@ android {
         }
 
     }
-//    lintOptions {
-//        disable 'ResourceType','MissingTranslation'
-//    }
+    lintOptions {
+        checkReleaseBuilds false
+        disable 'ResourceType','MissingTranslation'
+        abortOnError false
+    }
 
 
     sourceSets {

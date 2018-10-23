@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/chinapay" />
             <option value="$PROJECT_DIR$/easeui" />
+            <option value="$PROJECT_DIR$/library_pictureselector" />
+            <option value="$PROJECT_DIR$/library_pictureselectorucop" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
