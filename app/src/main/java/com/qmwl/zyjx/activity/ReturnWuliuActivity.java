@@ -59,7 +59,7 @@ public class ReturnWuliuActivity extends BaseActivity {
     private List<String> wuliu_name;
     private List<String> wuliu_word;
     private int choosePosition = 0;
-
+    private boolean isClickH5=false;
 
     @Override
     protected void setLayout() {
@@ -77,7 +77,7 @@ public class ReturnWuliuActivity extends BaseActivity {
         etWuliu.setFocusableInTouchMode(false);
         Intent intent = getIntent();
         dingDanBean = (DingDanBean) intent.getSerializableExtra("DingDanBean");
-
+        isClickH5=intent.getBooleanExtra("isH5",false);
     }
 
     @Override
@@ -157,9 +157,15 @@ public class ReturnWuliuActivity extends BaseActivity {
 
                 showLoadingDialog();
                 String s = wuliu_word.get(choosePosition);
+                String mOid="";
+                if (isClickH5){
+                    mOid=getIntent().getStringExtra("orderId");
+                }else {
+                    mOid=dingDanBean.getOrder_id();
+                }
 
                 ApiManager.getInstence().getApiService()
-                        .addTuiHuoWuLiu(dingDanBean.getOrder_id(),etwuliuId,s)
+                        .addTuiHuoWuLiu(mOid,etwuliuId,s)
                         .compose(RxUtil.<ApiResponse<Object>>rxSchedulerHelper())
                         .subscribe(new BaseObserver<Object>() {
                             @Override

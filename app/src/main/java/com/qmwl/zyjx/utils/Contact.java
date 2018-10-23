@@ -21,8 +21,8 @@ public class Contact {
     //拍卖团购的域名
     public static String paimaiOrTuangou = "http://tgpm.zhongyaojixie.com";
     //域名
-   public static String http_yuming = "http://app.zhongyaojixie.com";
-   //  public static String http_yuming = "http://app.qmnet.com.cn";
+    //   public static String http_yuming = "http://app.zhongyaojixie.com";
+   public static String http_yuming = "http://app.qmnet.com.cn";
     //中文接口
     public static final String zh_http = http_yuming;
     //英文接口

@@ -261,8 +261,38 @@ public class NewsDetailsActivity extends BaseActivity {
 
         @JavascriptInterface
         public void tel(String phone) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+            /*Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);*/
+
+
+
+            Intent intent = null;
+            if (!MyApplication.getIntance().isLogin()) {
+                intent = new Intent(NewsDetailsActivity.this, ReturnWuliuActivity.class);
+                startActivityForResult(intent, 0);
+                return;
+            }
+            intent = new Intent(context, ReturnWuliuActivity.class);
+           // intent.putExtra(ImActivity.IM_ID, "zyjx" + id);
+            context.startActivity(intent);
+        }
+
+        @JavascriptInterface
+        public void wuliu(String orderId) {
+            /*Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);*/
+
+            Intent intent = null;
+            if (!MyApplication.getIntance().isLogin()) {
+                intent = new Intent(NewsDetailsActivity.this, ReturnWuliuActivity.class);
+                startActivityForResult(intent, 0);
+                return;
+            }
+            intent = new Intent(context, ReturnWuliuActivity.class);
+             intent.putExtra("isH5" ,true);
+            intent.putExtra("orderId" ,orderId);
             context.startActivity(intent);
         }
     }

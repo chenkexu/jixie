@@ -3,6 +3,7 @@ package com.qmwl.zyjx.activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -240,6 +241,7 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
 
                     @Override
                     public void onError(ANError anError) {
+                        Log.d("huangrui","提交失败信息"+anError.getResponse());
                         dismissLoadingDialog();
                         Toast.makeText(QueRenDingDanActivity.this, getString(R.string.dingdantijiaoshibai_wangluo), Toast.LENGTH_SHORT).show();
                     }

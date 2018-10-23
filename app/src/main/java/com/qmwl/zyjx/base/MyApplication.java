@@ -155,7 +155,7 @@ public class MyApplication extends Application {
 
             @Override
             public void onFailure(String s, String s1) {
-                Log.i("TAG", "推送token:" + s + "   " + s1);
+                Log.i("huangrui", "推送token:" + s + "   " + s1);
             }
         });
 
@@ -333,7 +333,9 @@ public class MyApplication extends Application {
         //获取 EaseUser实例, 这里从内存中读取
         //如果你是从服务器中读读取到的，最好在本地进行缓存
         EaseUser user = null;
-
+         if(EMClient.getInstance().getCurrentUser()==null){
+             return null;
+         }
         //如果內存中有
         if (username.equals(EMClient.getInstance().getCurrentUser())) {
             //如果用户是本人，就设置自己的头像

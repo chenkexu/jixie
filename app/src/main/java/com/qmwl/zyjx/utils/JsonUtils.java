@@ -1,5 +1,7 @@
 package com.qmwl.zyjx.utils;
 
+import android.util.Log;
+
 import com.qmwl.zyjx.base.MyApplication;
 import com.qmwl.zyjx.bean.AddressBean;
 import com.qmwl.zyjx.bean.BaoJiaBean;
@@ -464,6 +466,7 @@ public class JsonUtils {
                 list.add(bean);
             }
         } catch (JSONException e) {
+            Log.d("huangrui","json解析异常原因:+"+e.toString());
             e.printStackTrace();
         }
         return list;
