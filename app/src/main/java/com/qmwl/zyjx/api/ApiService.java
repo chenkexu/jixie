@@ -109,7 +109,7 @@ public interface ApiService {
 
     //删除订单
     @POST(" /index.php/api/order/finDel")
-    Observable<ApiResponse<Object>> deleteOrder();
+    Observable<ApiResponse<Object>> deleteOrder(@Field("orderId") String orderId);
 
 
 
@@ -117,6 +117,7 @@ public interface ApiService {
     @Multipart
     @POST("/index.php/api/member/addGoodsEvaluate")
     Observable<ApiResponse<Object>> fabiaopingjia(@QueryMap HashMap<String,Object> map, @PartMap Map<String, RequestBody> imageFiles);
+
 
 
 

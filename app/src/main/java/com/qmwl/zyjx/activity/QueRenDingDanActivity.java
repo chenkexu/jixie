@@ -13,6 +13,9 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.chinapay.mobilepayment.global.CPGlobalInfo;
+import com.chinapay.mobilepayment.global.ResultInfo;
+import com.chinapay.mobilepayment.utils.Utils;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.QueRenDingDanWaiAdapter;
@@ -370,6 +373,35 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
     }
 
     String no;
+
+    /**
+     * onResume方法.
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("huangrui","onresume：" );
+        if (Utils.getResultInfo() != null) {
+            ResultInfo resultInfo = Utils.getResultInfo();
+            if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
+                if (resultInfo.getRespCode().equals("0000")) {
+                    String orderInfo = Utils.getResultInfo().getOrderInfo();
+                    if (orderInfo != null) {
+                       /* new SweetAlertDialog(this)
+                                .setContentText("应答码：" + resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc() + "\n详细结果：" + orderInfo)
+                                .show();*/
+                       Log.d("huangrui","应答码：" + resultInfo.getRespCode() +"应答参数：" + resultInfo.getRespDesc() );
+                    }
+                } else {
+               /*     new SweetAlertDialog(this)
+                            .setContentText("应答码：" + resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc())
+                            .show();*/
+                    Log.d("huangrui","应答码：" + resultInfo.getRespCode() +"应答参数：" + resultInfo.getRespDesc() );
+                }
+            }
+        }
+        CPGlobalInfo.init();
+    }
 
     private void parseJson(JSONObject response, final String price, final String goodsName) {
         try {

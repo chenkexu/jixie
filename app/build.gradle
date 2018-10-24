@@ -40,16 +40,16 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('qmwl_zyjx.jks')
+           /* storeFile file('qmwl_zyjx.jks')
             storePassword 'zhongyaojixie'
             keyAlias 'zhongyaojixie'
-            keyPassword 'zhongyaojixie'
+            keyPassword 'zhongyaojixie'*/
         }
         release {
-            storeFile file('qmwl_zyjx.jks')
-            storePassword 'zhongyaojixie'
-            keyAlias 'zhongyaojixie'
-            keyPassword 'zhongyaojixie'
+//            storeFile file('qmwl_zyjx.jks')
+//            storePassword 'zhongyaojixie'
+//            keyAlias 'zhongyaojixie'
+//            keyPassword 'zhongyaojixie'
         }
     }
 

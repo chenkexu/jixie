@@ -530,4 +530,78 @@
     <string name="No_opening">No opening</string>
 
 
+    <string name="shenqingtuikuan">refund</string>
+    <string name="shenqingfapiao">invoice</string>
+    <string name="tixingfahuo">Remind</string>
+    <string name="choose_rp_reason">Select reason</string>
+    <string name="shenqingtuihuo">sales return</string>
+    <string name="returnpay">refund </string>
+    <string name="returnthingpay">refunds</string>
+    <string name="returnthing">sales return</string>
+    <string name="shenqingweiquan">activist</string>
+    <string name="shensuweiquan">activist</string>
+    <string name="inputreason">Please enter your complaint reasons</string>
+    <string name="msg_return_thing_info">return logistics</string>
+    <string name="elec_invoice">Electronic invoice</string>
+    <string name="paper_invoice">Paper invoice</string>
+    <string name="ask_suc">Rights of success</string>
+    <string name="invoice_submit_sunccess">Have submitted</string>
+    <string name="tuikuantuihuochenggong">Waiting for audit</string>
+    <string name="tuikuantuihuoshibai">Please try again if you fail.</string>
+    <string name="tuihuowuliu">return logistics</string>
+    <string name="wuliugsmc">company</string>
+    <string name="invoice_money"><![CDATA[
+        <font color="#fb9158">%1$s</font> Yuan
+    ]]>
+    </string>
+    <string name="invoice_detail">details</string>
+    <string name="invoice_type">type</string>
+    <string name="invoice_qiye">enterprise</string>
+    <string name="invoice_per"> personal</string>
+    <string name="invoice_taitou">invoice title</string>
+    <string name="hint_taitou">Fill in invoice title</string>
+    <string name="shuihao">ein</string>
+    <string name="invoice_id">Fill ein</string>
+    <string name="invoice_content">content</string>
+    <string name="hint_invoice_content">fill content</string>
+    <string name="invoice_money2">money</string>
+    <string name="invoice_remark">note</string>
+    <string name="not_nessary">Not required</string>
+    <string name="jieshoufangshi">Frankxv </string>
+    <string name="invoice_email">E-mail</string>
+    <string name="email_hint">Used to send you electronic invoices and itinerary</string>
+    <string name="invoice_name">recipients</string>
+    <string name="invoice_name_hint">Fill recipients</string>
+    <string name="invoice_phone">tel</string>
+    <string name="invoice_phone_hint">Fill tel</string>
+    <string name="invoice_area">address</string>
+    <string name="invoice_area_hint">Fill address</string>
+    <string name="invoice_address">Detailed address</string>
+    <string name="invoice_address_hint">Fill an address</string>
+    <string name="shouhou">Refund/service</string>
+    <string name="yichang">abnormal</string>
+    <!-- 上边的异常 应该改成异常订单注意下 -->
+
+    <!--开发票-->
+    <string name="apply_elec_invoice">Electronic invoice</string>
+    <string name="apply_paper_invoice">Paper invoice</string>
+    <string name="shop_pingfen">Shop</string>
+    <string name="server_num">Service</string>
+    <string name="deleteOrder">Delete</string>
+    <string name="take_photo">Taking pictures</string>
+    <string name="select_from_gallery">Select from album</string>
+    <string name="delete_suc">successful</string>
+    <string name="delete_fail">failure</string>
+    <string name="shanchu">Delete order</string>
+
+    <string name="toast_send_goods">Remind delivery success</string>
+
+    <string name="choose_wuliu_title">Choose</string>
+    <string name="wuliucon">company</string>
+    <string name="wuliu_input_hint">Enter the company</string>
+    <string name="wuliu_id">Order no</string>
+    <string name="input_wuliu_id">input number</string>
+    <string name="wuliu_submit_success">Have submitted</string>
+
+
 </resources>

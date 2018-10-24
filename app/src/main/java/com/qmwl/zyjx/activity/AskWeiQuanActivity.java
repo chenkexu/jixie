@@ -39,6 +39,8 @@ public class AskWeiQuanActivity extends BaseActivity {
 
     private DingDanBean mBean;
 
+    private boolean isClickH5=false;
+
     @Override
     protected void setLayout() {
         setContentLayout(R.layout.activity_ask_weiquan);
@@ -49,7 +51,7 @@ public class AskWeiQuanActivity extends BaseActivity {
 
         setTitleContent(R.string.shensuweiquan);
         mBean=(DingDanBean)getIntent().getSerializableExtra("DingDanBean");
-
+        isClickH5=getIntent().getBooleanExtra("isH5",false);
 
     }
     @Override
@@ -66,8 +68,15 @@ public class AskWeiQuanActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_submit:
+
+                String mOid="";
+                if (isClickH5){
+                    mOid=getIntent().getStringExtra("orderId");
+                }else {
+                    mOid=mBean.getOrder_id();
+                }
                 ApiManager.getInstence().getApiService()
-                        .shenqingweiquan(mBean.getOrder_id(),mEt.getText().toString())
+                        .shenqingweiquan(mOid,mEt.getText().toString())
                         .compose(RxUtil.<ApiResponse<Object>>rxSchedulerHelper())
                         .subscribe(new BaseObserver<Object>() {
                             @Override

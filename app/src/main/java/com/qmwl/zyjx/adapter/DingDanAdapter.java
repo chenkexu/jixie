@@ -258,6 +258,16 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 //                statue = "已完成";
                 statue = context.getString(R.string.yiwancheng);
                 break;
+            case 4:
+                statue = context.getString(R.string.yiwancheng);
+                break;
+            case -1:
+                //待退款退货订单
+                statue = context.getString(R.string.tuikuanzhong);
+                break;
+            case 6:
+                statue = context.getString(R.string.error_order);
+                break;
             default:
                 statue = context.getString(R.string.yiguanbi);
                 break;
@@ -468,6 +478,22 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     /*Intent mIntent2=new Intent(context, ReturnWuliuActivity.class);*/
                     mIntent3.putExtra("DingDanBean",item);
                     context.startActivity(mIntent3);
+                    break;
+                case R.id.dingdan_layout_item_shanchudingdan:
+                    //删除订单
+                    ApiManager.getInstence().getApiService().deleteOrder(item.getOrder_id())
+                            .compose(RxUtil.<ApiResponse<Object>>rxSchedulerHelper())
+                            .subscribe(new BaseObserver<Object>() {
+                                @Override
+                                protected void onSuccees(ApiResponse<Object> t) {
+                                    ToastUtils.showShort(context.getResources().getString(R.string.shanchuchenggong));
+                                }
+
+                                @Override
+                                protected void onFailure(String errorInfo, boolean isNetWorkError) {
+                                    ToastUtils.showShort(errorInfo+"");
+                                }
+                            });
                     break;
             }
         }
