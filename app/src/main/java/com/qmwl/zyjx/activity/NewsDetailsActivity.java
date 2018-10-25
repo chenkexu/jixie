@@ -277,13 +277,13 @@ public class NewsDetailsActivity extends BaseActivity {
 
         @JavascriptInterface
         public void tel(String phone) {
-            /*Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);*/
+            context.startActivity(intent);
 
 
 
-            Intent intent = null;
+        /*    Intent intent = null;
             if (!MyApplication.getIntance().isLogin()) {
                 intent = new Intent(NewsDetailsActivity.this, LoginActivity.class);
                 startActivityForResult(intent, 0);
@@ -291,7 +291,7 @@ public class NewsDetailsActivity extends BaseActivity {
             }
             intent = new Intent(context, ReturnWuliuActivity.class);
            // intent.putExtra(ImActivity.IM_ID, "zyjx" + id);
-            context.startActivity(intent);
+            context.startActivity(intent);*/
         }
 
         @JavascriptInterface

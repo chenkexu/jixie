@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -70,6 +71,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
                 Log.d("huangrui","msg.after_open的值:"+msg.after_open);
                 if ("go_app".equals(msg.after_open)){
+                    startActivity(new Intent(context,MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
                 }else if("go_custom".equals(msg.after_open)){
                    // JsonObject jsonObject= new JsonObject(msg.custom);
@@ -80,6 +82,14 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                         String orderStatus=obj.get("orderStatus")+"";
                         String url=obj.get("url")+"";
                         Log.d("huangrui","获取到的status"+orderStatus);
+                        if (!TextUtils.isEmpty(url)){
+                            // 跳转我的店铺界面,到主界面接收umeng，跳转到第四个fragment
+                            startActivity(new Intent(context,MainActivity.class).putExtra("umeng",3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                            //点击跳转我的店铺界面
+                            //    String url=getIntent().getStringExtra("umeng");
+                            setCurrItem(3);
+                            EventManager.post("umeng",url);
+                        }else{
 
                         //使用方法三
                         //应用在后台
@@ -88,7 +98,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                             startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         }else if ("1".equals(orderStatus)){
                             //申请退款
-                            // startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1));
+                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",0).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         }else if ("2".equals(orderStatus)){
                             //待收货
                             startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
@@ -105,17 +115,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                             //异常订单
                             startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",6).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         }else if ("-100".equals(orderStatus)){
-                            //如果时-100 跳转我的店铺界面,到主界面接收umeng，跳转到第四个fragment
-                            startActivity(new Intent(context,MainActivity.class).putExtra("umeng",3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                            //点击跳转我的店铺界面
-                        //    String url=getIntent().getStringExtra("umeng");
-                            setCurrItem(3);
-                            EventManager.post("umeng",url);
-
-
+                            startActivity(new Intent(context,MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         }
 
-
+                        }
 
 
                     } catch (JSONException e) {

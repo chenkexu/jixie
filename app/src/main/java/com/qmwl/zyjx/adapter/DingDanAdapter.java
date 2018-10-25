@@ -205,7 +205,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }
                 holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
                 holder.chakanwuliu.setVisibility(View.VISIBLE);
-                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+               // holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
                 break;
             case 4:
 //                statue = 已完成
@@ -233,6 +233,9 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                // }
 
                 break;
+                default:
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                    break;
         }
     }
 
