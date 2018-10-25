@@ -89,7 +89,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
         radiobutton3.setText(R.string.daifahuo);
         radiobutton4.setText(R.string.daishouhuo);
         radiobutton5.setText(R.string.yiwancheng);
-        radiobutton6.setText(R.string.shouhou);
+        radiobutton6.setText(R.string.tuikuanshouhou);
         radiobutton7.setText(R.string.yichang);
 
         radiobutton1.setOnClickListener(this);

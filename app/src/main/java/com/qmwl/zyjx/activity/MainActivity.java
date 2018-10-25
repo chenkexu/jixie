@@ -106,7 +106,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                             startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",6).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         }else if ("-100".equals(orderStatus)){
                             //如果时-100 跳转我的店铺界面,到主界面接收umeng，跳转到第四个fragment
-                           // startActivity(new Intent(context,MainActivity.class).putExtra("umeng",3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                            startActivity(new Intent(context,MainActivity.class).putExtra("umeng",3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                             //点击跳转我的店铺界面
                         //    String url=getIntent().getStringExtra("umeng");
                             setCurrItem(3);

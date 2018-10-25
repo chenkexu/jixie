@@ -79,11 +79,20 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
                 intent.putExtra(NewsDetailsActivity.DETAILS_URL, "http://app.qmnet.com.cn/index.php/api/order/orderTuiDetail?orderId="+item.getOrder_id());
                 startActivity(intent);
             }else{
-                ShoppingBean shoppingBean = item.getShopList().get(0);
-                Intent intent = new Intent(getContext(), NewsDetailsActivity.class);
-                intent.putExtra(NewsDetailsActivity.DETAILS_TYPE, NewsDetailsActivity.TYPE_DINGDAN);
-                intent.putExtra(NewsDetailsActivity.DETAILS_URL, shoppingBean.getDingdanUrl());
-                startActivity(intent);
+
+                if (item.getMa()==1||item.getMa()==2||item.getMa()==3){
+                    ShoppingBean shoppingBean = item.getShopList().get(0);
+                    Intent intent = new Intent(getContext(), NewsDetailsActivity.class);
+                    intent.putExtra(NewsDetailsActivity.DETAILS_TYPE, NewsDetailsActivity.TYPE_DINGDAN);
+                    intent.putExtra(NewsDetailsActivity.DETAILS_URL, "http://app.qmnet.com.cn/index.php/api/order/orderTuiDetail?orderId="+item.getOrder_id());
+                    startActivity(intent);
+                }else {
+                    ShoppingBean shoppingBean = item.getShopList().get(0);
+                    Intent intent = new Intent(getContext(), NewsDetailsActivity.class);
+                    intent.putExtra(NewsDetailsActivity.DETAILS_TYPE, NewsDetailsActivity.TYPE_DINGDAN);
+                    intent.putExtra(NewsDetailsActivity.DETAILS_URL, shoppingBean.getDingdanUrl());
+                    startActivity(intent);
+                }
             }
 
         }

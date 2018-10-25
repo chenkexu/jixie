@@ -593,7 +593,7 @@
     <string name="invoice_address">详细地址</string>
     <string name="invoice_address_hint">填写详细地址</string>
     <string name="shouhou">退款/售后</string>
-    <string name="yichang">异常</string>
+    <string name="yichang">异常订单</string>
 
     <!--开发票-->
     <string name="apply_elec_invoice">申请电子发票</string>

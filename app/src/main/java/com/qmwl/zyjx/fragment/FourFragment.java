@@ -223,7 +223,8 @@ public class FourFragment extends Fragment implements View.OnClickListener {
                     getActivity().startActivityForResult(intent, 0);
                     return;
                 }
-                intent = new Intent(getContext(), TuiKuanShouHouActivity.class);
+                intent = new Intent(getContext(), WoDeDingDanActivity.class);
+                intent.putExtra(WoDeDingDanActivity.WODEDINGDAN_INDEX_VALUE, 5);
                 startActivity(intent);
                 break;
 
