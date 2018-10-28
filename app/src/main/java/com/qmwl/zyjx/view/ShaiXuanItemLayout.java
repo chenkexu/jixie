@@ -84,8 +84,8 @@ public class ShaiXuanItemLayout extends LinearLayout implements View.OnClickList
             if ("".equals(adapter.getValue())) {
                 return "";
             }
-//            return getTextValue() + "," + adapter.getValue();
-            return adapter.getValue();
+            return getTextValue() + "," + adapter.getValue();
+//            return adapter.getValue();
         }
         return "";
     }

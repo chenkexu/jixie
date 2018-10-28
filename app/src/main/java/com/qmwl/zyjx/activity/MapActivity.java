@@ -2,11 +2,13 @@ package com.qmwl.zyjx.activity;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,8 @@ import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.amap.api.navi.AMapNavi;
+import com.bumptech.glide.Glide;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.bean.MapBean;
@@ -205,14 +209,14 @@ public class MapActivity extends BaseActivity implements AMap.OnMarkerClickListe
 
                 break;
             case R.id.map_popu_quzheli:
-//
-//                if (bean == null || latitude == 0 || longitude == 0) {
-//                    return;
-//                }
-//                Intent intent = new Intent(MapActivity.this, DaoHangActivity.class);
-//                String[] jingweidus = new String[]{String.valueOf(latitude), String.valueOf(longitude), String.valueOf(bean.getLat_x()), String.valueOf(bean.getLay_y())};
-//                intent.putExtra("jingweidu", jingweidus);
-//                startActivity(intent);
+
+                if (bean == null || latitude == 0 || longitude == 0) {
+                    return;
+                }
+                Intent intent = new Intent(MapActivity.this, DaoHangActivity.class);
+                String[] jingweidus = new String[]{String.valueOf(latitude), String.valueOf(longitude), String.valueOf(bean.getLat_x()), String.valueOf(bean.getLay_y())};
+                intent.putExtra("jingweidu", jingweidus);
+                startActivity(intent);
                 break;
         }
     }

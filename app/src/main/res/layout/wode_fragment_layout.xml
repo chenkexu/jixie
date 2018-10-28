@@ -82,7 +82,7 @@
                     android:src="@mipmap/right" />
             </LinearLayout>
 
-            <RadioGroup
+            <LinearLayout
                 android:id="@+id/wode_radiogroup_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,71 +91,184 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp">
 
-                <RadioButton
-                    android:id="@+id/wode_daifukuan_button"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:button="@null"
-                    android:drawablePadding="5dp"
-                    android:drawableTop="@mipmap/daifukuan"
-                    android:gravity="center"
-                    android:text="@string/daifukuan"
-                    android:textColor="@color/c333333"
-                    android:textSize="14sp" />
+                    android:gravity="center">
 
-                <RadioButton
-                    android:id="@+id/wode_daifahuo_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawablePadding="5dp"
-                    android:drawableTop="@mipmap/daifahuo"
-                    android:gravity="center"
-                    android:text="@string/daifahuo"
-                    android:textColor="@color/c333333"
-                    android:textSize="14sp" />
+                    <RadioButton
+                        android:id="@+id/wode_daifukuan_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:button="@null"
+                        android:padding="5dp"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@mipmap/daifukuan"
+                        android:gravity="center"
+                        android:text="@string/daifukuan"
+                        android:textColor="@color/c333333"
+                        android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/wode_daishouhuo_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawablePadding="5dp"
-                    android:drawableTop="@mipmap/daishouhuo"
-                    android:gravity="center"
-                    android:text="@string/daishouhuo"
-                    android:textColor="@color/c333333"
-                    android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/wode_daifukuan_text"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/gouwuche_xiaohongdian"
+                        android:layout_marginEnd="15dp"
+                        android:maxLines="1"
+                        android:visibility="gone"
+                        android:textSize="9sp"
+                        android:gravity="center"
+                        android:textColor="@color/white" />
 
-                <RadioButton
-                    android:id="@+id/wode_daipingjia_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawablePadding="5dp"
-                    android:drawableTop="@mipmap/haoping_huise"
-                    android:gravity="center"
-                    android:text="@string/yiwancheng"
-                    android:textColor="@color/c333333"
-                    android:textSize="14sp" />
+                </RelativeLayout>
 
-                <RadioButton
-                    android:id="@+id/wode_tuikuan_button"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:button="@null"
-                    android:drawablePadding="5dp"
-                    android:drawableTop="@mipmap/tuikuan"
-                    android:gravity="center"
-                    android:text="@string/tuikuanshouhou"
-                    android:textColor="@color/c333333"
-                    android:textSize="14sp" />
-            </RadioGroup>
+                    android:gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/wode_daifahuo_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:button="@null"
+                        android:padding="5dp"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@mipmap/daifahuo"
+                        android:gravity="center"
+                        android:text="@string/daifahuo"
+                        android:textColor="@color/c333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/wode_daifahuo_text"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/gouwuche_xiaohongdian"
+                        android:layout_marginEnd="15dp"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:textSize="9sp"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+
+                    <RadioButton
+                        android:id="@+id/wode_daishouhuo_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:button="@null"
+                        android:drawablePadding="5dp"
+                        android:padding="5dp"
+                        android:drawableTop="@mipmap/daishouhuo"
+                        android:gravity="center"
+                        android:text="@string/daishouhuo"
+                        android:textColor="@color/c333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/wode_daishouhuo_text"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/gouwuche_xiaohongdian"
+                        android:textSize="9sp"
+                        android:visibility="gone"
+                        android:layout_marginEnd="15dp"
+                        android:gravity="center"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+
+                    <RadioButton
+                        android:id="@+id/wode_daipingjia_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:button="@null"
+                        android:drawablePadding="5dp"
+                        android:padding="5dp"
+                        android:drawableTop="@mipmap/haoping_huise"
+                        android:gravity="center"
+                        android:text="@string/yiwancheng"
+                        android:textColor="@color/c333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/wode_daipingjia_text"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/gouwuche_xiaohongdian"
+                        android:textSize="9sp"
+                        android:layout_marginEnd="15dp"
+                        android:visibility="gone"
+                        android:gravity="center"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <RadioButton
+                        android:id="@+id/wode_tuikuan_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:button="@null"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@mipmap/tuikuan"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:text="@string/tuikuanshouhou"
+                        android:textColor="@color/c333333"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/wode_tuikuan_text"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/gouwuche_xiaohongdian"
+                        android:layout_marginEnd="15dp"
+                        android:gravity="center"
+                        android:textSize="9sp"
+                        android:visibility="gone"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"

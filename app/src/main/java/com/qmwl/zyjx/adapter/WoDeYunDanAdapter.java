@@ -22,6 +22,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.BaoJiaActivity;
+import com.qmwl.zyjx.activity.ZaiXianZhiFuActivity;
 import com.qmwl.zyjx.activity.ZaiXianZhiFuActivity2;
 import com.qmwl.zyjx.base.MyApplication;
 import com.qmwl.zyjx.base.MyBaseAdapter;

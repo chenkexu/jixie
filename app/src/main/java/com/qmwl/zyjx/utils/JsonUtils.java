@@ -14,6 +14,7 @@ import com.qmwl.zyjx.bean.Flowbean;
 import com.qmwl.zyjx.bean.GouWuCheBean;
 import com.qmwl.zyjx.bean.HotBean;
 import com.qmwl.zyjx.bean.MapBean;
+import com.qmwl.zyjx.bean.PeiJianShaiXuanBean;
 import com.qmwl.zyjx.bean.PingJiabean;
 import com.qmwl.zyjx.bean.ShaiXuanItemBean;
 import com.qmwl.zyjx.bean.ShaiXuanSpinnerBean;
@@ -1492,6 +1493,68 @@ public class JsonUtils {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+        return list;
+    }
+
+    /**
+     * 解析配件筛选页面数据
+     *
+     * @param obj
+     * @return
+     */
+    public static List<PeiJianShaiXuanBean> parsePeiJianShaiXuan(JSONObject obj) {
+        List<PeiJianShaiXuanBean> list = null;
+        try {
+            JSONObject data = obj.getJSONObject("data");
+            JSONArray niu_index_response = data.getJSONArray("niu_index_response");
+            list = new ArrayList<>();
+            for (int i = 0; i < niu_index_response.length(); i++) {
+                JSONObject jsonObject = niu_index_response.getJSONObject(i);
+                String category_id = jsonObject.getString("category_id");
+                String category_name = jsonObject.getString("category_name");
+                PeiJianShaiXuanBean bean = new PeiJianShaiXuanBean(category_name, category_id);
+                list.add(bean);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    /**
+     * 解析配件筛选最后一级菜单
+     *
+     * @param obj
+     * @return
+     */
+    public static List<PeiJianShaiXuanBean> parsePeiJianShaiXuanScend(JSONObject obj) {
+        List<PeiJianShaiXuanBean> list = null;
+        try {
+            JSONObject data = obj.getJSONObject("data");
+            JSONArray niu_index_response = data.getJSONArray("niu_index_response");
+            list = parsePeijianDigui(niu_index_response);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    private static List<PeiJianShaiXuanBean> parsePeijianDigui(JSONArray niu_index_response) throws JSONException {
+        List<PeiJianShaiXuanBean> list = new ArrayList<>();
+        for (int i = 0; i < niu_index_response.length(); i++) {
+            JSONObject jsonObject = null;
+            jsonObject = niu_index_response.getJSONObject(i);
+            String category_id = jsonObject.getString("category_id");
+            String category_name = jsonObject.getString("category_name");
+            List<PeiJianShaiXuanBean> childs = null;
+            if (jsonObject.has("child_list")) {
+                childs = parsePeijianDigui(jsonObject.getJSONArray("child_list"));
+            }
+            PeiJianShaiXuanBean bean = new PeiJianShaiXuanBean(category_name, category_id, childs);
+            list.add(bean);
+
         }
         return list;
     }

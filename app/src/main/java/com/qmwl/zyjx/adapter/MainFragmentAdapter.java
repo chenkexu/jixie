@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -107,6 +108,8 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
                 }
                 qitaOrYanshenfuwu(parent, holder, yanshenfuwuStr);
 
+            }else{
+                qitaOrYanshenfuwu(parent, holder, item.getParentName());
             }
 
         } else {
@@ -193,7 +196,7 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
         @Override
         public void onClick(View v) {
             Intent intent = null;
-            //type=1 金融，type=2  服务， type=3  招聘培训  4：保险  5：运输维修  6：我要开店
+            //type=1 金融，type=2  服务， type=3  招聘培训  4：保险  5：运输维修  6：我要开店, 7:配件
             if ("5".equals(type)) {
                 //运输页面
                 intent = new Intent(cx, TransportActivity.class);
@@ -225,8 +228,8 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
                 return;
             } else if ("3".equals(type)) {
                 //招聘培训
-//                intent = new Intent(cx, SeriverYeActivity.class);
-                intent = new Intent(cx, PeiJianShaiXuanFirstActivity.class);
+                intent = new Intent(cx, SeriverYeActivity.class);
+
                 intent.putExtra(SeriverYeActivity.SERIVERYEACTIVITY_TYPE, SeriverYeActivity.TYPE_ZHAOPINPEIXUN);
                 cx.startActivity(intent);
                 return;
@@ -240,6 +243,14 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
                 //保险
                 intent = new Intent(cx, BaoXianActivity.class);
                 cx.startActivity(intent);
+                return;
+            } else if ("7".equals(type)) {
+                //配件
+                intent = new Intent(cx, PeiJianShaiXuanFirstActivity.class);
+                intent.putExtra("id", id);
+//                intent.putExtra("id", "484");
+                cx.startActivity(intent);
+//                Toast.makeText(cx, "暂未开放", Toast.LENGTH_SHORT).show();
                 return;
             }
             //此为区分首页每item的大小图点击的区别(现已废弃，现在逻辑为直接进入二级商品列表)

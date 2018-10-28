@@ -344,6 +344,11 @@ public class Contact {
 
 
 
+ public static String peijianshaixuanyi = httpaddress.concat("/index.php/api/index/parts");
+    //配件筛选二级接口
+    public static String peijianshaixuaner = httpaddress.concat("/index.php/api/index/parts_category");
+    //个人中心订单数量
+    public static String user_order_num = httpaddress.concat("/index.php/api/member/myorder");
 
 
 

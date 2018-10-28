@@ -19,6 +19,6 @@
         android:paddingStart="7dp"
         android:paddingTop="10dp"
         android:textColor="@drawable/shaixuan_item_button_text"
-        android:textSize="10sp" />
+        android:textSize="11sp" />
 
 </LinearLayout>

@@ -181,10 +181,12 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void onProgress(int progress, String status) {
+                Log.i("TAG", "onProgress：" + progress + "   status:" + status);
             }
 
             @Override
             public void onError(int code, String message) {
+                Log.i("TAG", "imonError：" + message);
             }
         });
     }

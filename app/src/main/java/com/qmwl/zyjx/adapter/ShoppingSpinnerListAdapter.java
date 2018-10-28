@@ -28,7 +28,6 @@ public class ShoppingSpinnerListAdapter extends MyBaseAdapter<BlackBean> {
     private String quanbupinpai = "";
     private ShoppingThreadActivity activity;
 
-
     public ShoppingSpinnerListAdapter(Context cx) {
         //实例化汉字转拼音类
         characterParser = CharacterParser.getInstance();
@@ -150,7 +149,13 @@ public class ShoppingSpinnerListAdapter extends MyBaseAdapter<BlackBean> {
      * 根据ListView的当前位置获取分类的首字母的Char ascii值
      */
     public int getSectionForPosition(int position) {
-        return mList.get(position).getSortLetters().charAt(0);
+        char c = '0';
+        try {
+            c = mList.get(position).getSortLetters().charAt(0);
+        } catch (NullPointerException e) {
+
+        }
+        return c;
     }
 
     /**
@@ -159,10 +164,15 @@ public class ShoppingSpinnerListAdapter extends MyBaseAdapter<BlackBean> {
     public int getPositionForSection(int section) {
         for (int i = 0; i < getCount(); i++) {
             String sortStr = mList.get(i).getSortLetters();
-            char firstChar = sortStr.toUpperCase().charAt(0);
-            if (firstChar == section) {
-                return i;
+            try {
+                char firstChar = sortStr.toUpperCase().charAt(0);
+                if (firstChar == section) {
+                    return i;
+                }
+            }catch(NullPointerException e){
+
             }
+
         }
 
         return -1;

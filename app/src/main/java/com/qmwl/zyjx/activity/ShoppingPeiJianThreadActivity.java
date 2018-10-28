@@ -42,6 +42,7 @@ import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.utils.ListViewPullListener;
 import com.qmwl.zyjx.view.GridViewWithHeaderAndFooter;
+import com.qmwl.zyjx.view.RulerWidget;
 import com.qmwl.zyjx.view.ShaiXuanItemLayout;
 
 import org.json.JSONException;
@@ -66,6 +67,7 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
     private CheckBox pinpaiButton;//品牌筛选按钮
     private CheckBox diquButton;//地区筛选按钮
     private CheckBox shaixuanButton;//筛选按钮
+    private CheckBox ershouButton;//二手按钮
     private PopupWindow zonghePopupWindow;
     private PopupWindow pinpaiPopupWindow;//品牌popupWindow
     private PopupWindow diquPopupWindow;//品牌popupWindow
@@ -108,10 +110,11 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
     private TextView quanbudiquTv;
     private TextView diquFanhui;
     private ListView diquListview;
+    private ListView pinpaiListview;
 
     @Override
     protected void setLayout() {
-        setContentLayout(R.layout.shopping_thread_activity);
+        setContentLayout(R.layout.shopping_peijian_activity);
     }
 
     @Override
@@ -135,10 +138,11 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
         shaixuanButton = (CheckBox) findViewById(R.id.shopping_thread_shaixuan);
         pinpaiButton = (CheckBox) findViewById(R.id.shopping_thread_pinpai);
         diquButton = (CheckBox) findViewById(R.id.shopping_thread_diqu);
+        ershouButton = (CheckBox) findViewById(R.id.shopping_thread_ershou);
+
         gridView = (GridViewWithHeaderAndFooter) findViewById(R.id.shopping_thread_gridview);
         SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.shopping_thread_swiperefreshlayout);
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.shopping_thread_radiobutton_container);
-
 
         listViewPullListener = new ListViewPullListener(gridView, swipeRefreshLayout, new ListViewPullListener.ListViewPullOrLoadMoreListener() {
             @Override
@@ -162,6 +166,7 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
         pinpaiButton.setOnClickListener(this);
         diquButton.setOnClickListener(this);
         shaixuanButton.setOnClickListener(this);
+        ershouButton.setOnClickListener(this);
 
         adapter = new ShoppingThreadAdapter();
         gridView.setAdapter(adapter);
@@ -347,6 +352,20 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
             case R.id.black_layout_item_cancel:
                 //地区列表的返回按钮
                 dealQuXiao();
+            case R.id.shopping_thread_ershou:
+                if (radioStr.equals(radio_ershouji)) {
+                    radioStr = radio_qunabu;
+                    shaixuanTiaoJian = "";
+                    ershouButton.setChecked(false);
+                } else {
+                    radioStr = radio_ershouji;
+                    shaixuanTiaoJian = "2";
+                    ershouButton.setChecked(true);
+                }
+                page = 1;
+
+                shaixuanId = "";
+                getIdData();
                 break;
         }
     }
@@ -354,12 +373,20 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
     private void resetButtonStatue() {
         ifButtonStatue(zongheId, zongheButton);
         ifButtonStatue(pinpaiId, pinpaiButton);
-        ifButtonStatue(shengId, diquButton);
+        ifShengButtonStatue(shengId, diquButton);
         ifButtonStatue(shaixuanId, shaixuanButton);
     }
 
     private void ifButtonStatue(String keyId, CheckBox button) {
         if ("".equals(keyId)) {
+            button.setChecked(false);
+        } else {
+            button.setChecked(true);
+        }
+    }
+
+    private void ifShengButtonStatue(String keyId, CheckBox button) {
+        if ("-1".equals(keyId)) {
             button.setChecked(false);
         } else {
             button.setChecked(true);
@@ -441,9 +468,9 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
     private void showPinPaiPopuWindow() {
         if (pinpaiPopupWindow == null) {
             View popuView = getLayoutInflater().inflate(R.layout.shopping_spinner_pinpai_layout, null);
-//            View headView = getLayoutInflater().inflate(R.layout.shopping_spinner_pinpaiordiqu_item_head, null);
-//            GridView headGridView = (GridView) headView.findViewById(R.id.shopping_spinner_pinpai_item_head_gridview);
-            ListView pinpaiListview = (ListView) popuView.findViewById(R.id.shopping_spinner_pinpai_listview);
+            pinpaiListview = (ListView) popuView.findViewById(R.id.shopping_spinner_pinpai_listview);
+            RulerWidget rulerWidget = (RulerWidget) popuView.findViewById(R.id.shopping_spinner_pinpai_layout_ruler);
+            rulerWidget.setOnTouchingLetterChangedListener(new PinPaiRulerWeightOnclick());
 //            headGridView.setOnItemClickListener(this);
             pinpaiListview.setOnItemClickListener(this);
 //            pinpaiListview.addHeaderView(headView);
@@ -478,6 +505,8 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
         if (diquPopupWindow == null) {
             View popuView = getLayoutInflater().inflate(R.layout.shaixuan_diqu_listview, null);
             diquListview = (ListView) popuView.findViewById(R.id.shopping_spinner_diqu_listview_vv);
+            RulerWidget rulerWidget = (RulerWidget) popuView.findViewById(R.id.shopping_spinner_diqu_ruler);
+            rulerWidget.setOnTouchingLetterChangedListener(new DiquRulerWeightOnclick());
             View diquHeadView = getLayoutInflater().inflate(R.layout.shopping_spinner_pinpaiordiqu_item, gridView, false);
             quanbudiquTv = (TextView) diquHeadView.findViewById(R.id.black_layout_item_name);
             int color = ContextCompat.getColor(this, R.color.window_system_color);
@@ -820,6 +849,48 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
         }
     }
 
+    //地区popuWindow右侧的a-z提示点击
+    class DiquRulerWeightOnclick implements RulerWidget.OnTouchingLetterChangedListener {
+
+        @Override
+        public void onTouchingLetterChanged(String s) {
+            if (diquAdapter == null || diquListview == null) {
+                return;
+            }
+            try {
+                //该字母首次出现的位置
+                int position = diquAdapter.getPositionForSection(s.charAt(0));
+                if (position != -1) {
+                    diquListview.setSelection(position);
+                }
+            } catch (Exception e) {
+
+            }
+
+        }
+    }
+
+    //品牌popuWindow右侧的a-z提示点击
+    class PinPaiRulerWeightOnclick implements RulerWidget.OnTouchingLetterChangedListener {
+
+        @Override
+        public void onTouchingLetterChanged(String s) {
+            if (pinpaiAdapter == null || pinpaiListview == null) {
+                return;
+            }
+            try {
+                //该字母首次出现的位置
+                int position = pinpaiAdapter.getPositionForSection(s.charAt(0));
+                if (position != -1) {
+                    pinpaiListview.setSelection(position);
+                }
+            } catch (Exception e) {
+
+            }
+
+        }
+    }
+
     //所有筛选弹窗的消失监听,重置所有按钮的状态
     class PopupWindowdismissListener implements PopupWindow.OnDismissListener {
 
@@ -868,6 +939,9 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
                         Log.i("TAG", "省列表:" + response.toString());
                         dismissLoadingDialog();
                         List<BlackBean> list = JsonUtils.parseSheng(response);
+                        if (diquAdapter == null) {
+                            return;
+                        }
                         diquAdapter.setData(list);
                         if (quanbudiquTv != null) {
                             quanbudiquTv.setText(R.string.quanbudiqu);
@@ -958,7 +1032,7 @@ public class ShoppingPeiJianThreadActivity extends BaseActivity implements Radio
         showLoadingDialog();
         AndroidNetworking.post(Contact.getshaixuan_list)
                 .addBodyParameter("category_id", id)
-                .addBodyParameter("status",shaixuanTiaoJian)
+                .addBodyParameter("status", shaixuanTiaoJian)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override

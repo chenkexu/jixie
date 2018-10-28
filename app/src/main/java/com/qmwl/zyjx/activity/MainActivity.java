@@ -227,7 +227,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                             startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",1).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         }else if ("1".equals(orderStatus)){
                             //申请退款
-                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",0).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                            startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",5).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         }else if ("2".equals(orderStatus)){
                             //待收货
                             startActivity(new Intent(context,WoDeDingDanActivity.class).putExtra("index",3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
@@ -297,13 +297,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         mVp.addOnPageChangeListener(this);
         buttonContainer.setOnCheckedChangeListener(this);
         buttonContainer.check(R.id.main_layout_main_button);
-//        int umeng=getIntent().getIntExtra("umeng",0);
-//        if (umeng!=0){
-//
-//        }else{
-            int intExtra = getIntent().getIntExtra(MAIN_INDEX, MAIN);
-            setCurrItem(intExtra);
-      //  }
+        int intExtra = getIntent().getIntExtra(MAIN_INDEX, MAIN);
+        setCurrItem(intExtra);
     }
 
     @Override

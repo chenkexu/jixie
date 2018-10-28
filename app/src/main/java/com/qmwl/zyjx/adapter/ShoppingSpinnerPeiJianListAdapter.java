@@ -28,6 +28,7 @@ public class ShoppingSpinnerPeiJianListAdapter extends MyBaseAdapter<BlackBean> 
     private String quanbudiqu = "";
     private String quanbupinpai = "";
     private ShoppingPeiJianThreadActivity activity;
+    private char c;
 
 
     public ShoppingSpinnerPeiJianListAdapter(Context cx) {
@@ -151,7 +152,14 @@ public class ShoppingSpinnerPeiJianListAdapter extends MyBaseAdapter<BlackBean> 
      * 根据ListView的当前位置获取分类的首字母的Char ascii值
      */
     public int getSectionForPosition(int position) {
-        return mList.get(position).getSortLetters().charAt(0);
+        char c = '0';
+        try {
+            c = mList.get(position).getSortLetters().charAt(0);
+        } catch (NullPointerException e) {
+
+        }
+
+        return c;
     }
 
     /**

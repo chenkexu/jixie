@@ -41,6 +41,7 @@ import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.utils.ListViewPullListener;
 import com.qmwl.zyjx.view.GridViewWithHeaderAndFooter;
+import com.qmwl.zyjx.view.RulerWidget;
 import com.qmwl.zyjx.view.ShaiXuanItemLayout;
 
 import org.json.JSONException;
@@ -91,6 +92,15 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
     //筛选框
     private LinearLayout shaixuanContainer;
     private String shaixuanTiaoJian = "";
+    private String zongheId = "";//筛选条件:综合
+    private String pinpaiId = "";//筛选条件:品牌
+    private String shengId = "-1";//筛选条件:省
+    private String shiId = "-1";//筛选条件:市地
+    private String quId = "-1";//筛选条件:区县
+    private String shaixuanId = "";//筛选条件:筛选
+
+    //0代表选择省，1代表选择市，2代表选择县,3代表选择出区县了
+    private int diquCode = 0;
 
 
     private Handler mHandler = new Handler() {
@@ -107,6 +117,7 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
     private TextView quanbudiquTv;
     private TextView diquFanhui;
     private ListView diquListview;
+    private ListView pinpaiListview;
 
     @Override
     protected void setLayout() {
@@ -118,14 +129,16 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
         searchKey = getIntent().getStringExtra(SEARCH_KEY);
         if ("".equals(searchKey) || searchKey == null) {
             isKey = false;
+            name = getIntent().getStringExtra(ShoppingSecondActivity.Category_name);
+            setTitleContent(name);
+            id = getIntent().getStringExtra(ShoppingSecondActivity.Category_id);
         } else {
-            isKey = true;
+//            isKey = true;
+            setTitleContent(searchKey);
         }
         if (!isKey) {
             if (TextUtils.isEmpty(name) || "".equals(name)) {
-                name = getIntent().getStringExtra(ShoppingSecondActivity.Category_name);
-                setTitleContent(name);
-                id = getIntent().getStringExtra(ShoppingSecondActivity.Category_id);
+
             }
         }
 
@@ -189,13 +202,20 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
     }
 
     private void getIdData() {
-        getShaiXuanData();
+//        getShaiXuanData();
 //        radioStr = "/index";
         String url = Contact.thread_shops + radioStr;
         String shaixuan = shaixuanId.toString().trim();
+        if (TextUtils.isEmpty(searchKey)) {
+            searchKey = "";
+        }
+        if (TextUtils.isEmpty(id)) {
+            id = "";
+        }
         ANRequest.PostRequestBuilder postRequestBuilder = AndroidNetworking.post(url)
 //        AndroidNetworking.post(url)
                 .addBodyParameter("category_id", id)
+                .addBodyParameter("goods_name", searchKey)
                 .addBodyParameter("page", String.valueOf(page))
                 .addBodyParameter("brand", pinpaiId)
                 .addBodyParameter("order", zongheId)
@@ -319,14 +339,18 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
                     if (i == 0) {
                         value = itemLayout.getValue();
                     } else {
-                        if (!"".equals(itemLayout.getValue())) {
-                            value += "," + itemLayout.getValue();
+                        if ("".equals(itemLayout.getValue())) {
+                            continue;
+                        }
+                        if (!"".equals(value)) {
+                            value += ";" + itemLayout.getValue();
+                        } else {
+                            value = itemLayout.getValue();
                         }
                     }
                 }
                 dissmissShaiXuanPopuWindow();
                 shaixuanId = value;
-//                getIdData();
                 getData();
                 break;
             case R.id.shopping_thread_shaixuan_chongzhi:
@@ -353,12 +377,20 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
     private void resetButtonStatue() {
         ifButtonStatue(zongheId, zongheButton);
         ifButtonStatue(pinpaiId, pinpaiButton);
-        ifButtonStatue(shengId, diquButton);
+        ifShengButtonStatue(shengId, diquButton);
         ifButtonStatue(shaixuanId, shaixuanButton);
     }
 
     private void ifButtonStatue(String keyId, CheckBox button) {
         if ("".equals(keyId)) {
+            button.setChecked(false);
+        } else {
+            button.setChecked(true);
+        }
+    }
+
+    private void ifShengButtonStatue(String keyId, CheckBox button) {
+        if ("-1".equals(keyId)) {
             button.setChecked(false);
         } else {
             button.setChecked(true);
@@ -386,15 +418,6 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
         zongheAdapter.notifyDataSetChanged();
     }
 
-    private String zongheId = "";//筛选条件:综合
-    private String pinpaiId = "";//筛选条件:品牌
-    private String shengId = "-1";//筛选条件:省
-    private String shiId = "-1";//筛选条件:市地
-    private String quId = "-1";//筛选条件:区县
-    private String shaixuanId = "";//筛选条件:筛选
-
-    //0代表选择省，1代表选择市，2代表选择县,3代表选择出区县了
-    private int diquCode = 0;
 
     //初始化综合框的数据
     private void initZongHeListViewData(ListView diquListview) {
@@ -440,13 +463,10 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
     private void showPinPaiPopuWindow() {
         if (pinpaiPopupWindow == null) {
             View popuView = getLayoutInflater().inflate(R.layout.shopping_spinner_pinpai_layout, null);
-//            View headView = getLayoutInflater().inflate(R.layout.shopping_spinner_pinpaiordiqu_item_head, null);
-//            GridView headGridView = (GridView) headView.findViewById(R.id.shopping_spinner_pinpai_item_head_gridview);
-            ListView pinpaiListview = (ListView) popuView.findViewById(R.id.shopping_spinner_pinpai_listview);
-//            headGridView.setOnItemClickListener(this);
+            pinpaiListview = (ListView) popuView.findViewById(R.id.shopping_spinner_pinpai_listview);
+            RulerWidget rulerWidget = (RulerWidget) popuView.findViewById(R.id.shopping_spinner_pinpai_layout_ruler);
+            rulerWidget.setOnTouchingLetterChangedListener(new PinPaiRulerWeightOnclick());
             pinpaiListview.setOnItemClickListener(this);
-//            pinpaiListview.addHeaderView(headView);
-//            initPinPaiListViewData(pinpaiListview, headGridView);
             initPinPaiListViewData(pinpaiListview, null);
             int[] index = new int[2];
             zongheContainer.getLocationOnScreen(index);
@@ -477,6 +497,8 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
         if (diquPopupWindow == null) {
             View popuView = getLayoutInflater().inflate(R.layout.shaixuan_diqu_listview, null);
             diquListview = (ListView) popuView.findViewById(R.id.shopping_spinner_diqu_listview_vv);
+            RulerWidget rulerWidget = (RulerWidget) popuView.findViewById(R.id.shopping_spinner_diqu_ruler);
+            rulerWidget.setOnTouchingLetterChangedListener(new DiquRulerWeightOnclick());
             View diquHeadView = getLayoutInflater().inflate(R.layout.shopping_spinner_pinpaiordiqu_item, gridView, false);
             quanbudiquTv = (TextView) diquHeadView.findViewById(R.id.black_layout_item_name);
             int color = ContextCompat.getColor(this, R.color.window_system_color);
@@ -654,82 +676,87 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
         }
         switch (id) {
             case R.id.shopping_thread_radiobutton_quanbu:
-                if (isKey) {
-                    adapter.setData(allList);
-                } else {
-                    radioStr = radio_qunabu;
-                    page = 1;
-                    shaixuanTiaoJian = "";
-                    shaixuanId = "";
-                    getIdData();
-                }
+//                if (isKey) {
+//                    adapter.setData(allList);
+//                } else {
+                radioStr = radio_qunabu;
+                page = 1;
+                shaixuanTiaoJian = "";
+                shaixuanId = "";
+                getShaiXuanData();
+                getData();
+//                }
                 break;
             case R.id.shopping_thread_radiobutton_xinji:
-                if (isKey) {
-                    for (int i = 0; i < allList.size(); i++) {
-                        ShoppingBean shoppingBean = allList.get(i);
-                        if (shoppingBean.getIsNew() == 1) {
-                            childList.add(shoppingBean);
-                        }
-                    }
-                } else {
-                    radioStr = radio_xinji;
-                    page = 1;
-                    shaixuanTiaoJian = "1";
-                    shaixuanId = "";
-                    getIdData();
-                }
+//                if (isKey) {
+//                    for (int i = 0; i < allList.size(); i++) {
+//                        ShoppingBean shoppingBean = allList.get(i);
+//                        if (shoppingBean.getIsNew() == 1) {
+//                            childList.add(shoppingBean);
+//                        }
+//                    }
+//                } else {
+                radioStr = radio_xinji;
+                page = 1;
+                shaixuanTiaoJian = "1";
+                shaixuanId = "";
+                getShaiXuanData();
+                getData();
+//                }
                 break;
             case R.id.shopping_thread_radiobutton_ershouji:
-                if (isKey) {
-                    for (int i = 0; i < allList.size(); i++) {
-                        ShoppingBean shoppingBean = allList.get(i);
-                        if (shoppingBean.getIsNew() == 0) {
-                            childList.add(shoppingBean);
-                        }
-                    }
-                    adapter.setData(childList);
-                } else {
-                    radioStr = radio_ershouji;
-                    page = 1;
-                    shaixuanTiaoJian = "2";
-                    shaixuanId = "";
-                    getIdData();
-                }
+//                if (isKey) {
+//                    for (int i = 0; i < allList.size(); i++) {
+//                        ShoppingBean shoppingBean = allList.get(i);
+//                        if (shoppingBean.getIsNew() == 0) {
+//                            childList.add(shoppingBean);
+//                        }
+//                    }
+//                    adapter.setData(childList);
+//                } else {
+                radioStr = radio_ershouji;
+                page = 1;
+                shaixuanTiaoJian = "2";
+                shaixuanId = "";
+                getShaiXuanData();
+                getData();
+//                }
                 break;
             case R.id.shopping_thread_radiobutton_peijian:
-                if (isKey) {
-                    for (int i = 0; i < allList.size(); i++) {
-                        ShoppingBean shoppingBean = allList.get(i);
-                        if (shoppingBean.getIs_parts() == 1) {
-                            childList.add(shoppingBean);
-                        }
-                    }
-                    adapter.setData(childList);
-                } else {
-                    radioStr = radio_peijian;
-                    page = 1;
-                    shaixuanTiaoJian = "3";
-                    shaixuanId = "";
-                    getIdData();
-                }
+//                if (isKey) {
+//                    for (int i = 0; i < allList.size(); i++) {
+//                        ShoppingBean shoppingBean = allList.get(i);
+//                        if (shoppingBean.getIs_parts() == 1) {
+//                            childList.add(shoppingBean);
+//                        }
+//                    }
+//                    adapter.setData(childList);
+//                } else {
+                radioStr = radio_peijian;
+                page = 1;
+                shaixuanTiaoJian = "3";
+                shaixuanId = "";
+                getShaiXuanData();
+                getData();
+//                }
                 break;
             case R.id.shopping_thread_radiobutton_zulin:
-                if (isKey) {
-                    for (int i = 0; i < allList.size(); i++) {
-                        ShoppingBean shoppingBean = allList.get(i);
-                        if (shoppingBean.getIs_lease() == 1) {
-                            childList.add(shoppingBean);
-                        }
-                    }
-                    adapter.setData(childList);
-                } else {
-                    radioStr = radio_zulin;
-                    page = 1;
-                    shaixuanTiaoJian = "";
-                    shaixuanId = "";
-                    getIdData();
-                }
+//                if (isKey) {
+//                    for (int i = 0; i < allList.size(); i++) {
+//                        ShoppingBean shoppingBean = allList.get(i);
+//                        if (shoppingBean.getIs_lease() == 1) {
+//                            childList.add(shoppingBean);
+//                        }
+//                    }
+//                    adapter.setData(childList);
+//                } else {
+                radioStr = radio_zulin;
+                page = 1;
+                shaixuanTiaoJian = "";
+                shaixuanId = "";
+                getShaiXuanData();
+                getData();
+//                }
                 break;
         }
 //        if (id == R.id.shopping_thread_radiobutton_quanbu) {
@@ -818,6 +845,39 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
                 break;
         }
     }
+
+    //地区popuWindow右侧的a-z提示点击
+    class DiquRulerWeightOnclick implements RulerWidget.OnTouchingLetterChangedListener {
+
+        @Override
+        public void onTouchingLetterChanged(String s) {
+            if (diquAdapter == null || diquListview == null) {
+                return;
+            }
+            //该字母首次出现的位置
+            int position = diquAdapter.getPositionForSection(s.charAt(0));
+            if (position != -1) {
+                diquListview.setSelection(position);
+            }
+        }
+    }
+
+    //品牌popuWindow右侧的a-z提示点击
+    class PinPaiRulerWeightOnclick implements RulerWidget.OnTouchingLetterChangedListener {
+
+        @Override
+        public void onTouchingLetterChanged(String s) {
+            if (pinpaiAdapter == null || pinpaiListview == null) {
+                return;
+            }
+            //该字母首次出现的位置
+            int position = pinpaiAdapter.getPositionForSection(s.charAt(0));
+            if (position != -1) {
+                pinpaiListview.setSelection(position);
+            }
+        }
+    }
+
 
     //所有筛选弹窗的消失监听,重置所有按钮的状态
     class PopupWindowdismissListener implements PopupWindow.OnDismissListener {
@@ -957,11 +1017,12 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
         showLoadingDialog();
         AndroidNetworking.post(Contact.getshaixuan_list)
                 .addBodyParameter("category_id", id)
-                .addBodyParameter("status",shaixuanTiaoJian)
+                .addBodyParameter("status", shaixuanTiaoJian)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        Log.i("TAG", "筛选条件:" + response.toString());
                         dismissLoadingDialog();
                         List<ShaiXuanSpinnerBean> shaiXuanSpinnerBeens = JsonUtils.parseShaiXuanShaiXuan(response);
                         if (shaiXuanSpinnerBeens != null && shaixuanContainer != null) {
@@ -971,6 +1032,8 @@ public class ShoppingThreadActivity extends BaseActivity implements RadioGroup.O
                                 shaiXuanItemLayout.setData(shaixuanBean);
                                 shaixuanContainer.addView(shaiXuanItemLayout);
                             }
+                        } else if (shaiXuanSpinnerBeens == null && shaixuanContainer != null) {
+                            shaixuanContainer.removeAllViews();
                         }
                     }
 

@@ -25,6 +25,7 @@ import com.amap.api.navi.model.AimLessModeStat;
 import com.amap.api.navi.model.NaviInfo;
 import com.amap.api.navi.model.NaviLatLng;
 import com.autonavi.tbt.TrafficFacilityInfo;
+import com.qmwl.zyjx.utils.TTSController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class DaoHangBaseActivity extends Activity implements AMapNaviListener, A
 
     protected AMapNaviView mAMapNaviView;
     protected AMapNavi mAMapNavi;
-    //    protected TTSController mTtsManager;
+    protected TTSController mTtsManager;
     protected NaviLatLng mEndLatlng = new NaviLatLng(39.988609, 116.358276);
     protected NaviLatLng mStartLatlng = new NaviLatLng(39.825934, 116.342972);
     protected final List<NaviLatLng> sList = new ArrayList<NaviLatLng>();
@@ -46,13 +47,12 @@ public class DaoHangBaseActivity extends Activity implements AMapNaviListener, A
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //实例化语音引擎
-//        mTtsManager = TTSController.getInstance(getApplicationContext());
-//        mTtsManager.init();
+        mTtsManager = TTSController.getInstance(getApplicationContext());
+        mTtsManager.init();
 
-        //
         mAMapNavi = AMapNavi.getInstance(getApplicationContext());
         mAMapNavi.addAMapNaviListener(this);
-//        mAMapNavi.addAMapNaviListener(mTtsManager);
+        mAMapNavi.addAMapNaviListener(mTtsManager);
 
         //设置模拟导航的行车速度
         mAMapNavi.setEmulatorNaviSpeed(0);
@@ -72,9 +72,9 @@ public class DaoHangBaseActivity extends Activity implements AMapNaviListener, A
         mAMapNaviView.onPause();
 
 //        仅仅是停止你当前在说的这句话，一会到新的路口还是会再说的
-//        mTtsManager.stopSpeaking();
-//
-//        停止导航之后，会触及底层stop，然后就不会再有回调了，但是讯飞当前还是没有说完的半句话还是会说完
+        mTtsManager.stopSpeaking();
+
+//        停止导航之后，会触及底层st    op，然后就不会再有回调了，但是讯飞当前还是没有说完的半句话还是会说完
 //        mAMapNavi.stopNavi();
     }
 
@@ -85,7 +85,7 @@ public class DaoHangBaseActivity extends Activity implements AMapNaviListener, A
         //since 1.6.0 不再在naviview destroy的时候自动执行AMapNavi.stopNavi();请自行执行
         mAMapNavi.stopNavi();
         mAMapNavi.destroy();
-//        mTtsManager.destroy();
+        mTtsManager.destroy();
     }
 
     @Override
@@ -286,7 +286,6 @@ public class DaoHangBaseActivity extends Activity implements AMapNaviListener, A
         }
         if (i == 2) {
             Toast.makeText(this, "当前在辅路", Toast.LENGTH_SHORT).show();
-
             Log.d("wlx", "当前在辅路");
         }
     }
@@ -353,6 +352,5 @@ public class DaoHangBaseActivity extends Activity implements AMapNaviListener, A
     public boolean onNaviBackClick() {
         return false;
     }
-
 
 }

@@ -4,23 +4,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RadioButton
-        android:id="@+id/item_id_peijianshaixuan_scend_button"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="19dp"
-        android:button="@null"
-        android:drawableEnd="@mipmap/icon_peijian_shaixuan_xia"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:maxLines="1"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:text="电器机装置"
-        android:textColor="@color/window_system_color"
-        android:textSize="12sp" />
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/item_id_peijianshaixuan_scend_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="19dp"
+            android:button="@null"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingBottom="14.5dp"
+            android:paddingTop="15dp"
+            android:text="电器机装置"
+            android:textColor="@color/c4c4c4c"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/item_id_peijianshaixuan_scend_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:src="@mipmap/icon_peijian_shaixuan_xia" />
+    </RelativeLayout>
+
 
     <com.qmwl.zyjx.view.NoScrooListView
         android:id="@+id/item_id_peijianshaixuan_scend_listview"
@@ -28,6 +42,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:divider="@null"
+        android:visibility="gone"
         android:dividerHeight="0dp" />
 
     <View

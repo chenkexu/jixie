@@ -72,7 +72,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
             requestOptions.error(R.mipmap.small);
             requestOptions.placeholder(R.mipmap.small);
             Glide.with(parentView.getContext()).setDefaultRequestOptions(requestOptions).load(url).into(iv);
-   //         Glide.with(parentView.getContext()).load(url).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.mipmap.small).into(iv);
+          //  Glide.with(parentView.getContext()).load(url).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.mipmap.small).into(iv);
         }
     }
 

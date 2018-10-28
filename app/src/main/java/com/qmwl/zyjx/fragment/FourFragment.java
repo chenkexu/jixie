@@ -57,6 +57,11 @@ import org.simple.eventbus.ThreadMode;
 public class FourFragment extends Fragment implements View.OnClickListener {
     private TextView nickNameTv;
     private ImageView iv;
+    private TextView daifukuanNumText;
+    private TextView daifahuoNumText;
+    private TextView daishouhuoNumText;
+    private View yiwancehngNumText;
+    private View tuikuanNumText;
 
     @Nullable
     @Override
@@ -70,7 +75,9 @@ public class FourFragment extends Fragment implements View.OnClickListener {
     private void initView(View rootView) {
         EventManager.register(this);
         iv = (ImageView) rootView.findViewById(R.id.wode_layout_iv);
+        tuikuanNumText = rootView.findViewById(R.id.wode_tuikuan_text);
         rootView.findViewById(R.id.wode_layout_iv).setOnClickListener(this);
+        yiwancehngNumText = rootView.findViewById(R.id.wode_daipingjia_text);
         rootView.findViewById(R.id.wode_fatie_button).setOnClickListener(this);
         rootView.findViewById(R.id.wode_fragment_yuyan).setOnClickListener(this);
         rootView.findViewById(R.id.wode_dingdan_button).setOnClickListener(this);
@@ -83,8 +90,11 @@ public class FourFragment extends Fragment implements View.OnClickListener {
         rootView.findViewById(R.id.wode_liulanjilu_button).setOnClickListener(this);
         rootView.findViewById(R.id.wode_daipingjia_button).setOnClickListener(this);
         rootView.findViewById(R.id.wode_daishouhuo_button).setOnClickListener(this);
+        daifahuoNumText = (TextView) rootView.findViewById(R.id.wode_daifahuo_text);
         rootView.findViewById(R.id.wode_fragment_wodezuling).setOnClickListener(this);
         rootView.findViewById(R.id.wode_woyaokaidian_button).setOnClickListener(this);
+        daifukuanNumText = (TextView) rootView.findViewById(R.id.wode_daifukuan_text);
+        daishouhuoNumText = (TextView) rootView.findViewById(R.id.wode_daishouhuo_text);
         rootView.findViewById(R.id.wode_fragment_yijianfankui).setOnClickListener(this);
         rootView.findViewById(R.id.wode_shangjiazhongxin_button).setOnClickListener(this);
         nickNameTv = (TextView) rootView.findViewById(R.id.wode_fragment_layout_nickname);
@@ -307,8 +317,18 @@ public class FourFragment extends Fragment implements View.OnClickListener {
         if (!MyApplication.getIntance().isLogin()) {
             iv.setImageResource(R.mipmap.morentouxiang);
             nickNameTv.setText(getString(R.string.weidenglu));
+            if (daifukuanNumText != null ) {
+                daifukuanNumText.setVisibility(View.GONE);
+            }
+            if (daifahuoNumText != null) {
+                daifahuoNumText.setVisibility(View.GONE);
+            }
+            if (daishouhuoNumText != null) {
+                daishouhuoNumText.setVisibility(View.GONE);
+            }
             return;
         }
+        String uid = MyApplication.getIntance().userBean.getUid();
         AndroidNetworking.get(Contact.user_info + "?user_id=" + MyApplication.getIntance().userBean.getUid())
 //                .addBodyParameter("user_id", MyApplication.getIntance().userBean.getUid())
                 .build()
@@ -325,6 +345,48 @@ public class FourFragment extends Fragment implements View.OnClickListener {
                     public void onError(ANError anError) {
                     }
                 });
+        AndroidNetworking.get(Contact.user_order_num + "?uid=" + uid).build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONObject data = response.getJSONObject("data");
+                            JSONObject obj = data.getJSONObject("niu_index_response");
+                            int fu = obj.getInt("fu");
+                            int fa = obj.getInt("fa");
+                            int shou = obj.getInt("shou");
+                            if (daifukuanNumText != null && fu != 0) {
+                                daifukuanNumText.setVisibility(View.VISIBLE);
+                                daifukuanNumText.setText("" + fu);
+                            }
+                            if (daifahuoNumText != null && fa != 0) {
+                                daifahuoNumText.setVisibility(View.VISIBLE);
+                                daifahuoNumText.setText("" + fa);
+                            }
+                            if (daishouhuoNumText != null && shou != 0) {
+                                daishouhuoNumText.setVisibility(View.VISIBLE);
+                                daishouhuoNumText.setText("" + shou);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        if (daifukuanNumText != null) {
+                            daifukuanNumText.setVisibility(View.GONE);
+                        }
+                        if (daifahuoNumText != null) {
+                            daifahuoNumText.setVisibility(View.GONE);
+                        }
+                        if (daishouhuoNumText != null) {
+                            daishouhuoNumText.setVisibility(View.GONE);
+                        }
+                    }
+                });
+
     }
 
     private void getWoYaokaidianStatue() {

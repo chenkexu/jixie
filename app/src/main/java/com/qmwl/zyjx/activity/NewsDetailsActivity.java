@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -100,23 +101,9 @@ public class NewsDetailsActivity extends BaseActivity {
         webView.getSettings().setDisplayZoomControls(false);
         webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);  //设置 缓存模式
         webView.setWebViewClient(new WebViewClient());
-
-//        webView.getSettings().setDefaultTextEncodingName("utf-8");
-//        webView.getSettings().setAllowFileAccess(true);
-//        webView.getSettings().setAllowFileAccessFromFileURLs(true);
-//        webView.getSettings().setLoadsImagesAutomatically(true);
-//        webView.getSettings().setGeolocationEnabled(true);
-//        webView.getSettings().setDomStorageEnabled(true);
-//        //设置自适应屏幕，两者合用
-//        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
-//        webView.getSettings().setUseWideViewPort(true); //将图片调整到适合webview的大小
-//        webView.getSettings().setLoadWithOverviewMode(true); // 缩放至屏幕的大小
-//        // 设置与Js交互的权限
-//        // 设置允许JS弹窗
-//        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-//        webView.getSettings().setSupportZoom(true);
-//        // SMALLEST(50%),  SMALLER(75%),          NORMAL(100%),          LARGER(150%),          LARGEST(200%);
-//        webView.getSettings().setTextSize(WebSettings.TextSize.SMALLER);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
     }
 
     @Override
@@ -279,56 +266,6 @@ public class NewsDetailsActivity extends BaseActivity {
         public void tel(String phone) {
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
-
-
-
-        /*    Intent intent = null;
-            if (!MyApplication.getIntance().isLogin()) {
-                intent = new Intent(NewsDetailsActivity.this, LoginActivity.class);
-                startActivityForResult(intent, 0);
-                return;
-            }
-            intent = new Intent(context, ReturnWuliuActivity.class);
-           // intent.putExtra(ImActivity.IM_ID, "zyjx" + id);
-            context.startActivity(intent);*/
-        }
-
-        @JavascriptInterface
-        public void wuliu(String orderId) {
-            /*Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);*/
-
-            Intent intent = null;
-            if (!MyApplication.getIntance().isLogin()) {
-                intent = new Intent(NewsDetailsActivity.this, LoginActivity.class);
-                startActivityForResult(intent, 0);
-                return;
-            }
-            intent = new Intent(context, ReturnWuliuActivity.class);
-             intent.putExtra("isH5" ,true);
-            intent.putExtra("orderId" ,orderId);
-            context.startActivity(intent);
-        }
-
-
-
-        @JavascriptInterface
-        public void weiquan(String orderId) {
-            /*Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);*/
-
-            Intent intent = null;
-            if (!MyApplication.getIntance().isLogin()) {
-                intent = new Intent(NewsDetailsActivity.this, LoginActivity.class);
-                startActivityForResult(intent, 0);
-                return;
-            }
-            intent = new Intent(context, AskWeiQuanActivity.class);
-            intent.putExtra("isH5" ,true);
-            intent.putExtra("orderId" ,orderId);
             context.startActivity(intent);
         }
     }

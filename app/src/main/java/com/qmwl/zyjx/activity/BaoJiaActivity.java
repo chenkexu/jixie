@@ -73,7 +73,6 @@ public class BaoJiaActivity extends BaseActivity implements ListViewPullListener
 
     @Override
     protected void getInterNetData() {
-
         AndroidNetworking.get(Contact.chakanbaojia_list + "?uid=" + MyApplication.getIntance().userBean.getUid() + "&tid=" + tid + "&page=" + page)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {

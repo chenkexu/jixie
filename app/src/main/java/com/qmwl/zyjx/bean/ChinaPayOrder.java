@@ -46,7 +46,7 @@ public class ChinaPayOrder implements Serializable {
 
             private String MerId;
             private String MerOrderNo;
-            private int OrderAmt;
+            private String OrderAmt;
             private String TranDate;
             private String TranTime;
             private String TranType;
@@ -76,12 +76,12 @@ public class ChinaPayOrder implements Serializable {
                 this.MerOrderNo = MerOrderNo;
             }
 
-            public int getOrderAmt() {
+            public String getOrderAmt() {
                 return OrderAmt;
             }
 
-            public void setOrderAmt(int OrderAmt) {
-                this.OrderAmt = OrderAmt;
+            public void setOrderAmt(String orderAmt) {
+                OrderAmt = orderAmt;
             }
 
             public String getTranDate() {

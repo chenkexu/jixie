@@ -71,25 +71,25 @@
 
 
 
-   <!-- <TextView
-        android:id="@+id/selecter_pay_layout_zaixianzhifu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="@string/zaixianzhifu"
-        android:textColor="@color/c333333"
-        android:textSize="16sp" />
+    <!-- <TextView
+         android:id="@+id/selecter_pay_layout_zaixianzhifu"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:padding="10dp"
+         android:text="@string/zaixianzhifu"
+         android:textColor="@color/c333333"
+         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/selecter_pay_layout_duigongfukuan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:padding="10dp"
-        android:text="@string/duigongfukuan"
-        android:textColor="@color/c333333"
-        android:textSize="16sp" />
--->
+     <TextView
+         android:id="@+id/selecter_pay_layout_duigongfukuan"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="100dp"
+         android:padding="10dp"
+         android:text="@string/duigongfukuan"
+         android:textColor="@color/c333333"
+         android:textSize="16sp" />
+ -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
