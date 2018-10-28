@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -14,20 +15,31 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.base.MyApplication;
+import com.qmwl.zyjx.bean.UpdateBean;
 import com.qmwl.zyjx.fragment.FourFragment;
 import com.qmwl.zyjx.fragment.MainFragment;
 import com.qmwl.zyjx.fragment.SecondFragment;
 import com.qmwl.zyjx.fragment.ThreadFragment;
 import com.qmwl.zyjx.runtimepermissions.PermissionsManager;
 import com.qmwl.zyjx.runtimepermissions.PermissionsResultAction;
+import com.qmwl.zyjx.utils.CProgressDialogUtils;
+import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.EventManager;
+import com.qmwl.zyjx.utils.GsonUtils;
+import com.qmwl.zyjx.utils.OkGoUpdateHttpUtil;
 import com.qmwl.zyjx.view.CommomDialog;
 import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.entity.UMessage;
+import com.vector.update_app.UpdateAppBean;
+import com.vector.update_app.UpdateAppManager;
+import com.vector.update_app.UpdateCallback;
+import com.vector.update_app.listener.ExceptionHandler;
+import com.vector.update_app.listener.IUpdateDialogFragmentListener;
 
 import org.json.JSONException;
 
@@ -57,10 +69,127 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         setContentLayout(R.layout.activity_main);
     }
 
+
+
+    /**
+     * 更新APP版本
+     * @param
+     */
+    public void updateDiy() {
+        new UpdateAppManager
+                .Builder()
+                //必须设置，当前Activity
+                .setActivity(this)
+                //必须设置，实现httpManager接口的对象
+                .setHttpManager(new OkGoUpdateHttpUtil())
+                //必须设置，更新地址
+                .setUpdateUrl(Contact.update)
+                //全局异常捕获
+                .handleException(new ExceptionHandler() {
+                    @Override
+                    public void onException(Exception e) {
+                        e.printStackTrace();
+                    }
+                })
+                .setTopPic(R.mipmap.lib_update_app_top_bg)
+                //为按钮，进度条设置颜色。
+                .setThemeColor(0xffffac5d)
+                .setUpdateDialogFragmentListener(new IUpdateDialogFragmentListener() {
+                    @Override
+                    public void onUpdateNotifyDialogCancel(UpdateAppBean updateApp) {
+                        //用户点击关闭按钮，取消了更新，如果是下载完，用户取消了安装，则可以在 onActivityResult 监听到。
+
+                    }
+                })
+                //不自动，获取
+                .setIgnoreDefParams(true)
+                .build()
+                //检测是否有新版本
+                .checkNewApp(new UpdateCallback() {
+                    /**
+                     * 解析json,自定义协议
+                     *
+                     * @param json 服务器返回的json
+                     * @return UpdateAppBean
+                     */
+                    @Override
+                    protected UpdateAppBean parseJson(String json) {
+                        Logger.d("版本更新的json:"+json);
+                        UpdateAppBean updateAppBean = new UpdateAppBean();
+                        try {
+                            UpdateBean updateBean = GsonUtils.parseJsonToBean(json, UpdateBean.class);
+                            String versionNum = updateBean.getData().getNiu_index_response().getNew_version();
+
+                            PackageInfo packageInfo = getPackageManager()
+                                    .getPackageInfo(getPackageName(), 0);
+                            //获取APP版本versionCode
+                            int app_VersionCode = packageInfo.versionCode;
+                            int versionCode = Integer.parseInt(versionNum);
+                            if (app_VersionCode < versionCode)  {
+                                updateAppBean.setUpdate("Yes");
+                            }else{
+                                updateAppBean.setUpdate("no");
+                            }
+                            if (updateBean.getData().getNiu_index_response().getConstraint() == 0) {
+                                updateAppBean.setConstraint(false);
+                            }else{
+                                updateAppBean.setConstraint(true);
+                            }
+                            updateAppBean
+                                    //（必须）是否更新Yes,No
+                                    //（必须）新版本号，
+                                    .setNewVersion(updateBean.getData().getNiu_index_response().getNew_version())
+                                    //（必须）下载地址
+                                    .setApkFileUrl(updateBean.getData().getNiu_index_response().getApk_file_url())
+                                    .setUpdateLog("版本更新："+updateBean.getData().getNiu_index_response().getUpdate_log())
+                                    //大小，不设置不显示大小，可以不设置
+                                    .setTargetSize(updateBean.getData().getNiu_index_response().getTarget_size());
+                            //是否强制更新，可以不设置
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return updateAppBean;
+                    }
+
+                    @Override
+                    protected void hasNewApp(UpdateAppBean updateApp, UpdateAppManager updateAppManager) {
+                        updateAppManager.showDialogFragment();
+                    }
+
+                    /**
+                     * 网络请求之前
+                     */
+                    @Override
+                    public void onBefore() {
+                        CProgressDialogUtils.showProgressDialog(MainActivity.this);
+                    }
+
+                    /**
+                     * 网路请求之后
+                     */
+                    @Override
+                    public void onAfter() {
+                        CProgressDialogUtils.cancelProgressDialog(MainActivity.this);
+                    }
+
+                    /**
+                     * 没有新版本
+                     */
+                    @Override
+                    public void noNewApp(String error) {
+//                        Toast.makeText(MainActivity.this, "没有新版本", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
     @Override
     protected void initView() {
         isOutLogin();
          //getWoYaokaidianStatue1
+
+        //应用更新
+        updateDiy();
 
 
         UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {

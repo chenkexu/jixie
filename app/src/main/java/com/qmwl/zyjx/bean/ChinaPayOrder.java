@@ -12,7 +12,7 @@ public class ChinaPayOrder implements Serializable {
 
 
         /**
-         * niu_index_response : {"MerId":"481611808090001","MerOrderNo":"6948261540191453","OrderAmt":20000000,"TranDate":"20181022","TranTime":"145733","TranType":"0001","BusiType":"0001","Version":"20140728","CurryNo":"CNY","AccessType":"0","MerPageUrl":"http://app.qmnet.com.cn/index.php/pay/unionpay_url","MerBgUrl":"http://app.qmnet.com.cn/index.php/pay/unionpay_url","MerResv":"MerResv","Signature":"TzB+RM/NJ1fzqwAAitActAYPjfMcRWUKpaEPhmFRGtvrGg37gDFBO1QtRAgwiGI/4IPcaCoTAS46Er5btVvpke0gKyc+CMQoX/L5Zf8pTzzlt6JrS1cyOreY+W619ij6J0COR33+X1dwdeGDHTeJltC9VnlHBHepyrWOcm6CXLBjP6vwi78NGT2NodyRvaEKspR6wKH0W2GWnF+L4O/FgBAMT47xJR9mhYrLnzRFcwGWAiCWp0BrGUeYdKFrt3tERmLclPpiK08MHZW3Q/kOsrXrY5o93hDOb9i7KdcUJWqi6SPEmvpTa+F8W9hHGIdzFxpYHoNJUduYvwx5RefxuA=="}
+         * niu_index_response : {"MerId":"481611808090002","MerOrderNo":"4796381540519598","OrderAmt":1,"TranDate":"20181026","TranTime":"100638","TranType":"0005","BusiType":"0001","Version":"20140728","CurryNo":"CNY","AccessType":"0","MerPageUrl":"http://app.qmnet.com.cn/index.php/pay/unionpay_url","MerBgUrl":"http://app.qmnet.com.cn/index.php/pay/unionpay_url","MerResv":"MerResv","RiskData":"mO0i5n+cv5YwZ/InyCpbjSgXjYfmuxoCzvJOn/AMxJZeXAiFTUB8v3cH+l7SWHNrslJiNRXVWODwMFtSkO7krNIJgeTIR09/xZ34W7SMrudw/Ix3vVPs3L2qE+RZEa/8M/oTZ334e8LDx/jTS9rPZbKXYgNFKye8VChd8wXoll0=","Signature":"X8TTSd3NJ1pzQjuzZ6nMt69nm+/E49OmByOvrFRLUrPObuK/m9Nz74/yG1QWabURf4ECYdu7Ragh7xxEHKHJPaIb6qOvF7kjm/bM9xRMJGO/6PAZA2+MBFhciSzxmVKFRr7tiiZ7AgsZH8yLTKiaGZE1Bw7YzdnviQ+1JU5CDVGyv4Ub2fA96uw/wxktOM0J3P+3xAkbMB72TeN8gusta6K7Fed+FqtIDz3Y5RiK1jJNajSLIf8Q49iK/2QeSzlgScSJfiKdR+C/AGaxzKCNjupyeSKhMDG+H6Zzq/29vsJ/7ir981z+y/6ftDyaVRV+ZmIFeDtfkoPegZbrYQclQA=="}
          */
 
         private NiuIndexResponseBean niu_index_response;
@@ -27,12 +27,12 @@ public class ChinaPayOrder implements Serializable {
 
         public static class NiuIndexResponseBean {
             /**
-             * MerId : 481611808090001
-             * MerOrderNo : 6948261540191453
-             * OrderAmt : 20000000
-             * TranDate : 20181022
-             * TranTime : 145733
-             * TranType : 0001
+             * MerId : 481611808090002
+             * MerOrderNo : 4796381540519598
+             * OrderAmt : 1
+             * TranDate : 20181026
+             * TranTime : 100638
+             * TranType : 0005
              * BusiType : 0001
              * Version : 20140728
              * CurryNo : CNY
@@ -40,7 +40,8 @@ public class ChinaPayOrder implements Serializable {
              * MerPageUrl : http://app.qmnet.com.cn/index.php/pay/unionpay_url
              * MerBgUrl : http://app.qmnet.com.cn/index.php/pay/unionpay_url
              * MerResv : MerResv
-             * Signature : TzB+RM/NJ1fzqwAAitActAYPjfMcRWUKpaEPhmFRGtvrGg37gDFBO1QtRAgwiGI/4IPcaCoTAS46Er5btVvpke0gKyc+CMQoX/L5Zf8pTzzlt6JrS1cyOreY+W619ij6J0COR33+X1dwdeGDHTeJltC9VnlHBHepyrWOcm6CXLBjP6vwi78NGT2NodyRvaEKspR6wKH0W2GWnF+L4O/FgBAMT47xJR9mhYrLnzRFcwGWAiCWp0BrGUeYdKFrt3tERmLclPpiK08MHZW3Q/kOsrXrY5o93hDOb9i7KdcUJWqi6SPEmvpTa+F8W9hHGIdzFxpYHoNJUduYvwx5RefxuA==
+             * RiskData : mO0i5n+cv5YwZ/InyCpbjSgXjYfmuxoCzvJOn/AMxJZeXAiFTUB8v3cH+l7SWHNrslJiNRXVWODwMFtSkO7krNIJgeTIR09/xZ34W7SMrudw/Ix3vVPs3L2qE+RZEa/8M/oTZ334e8LDx/jTS9rPZbKXYgNFKye8VChd8wXoll0=
+             * Signature : X8TTSd3NJ1pzQjuzZ6nMt69nm+/E49OmByOvrFRLUrPObuK/m9Nz74/yG1QWabURf4ECYdu7Ragh7xxEHKHJPaIb6qOvF7kjm/bM9xRMJGO/6PAZA2+MBFhciSzxmVKFRr7tiiZ7AgsZH8yLTKiaGZE1Bw7YzdnviQ+1JU5CDVGyv4Ub2fA96uw/wxktOM0J3P+3xAkbMB72TeN8gusta6K7Fed+FqtIDz3Y5RiK1jJNajSLIf8Q49iK/2QeSzlgScSJfiKdR+C/AGaxzKCNjupyeSKhMDG+H6Zzq/29vsJ/7ir981z+y/6ftDyaVRV+ZmIFeDtfkoPegZbrYQclQA==
              */
 
             private String MerId;
@@ -48,7 +49,7 @@ public class ChinaPayOrder implements Serializable {
             private int OrderAmt;
             private String TranDate;
             private String TranTime;
-//            private String TranType;
+            private String TranType;
             private String BusiType;
             private String Version;
             private String CurryNo;
@@ -56,6 +57,7 @@ public class ChinaPayOrder implements Serializable {
             private String MerPageUrl;
             private String MerBgUrl;
             private String MerResv;
+            private String RiskData;
             private String Signature;
 
             public String getMerId() {
@@ -98,13 +100,13 @@ public class ChinaPayOrder implements Serializable {
                 this.TranTime = TranTime;
             }
 
-//            public String getTranType() {
-//                return TranType;
-//            }
-//
-//            public void setTranType(String TranType) {
-//                this.TranType = TranType;
-//            }
+            public String getTranType() {
+                return TranType;
+            }
+
+            public void setTranType(String TranType) {
+                this.TranType = TranType;
+            }
 
             public String getBusiType() {
                 return BusiType;
@@ -162,6 +164,14 @@ public class ChinaPayOrder implements Serializable {
                 this.MerResv = MerResv;
             }
 
+            public String getRiskData() {
+                return RiskData;
+            }
+
+            public void setRiskData(String RiskData) {
+                this.RiskData = RiskData;
+            }
+
             public String getSignature() {
                 return Signature;
             }
@@ -171,4 +181,5 @@ public class ChinaPayOrder implements Serializable {
             }
         }
     }
+
 

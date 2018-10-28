@@ -338,10 +338,6 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
     }
 
 
-
-
-
-
     private void yinlianPay(){
         ApiManager.getInstence().getApiService()
                 .getChinaPayInfo(out_trade_no)
@@ -352,6 +348,7 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
 
                         ChinaPayOrder chinaPayOrder = t.getData();
                         ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
+
                         Gson gson = new Gson();
                         String json1 = gson.toJson(responseBean);
 

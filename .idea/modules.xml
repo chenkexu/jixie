@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/easeui/easeui.iml" filepath="$PROJECT_DIR$/easeui/easeui.iml" />
       <module fileurl="file://$PROJECT_DIR$/library_pictureselector/library_pictureselector.iml" filepath="$PROJECT_DIR$/library_pictureselector/library_pictureselector.iml" />
       <module fileurl="file://$PROJECT_DIR$/library_pictureselectorucop/library_pictureselectorucop.iml" filepath="$PROJECT_DIR$/library_pictureselectorucop/library_pictureselectorucop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/update-app/update-app.iml" filepath="$PROJECT_DIR$/update-app/update-app.iml" />
     </modules>
   </component>
 </project>

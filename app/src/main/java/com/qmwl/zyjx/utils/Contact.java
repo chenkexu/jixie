@@ -338,6 +338,8 @@ public class Contact {
 
     public static  String  shanchudingdan = httpaddress.concat("/index.php/api/order/finDel");
 
+    public static  String  update = httpaddress.concat("/index.php/api/index/replace");
+
 
 
 

@@ -14,7 +14,6 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
-import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -22,7 +21,6 @@ import retrofit2.http.POST;
 import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
-import retrofit2.http.Query;
 
 import static com.qmwl.zyjx.utils.Contact.httpaddress;
 
@@ -66,20 +64,20 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("/index.php/api/order/invoice")
     Observable<ApiResponse<Object>> insert_invoice(@Field("uid") String uid,
-            @Field("orderId") String orderId, @Field("taitou") String taitou,
+                                                   @Field("orderId") String orderId, @Field("taitou") String taitou,
                                                    @Field("itemCheck") String itemCheck, @Field("isdianzi") String isdianzi,
                                                    @Field("price") String price, @Field("order_no") String order_no, @Field("shibiehao") String shibiehao,
-                                                   @Field("content") String content, @Field("email") String email,@Field("name") String name,
+                                                   @Field("content") String content, @Field("email") String email, @Field("name") String name,
                                                    @Field("tel") String tel, @Field("address") String address,
                                                    @Field("des") String des
-                                                   );
+    );
 
 
     //维权申请
     @FormUrlEncoded
     @POST("/index.php/api/order/abnormal")
     Observable<ApiResponse<Object>> shenqingweiquan(@Field("orderId") String uid,
-                                                   @Field("content") String orderId);
+                                                    @Field("content") String orderId);
 
 
     //退货物流添加
@@ -117,10 +115,13 @@ public interface ApiService {
     //发表评价
     @Multipart
     @POST("/index.php/api/member/addGoodsEvaluate")
-    Observable<ApiResponse<Object>> fabiaopingjia(@QueryMap HashMap<String,Object> map, @PartMap Map<String, RequestBody> imageFiles);
+    Observable<ApiResponse<Object>> fabiaopingjia(@QueryMap HashMap<String, Object> map, @PartMap Map<String, RequestBody> imageFiles);
 
 
 
+    //更新
+    @GET("GetDeviceTime")
+    Call<ResponseBody> update(@Query("deviceId") String deviceId);//做的是原生数据请求，之前没有注意，只用其他方式，导致一直拿不到数据
 
 
 }
