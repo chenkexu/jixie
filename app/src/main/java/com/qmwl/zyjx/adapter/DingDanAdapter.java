@@ -514,12 +514,14 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 .subscribe(new BaseObserver<RemindSendGoodsBean>() {
                     @Override
                     protected void onSuccees(ApiResponse<RemindSendGoodsBean> t) {
+                        EventManager.post("refresh","");
                         RemindSendGoodsBean data = t.getData();
                         ToastUtils.showShort(data.getNiu_index_response());
                     }
 
                     @Override
                     protected void onFailure(String errorInfo, boolean isNetWorkError) {
+                        EventManager.post("refresh","");
                         ToastUtils.showShort(errorInfo);
                     }
                 });
@@ -552,6 +554,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        EventManager.post("refresh","");
                         try {
                             if (JsonUtils.isSuccess(response)) {
                                 WoDeDingDanActivity.refreshData(context);
@@ -564,6 +567,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
                     @Override
                     public void onError(ANError anError) {
+                        EventManager.post("refresh","");
                     }
                 });
     }

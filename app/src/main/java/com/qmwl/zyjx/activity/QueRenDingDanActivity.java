@@ -377,31 +377,26 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
     /**
      * onResume方法.
      */
-  /*  @Override
+    @Override
     protected void onResume() {
         super.onResume();
         Log.d("huangrui","onresume：" );
+        //银联支付的回调
         if (Utils.getResultInfo() != null) {
             ResultInfo resultInfo = Utils.getResultInfo();
+            Logger.d("银联resultInfo:"+resultInfo.orderInfo);
             if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
                 if (resultInfo.getRespCode().equals("0000")) {
-                    String orderInfo = Utils.getResultInfo().getOrderInfo();
-                    if (orderInfo != null) {
-                       *//* new SweetAlertDialog(this)
-                                .setContentText("应答码：" + resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc() + "\n详细结果：" + orderInfo)
-                                .show();*//*
-                       Log.d("huangrui","应答码：" + resultInfo.getRespCode() +"应答参数：" + resultInfo.getRespDesc() );
-                    }
+                    String orderInfo = resultInfo.getOrderInfo();
+                    if(orderInfo != null){
+                        Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
                 } else {
-               *//*     new SweetAlertDialog(this)
-                            .setContentText("应答码：" + resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc())
-                            .show();*//*
-                    Log.d("huangrui","应答码：" + resultInfo.getRespCode() +"应答参数：" + resultInfo.getRespDesc() );
+                    Utils.showDialogNoFinish(this,
+                            "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
                 }
             }
-        }
-        CPGlobalInfo.init();
-    }*/
+        }	CPGlobalInfo.init();
+    }
 
     private void parseJson(JSONObject response, final String price, final String goodsName) {
         try {
