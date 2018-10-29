@@ -106,9 +106,9 @@ public interface ApiService {
     Observable<ApiResponse<RemindSendGoodsBean>> remind_goods(@Field("orderId") String orderId);
 
     //删除订单
-    @FormUrlEncoded
-    @POST(" /index.php/api/order/finDel")
-    Observable<ApiResponse<Object>> deleteOrder(@Field("orderId") String orderId);
+    //@FormUrlEncoded
+    @GET(" /index.php/api/order/finDel")
+    Observable<ApiResponse<Object>> deleteOrder(@Query("orderId") String orderId);
 
 
 

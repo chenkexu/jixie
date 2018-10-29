@@ -326,14 +326,12 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
             if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
                 if (resultInfo.getRespCode().equals("0000")) {
                     String orderInfo = resultInfo.getOrderInfo();
-//                    if(orderInfo != null){
-//                        Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
+                    if(orderInfo != null){
+                        Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
                 } else {
-//                    Utils.showDialogNoFinish(this,
-//                            "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
+                    Utils.showDialogNoFinish(this,
+                            "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
                 }
-
-                Logger.d("银联resultInfo"+resultInfo.getRespCode()+resultInfo.getRespDesc());
             }
         }	CPGlobalInfo.init();
 

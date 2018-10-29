@@ -37,6 +37,7 @@ import com.qmwl.zyjx.bean.ShoppingBean;
 import com.qmwl.zyjx.dialog.ChargePopWindow;
 import com.qmwl.zyjx.dialog.InvoiceDialog;
 import com.qmwl.zyjx.utils.Contact;
+import com.qmwl.zyjx.utils.EventManager;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.utils.PoPuWindowUtils;
 import com.qmwl.zyjx.utils.RxUtil;
@@ -490,6 +491,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                                 @Override
                                 protected void onSuccees(ApiResponse<Object> t) {
                                     ToastUtils.showShort(context.getResources().getString(R.string.shanchuchenggong));
+                                    EventManager.post("refresh","");
                                 }
 
                                 @Override

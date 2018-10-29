@@ -19,6 +19,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.chinapay.mobilepayment.activity.MainActivity;
 import com.chinapay.mobilepayment.utils.Utils;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.DuiGongFuKuanActivity;
@@ -349,7 +350,9 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                         ChinaPayOrder chinaPayOrder = t.getData();
                         ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
 
-                        Gson gson = new Gson();
+                        Gson gson = new GsonBuilder()
+                                .serializeNulls()
+                                .create();
                         String json1 = gson.toJson(responseBean);
 
                         Logger.json(json1);
