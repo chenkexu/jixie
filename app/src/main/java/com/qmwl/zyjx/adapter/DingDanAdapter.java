@@ -546,7 +546,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 case R.id.dingdan_layout_item_chakanwuliu:
                     //查看物流
                     intent = new Intent(v.getContext(), SelecterWuLiuActivity.class);
-                    intent.putExtra(SelecterWuLiuActivity.ID, item.getOrder_no());
+                    intent.putExtra(SelecterWuLiuActivity.ID, item.getOrder_id());
                     v.getContext().startActivity(intent);
                     break;
                 case R.id.dingdan_layout_item_querenshouhuo:

@@ -1,7 +1,6 @@
 package com.qmwl.zyjx.activity;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -18,7 +17,6 @@ import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.GlideUtils;
 import com.qmwl.zyjx.utils.JsonUtils;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -70,7 +68,7 @@ public class SelecterWuLiuActivity extends BaseActivity {
     @Override
     protected void getInterNetData() {
         AndroidNetworking.post(Contact.wuliu_list)
-                .addBodyParameter("order_id", order_id)
+                .addBodyParameter("orderId", order_id)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
@@ -83,6 +81,7 @@ public class SelecterWuLiuActivity extends BaseActivity {
 
                     @Override
                     public void onError(ANError anError) {
+
                     }
                 });
     }

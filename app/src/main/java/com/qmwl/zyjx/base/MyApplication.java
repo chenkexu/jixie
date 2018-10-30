@@ -106,7 +106,8 @@ public class MyApplication extends Application {
         OkHttpClient okHttpClient = new OkHttpClient() .newBuilder()
                 .addInterceptor(getHttpLoggingInterceptor())
                 .build();
-        AndroidNetworking.initialize(getApplicationContext(),okHttpClient);
+//        AndroidNetworking.initialize(getApplicationContext(),okHttpClient);
+        AndroidNetworking.initialize(getApplicationContext());
 //        IWXAPI msgApi = WXAPIFactory.createWXAPI(context, null);
 //        msgApi.registerApp(Contact.wxAppid);
         myApplication = this;
