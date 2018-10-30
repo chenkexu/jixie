@@ -25,7 +25,6 @@ import com.qmwl.zyjx.utils.JsonUtils;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -104,9 +103,8 @@ public class PeiJianShaiXuanSecondActivity extends BaseActivity {
     private void getTowData(String id) {
         String url = Contact.peijianshaixuaner;
 
-        AndroidNetworking.upload(url)
-                .addMultipartParameter("category_id", id)
-//                .addBodyParameter("category_id", "id")
+        AndroidNetworking.post(url)
+                .addBodyParameter("category_id", id)
                 .build().getAsJSONObject(new JSONObjectRequestListener() {
             @Override
             public void onResponse(JSONObject response) {
