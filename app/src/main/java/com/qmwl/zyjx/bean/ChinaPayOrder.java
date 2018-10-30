@@ -80,8 +80,8 @@ public class ChinaPayOrder implements Serializable {
                 return OrderAmt;
             }
 
-            public void setOrderAmt(String orderAmt) {
-                OrderAmt = orderAmt;
+            public void setOrderAmt(String OrderAmt) {
+                this.OrderAmt = OrderAmt;
             }
 
             public String getTranDate() {

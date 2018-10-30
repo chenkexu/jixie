@@ -20,8 +20,8 @@ public class Contact {
     //拍卖团购的域名
     public static String paimaiOrTuangou = "http://tgpm.zhongyaojixie.com";
     //域名
-  public static String http_yuming = "http://app.zhongyaojixie.com";
-    //      public static String http_yuming = "http://app.qmnet.com.cn";
+   public static String http_yuming = "http://app.zhongyaojixie.com";
+//     public static String http_yuming = "http://app.qmnet.com.cn";
     //中文接口
     public static final String zh_http = http_yuming;
     //英文接口
@@ -129,7 +129,11 @@ public class Contact {
     //黑名单
     public static String blackList_list = httpaddress.concat("/index.php/api/post/black_name");
     //物流
-    public static String wuliu_list = httpaddress.concat("/index.php/api/Yunshu");
+//    public static String    wuliu_list = httpaddress.concat("/index.php/api/Yunshu");
+
+    public static String    wuliu_list = httpaddress.concat("/index.php/api/order/logistics");
+
+
     //我的评价列表
     public static String wodepingjia_list = httpaddress.concat("/index.php/api/member/myEvaluate");
 
@@ -460,7 +464,7 @@ public class Contact {
         //黑名单
         blackList_list = httpaddress.concat("/index.php/api/post/black_name");
         //物流
-        wuliu_list = httpaddress.concat("/index.php/api/Yunshu");
+        wuliu_list = httpaddress.concat("/index.php/api/order/logistics");
         //我的评价列表
         wodepingjia_list = httpaddress.concat("/index.php/api/member/myEvaluate");
         //发表评价
