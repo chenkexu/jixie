@@ -198,6 +198,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                                         case -1:
                                             list5.add(bean);
                                             break;
+
                                         case 6:
                                             list6.add(bean);
                                             break;
@@ -206,18 +207,18 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        dingDanFragment2.setData(list1);
-                                        dingDanFragment3.setData(list2);
-                                        dingDanFragment4.setData(list3);
-                                        dingDanFragment5.setData(list4);
-                                        dingDanFragment6.setData(list5);
-                                        dingDanFragment7.setData(list6);
+                                        dingDanFragment2.setData(list1,1);
+                                        dingDanFragment3.setData(list2,2);
+                                        dingDanFragment4.setData(list3,3);
+                                        dingDanFragment5.setData(list4,4);
+                                        dingDanFragment6.setData(list5,5);
+                                        dingDanFragment7.setData(list6,6);
                                     }
                                 });
 
                             }
                         }.start();
-                        dingDanFragment1.setData(dingDanBeen);
+                        dingDanFragment1.setData(dingDanBeen,0);
                     }
 
                     @Override

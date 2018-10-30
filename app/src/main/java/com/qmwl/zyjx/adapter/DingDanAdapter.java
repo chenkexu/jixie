@@ -72,8 +72,11 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.dingdan_layout_item, null);
         }
+
         ViewHolder holder = getHolder(convertView);
         item = getItem(position);
+        Log.d("huangrui","1:"+item.getDingdan_statue_code()+"2:"+item.getMa());
+
         holder.shangjiaName.setText(item.getShop_name());
         holder.shangpinStatue.setText(getStatueString(parent.getContext(), item.getDingdan_statue_code()));
         hideBottomView(holder, item.getDingdan_statue_code(), item.getIs_evaluate());
@@ -142,6 +145,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }else if(item.getMa()==2){
                     //申请退款不通过
                     holder.tv_tip.setText(item.getMsg()+"");
+                    holder.lianximaijia.setVisibility(View.GONE);
                 }else{
                     holder.tv_tip.setText("");
                 }
@@ -163,6 +167,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.querenshouhuo.setVisibility(View.GONE);
                 }else if(item.getMa()==2){
                     holder.shenqingweiquan.setVisibility(View.VISIBLE);
+                    holder.lianximaijia.setVisibility(View.GONE);
                     //申请退款不通过
                     holder.tv_tip.setText(item.getMsg()+"");
                 }else if(item.getMa()==3){
@@ -193,6 +198,11 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     //维权申请中
                     holder.tv_tip.setText(item.getMsg()+"");
 
+                }else if(item.getMa()==8){
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+                    holder.tuihuowuliu.setVisibility(View.GONE);
+                    holder.tv_tip.setText(item.getMsg()+"");
+
                 }else {
                     holder.tv_tip.setText("");
                 }
@@ -207,6 +217,57 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
                 holder.chakanwuliu.setVisibility(View.VISIBLE);
                // holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+
+
+                if (item.getMa()==1){
+                    //申请退款
+                    holder.tv_tip.setText(item.getMsg()+"");
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                }else if(item.getMa()==2){
+                    holder.shenqingweiquan.setVisibility(View.VISIBLE);
+                    holder.lianximaijia.setVisibility(View.GONE);
+                    //申请退款不通过
+                    holder.tv_tip.setText(item.getMsg()+"");
+                }else if(item.getMa()==3){
+                    // 3 等待卖家退款
+                    holder.lianximaijia.setVisibility(View.GONE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    holder.shenqingweiquan.setVisibility(View.GONE);
+                    holder.tuihuowuliu.setVisibility(View.VISIBLE);
+                    //申请退款不通过
+                    holder.tv_tip.setText(item.getMsg()+"");
+                    Log.d("huangrui","item.getTui_xu()的值"+item.getTui_xu());
+                    if (("1").equals(item.getTui_xu())){
+                        Log.d("huangrui","进来l了"+item.getTui_xu());
+                        holder.tuihuowuliu.setVisibility(View.VISIBLE);
+                    }else{
+                        holder.tuihuowuliu.setVisibility(View.GONE);
+                    }
+
+
+
+                }else if(item.getMa()==4){
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    //维权申请中
+                    holder.tv_tip.setText(item.getMsg()+"");
+
+                }else if(item.getMa()==8){
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+                    holder.tuihuowuliu.setVisibility(View.GONE);
+                     holder.tv_tip.setText(item.getMsg()+"");
+
+                }else {
+                    holder.tv_tip.setText("");
+                }
+
+
                 break;
             case 4:
 //                statue = 已完成
@@ -217,13 +278,68 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
                 holder.chakanwuliu.setVisibility(View.VISIBLE);
                 holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+
+
+
+                if (item.getMa()==1){
+                    //申请退款
+                    holder.tv_tip.setText(item.getMsg()+"");
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    //holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
+
+                }else if(item.getMa()==2){
+                    holder.shenqingweiquan.setVisibility(View.VISIBLE);
+                    holder.lianximaijia.setVisibility(View.GONE);
+                    //申请退款不通过
+                    holder.tv_tip.setText(item.getMsg()+"");
+                }else if(item.getMa()==3){
+                    // 3 等待卖家退款
+                    holder.lianximaijia.setVisibility(View.GONE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    holder.shenqingweiquan.setVisibility(View.GONE);
+                    holder.tuihuowuliu.setVisibility(View.VISIBLE);
+                    //申请退款不通过
+                    holder.tv_tip.setText(item.getMsg()+"");
+                    Log.d("huangrui","item.getTui_xu()的值"+item.getTui_xu());
+                    if (("1").equals(item.getTui_xu())){
+                        Log.d("huangrui","进来l了"+item.getTui_xu());
+                        holder.tuihuowuliu.setVisibility(View.VISIBLE);
+                    }else{
+                        holder.tuihuowuliu.setVisibility(View.GONE);
+                    }
+
+
+
+                }else if(item.getMa()==4){
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    //维权申请中
+                    holder.tv_tip.setText(item.getMsg()+"");
+
+                }else if(item.getMa()==8){
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+                    holder.tuihuowuliu.setVisibility(View.GONE);
+                    holder.tv_tip.setText(item.getMsg()+"");
+
+                }else {
+                    holder.tv_tip.setText("");
+                }
                 break;
             case -1:
                 //待退款退货订单
                 Log.d("huangrui","状态时-1");
                 holder.lianximaijia.setVisibility(View.VISIBLE);
                 if(item.getMa()==7){
-                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                    holder.shangpinStatue.setText( context.getString(R.string.yiguanbi));
+
+                    holder.tv_tip.setText(item.getMsg()+"");
+                    //holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
                 }
                 break;
             case 6:
@@ -234,7 +350,30 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                // }
 
                 break;
+            case 7:
+//                statue = 已关闭
+//                holder.chakanwuliu.setVisibility(View.VISIBLE);
+                holder.tv_tip.setText(item.getMsg()+"");
+
+                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                holder.lianximaijia.setVisibility(View.VISIBLE);
+                // holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+
+
+                if (item.getMa()==1){
+                    //申请退款
+                    holder.tv_tip.setText(item.getMsg()+"");
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                }
                 default:
+                    if(item.getMa()==7){
+                        holder.shangpinStatue.setText( context.getString(R.string.yiguanbi));
+
+                        holder.tv_tip.setText(item.getMsg()+"");
+                        //holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                    }
                     holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
                     break;
         }
@@ -272,6 +411,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
             case 6:
                 statue = context.getString(R.string.error_order);
                 break;
+
             default:
                 statue = context.getString(R.string.yiguanbi);
                 break;

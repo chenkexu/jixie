@@ -323,7 +323,7 @@ private Context mContext;
 
                 .addMultipartParameter("is_anonymous", String.valueOf(nimingCode))
 
-                .addMultipartFile("myfile", file)
+                 .addMultipartFile("myfile", file)
                 .addMultipartFile("myfile1", file1)
                 .addMultipartFile("myfile2", file2)
                 .build()
@@ -347,7 +347,7 @@ private Context mContext;
                     @Override
                     public void onError(ANError anError) {
                         dismissLoadingDialog();
-                        Log.d("huangrui","失败原因:"+anError.getResponse());
+                        Log.d("huangrui","失败原因:"+anError.getErrorCode());
                         Toast.makeText(ScendPingJiaActivity.this, getString(R.string.pingjiashibai), Toast.LENGTH_SHORT).show();
                     }
                 });

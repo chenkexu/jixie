@@ -11,13 +11,22 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.NewsDetailsActivity;
 import com.qmwl.zyjx.activity.WoDeDingDanActivity;
 import com.qmwl.zyjx.adapter.DingDanAdapter;
+import com.qmwl.zyjx.base.MyApplication;
 import com.qmwl.zyjx.bean.DingDanBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
+import com.qmwl.zyjx.utils.Contact;
+import com.qmwl.zyjx.utils.JsonUtils;
 
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,10 +66,41 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
         mLv.setOnItemClickListener(this);
     }
 
-    public void setData(List<DingDanBean> list) {
+    public void setData(final List<DingDanBean> alist,int index) {
         if (adapter != null) {
-            this.list = list;
-            adapter.setData(this.list);
+
+            if (index==5){
+               /* this.list = list;
+                adapter.setData(this.list);*/
+                AndroidNetworking.get(Contact.wodedingdan_list + "?uid=" + MyApplication.getIntance().userBean.getUid()+"?status=-1")
+                        .build()
+                        .getAsJSONObject(new JSONObjectRequestListener() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                final List<DingDanBean> dingDanBeen = JsonUtils.parseDingDan(response);
+                                final List<DingDanBean> mlist  = new ArrayList<DingDanBean>();
+                              for (DingDanBean bean : dingDanBeen) {
+                                     bean.setDingdan_statue_code(-1);
+                                     mlist.add(bean);
+                                   }
+                                 list = mlist;
+                                adapter.setData( list);
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+                                 list = alist;
+                                adapter.setData( list);
+                            }
+                        });
+
+
+            }else{
+                this.list = alist;
+                adapter.setData(this.list);
+            }
+
+
         }
     }
 
