@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,13 +67,20 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
         mLv.setOnItemClickListener(this);
     }
 
-    public void setData(final List<DingDanBean> alist,int index) {
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("huangrui","退货列表");
+    }
+
+    public void setData(final List<DingDanBean> alist, int index) {
         if (adapter != null) {
 
             if (index==5){
                /* this.list = list;
                 adapter.setData(this.list);*/
-                AndroidNetworking.get(Contact.wodedingdan_list + "?uid=" + MyApplication.getIntance().userBean.getUid()+"?status=-1")
+                Log.d("huangrui","退货列表");
+                AndroidNetworking.get(Contact.wodedingdan_list + "?uid=" + MyApplication.getIntance().userBean.getUid()+"&status=-1")
                         .build()
                         .getAsJSONObject(new JSONObjectRequestListener() {
                             @Override
@@ -83,6 +91,7 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
                                      bean.setDingdan_statue_code(-1);
                                      mlist.add(bean);
                                    }
+                                Log.d("huanrui","退货列表+"+mlist.size());
                                  list = mlist;
                                 adapter.setData( list);
                             }
@@ -120,7 +129,7 @@ public class DingDanFragment extends Fragment implements AdapterView.OnItemClick
                 startActivity(intent);
             }else{
 
-                if (item.getMa()==1||item.getMa()==2||item.getMa()==3){
+                if (item.getMa()==1||item.getMa()==2||item.getMa()==3||item.getMa()==8){
                     ShoppingBean shoppingBean = item.getShopList().get(0);
                     Intent intent = new Intent(getContext(), NewsDetailsActivity.class);
                     intent.putExtra(NewsDetailsActivity.DETAILS_TYPE, NewsDetailsActivity.TYPE_DINGDAN);

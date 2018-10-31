@@ -201,6 +201,9 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }else if(item.getMa()==8){
                     holder.lianximaijia.setVisibility(View.VISIBLE);
                     holder.tuihuowuliu.setVisibility(View.GONE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
                     holder.tv_tip.setText(item.getMsg()+"");
 
                 }else {
@@ -233,7 +236,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }else if(item.getMa()==3){
                     // 3 等待卖家退款
                     holder.lianximaijia.setVisibility(View.GONE);
-                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
                     holder.chakanwuliu.setVisibility(View.GONE);
                     holder.querenshouhuo.setVisibility(View.GONE);
                     holder.shenqingweiquan.setVisibility(View.GONE);
@@ -262,6 +265,11 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.lianximaijia.setVisibility(View.VISIBLE);
                     holder.tuihuowuliu.setVisibility(View.GONE);
                      holder.tv_tip.setText(item.getMsg()+"");
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    holder.shenqingweiquan.setVisibility(View.GONE);
+                    holder.tuihuowuliu.setVisibility(View.GONE);
 
                 }else {
                     holder.tv_tip.setText("");
@@ -297,7 +305,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }else if(item.getMa()==3){
                     // 3 等待卖家退款
                     holder.lianximaijia.setVisibility(View.GONE);
-                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
                     holder.chakanwuliu.setVisibility(View.GONE);
                     holder.querenshouhuo.setVisibility(View.GONE);
                     holder.shenqingweiquan.setVisibility(View.GONE);
@@ -325,6 +333,11 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }else if(item.getMa()==8){
                     holder.lianximaijia.setVisibility(View.VISIBLE);
                     holder.tuihuowuliu.setVisibility(View.GONE);
+                    holder.lianximaijia.setVisibility(View.GONE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    holder.shenqingweiquan.setVisibility(View.GONE);
                     holder.tv_tip.setText(item.getMsg()+"");
 
                 }else {
