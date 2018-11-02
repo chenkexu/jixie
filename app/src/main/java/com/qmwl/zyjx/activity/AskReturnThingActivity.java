@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +21,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+import com.luck.picture.lib.rxbus2.Subscribe;
+import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.api.ApiManager;
 import com.qmwl.zyjx.api.ApiResponse;
@@ -37,11 +40,14 @@ import com.qmwl.zyjx.utils.RxUtil;
 import com.qmwl.zyjx.utils.SharedUtils;
 import com.qmwl.zyjx.view.AskRetunPayDialog;
 import com.qmwl.zyjx.view.AskRetunThingDialog;
+import com.qmwl.zyjx.wxapi.WXPayEntryActivity;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UTrack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.simple.eventbus.Subscriber;
+import org.simple.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -172,5 +178,11 @@ public class AskReturnThingActivity extends BaseActivity {
         }*/
     }
 
+
+    //收到申请退款后刷新
+    @Subscriber(tag = "closeActivity", mode= ThreadMode.MAIN)
+    public void getEventMessage(String message) {
+       finish();
+    }
 
 }

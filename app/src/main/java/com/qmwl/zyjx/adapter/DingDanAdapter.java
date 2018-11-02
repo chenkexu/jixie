@@ -147,10 +147,23 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     //申请退款不通过
                     holder.tv_tip.setText(item.getMsg()+"");
                     holder.lianximaijia.setVisibility(View.GONE);
+                }else if(item.getMa()==3){
+                    //申请退款不通过
+                 //   holder.tv_tip.setText(item.getMsg()+"");
+                 //   holder.lianximaijia.setVisibility(View.GONE);
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+                    holder.shenqingtuikuan.setVisibility(View.GONE);
+                    holder.shenqingfapiao.setVisibility(View.GONE);
+                    holder.tixingfahuo.setVisibility(View.GONE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.shenqingweiquan.setVisibility(View.GONE);
+                    holder.tuihuowuliu.setVisibility(View.GONE);
+                    holder.tv_tip.setText(item.getMsg()+"");
                 }else{
                     holder.tv_tip.setText(item.getMsg()+"");
 
                 }
+                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
 
                 break;
             case 2:
@@ -355,7 +368,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.shangpinStatue.setText( context.getString(R.string.yiguanbi));
 
                     holder.tv_tip.setText(item.getMsg()+"");
-                    //holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
                 }
                 break;
             case 6:

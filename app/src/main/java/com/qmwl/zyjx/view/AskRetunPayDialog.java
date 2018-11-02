@@ -85,11 +85,14 @@ public class AskRetunPayDialog extends DialogFragment {
                                         dismiss();
                                         if (JsonUtils.isSuccess(response)) {
                                             WoDeDingDanActivity.refreshData(getActivity());
+
                                             new CommomDialog(getActivity(), R.style.dialog, getActivity().getString(R.string.tuikuanchenggong), new CommomDialog.OnCloseListener() {
                                                 @Override
                                                 public void onClick(Dialog dialog, boolean confirm) {
                                                     dialog.dismiss();
+
                                                     EventManager.post("refresh","");
+                                                    EventManager.post("closeActivity","");
                                                 }
                                             }).setTitle(getActivity().getString(R.string.tishi)).setHideCancelButton().show();
                                         } else {

@@ -84,7 +84,10 @@ public class AskRetunThingDialog extends DialogFragment {
                                                 @Override
                                                 public void onClick(Dialog dialog, boolean confirm) {
                                                     dialog.dismiss();
+
                                                     EventManager.post("refresh","");
+                                                    EventManager.post("closeActivity","");
+
                                                 }
                                             }).setTitle(getActivity().getString(R.string.tishi)).setHideCancelButton().show();
                                         } else {
