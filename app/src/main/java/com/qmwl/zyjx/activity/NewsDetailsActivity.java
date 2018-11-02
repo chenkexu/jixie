@@ -8,6 +8,7 @@ import android.os.Build;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
@@ -311,7 +312,7 @@ public class NewsDetailsActivity extends BaseActivity {
             /*Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);*/
-
+            Log.d("huangrui","点击维权");
             Intent intent = null;
             if (!MyApplication.getIntance().isLogin()) {
                 intent = new Intent(NewsDetailsActivity.this, LoginActivity.class);

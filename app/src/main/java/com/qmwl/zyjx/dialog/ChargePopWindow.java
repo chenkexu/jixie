@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -355,7 +356,7 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                                 .create();
                         String json1 = gson.toJson(responseBean);
 
-                        Logger.json(json1);
+                        Log.d("huangrui","银联"+json1);
                         // 初始化手机POS环境
                         Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
                         // 设置Intent指向Initialize.class

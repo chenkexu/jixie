@@ -19,6 +19,7 @@ import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.bean.CancelOrderBean;
 import com.qmwl.zyjx.bean.DingDanBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
+import com.qmwl.zyjx.utils.EventManager;
 import com.qmwl.zyjx.utils.RxUtil;
 import com.qmwl.zyjx.utils.ToastUtils;
 import com.qmwl.zyjx.view.AskRetunPayDialog;
@@ -84,6 +85,8 @@ public class AskWeiQuanActivity extends BaseActivity {
                                 dismissLoadingDialog();
                               //  showSuccessDialog();
                                 ToastUtils.showShort(getResources().getString(R.string.ask_suc));
+                                EventManager.post("refresh","");
+                                finish();
                             }
 
                             @Override

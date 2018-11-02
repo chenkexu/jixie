@@ -167,6 +167,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                         dismissLoadingDialog();
                         final List<DingDanBean> dingDanBeen = JsonUtils.parseDingDan(response);
                         Log.d("huangrui","dingDanBeen:"+dingDanBeen);
+                        com.orhanobut.logger.Logger.d( "dingDanBeen2:"+dingDanBeen);
                         com.orhanobut.logger.Logger.json(response.toString());
                         new Thread() {
                             @Override

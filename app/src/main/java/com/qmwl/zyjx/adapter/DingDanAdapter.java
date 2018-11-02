@@ -117,6 +117,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 //待付款
                 holder.lianximaijia.setVisibility(View.VISIBLE);
                 holder.quxiaodingdan.setVisibility(View.VISIBLE);
+                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
                 holder.fukuan.setVisibility(View.VISIBLE);
                 holder.fukuan.setSelected(true);
                 break;
@@ -147,7 +148,8 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.tv_tip.setText(item.getMsg()+"");
                     holder.lianximaijia.setVisibility(View.GONE);
                 }else{
-                    holder.tv_tip.setText("");
+                    holder.tv_tip.setText(item.getMsg()+"");
+
                 }
 
                 break;
@@ -172,7 +174,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.tv_tip.setText(item.getMsg()+"");
                 }else if(item.getMa()==3){
                     // 3 等待卖家退款
-                    holder.lianximaijia.setVisibility(View.GONE);
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
                     holder.shenqingtuiuhuo.setVisibility(View.GONE);
                     holder.chakanwuliu.setVisibility(View.GONE);
                     holder.querenshouhuo.setVisibility(View.GONE);
@@ -343,6 +345,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }else {
                     holder.tv_tip.setText("");
                 }
+                holder.shenqingtuiuhuo.setVisibility(View.GONE);
                 break;
             case -1:
                 //待退款退货订单
@@ -380,6 +383,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.chakanwuliu.setVisibility(View.GONE);
                     holder.querenshouhuo.setVisibility(View.GONE);
                 }
+                break;
                 default:
                     if(item.getMa()==7){
                         holder.shangpinStatue.setText( context.getString(R.string.yiguanbi));
