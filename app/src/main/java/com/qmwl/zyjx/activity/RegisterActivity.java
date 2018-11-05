@@ -199,6 +199,7 @@ public class RegisterActivity extends BaseActivity {
 //        }
         AndroidNetworking.post(Contact.register_getcode)
                 .addBodyParameter("tel", shoujihao)
+                .addBodyParameter("state", "1")
                 .build().getAsJSONObject(new JSONObjectRequestListener() {
             @Override
             public void onResponse(JSONObject response) {

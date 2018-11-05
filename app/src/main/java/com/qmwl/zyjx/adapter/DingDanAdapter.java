@@ -224,6 +224,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }else {
                     holder.tv_tip.setText("");
                 }
+                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
 
                 break;
             case 3:
@@ -376,6 +377,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 //if (item.getMa()==5){
                     holder.tv_tip.setText(item.getMsg()+"");
                     holder.lianximaijia.setVisibility(View.VISIBLE);
+                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
                // }
 
                 break;
