@@ -111,6 +111,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
         holder.shenqingtuiuhuo.setVisibility(View.GONE);
         holder.shenqingweiquan.setVisibility(View.GONE);
         holder.tuihuowuliu.setVisibility(View.GONE);
+        holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
         holder.tv_tip.setText("");
         switch (code) {
             case 0:
@@ -120,6 +121,9 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
                 holder.fukuan.setVisibility(View.VISIBLE);
                 holder.fukuan.setSelected(true);
+
+
+
                 break;
             case 1:
                 //statue =待发货
