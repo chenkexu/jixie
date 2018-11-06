@@ -315,7 +315,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.shenqingtuiuhuo.setVisibility(View.GONE);
                     holder.chakanwuliu.setVisibility(View.GONE);
                     holder.querenshouhuo.setVisibility(View.GONE);
-                    //holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
 
                 }else if(item.getMa()==2){
                     holder.shenqingweiquan.setVisibility(View.VISIBLE);
