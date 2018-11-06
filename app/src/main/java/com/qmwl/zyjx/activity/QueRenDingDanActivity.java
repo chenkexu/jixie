@@ -385,16 +385,17 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
         if (Utils.getResultInfo() != null) {
             ResultInfo resultInfo = Utils.getResultInfo();
             Logger.d("银联resultInfo:"+resultInfo.orderInfo);
-            if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
-                if (resultInfo.getRespCode().equals("0000")) {
-                    String orderInfo = resultInfo.getOrderInfo();
-                    if(orderInfo != null){
-                        Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
-                } else {
-                    Utils.showDialogNoFinish(this,
-                            "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
-                }
-            }
+            ToastUtils.showShort(resultInfo.getRespDesc());
+//            if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
+//                if (resultInfo.getRespCode().equals("0000")) {
+//                    String orderInfo = resultInfo.getOrderInfo();
+//                    if(orderInfo != null){
+//                        Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
+//                } else {
+//                    Utils.showDialogNoFinish(this,
+//                            "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
+//                }
+//            }
         }	CPGlobalInfo.init();
     }
 

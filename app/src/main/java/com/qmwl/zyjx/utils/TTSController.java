@@ -1,11 +1,8 @@
 package com.qmwl.zyjx.utils;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.amap.api.navi.AMapNaviListener;
 import com.amap.api.navi.model.AMapCalcRouteResult;
@@ -30,7 +27,7 @@ import java.util.LinkedList;
  * <p>
  * 导航SDK原则上是不提供语音播报模块的，如果您觉得此种播报方式不能满足你的需求，请自行优化或改进。
  */
-public class TTSController implements AMapNaviListener, ICallBack {
+public class  TTSController implements AMapNaviListener, ICallBack {
 
 
     @Override

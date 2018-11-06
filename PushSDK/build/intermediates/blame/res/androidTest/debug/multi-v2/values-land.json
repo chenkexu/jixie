@@ -1,21 +1,6 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\waibao\\Android\\ZYJXObject\\PushSDK\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-land\\values-land.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\ckx\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\a04aeba3b9af952f64b7d0273f1ce096\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,125,189,260",
-                        "endColumns": "69,63,70,67",
-                        "endOffsets": "120,184,255,323"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "E:\\upan_project\\Android\\ZYJXObject\\PushSDK\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {

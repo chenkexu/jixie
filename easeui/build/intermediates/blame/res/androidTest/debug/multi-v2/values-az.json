@@ -14,21 +14,6 @@
                     }
                 }
             ]
-        },
-        {
-            "outputFile": "E:\\waibao\\Android\\ZYJXObject\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-az\\values-az.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\ckx\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\601c0da5fa0c849561f72bdc7fa21730\\res\\values-az\\values-az.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
         }
     ]
 }
