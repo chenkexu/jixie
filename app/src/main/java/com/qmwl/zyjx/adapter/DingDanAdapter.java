@@ -122,8 +122,6 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 holder.fukuan.setVisibility(View.VISIBLE);
                 holder.fukuan.setSelected(true);
 
-
-
                 break;
             case 1:
                 //statue =待发货
@@ -132,8 +130,6 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 holder.shenqingtuikuan.setVisibility(View.VISIBLE);
                 holder.shenqingfapiao.setVisibility(View.VISIBLE);
                 holder.tixingfahuo.setVisibility(View.VISIBLE);
-
-
 
                 if (item.getFapiao()==0){
                     holder.shenqingfapiao.setVisibility(View.VISIBLE);
@@ -239,7 +235,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                 }
                 holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
                 holder.chakanwuliu.setVisibility(View.VISIBLE);
-               // holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
+                holder.dingdan_layout_item_shanchudingdan.setVisibility(View.VISIBLE);
 
 
                 if (item.getMa()==1){
@@ -248,6 +244,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.shenqingtuiuhuo.setVisibility(View.GONE);
                     holder.chakanwuliu.setVisibility(View.GONE);
                     holder.querenshouhuo.setVisibility(View.GONE);
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
                 }else if(item.getMa()==2){
                     holder.shenqingweiquan.setVisibility(View.VISIBLE);
                     holder.lianximaijia.setVisibility(View.GONE);
@@ -280,7 +277,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.querenshouhuo.setVisibility(View.GONE);
                     //维权申请中
                     holder.tv_tip.setText(item.getMsg()+"");
-
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
                 }else if(item.getMa()==8){
                     holder.lianximaijia.setVisibility(View.VISIBLE);
                     holder.tuihuowuliu.setVisibility(View.GONE);
@@ -349,7 +346,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     holder.querenshouhuo.setVisibility(View.GONE);
                     //维权申请中
                     holder.tv_tip.setText(item.getMsg()+"");
-
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
                 }else if(item.getMa()==8){
                     holder.lianximaijia.setVisibility(View.VISIBLE);
                     holder.tuihuowuliu.setVisibility(View.GONE);
