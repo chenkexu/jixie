@@ -267,7 +267,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     }else{
                         holder.tuihuowuliu.setVisibility(View.GONE);
                     }
-
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
 
 
                 }else if(item.getMa()==4){
@@ -336,7 +336,7 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     }else{
                         holder.tuihuowuliu.setVisibility(View.GONE);
                     }
-
+                    holder.dingdan_layout_item_shanchudingdan.setVisibility(View.GONE);
 
 
                 }else if(item.getMa()==4){
