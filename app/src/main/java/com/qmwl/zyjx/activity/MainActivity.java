@@ -14,7 +14,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
@@ -42,6 +46,7 @@ import com.vector.update_app.listener.ExceptionHandler;
 import com.vector.update_app.listener.IUpdateDialogFragmentListener;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +68,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private MainBroadCastReceiver mainBroadCastReceiver = null;
     private SecondFragment secondFragment;
     private MainFragment mainFragment;
-
+    private Context mContext;
     @Override
     protected void setLayout() {
         setContentLayout(R.layout.activity_main);
@@ -190,7 +195,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
         //应用更新
         updateDiy();
-
+        mContext=this;
 
         UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
             @Override
@@ -213,12 +218,21 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                         Log.d("huangrui","获取到的status"+orderStatus);
                         if (!TextUtils.isEmpty(url)){
                             // 跳转我的店铺界面,到主界面接收umeng，跳转到第四个fragment
-                            setCurrItem(3);
-                            startActivity(new Intent(context,MainActivity.class).putExtra("umeng",3).putExtra(MAIN_INDEX,3).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        //    setCurrItem(3);
+                            Log.d("huangrui","跳转到Main" );
+                            startActivity(new Intent(context,MainActivity.class).putExtra("umeng",3).putExtra(MAIN_INDEX,3).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
                             //点击跳转我的店铺界面
                             //    String url=getIntent().getStringExtra("umeng");
+                           /* if(EasyUtils.isAppRunningForeground(mContext)){
+                                LogUtils.d("应用在前台");
 
-                            EventManager.post("umeng",url);
+                            }else{
+                                LogUtils.d("应用在后台");
+
+                            }*/
+
+                            getWoYaokaidianStatue1();
+                         //   EventManager.post("umeng",url);
                         }else{
 
                         //使用方法三
@@ -455,5 +469,39 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    //获取个人信息状态
+    private void getWoYaokaidianStatue1() {
+        AndroidNetworking.get(Contact.kaidian_url + "?user_id=" + MyApplication.getIntance().userBean.getUid())
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                         try {
+                            //0 未开通 1此用户对公付款 2 此用户是商户 3提交资料，未到支付
+                            int code = response.getInt("code");
+                            if (code==2){
+                                Intent intent = new Intent( mContext, WebViewShangJiaZhongXinActivity.class);
+                                intent.putExtra(WebViewActivity.SHOPURL, Contact.shangjiazhongxin_url + "?user_id=" + MyApplication.getIntance().userBean.getUid());
+                                startActivity(intent);
+                            }else{
+                                String message = response.getString("message");
+                                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
+                            }
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });
+
     }
 }

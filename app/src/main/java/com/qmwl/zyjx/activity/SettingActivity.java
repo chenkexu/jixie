@@ -392,6 +392,8 @@ public class SettingActivity extends BaseActivity {
                 imagepath = path;
             }
 //            Glide.with(this).load(imagepath).into(iv);
+
+            Log.d("huangrui","上传111"+imagepath );
             MyApplication.getIntance().userBean.setHeadImg(imagepath);
             postImage(imagepath);
             setData();
@@ -401,6 +403,7 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void postImage(String path) {
+        Log.d("huangrui","上传222"+path.toString() );
         File file = new File(path);
         AndroidNetworking.upload(Contact.shangchuantouxiang)
                 .addMultipartFile("myfile", file)
@@ -409,11 +412,12 @@ public class SettingActivity extends BaseActivity {
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
-
+                       Log.d("huangrui","返回"+response.toString() );
                     }
 
                     @Override
                     public void onError(ANError anError) {
+                        Log.d("huangrui","返回" +":"+anError.getResponse()+anError.getErrorDetail()+anError.getErrorBody() );
                     }
                 });
     }
