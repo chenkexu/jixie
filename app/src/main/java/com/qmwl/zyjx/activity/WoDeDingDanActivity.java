@@ -469,7 +469,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
                         intent.putExtra("mode", "00");
                         // orderInfo为启动插件时传入的OrderInfo对象。
                         // 使用intent跳转至移动认证插件
-                        mContext.startActivity(intent);
+                         startActivity(intent);
                     }
 
                     @Override
