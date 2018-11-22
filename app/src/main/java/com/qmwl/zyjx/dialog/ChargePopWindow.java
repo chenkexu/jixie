@@ -24,6 +24,7 @@ import com.google.gson.GsonBuilder;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.DuiGongFuKuanActivity;
+import com.qmwl.zyjx.activity.PaySuccessActivity;
 import com.qmwl.zyjx.api.ApiManager;
 import com.qmwl.zyjx.api.ApiResponse;
 import com.qmwl.zyjx.api.BaseObserver;
@@ -281,6 +282,9 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                             public void onSuccess() {
                                 PayBean payBean = new PayBean();
                                 EventBus.getDefault().post(payBean);
+                                Log.d("huangrui","支付成功");
+                                getContext().startActivity(new Intent(getContext(), PaySuccessActivity.class));
+
                                 Toast.makeText(context, "支付成功", Toast.LENGTH_SHORT).show();
                             }
 

@@ -4,6 +4,7 @@ package com.qmwl.zyjx.api;
 import com.qmwl.zyjx.bean.CancelOrderBean;
 import com.qmwl.zyjx.bean.ChinaPayOrder;
 import com.qmwl.zyjx.bean.KuaidiListBean;
+import com.qmwl.zyjx.bean.PaySucOutBean;
 import com.qmwl.zyjx.bean.RemindSendGoodsBean;
 
 import java.util.HashMap;
@@ -122,6 +123,10 @@ public interface ApiService {
     //更新
     @GET("GetDeviceTime")
     Call<ResponseBody> update(@Query("deviceId") String deviceId);//做的是原生数据请求，之前没有注意，只用其他方式，导致一直拿不到数据
+
+    //更新
+    @GET("/index.php/api/order/recommend")
+    Observable<ApiResponse<PaySucOutBean>> getPaySucDetail(@Query("page") int page);
 
 
 }

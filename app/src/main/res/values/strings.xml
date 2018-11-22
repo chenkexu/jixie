@@ -622,6 +622,8 @@
     <string name="error_order">异常订单</string>
     <string name="refund_thing">退款退货</string>
 
+    <string name="buy_suc">购买成功</string>
+
     <!--<string name="apply_paper_invoice">发票详情</string>-->
     <!--<string name="apply_paper_invoice">抬头类型</string>-->
     <!--<string name="apply_paper_invoice">企业单位</string>-->

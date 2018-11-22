@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/base_top_bar_center" />
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F0EFF5"
+        android:orientation="vertical">
+    <LinearLayout   android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/pay_suc"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_marginLeft="13dp"
+            android:textColor="@color/c4c4c4c"
+            android:text="恭喜您,购买成功"/>
+
+    </LinearLayout>
+
+    <LinearLayout   android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="18dp"
+
+        android:gravity="center"
+        android:orientation="horizontal">
+
+     <Button
+         android:id="@+id/btn_returnhome"
+         android:layout_width="100dp"
+        android:layout_height="33dp"
+         android:textSize="12dp"
+         android:textColor="@color/bottom_text_color_normal"
+         android:background="@drawable/shape_paysuc_bg"
+         android:text="返回首页"/>
+        <Button
+            android:id="@+id/btn_lookdetail"
+
+            android:layout_width="100dp"
+            android:layout_height="33dp"
+            android:textSize="12dp"
+            android:background="@drawable/shape_paysuc_bg"
+            android:textColor="@color/bottom_text_color_normal"
+            android:layout_marginLeft="15dp"
+            android:text="查看订单"/>
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/c4c4c4c"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="15dp"
+        android:text="推荐产品"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_rec"
+        android:layout_width="match_parent"
+        android:layout_marginTop="14dp"
+
+        android:layout_height="match_parent"/>
+
+
+
+
+
+</LinearLayout>
