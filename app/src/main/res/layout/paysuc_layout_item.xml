@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="2dp"
     android:background="@drawable/liulan_item_bg">
 
     <ImageView
@@ -19,22 +22,41 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:padding="3dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="13dp"
         android:paddingBottom="6dp"
         android:paddingTop="6dp"
         android:text="山东临工压路机"
         android:textColor="@color/c2a2a2a"
         android:textSize="15sp" />
-
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="13dp"
+    android:orientation="horizontal">
     <TextView
         android:id="@+id/tv_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_name"
         android:ellipsize="end"
+          android:layout_alignParentLeft="true"
         android:maxLines="1"
+        android:padding="3dp"
+        android:paddingBottom="6dp"
+        android:text=""
+        android:textColor="@color/ccf96a2f"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_alignParentRight="true"
         android:padding="3dp"
         android:paddingBottom="6dp"
         android:text="￥29999999"
         android:textColor="@color/ccf96a2f"
         android:textSize="15sp" />
 </RelativeLayout>
+</LinearLayout>

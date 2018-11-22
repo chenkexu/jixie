@@ -1,5 +1,6 @@
 package com.qmwl.zyjx.dialog;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import com.google.gson.GsonBuilder;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.DuiGongFuKuanActivity;
+import com.qmwl.zyjx.activity.OrderCancelActivity;
 import com.qmwl.zyjx.activity.PaySuccessActivity;
 import com.qmwl.zyjx.api.ApiManager;
 import com.qmwl.zyjx.api.ApiResponse;
@@ -33,7 +35,9 @@ import com.qmwl.zyjx.bean.ChinaPayOrder;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
 import com.qmwl.zyjx.utils.RxUtil;
+import com.qmwl.zyjx.utils.SharedUtils;
 import com.qmwl.zyjx.utils.ToastUtils;
+import com.qmwl.zyjx.view.CommomDialog;
 import com.qmwl.zyjx.wxapi.WXPayEntryActivity;
 import com.qmwl.zyjx.zfb.Alipay;
 import com.qmwl.zyjx.zfb.PayBean;
@@ -141,7 +145,11 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
             return;
         switch (payResultResult) {
             case success:
+
                 Toast.makeText(context, "成功", Toast.LENGTH_SHORT).show();
+                getContext().startActivity(new Intent(getContext(), PaySuccessActivity.class));
+                Toast.makeText(context, "支付成功", Toast.LENGTH_SHORT).show();
+
                 break;
             case cancle:
                 Toast.makeText(context, "取消支付", Toast.LENGTH_SHORT).show();
@@ -150,6 +158,16 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                 //弹出充值失败的dialog
                 // 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
                 Toast.makeText(context, "支付失败", Toast.LENGTH_SHORT).show();
+                new CommomDialog(context, R.style.dialog, context.getString(R.string.pay_fail), new CommomDialog.OnCloseListener() {
+                    @Override
+                    public void onClick(Dialog dialog, boolean confirm) {
+                        if (confirm) {
+                            payWx();
+                        }
+                        dialog.dismiss();
+                    }
+                }).setTitle(context.getString(R.string.tishi)).setNegativeButton("取消").setPositiveButton("重新支付").show();
+
                 break;
             case error:
                 Toast.makeText(context, "未知", Toast.LENGTH_SHORT).show();
@@ -229,7 +247,14 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                             request.nonceStr = object.getString("noncestr");
                             request.timeStamp = object.getString("timestamp");
                             request.sign = object.getString("sign");
+                            //保存临时id 微信支付失败重新支付使用
+                            SharedUtils.putString("ChargePopWindowOrderId", out_trade_no, getContext());
+                            SharedUtils.putBoolean("ChargePopWindowisCarShoppForm", isCarShoppForm, getContext());
+                            SharedUtils.putBoolean("ChargePopWindowzulintype", zulintype, getContext());
+                            SharedUtils.putString("ChargePopWindowtotal_amount", price, getContext());
+                            SharedUtils.putString("ChargePopWindowgoods_name", goodsName, getContext());
                             wxapi.sendReq(request);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
 //                            Toast.makeText(ZaiXianZhiFuActivity.this, "微信返回值出错", Toast.LENGTH_SHORT).show();
@@ -283,9 +308,13 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                                 PayBean payBean = new PayBean();
                                 EventBus.getDefault().post(payBean);
                                 Log.d("huangrui","支付成功");
-                                getContext().startActivity(new Intent(getContext(), PaySuccessActivity.class));
+                                Intent intent2=new Intent(getContext(), PaySuccessActivity.class);
+                                intent2.putExtra("out_trade_no",out_trade_no);
+                                getContext().startActivity(intent2);
+
 
                                 Toast.makeText(context, "支付成功", Toast.LENGTH_SHORT).show();
+
                             }
 
                             @Override
@@ -296,11 +325,29 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                             @Override
                             public void onError(int error_code) {
                                 Toast.makeText(context, "支付错误", Toast.LENGTH_SHORT).show();
+                                new CommomDialog(context, R.style.dialog, context.getString(R.string.pay_fail), new CommomDialog.OnCloseListener() {
+                                    @Override
+                                    public void onClick(Dialog dialog, boolean confirm) {
+                                        if (confirm) {
+                                            payZhiFubao();
+                                        }
+                                        dialog.dismiss();
+                                    }
+                                }).setTitle(context.getString(R.string.tishi)).setNegativeButton("取消").setPositiveButton("重新支付").show();
                             }
 
                             @Override
                             public void onCancel() {
                                 Toast.makeText(context, "支付取消", Toast.LENGTH_SHORT).show();
+                                new CommomDialog(context, R.style.dialog, context.getString(R.string.pay_fail), new CommomDialog.OnCloseListener() {
+                                    @Override
+                                    public void onClick(Dialog dialog, boolean confirm) {
+                                        if (confirm) {
+                                            payZhiFubao();
+                                        }
+                                        dialog.dismiss();
+                                    }
+                                }).setTitle(context.getString(R.string.tishi)).setNegativeButton("取消").setPositiveButton("重新支付").show();
                             }
                         }).doPay();
                     }
@@ -345,6 +392,9 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
 
 
     private void yinlianPay(){
+
+        //保存临时id 微信支付失败重新支付使用
+        SharedUtils.putString("ChargePopWindowYlOrderId", out_trade_no, getContext());
         ApiManager.getInstence().getApiService()
                 .getChinaPayInfo(out_trade_no)
                 .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
@@ -383,5 +433,30 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
                 });
 
 
+    }
+
+
+    @Subscribe
+    public void onWeChatCharge(WXPayEntryActivity.wxPayResult payResultResult) {
+        Logger.d("onWeChatCharge收到了微信支付的回调"+payResultResult);
+        if (this == null)
+            return;
+        switch (payResultResult) {
+            case success:
+//                submit();
+                ToastUtils.showShort("支付成功");
+                break;
+            case cancle:
+                ToastUtils.showShort("取消支付");
+                break;
+            case fail:
+                ToastUtils.showShort("支付错误");
+                break;
+            case error:
+                ToastUtils.showShort("支付错误");
+                break;
+            default:
+                break;
+        }
     }
 }

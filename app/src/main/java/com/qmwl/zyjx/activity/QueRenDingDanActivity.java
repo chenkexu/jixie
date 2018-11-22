@@ -2,6 +2,7 @@ package com.qmwl.zyjx.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -13,21 +14,30 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.chinapay.mobilepayment.activity.MainActivity;
 import com.chinapay.mobilepayment.global.CPGlobalInfo;
 import com.chinapay.mobilepayment.global.ResultInfo;
 import com.chinapay.mobilepayment.utils.Utils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.QueRenDingDanWaiAdapter;
+import com.qmwl.zyjx.api.ApiManager;
+import com.qmwl.zyjx.api.ApiResponse;
+import com.qmwl.zyjx.api.BaseObserver;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.base.MyApplication;
 import com.qmwl.zyjx.bean.AddressBean;
+import com.qmwl.zyjx.bean.ChinaPayOrder;
 import com.qmwl.zyjx.bean.GouWuCheBean;
 import com.qmwl.zyjx.bean.ShoppingBean;
 import com.qmwl.zyjx.bean.UserBean;
 import com.qmwl.zyjx.dialog.ChargePopWindow;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
+import com.qmwl.zyjx.utils.RxUtil;
+import com.qmwl.zyjx.utils.SharedUtils;
 import com.qmwl.zyjx.utils.ToastUtils;
 import com.qmwl.zyjx.view.CommomDialog;
 import com.qmwl.zyjx.wxapi.WXPayEntryActivity;
@@ -383,20 +393,32 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
         Log.d("huangrui","onresume：" );
         //银联支付的回调
         if (Utils.getResultInfo() != null) {
+            final String out_trade_no=SharedUtils.getString("ChargePopWindowYlOrderId",  this);
             ResultInfo resultInfo = Utils.getResultInfo();
             Logger.d("银联resultInfo:"+resultInfo.orderInfo);
             ToastUtils.showShort(resultInfo.getRespDesc());
-//            if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
-//                if (resultInfo.getRespCode().equals("0000")) {
-//                    String orderInfo = resultInfo.getOrderInfo();
-//                    if(orderInfo != null){
-//                        Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
-//                } else {
-//                    Utils.showDialogNoFinish(this,
-//                            "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
-//                }
-//            }
-        }	CPGlobalInfo.init();
+            if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
+                if (resultInfo.getRespCode().equals("0000")) {
+                    Intent intent=new Intent(this, PaySuccessActivity.class);
+                    intent.putExtra("out_trade_no",out_trade_no);
+                    startActivity(intent);
+                } else {
+                    new CommomDialog(this, R.style.dialog, getString(R.string.pay_fail), new CommomDialog.OnCloseListener() {
+                        @Override
+                        public void onClick(Dialog dialog, boolean confirm) {
+
+                            if (confirm) {
+                                yinlianPay(out_trade_no);
+                            }
+                            dialog.dismiss();
+
+                        }
+                    }).setTitle( getString(R.string.tishi)).setNegativeButton("取消").setPositiveButton("重新支付").show();
+                }
+            }
+        }
+
+        CPGlobalInfo.init();
     }
 
     private void parseJson(JSONObject response, final String price, final String goodsName) {
@@ -501,5 +523,53 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
 //        submit();
     }
 
+
+
+
+
+
+
+
+    private void yinlianPay(String out_trade_no){
+
+        ApiManager.getInstence().getApiService()
+                .getChinaPayInfo(out_trade_no)
+                .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
+                .subscribe(new BaseObserver<ChinaPayOrder>() {
+                    @Override
+                    protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
+
+                        ChinaPayOrder chinaPayOrder = t.getData();
+                        ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
+
+                        Gson gson = new GsonBuilder()
+                                .serializeNulls()
+                                .create();
+                        String json1 = gson.toJson(responseBean);
+
+                        Log.d("huangrui","银联"+json1);
+                        // 初始化手机POS环境
+                        Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
+                        // 设置Intent指向Initialize.class
+                        Intent intent = new Intent(QueRenDingDanActivity.this, MainActivity.class);
+                        // this为你当前的activity.this
+                        // 传入对象参数
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("orderInfo", json1);
+                        intent.putExtras(bundle);
+                        intent.putExtra("mode", "00");
+                        // orderInfo为启动插件时传入的OrderInfo对象。
+                        // 使用intent跳转至移动认证插件
+                        mContext.startActivity(intent);
+                    }
+
+                    @Override
+                    protected void onFailure(String errorInfo, boolean isNetWorkError) {
+                        ToastUtils.showShort(errorInfo);
+                    }
+                });
+
+
+    }
 
 }

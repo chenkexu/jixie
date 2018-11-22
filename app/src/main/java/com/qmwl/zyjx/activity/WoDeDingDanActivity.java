@@ -1,8 +1,10 @@
 package com.qmwl.zyjx.activity;
 
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -13,19 +15,29 @@ import android.widget.RadioGroup;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.chinapay.mobilepayment.activity.MainActivity;
 import com.chinapay.mobilepayment.global.CPGlobalInfo;
 import com.chinapay.mobilepayment.global.ResultInfo;
 import com.chinapay.mobilepayment.utils.Utils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.orhanobut.logger.Logger;
 import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.adapter.FlowFragmentAdapter;
+import com.qmwl.zyjx.api.ApiManager;
+import com.qmwl.zyjx.api.ApiResponse;
+import com.qmwl.zyjx.api.BaseObserver;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.base.MyApplication;
+import com.qmwl.zyjx.bean.ChinaPayOrder;
 import com.qmwl.zyjx.bean.DingDanBean;
 import com.qmwl.zyjx.fragment.DingDanFragment;
 import com.qmwl.zyjx.utils.Contact;
 import com.qmwl.zyjx.utils.JsonUtils;
+import com.qmwl.zyjx.utils.RxUtil;
+import com.qmwl.zyjx.utils.SharedUtils;
 import com.qmwl.zyjx.utils.ToastUtils;
+import com.qmwl.zyjx.view.CommomDialog;
 import com.qmwl.zyjx.wxapi.WXPayEntryActivity;
 import com.qmwl.zyjx.zfb.PayBean;
 
@@ -64,6 +76,7 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
     private DingDanFragment dingDanFragment6;
     private DingDanFragment dingDanFragment7;
 
+    private Context mContext;
     @Override
     protected void setLayout() {
         setContentLayout(R.layout.myzuling_activity_layout);
@@ -323,20 +336,29 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
 
         //银联支付的回调
         if (Utils.getResultInfo() != null) {
+            final String out_trade_no=SharedUtils.getString("ChargePopWindowYlOrderId",  this);
             ResultInfo resultInfo = Utils.getResultInfo();
             Logger.d("银联resultInfo:"+resultInfo.orderInfo);
             ToastUtils.showShort(resultInfo.getRespDesc());
-//            if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
-//                if (resultInfo.getRespCode().equals("0000")) {
-//                    String orderInfo = resultInfo.getOrderInfo();
-//                    if(orderInfo != null){
-//                        Utils.showDialogNoFinish(this, "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc()+ "\n详细结果：" + orderInfo);}
-//                } else {
-//                    //支付失败
-//                    Utils.showDialogNoFinish(this,
-//                            "应答码："+resultInfo.getRespCode() + "\n应答描述:" + resultInfo.getRespDesc());
-//                }
-//            }
+            if (resultInfo.getRespCode() != null && !resultInfo.getRespCode().equals("")) {
+                if (resultInfo.getRespCode().equals("0000")) {
+                    Intent intent=new Intent(this, PaySuccessActivity.class);
+                    intent.putExtra("out_trade_no",out_trade_no);
+                    startActivity(intent);
+                } else {
+                    new CommomDialog(this, R.style.dialog, getString(R.string.pay_fail), new CommomDialog.OnCloseListener() {
+                        @Override
+                        public void onClick(Dialog dialog, boolean confirm) {
+
+                            if (confirm) {
+                                yinlianPay(out_trade_no);
+                            }
+                            dialog.dismiss();
+
+                        }
+                    }).setTitle( getString(R.string.tishi)).setNegativeButton("取消").setPositiveButton("重新支付").show();
+                }
+            }
         }	CPGlobalInfo.init();
 
     }
@@ -412,7 +434,51 @@ public class WoDeDingDanActivity extends BaseActivity implements ViewPager.OnPag
     public void onZhifubaoCharge(PayBean payBean){
         Logger.d("收到支付宝支付成功的回调");
         //支付宝支付成功
-//        submit();
+//        submit();n,
+    }
+
+
+
+    private void yinlianPay(String out_trade_no){
+
+        ApiManager.getInstence().getApiService()
+                .getChinaPayInfo(out_trade_no)
+                .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
+                .subscribe(new BaseObserver<ChinaPayOrder>() {
+                    @Override
+                    protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
+
+                        ChinaPayOrder chinaPayOrder = t.getData();
+                        ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
+
+                        Gson gson = new GsonBuilder()
+                                .serializeNulls()
+                                .create();
+                        String json1 = gson.toJson(responseBean);
+
+                        Log.d("huangrui","银联"+json1);
+                        // 初始化手机POS环境
+                        Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
+                        // 设置Intent指向Initialize.class
+                        Intent intent = new Intent(WoDeDingDanActivity.this, MainActivity.class);
+                        // this为你当前的activity.this
+                        // 传入对象参数
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("orderInfo", json1);
+                        intent.putExtras(bundle);
+                        intent.putExtra("mode", "00");
+                        // orderInfo为启动插件时传入的OrderInfo对象。
+                        // 使用intent跳转至移动认证插件
+                        mContext.startActivity(intent);
+                    }
+
+                    @Override
+                    protected void onFailure(String errorInfo, boolean isNetWorkError) {
+                        ToastUtils.showShort(errorInfo);
+                    }
+                });
+
+
     }
 
 
