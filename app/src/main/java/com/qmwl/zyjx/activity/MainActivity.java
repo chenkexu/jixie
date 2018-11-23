@@ -313,6 +313,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         buttonContainer.setOnCheckedChangeListener(this);
         buttonContainer.check(R.id.main_layout_main_button);
         int intExtra = getIntent().getIntExtra(MAIN_INDEX, MAIN);
+        Logger.d(  "111获取到的设置的值是"+intExtra );
         setCurrItem(intExtra);
     }
 
@@ -320,6 +321,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         int intExtra = getIntent().getIntExtra(MAIN_INDEX, MAIN);
+        Logger.d(  "222获取到的设置的值是"+intExtra );
         setCurrItem(intExtra);
         isOutLogin();
     }

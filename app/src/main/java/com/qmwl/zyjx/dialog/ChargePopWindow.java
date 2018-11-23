@@ -116,6 +116,9 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
         this.out_trade_no = out_trade_no;
         this.price = price;
         this.goodsName = goodsName;
+        Logger.d( "是否从购物车过来"+isCarShoppForm);
+
+        SharedUtils.putBoolean("ChargePopWindowisCarShoppForm", isCarShoppForm,getContext());
 
 
         View contentView = LayoutInflater.from(context).inflate(R.layout.selecter_pay_type_layout, null);
