@@ -1,10 +1,12 @@
 package com.qmwl.zyjx.activity;
 
 import android.content.Intent;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,8 +14,9 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.qmwl.zyjx.R;
-import com.qmwl.zyjx.adapter.NewsAdapter;
+import com.qmwl.zyjx.adapter.NewsAdapter2;
 import com.qmwl.zyjx.base.BaseActivity;
 import com.qmwl.zyjx.bean.Flowbean;
 import com.qmwl.zyjx.bean.NewsBean;
@@ -29,15 +32,20 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.nfc.tech.MifareUltralight.PAGE_SIZE;
+
 /**
  * Created by Administrator on 2017/7/24.
  * //资讯页面
  */
 
-public class NewsActivity extends BaseActivity implements AdapterView.OnItemClickListener {
-    NewsAdapter adapter;
+public class NewsActivity extends BaseActivity implements
+        AdapterView.OnItemClickListener,BaseQuickAdapter.RequestLoadMoreListener,SwipeRefreshLayout.OnRefreshListener {
+    NewsAdapter2 adapter;
     private FlowFragment flowFragment;
-
+    private List<NewsBean> newsBeen = new ArrayList<>();
+    private int currentPage = 1;
+    private SwipeRefreshLayout swipeRefreshLayout;
     @Override
     protected void setLayout() {
         setContentLayout(R.layout.news_activity_layout);
@@ -45,31 +53,70 @@ public class NewsActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     protected void initView() {
+         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(this);
         View back = findViewById(R.id.base_top_bar_back);
         TextView title = (TextView) findViewById(R.id.base_top_bar_title);
         title.setText(R.string.zixun);
         back.setVisibility(View.VISIBLE);
         back.setOnClickListener(this);
-        ListView mLv = (ListView) findViewById(R.id.news_layout_listview);
 
-        adapter = new NewsAdapter();
-        mLv.setAdapter(adapter);
-        mLv.setOnItemClickListener(this);
+//        mLv.setOnItemClickListener(this);
 
-        View headView = getLayoutInflater().inflate(R.layout.flow_container_layout, null);
-        mLv.addHeaderView(headView);
-
+//        View headView = getLayoutInflater().inflate(R.layout.flow_container_layout, null);
         int width = getWidth();
         int imageViewHeight = (int) (width * MainFragment.heightScale);
-        View flowContainer = headView.findViewById(R.id.head_view_flow_container);
+        View flowContainer = findViewById(R.id.head_view_flow_container);
         ViewGroup.LayoutParams layoutParams = flowContainer.getLayoutParams();
         layoutParams.height = imageViewHeight;
         flowContainer.setLayoutParams(layoutParams);
-
         flowFragment = new FlowFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.head_view_flow_container, flowFragment).commit();
 
+
+        RecyclerView mLv = (RecyclerView) findViewById(R.id.news_layout_listview);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        mLv.setLayoutManager(linearLayoutManager);
+        adapter = new NewsAdapter2(this,newsBeen);
+        adapter.setOnLoadMoreListener(this,mLv);
+//        adapter.addHeaderView(headView);
+        mLv.setAdapter(adapter);
+
+
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter1, View view, int position) {
+                Intent intent = new Intent(NewsActivity.this, NewsDetailsActivity.class);
+                NewsBean newsBean = adapter.getData().get(position);
+
+                intent.putExtra(NewsDetailsActivity.DETAILS_URL, newsBean.getUrl());
+                intent.putExtra(NewsDetailsActivity.DETAILS_TYPE, NewsDetailsActivity.TYPE_ZIXUN);
+                startActivity(intent);
+            }
+        });
+
+
     }
+
+
+    private void setData(boolean isRefresh, List data) {
+        currentPage++;
+        final int size = data == null ? 0 : data.size();
+        if (isRefresh) {
+            adapter.setNewData(data);
+        } else {
+            if (size > 0) {
+                adapter.addData(data);
+            }
+        }
+        if (size < PAGE_SIZE) {
+            //第一页如果不够一页就不显示没有更多数据布局
+            adapter.loadMoreEnd(isRefresh);
+        } else {
+            adapter.loadMoreComplete();
+        }
+    }
+
 
     @Override
     protected void onListener() {
@@ -79,13 +126,13 @@ public class NewsActivity extends BaseActivity implements AdapterView.OnItemClic
     @Override
     protected void getInterNetData() {
         getFlowImages();
-        AndroidNetworking.get(Contact.news_list)
-                .addPathParameter("page", "1")
+
+        AndroidNetworking.get(Contact.news_list+"?page=" + currentPage)
                 .build().getAsJSONObject(new JSONObjectRequestListener() {
             @Override
             public void onResponse(JSONObject response) {
-                List<NewsBean> newsBeen = parseNewsJson(response);
-                adapter.setData(newsBeen);
+                newsBeen = parseNewsJson(response);
+                setData(true,newsBeen);
             }
 
             @Override
@@ -164,4 +211,40 @@ public class NewsActivity extends BaseActivity implements AdapterView.OnItemClic
         startActivity(intent);
     }
 
+
+    @Override
+    public void onLoadMoreRequested() {
+        AndroidNetworking.get(Contact.news_list+"page=" + currentPage)
+                .build().getAsJSONObject(new JSONObjectRequestListener() {
+            @Override
+            public void onResponse(JSONObject response) {
+                newsBeen = parseNewsJson(response);
+                setData(false,newsBeen);
+            }
+
+            @Override
+            public void onError(ANError anError) {
+            }
+        });
+    }
+
+    @Override
+    public void onRefresh() {
+        currentPage=1;
+        swipeRefreshLayout.setRefreshing(false);
+        AndroidNetworking.get(Contact.news_list+"page=" + currentPage)
+                .build().getAsJSONObject(new JSONObjectRequestListener() {
+            @Override
+            public void onResponse(JSONObject response) {
+                newsBeen = parseNewsJson(response);
+                adapter.getData().clear();
+                setData(false,newsBeen);
+
+            }
+
+            @Override
+            public void onError(ANError anError) {
+            }
+        });
+    }
 }

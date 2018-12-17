@@ -240,6 +240,16 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
 
                 if (item.getMa()==1){
                     //申请退款
+                    //Add1130
+                    holder.pingjia.setVisibility(View.GONE);
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    //Add1130
+
+
+
                     holder.tv_tip.setText(item.getMsg()+"");
                     holder.shenqingtuiuhuo.setVisibility(View.GONE);
                     holder.chakanwuliu.setVisibility(View.GONE);
@@ -251,13 +261,38 @@ public class DingDanAdapter extends MyBaseAdapter<DingDanBean> {
                     //申请退款不通过
                     holder.tv_tip.setText(item.getMsg()+"");
                 }else if(item.getMa()==3){
+
+
                     // 3 等待卖家退款
+                    //Add1130
+                    holder.pingjia.setVisibility(View.GONE);
                     holder.lianximaijia.setVisibility(View.GONE);
                     holder.shenqingtuiuhuo.setVisibility(View.VISIBLE);
                     holder.chakanwuliu.setVisibility(View.GONE);
                     holder.querenshouhuo.setVisibility(View.GONE);
                     holder.shenqingweiquan.setVisibility(View.GONE);
                     holder.tuihuowuliu.setVisibility(View.VISIBLE);
+                    //Add1130
+
+
+
+
+
+                    holder.lianximaijia.setVisibility(View.VISIBLE);
+                    holder.shenqingtuiuhuo.setVisibility(View.GONE);
+                    holder.chakanwuliu.setVisibility(View.GONE);
+                    holder.querenshouhuo.setVisibility(View.GONE);
+                    holder.shenqingweiquan.setVisibility(View.GONE);
+                    holder.tuihuowuliu.setVisibility(View.VISIBLE);
+
+
+
+
+
+
+
+
+
                     //申请退款不通过
                     holder.tv_tip.setText(item.getMsg()+"");
                     Log.d("huangrui","item.getTui_xu()的值"+item.getTui_xu());

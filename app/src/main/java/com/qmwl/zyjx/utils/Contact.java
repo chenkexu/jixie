@@ -630,6 +630,6 @@ public class Contact {
         //获取县列表(商品三级筛选)
         huoquxianliebiao = httpaddress.concat("/index.php/api/cart/getDistrict");
 
-
+        news_list = httpaddress.concat("/index.php/api/article/articleList?id=27&");
     }
 }

@@ -68,9 +68,9 @@ public class RegisterQiYeActivity extends BaseActivity {
     private EditText gongsimingchengEt;
     private EditText youxiangEt;
     private EditText fuzerenEt;
-    private View yingyezhizhaoChongXin;
-    private View shenfenzhengzhengmianChongXin;
-    private View shenfenzhengfanmianChongXin;
+     private View yingyezhizhaoChongXin;
+     private View shenfenzhengzhengmianChongXin;
+     private View shenfenzhengfanmianChongXin;
     private ImageView yingyezhizhaoshili;
     private ImageView zhengmianshili;
     private ImageView fanmianshili;
@@ -297,13 +297,13 @@ public class RegisterQiYeActivity extends BaseActivity {
                                 GlideUtils.openImage(RegisterQiYeActivity.this, zheng, zhengmian);
                                 GlideUtils.openImage(RegisterQiYeActivity.this, fan, fanmian);
                                 setKongBaiBg(yingyezhizhao, R.mipmap.icon_yingyezhizhao_kong);
-                                yingyezhizhaoChongXin.setVisibility(View.VISIBLE);
+                                yingyezhizhaoChongXin.setVisibility(View.GONE);
 
                                 setKongBaiBg(zhengmian, R.mipmap.icon_shenfenzheng_zhengmian_kong);
-                                shenfenzhengzhengmianChongXin.setVisibility(View.VISIBLE);
+                                shenfenzhengzhengmianChongXin.setVisibility(View.GONE);
 
                                 setKongBaiBg(fanmian, R.mipmap.icon_shenfenzheng_zhengmian_kong);
-                                shenfenzhengfanmianChongXin.setVisibility(View.VISIBLE);
+                                shenfenzhengfanmianChongXin.setVisibility(View.GONE);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -326,17 +326,17 @@ public class RegisterQiYeActivity extends BaseActivity {
         if (requestCode == YINGYEZHIZHAO && resultCode == RESULT_OK && data != null) {
             yingyezhizhaoPath = getImageurl(data);
             setKongBaiBg(yingyezhizhao, R.mipmap.icon_yingyezhizhao_kong);
-            yingyezhizhaoChongXin.setVisibility(View.VISIBLE);
+            yingyezhizhaoChongXin.setVisibility(View.GONE);
             GlideUtils.openImagePhoto(this, yingyezhizhaoPath, yingyezhizhao);
         } else if (requestCode == ZHENGMIAN && resultCode == RESULT_OK && data != null) {
             zhengmianPath = getImageurl(data);
             setKongBaiBg(zhengmian, R.mipmap.icon_shenfenzheng_zhengmian_kong);
-            shenfenzhengzhengmianChongXin.setVisibility(View.VISIBLE);
+            shenfenzhengzhengmianChongXin.setVisibility(View.GONE);
             GlideUtils.openImagePhoto(this, zhengmianPath, zhengmian);
         } else if (requestCode == FANMIAN && resultCode == RESULT_OK && data != null) {
             fanmianPath = getImageurl(data);
             setKongBaiBg(fanmian, R.mipmap.icon_shenfenzheng_zhengmian_kong);
-            shenfenzhengfanmianChongXin.setVisibility(View.VISIBLE);
+            shenfenzhengfanmianChongXin.setVisibility(View.GONE);
             GlideUtils.openImagePhoto(this, fanmianPath, fanmian);
         }
     }

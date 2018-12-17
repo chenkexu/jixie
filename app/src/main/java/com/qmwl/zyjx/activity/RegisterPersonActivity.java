@@ -59,7 +59,7 @@ public class RegisterPersonActivity extends BaseActivity {
     private EditText lianxidianhuaET;
     private EditText lianxirenET;
     private EditText youxiangET;
-    private View chongxuanZhengMian;
+     private View chongxuanZhengMian;
     private View chongxuanFanMian;
     private ImageView zhengmianshili;
     private ImageView fanmianshili;
@@ -158,10 +158,10 @@ public class RegisterPersonActivity extends BaseActivity {
 
 
                                 setKongBaiBg(zhengmian, R.mipmap.icon_shenfenzheng_zhengmian_kong);
-                                chongxuanZhengMian.setVisibility(View.VISIBLE);
+                                chongxuanZhengMian.setVisibility(View.GONE);
 
                                 setKongBaiBg(fanmian, R.mipmap.icon_shenfenzheng_zhengmian_kong);
-                                chongxuanFanMian.setVisibility(View.VISIBLE);
+                                chongxuanFanMian.setVisibility(View.GONE);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -268,12 +268,12 @@ public class RegisterPersonActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RegisterQiYeActivity.ZHENGMIAN && resultCode == RESULT_OK && data != null) {
             zhengmianPath = getImageurl(data);
-            chongxuanZhengMian.setVisibility(View.VISIBLE);
+            chongxuanZhengMian.setVisibility(View.GONE);
             setKongBaiBg(zhengmian, R.mipmap.icon_shenfenzheng_zhengmian_kong);
             GlideUtils.openImagePhoto(this, zhengmianPath, zhengmian);
         } else if (requestCode == RegisterQiYeActivity.FANMIAN && resultCode == RESULT_OK && data != null) {
             fanmianPath = getImageurl(data);
-            chongxuanFanMian.setVisibility(View.VISIBLE);
+            chongxuanFanMian.setVisibility(View.GONE);
             setKongBaiBg(fanmian, R.mipmap.icon_shenfenzheng_zhengmian_kong);
             GlideUtils.openImagePhoto(this, fanmianPath, fanmian);
         }
