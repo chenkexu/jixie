@@ -399,7 +399,7 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
         //保存临时id 微信支付失败重新支付使用
         SharedUtils.putString("ChargePopWindowYlOrderId", out_trade_no, getContext());
         ApiManager.getInstence().getApiService()
-                .getChinaPayInfo(out_trade_no)
+                .getChinaPayInfo(out_trade_no,price)
                 .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
                 .subscribe(new BaseObserver<ChinaPayOrder>() {
                     @Override

@@ -189,6 +189,7 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Logger.d("订单的数据："+obj.toString());
         AndroidNetworking.post(Contact.httpaddress.concat("/index.php/api/cart/orderCreate"))
                 .addBodyParameter("order", obj.toString())
                 .build()
@@ -408,7 +409,7 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
                         public void onClick(Dialog dialog, boolean confirm) {
 
                             if (confirm) {
-                                yinlianPay(out_trade_no);
+                                yinlianPay(out_trade_no,String.valueOf(zongjiaDouble));
                             }
                             dialog.dismiss();
 
@@ -530,10 +531,10 @@ public class QueRenDingDanActivity extends BaseActivity implements AdapterView.O
 
 
 
-    private void yinlianPay(String out_trade_no){
+    private void yinlianPay(String out_trade_no,String price){
 
         ApiManager.getInstence().getApiService()
-                .getChinaPayInfo(out_trade_no)
+                .getChinaPayInfo(out_trade_no,price)
                 .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
                 .subscribe(new BaseObserver<ChinaPayOrder>() {
                     @Override

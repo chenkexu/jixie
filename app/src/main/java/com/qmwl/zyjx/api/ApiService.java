@@ -20,6 +20,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
@@ -95,11 +96,12 @@ public interface ApiService {
 
 
 
-
-    @GET("/index.php/api/order/china")
-    Observable<ApiResponse<ChinaPayOrder>> getChinaPayInfo(@Query("orderId") String orderId);
-
-
+    @FormUrlEncoded
+    @POST("/index.php/api/order/china")
+    Observable<ApiResponse<ChinaPayOrder>> getChinaPayInfo(@Field("orderId") String orderId);
+    @FormUrlEncoded
+    @POST("/index.php/api/order/china")
+    Observable<ApiResponse<ChinaPayOrder>> getChinaPayInfo(@Field("orderId") String orderId,@Field("price") String price);
 
     //提醒发货
     @FormUrlEncoded
