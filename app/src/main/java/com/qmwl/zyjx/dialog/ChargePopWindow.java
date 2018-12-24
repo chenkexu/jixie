@@ -396,44 +396,86 @@ public class ChargePopWindow extends Dialog implements View.OnClickListener {
 
     private void yinlianPay(){
 
-        //保存临时id 微信支付失败重新支付使用
-        SharedUtils.putString("ChargePopWindowYlOrderId", out_trade_no, getContext());
-        ApiManager.getInstence().getApiService()
-                .getChinaPayInfo(out_trade_no,price)
-                .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
-                .subscribe(new BaseObserver<ChinaPayOrder>() {
-                    @Override
-                    protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
+        if (isCarShoppForm) {
+            //保存临时id 微信支付失败重新支付使用
+            SharedUtils.putString("ChargePopWindowYlOrderId", out_trade_no, getContext());
+            ApiManager.getInstence().getApiService()
+                    .getChinaPayInfo(out_trade_no,price)
+                    .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
+                    .subscribe(new BaseObserver<ChinaPayOrder>() {
+                        @Override
+                        protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
 
-                        ChinaPayOrder chinaPayOrder = t.getData();
-                        ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
+                            ChinaPayOrder chinaPayOrder = t.getData();
+                            ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
 
-                        Gson gson = new GsonBuilder()
-                                .serializeNulls()
-                                .create();
-                        String json1 = gson.toJson(responseBean);
+                            Gson gson = new GsonBuilder()
+                                    .serializeNulls()
+                                    .create();
+                            String json1 = gson.toJson(responseBean);
 
-                        Log.d("huangrui","银联"+json1);
-                        // 初始化手机POS环境
-                        Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
-                        // 设置Intent指向Initialize.class
-                        Intent intent = new Intent(context, MainActivity.class);
-                        // this为你当前的activity.this
-                        // 传入对象参数
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable("orderInfo", json1);
-                        intent.putExtras(bundle);
-                        intent.putExtra("mode", "00");
-                        // orderInfo为启动插件时传入的OrderInfo对象。
-                        // 使用intent跳转至移动认证插件
-                        context.startActivity(intent);
-                    }
+                            Log.d("huangrui","银联"+json1);
+                            // 初始化手机POS环境
+                            Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
+                            // 设置Intent指向Initialize.class
+                            Intent intent = new Intent(context, MainActivity.class);
+                            // this为你当前的activity.this
+                            // 传入对象参数
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("orderInfo", json1);
+                            intent.putExtras(bundle);
+                            intent.putExtra("mode", "00");
+                            // orderInfo为启动插件时传入的OrderInfo对象。
+                            // 使用intent跳转至移动认证插件
+                            context.startActivity(intent);
+                        }
 
-                    @Override
-                    protected void onFailure(String errorInfo, boolean isNetWorkError) {
-                        ToastUtils.showShort(errorInfo);
-                    }
-                });
+                        @Override
+                        protected void onFailure(String errorInfo, boolean isNetWorkError) {
+                            ToastUtils.showShort(errorInfo);
+                        }
+                    });
+        }else {
+            //保存临时id 微信支付失败重新支付使用
+            SharedUtils.putString("ChargePopWindowYlOrderId", out_trade_no, getContext());
+            ApiManager.getInstence().getApiService()
+                    .getChinaPayInfo(out_trade_no)
+                    .compose(RxUtil.<ApiResponse<ChinaPayOrder>>rxSchedulerHelper())
+                    .subscribe(new BaseObserver<ChinaPayOrder>() {
+                        @Override
+                        protected void onSuccees(ApiResponse<ChinaPayOrder> t) {
+
+                            ChinaPayOrder chinaPayOrder = t.getData();
+                            ChinaPayOrder.NiuIndexResponseBean responseBean = chinaPayOrder.getNiu_index_response();
+
+                            Gson gson = new GsonBuilder()
+                                    .serializeNulls()
+                                    .create();
+                            String json1 = gson.toJson(responseBean);
+
+                            Log.d("huangrui","银联"+json1);
+                            // 初始化手机POS环境
+                            Utils.setPackageName("com.qmwl.zyjx");//MY_PKG是你项目的包名
+                            // 设置Intent指向Initialize.class
+                            Intent intent = new Intent(context, MainActivity.class);
+                            // this为你当前的activity.this
+                            // 传入对象参数
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("orderInfo", json1);
+                            intent.putExtras(bundle);
+                            intent.putExtra("mode", "00");
+                            // orderInfo为启动插件时传入的OrderInfo对象。
+                            // 使用intent跳转至移动认证插件
+                            context.startActivity(intent);
+                        }
+
+                        @Override
+                        protected void onFailure(String errorInfo, boolean isNetWorkError) {
+                            ToastUtils.showShort(errorInfo);
+                        }
+                    });
+        }
+
 
 
     }
