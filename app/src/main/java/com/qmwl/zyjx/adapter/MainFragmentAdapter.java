@@ -2,6 +2,7 @@ package com.qmwl.zyjx.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.qmwl.zyjx.R;
 import com.qmwl.zyjx.activity.BaoXianActivity;
 import com.qmwl.zyjx.activity.LoginActivity;
 import com.qmwl.zyjx.activity.PeiJianShaiXuanFirstActivity;
+import com.qmwl.zyjx.activity.PeiXunWebViewActivity;
 import com.qmwl.zyjx.activity.RegisterDuiGongTishiActivity;
 import com.qmwl.zyjx.activity.RegisterPersonActivity;
 import com.qmwl.zyjx.activity.RegisterQiYeActivity;
@@ -54,6 +56,8 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
         holder.listener1.setId(item.getCategory_id());
         holder.listener1.setTypeId(item.getType());
         holder.listener1.setType(true);
+        holder.listener1.setType(true);
+        holder.listener1.setH5(item.getH5());
         openImage(parent, item.getCategory_pic(), holder.iv1);
 //        Glide.with(parent).load(item.getCategory_pic()).into(holder.iv1);
         List<MainDataBean> childs = item.getChilds();
@@ -69,6 +73,7 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
                         holder.listener2.setId(mainDataBean.getCategory_id());
                         holder.listener2.setTypeId(mainDataBean.getType());
                         holder.listener2.setType(false);
+                        holder.listener2.setH5(mainDataBean.getH5());
 //                        Glide.with(parent).load(mainDataBean.getCategory_pic()).into(holder.iv2);
                         openImage(parent, mainDataBean.getCategory_pic(), holder.iv2);
                         break;
@@ -83,6 +88,8 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
                         holder.listener3.setId(mainDataBean.getCategory_id());
                         holder.listener3.setTypeId(mainDataBean.getType());
                         holder.listener3.setType(false);
+                        holder.listener3.setH5(mainDataBean.getH5());
+
 //                        Glide.with(parent).load(mainDataBean.getCategory_pic()).into(holder.iv3);
                         openImage(parent, mainDataBean.getCategory_pic(), holder.iv3);
                         break;
@@ -171,6 +178,7 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
         String name;
         Context cx;
         String type;
+        String h5;
         boolean isMain = false;//是否是大图，往二级页面跳
 
         viewOnItemListener(Context cx) {
@@ -193,6 +201,9 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
             this.isMain = isMain;
         }
 
+        void setH5(String mh5) {
+            this.h5 = mh5;
+        }
         @Override
         public void onClick(View v) {
             Intent intent = null;
@@ -228,10 +239,20 @@ public class MainFragmentAdapter extends MyBaseAdapter<MainDataBean> {
                 return;
             } else if ("3".equals(type)) {
                 //招聘培训
-                intent = new Intent(cx, SeriverYeActivity.class);
 
-                intent.putExtra(SeriverYeActivity.SERIVERYEACTIVITY_TYPE, SeriverYeActivity.TYPE_ZHAOPINPEIXUN);
-                cx.startActivity(intent);
+                if (TextUtils.isEmpty(h5)){
+                    intent = new Intent(cx, SeriverYeActivity.class);
+
+                    intent.putExtra(SeriverYeActivity.SERIVERYEACTIVITY_TYPE, SeriverYeActivity.TYPE_ZHAOPINPEIXUN);
+                    cx.startActivity(intent);
+                }else {
+                    intent = new Intent(cx, PeiXunWebViewActivity.class);
+                    intent.putExtra("url", h5);
+                    intent.putExtra(SeriverYeActivity.SERIVERYEACTIVITY_TYPE, SeriverYeActivity.TYPE_ZHAOPINPEIXUN);
+                    cx.startActivity(intent);
+                }
+
+
                 return;
             } else if ("1".equals(type)) {
                 //金融

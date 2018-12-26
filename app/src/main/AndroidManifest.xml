@@ -425,6 +425,9 @@
             android:name=".activity.ReturnWuliuActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.PeiXunWebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.umeng.socialize.media.WBShareCallBackActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"

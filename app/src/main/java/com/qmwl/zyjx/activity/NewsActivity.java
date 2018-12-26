@@ -48,7 +48,7 @@ public class NewsActivity extends BaseActivity implements
     private SwipeRefreshLayout swipeRefreshLayout;
     @Override
     protected void setLayout() {
-        setContentLayout(R.layout.news_activity_layout);
+        setContentLayout(R.layout.news_activity_layout2);
     }
 
     @Override

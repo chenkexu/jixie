@@ -1,5 +1,6 @@
 package com.qmwl.zyjx.activity;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
 
@@ -30,6 +31,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Handler;
 
 /**
  * Created by 郭辉 on 2017/12/18 9:52.
@@ -37,7 +39,7 @@ import java.util.List;
  * type:1 or 2  or 3
  */
 
-public class SeriverYeActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+public class SeriverYeActivity extends BaseActivity implements AdapterView.OnItemClickListener,SwipeRefreshLayout.OnRefreshListener {
     public static final String SERIVERYEACTIVITY_TYPE = "com.gh.seriver.type";
     NewsAdapter adapter;
     private FlowFragment flowFragment;
@@ -49,7 +51,7 @@ public class SeriverYeActivity extends BaseActivity implements AdapterView.OnIte
     public static final int TYPE_FUWU = 2;
     public static final int TYPE_ZHAOPINPEIXUN = 3;
 
-
+  SwipeRefreshLayout mSwipe;
     @Override
     protected void setLayout() {
         setContentLayout(R.layout.news_activity_layout);
@@ -60,6 +62,9 @@ public class SeriverYeActivity extends BaseActivity implements AdapterView.OnIte
         type = getIntent().getIntExtra(SERIVERYEACTIVITY_TYPE, 1);
         View back = findViewById(R.id.base_top_bar_back);
         TextView title = (TextView) findViewById(R.id.base_top_bar_title);
+
+        mSwipe=findViewById(R.id.swipeRefreshLayout);
+        mSwipe.setOnRefreshListener(this);
         switch (type) {
             case 1:
                 title.setText(R.string.jinrong);
@@ -86,7 +91,9 @@ public class SeriverYeActivity extends BaseActivity implements AdapterView.OnIte
 
         int width = getWidth();
         int imageViewHeight = (int) (width * heightScale);
-        View flowContainer = headView.findViewById(R.id.head_view_flow_container);
+     //   View flowContainer = headView.findViewById(R.id.head_view_flow_container);
+        View flowContainer = findViewById(R.id.head_view_flow_container);
+
         ViewGroup.LayoutParams layoutParams = flowContainer.getLayoutParams();
         layoutParams.height = imageViewHeight;
         flowContainer.setLayoutParams(layoutParams);
@@ -197,5 +204,16 @@ public class SeriverYeActivity extends BaseActivity implements AdapterView.OnIte
                 break;
         }
         startActivity(intent);
+    }
+
+    @Override
+    public void onRefresh() {
+        new android.os.Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mSwipe.setRefreshing(false);
+            }
+        },1000);
+
     }
 }

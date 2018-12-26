@@ -514,12 +514,13 @@ public class MainFragment extends Fragment implements View.OnClickListener, Adap
                 String category_name = jsonObject.getString("category_name");
                 String category_pic = jsonObject.getString("category_pic");
                 String type = jsonObject.getString("type");
-
+                String h5 = jsonObject.optString("h5");
                 bean.setType(type);
                 bean.setCategory_id(category_id);
                 bean.setPid(pid);
                 bean.setCategory_name(category_name);
                 bean.setCategory_pic(category_pic);
+                bean.setH5(h5);
                 if (jsonObject.has("_child")) {
                     List<MainDataBean> child = ssss(jsonObject.getJSONArray("_child"));
                     if (child != null) {
@@ -528,6 +529,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, Adap
                 }
                 list.add(bean);
             } catch (JSONException e) {
+                Log.d("huanguri","解析异常:"+e.toString() );
                 e.printStackTrace();
             }
 

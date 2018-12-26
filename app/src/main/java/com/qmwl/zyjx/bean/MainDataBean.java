@@ -15,6 +15,9 @@ public class MainDataBean {
     private List<MainDataBean> childs;
     public boolean isFirst = false;
     private String parentName;
+
+    private String h5;
+
     //用来区别服务,运输维修，招聘培训，金融,我要开店，保险的标识符
     private String type = "-1";
 
@@ -72,5 +75,13 @@ public class MainDataBean {
 
     public void setChilds(List<MainDataBean> childs) {
         this.childs = childs;
+    }
+
+    public String getH5() {
+        return h5;
+    }
+
+    public void setH5(String h5) {
+        this.h5 = h5;
     }
 }
